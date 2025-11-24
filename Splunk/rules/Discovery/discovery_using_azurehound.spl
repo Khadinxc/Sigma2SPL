@@ -1,0 +1,9 @@
+# Title: Discovery Using AzureHound
+# Author: Janantha Marasinghe
+# Date: 2022-11-27
+# Level: high
+# Description: Detects AzureHound (A BloodHound data collector for Microsoft Azure) activity via the default User-Agent that is used during its operation after successful authentication.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1087.004, attack.t1526
+
+ResultType=0 userAgent="*azurehound*"

@@ -1,0 +1,11 @@
+# Title: Meterpreter or Cobalt Strike Getsystem Service Installation - System
+# Author: Teymur Kheirkhabarov, Ecco, Florian Roth (Nextron Systems)
+# Date: 2019-10-26
+# Level: high
+# Description: Detects the use of getsystem Meterpreter/Cobalt Strike command by detecting a specific service installation
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1134.001, attack.t1134.002
+# False Positives:
+#   - Unlikely
+
+EventID=7045 Provider_Name="Service Control Manager" (ImagePath IN ("*cmd*", "*%COMSPEC%*") ImagePath="*/c*" ImagePath="*echo*" ImagePath="*\\pipe\\*") OR (ImagePath="*rundll32*" ImagePath="*.dll,a*" ImagePath="*/p:*") OR ImagePath="\\\\127.0.0.1\\ADMIN$\\*"

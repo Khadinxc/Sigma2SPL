@@ -1,0 +1,12 @@
+# Title: Download File To Potentially Suspicious Directory Via Wget
+# Author: Joseliyo Sanchez, @Joseliyo_Jstnk
+# Date: 2023-06-02
+# Level: medium
+# Description: Detects the use of wget to download content to a suspicious directory
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1105
+
+
+| rex field=CommandLine "(?<CommandLineMatch>\\s-O\\s)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search Image="*/wget" CommandLineCondition="true" OR CommandLine="*--output-document*" CommandLine="*/tmp/*"

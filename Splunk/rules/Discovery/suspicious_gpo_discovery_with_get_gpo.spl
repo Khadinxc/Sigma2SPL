@@ -1,0 +1,11 @@
+# Title: Suspicious GPO Discovery With Get-GPO
+# Author: frack113
+# Date: 2022-06-04
+# Level: low
+# Description: Detect use of Get-GPO to get one GPO or all the GPOs in a domain.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1615
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+ScriptBlockText="*Get-GPO*"

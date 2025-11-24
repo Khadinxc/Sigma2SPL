@@ -1,0 +1,12 @@
+# Title: Schedule Task Creation From Env Variable Or Potentially Suspicious Path Via Schtasks.EXE
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-02-21
+# Level: medium
+# Description: Detects Schtask creations that point to a suspicious folder or an environment variable often used by malware
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.t1053.005
+# False Positives:
+#   - Benign scheduled tasks creations or executions that happen often during software installations
+#   - Software that uses the AppData folder and scheduled tasks to update the software in the AppData folders
+
+(CommandLine IN ("*:\\Perflogs*", "*:\\Users\\All Users\\*", "*:\\Users\\Default\\*", "*:\\Users\\Public*", "*:\\Windows\\Temp*", "*\\AppData\\Local\\*", "*\\AppData\\Roaming\\*", "*%AppData%*", "*%Public%*") CommandLine="* -create *" OR CommandLine="* /create *" OR CommandLine="* –create *" OR CommandLine="* —create *" OR CommandLine="* ―create *" Image="*\\schtasks.exe") OR (ParentCommandLine="*\\svchost.exe -k netsvcs -p -s Schedule" CommandLine IN ("*:\\Perflogs*", "*:\\Windows\\Temp*", "*\\Users\\Public*", "*%Public%*")) NOT ((CommandLine="*/Create /Xml *" CommandLine="*\\Temp\\.CR.*" CommandLine="*\\Avira_Security_Installation.xml*") OR (CommandLine IN ("*.tmp\\UpdateFallbackTask.xml*", "*.tmp\\WatchdogServiceControlManagerTimeout.xml*", "*.tmp\\SystrayAutostart.xml*", "*.tmp\\MaintenanceTask.xml*") CommandLine="*/Create /F /TN*" CommandLine="*/Xml *" CommandLine="*\\Temp\\*" CommandLine="*Avira_*") OR (CommandLine="*\\Temp\\*" CommandLine="*/Create /TN \"klcp_update\" /XML *" CommandLine="*\\klcp_update_task.xml*") OR ParentCommandLine="*unattended.ini*" OR CommandLine="*update_task.xml*" OR CommandLine="*/Create /TN TVInstallRestore /TR*")

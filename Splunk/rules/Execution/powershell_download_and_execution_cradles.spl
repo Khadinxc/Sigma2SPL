@@ -1,0 +1,11 @@
+# Title: PowerShell Download and Execution Cradles
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-24
+# Level: high
+# Description: Detects PowerShell download and execution cradles.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# False Positives:
+#   - Some PowerShell installers were seen using similar combinations. Apply filters accordingly
+
+CommandLine IN ("*.DownloadString(*", "*.DownloadFile(*", "*Invoke-WebRequest *", "*iwr *", "*Invoke-RestMethod *", "*irm *") CommandLine IN ("*;iex $*", "*| IEX*", "*|IEX *", "*I`E`X*", "*I`EX*", "*IE`X*", "*iex *", "*IEX (*", "*IEX(*", "*Invoke-Expression*")

@@ -1,0 +1,9 @@
+# Title: Okta User Account Locked Out
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-12
+# Level: medium
+# Description: Detects when an user account is locked out.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1531
+
+displaymessage="Max sign in attempts exceeded"

@@ -1,0 +1,9 @@
+# Title: Suspicious UltraVNC Execution
+# Author: Bhabesh Raj
+# Date: 2022-03-04
+# Level: high
+# Description: Detects suspicious UltraVNC command line flag combination that indicate a auto reconnect upon execution, e.g. startup (as seen being used by Gamaredon threat group)
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.g0047, attack.t1021.005
+
+CommandLine="*-autoreconnect *" CommandLine="*-connect *" CommandLine="*-id:*"

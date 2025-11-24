@@ -1,0 +1,11 @@
+# Title: Changes To PIM Settings
+# Author: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'
+# Date: 2022-08-09
+# Level: high
+# Description: Detects when changes are made to PIM roles
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.privilege-escalation, attack.persistence, attack.t1078.004
+# False Positives:
+#   - Legit administrative PIM setting configuration changes
+
+properties.message="Update role setting in PIM"

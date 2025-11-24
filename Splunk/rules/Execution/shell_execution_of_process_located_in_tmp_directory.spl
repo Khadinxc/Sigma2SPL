@@ -1,0 +1,9 @@
+# Title: Shell Execution Of Process Located In Tmp Directory
+# Author: Joseliyo Sanchez, @Joseliyo_Jstnk
+# Date: 2023-06-02
+# Level: high
+# Description: Detects execution of shells from a parent process located in a temporary (/tmp) directory
+# MITRE Tactic: Execution
+# Tags: attack.execution
+
+Image IN ("*/bash", "*/csh", "*/dash", "*/fish", "*/ksh", "*/sh", "*/zsh") ParentImage="/tmp/*"

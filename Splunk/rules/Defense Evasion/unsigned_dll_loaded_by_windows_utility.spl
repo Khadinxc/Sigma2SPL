@@ -1,0 +1,10 @@
+# Title: Unsigned DLL Loaded by Windows Utility
+# Author: Swachchhanda Shrawan Poudel
+# Date: 2024-02-28
+# Level: medium
+# Description: Detects windows utilities loading an unsigned or untrusted DLL.
+# Adversaries often abuse those programs to proxy execution of malicious code.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.t1218.011, attack.t1218.010, attack.defense-evasion
+
+Image IN ("*\\InstallUtil.exe", "*\\RegAsm.exe", "*\\RegSvcs.exe", "*\\regsvr32.exe", "*\\rundll32.exe") NOT ((ImageLoaded="*.dll" ImageLoaded="C:\\Windows\\assembly\\NativeImages*" Image="*\\RegAsm.exe" Image IN ("C:\\Windows\\SysWOW64\\*", "C:\\Windows\\System32\\*", "C:\\Windows\\Microsoft.NET\\Framework64*")) OR SignatureStatus IN ("errorChaining", "errorCode_endpoint", "errorExpired", "trusted", "Valid") OR SignatureStatus IN ("", "-") OR NOT SignatureStatus=* OR Signed="true" OR Signed IN ("", "-") OR NOT Signed=* OR (Image IN ("C:\\Windows\\SysWOW64\\rundll32.exe", "C:\\Windows\\System32\\rundll32.exe") ImageLoaded IN ("*.tmp-\\Microsoft.Deployment.WindowsInstaller.dll", "*.tmp-\\Avira.OE.Setup.CustomActions.dll") ImageLoaded="C:\\Windows\\Installer\\*")) NOT (Image IN ("C:\\Windows\\SysWOW64\\regsvr32.exe", "C:\\Windows\\System32\\regsvr32.exe") ImageLoaded IN ("C:\\Program Files (x86)\\K-Lite Codec Pack\\*", "C:\\Program Files\\K-Lite Codec Pack\\*"))

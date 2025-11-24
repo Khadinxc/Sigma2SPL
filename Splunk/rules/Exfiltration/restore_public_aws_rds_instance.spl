@@ -1,0 +1,9 @@
+# Title: Restore Public AWS RDS Instance
+# Author: faloker
+# Date: 2020-02-12
+# Level: high
+# Description: Detects the recovery of a new public database instance from a snapshot. It may be a part of data exfiltration.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1020
+
+eventName="RestoreDBInstanceFromDBSnapshot" eventSource="rds.amazonaws.com" responseElements.publiclyAccessible="true"

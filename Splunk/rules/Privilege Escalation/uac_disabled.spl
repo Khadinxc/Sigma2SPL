@@ -1,0 +1,9 @@
+# Title: UAC Disabled
+# Author: frack113
+# Date: 2022-01-05
+# Level: medium
+# Description: Detects when an attacker tries to disable User Account Control (UAC) by setting the registry value "EnableLUA" to 0.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1548.002
+
+Details="DWORD (0x00000000)" TargetObject="*\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\EnableLUA*"

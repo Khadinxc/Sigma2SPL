@@ -1,0 +1,11 @@
+# Title: Admin User Remote Logon
+# Author: juju4
+# Date: 2017-10-29
+# Level: low
+# Description: Detect remote login by Administrator user (depending on internal pattern).
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.lateral-movement, attack.initial-access, attack.t1078.001, attack.t1078.002, attack.t1078.003, car.2016-04-005
+# False Positives:
+#   - Legitimate administrative activity.
+
+AuthenticationPackageName="Negotiate" EventID=4624 LogonType=10 TargetUserName="Admin*"

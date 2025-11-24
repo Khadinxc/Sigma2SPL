@@ -1,0 +1,11 @@
+# Title: PIM Approvals And Deny Elevation
+# Author: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'
+# Date: 2022-08-09
+# Level: high
+# Description: Detects when a PIM elevation is approved or denied. Outside of normal operations should be investigated.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.initial-access, attack.defense-evasion, attack.privilege-escalation, attack.t1078.004
+# False Positives:
+#   - Actual admin using PIM.
+
+properties.message="Request Approved/Denied"

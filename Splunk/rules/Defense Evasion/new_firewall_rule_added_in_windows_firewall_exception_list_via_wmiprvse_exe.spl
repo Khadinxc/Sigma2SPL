@@ -1,0 +1,12 @@
+# Title: New Firewall Rule Added In Windows Firewall Exception List Via WmiPrvSE.EXE
+# Author: frack113, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-05-10
+# Level: medium
+# Description: Detects the addition of a new "Allow" firewall rule by the WMI process (WmiPrvSE.EXE).
+# This can occur if an attacker leverages PowerShell cmdlets such as "New-NetFirewallRule", or directly uses WMI CIM classes such as "MSFT_NetFirewallRule".
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004
+# False Positives:
+#   - Administrator scripts or activity.
+
+Action=3 EventID IN (2004, 2071, 2097) ModifyingApplication="*:\\Windows\\System32\\wbem\\WmiPrvSE.exe"

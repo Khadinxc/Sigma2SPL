@@ -1,0 +1,9 @@
+# Title: Suspicious Execution of Systeminfo
+# Author: frack113
+# Date: 2022-01-01
+# Level: low
+# Description: Detects usage of the "systeminfo" command to retrieve information
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1082
+
+Image="*\\systeminfo.exe" OR OriginalFileName="sysinfo.exe"

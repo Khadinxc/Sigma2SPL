@@ -1,0 +1,11 @@
+# Title: Suspicious FromBase64String Usage On Gzip Archive - Ps Script
+# Author: frack113
+# Date: 2022-12-23
+# Level: medium
+# Description: Detects attempts of decoding a base64 Gzip archive in a PowerShell script. This technique is often used as a method to load malicious content into memory afterward.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1132.001
+# False Positives:
+#   - Legitimate administrative script
+
+ScriptBlockText="*FromBase64String*" ScriptBlockText="*MemoryStream*" ScriptBlockText="*H4sI*"

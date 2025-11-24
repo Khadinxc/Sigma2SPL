@@ -1,0 +1,9 @@
+# Title: SES Identity Has Been Deleted
+# Author: Janantha Marasinghe
+# Date: 2022-12-13
+# Level: medium
+# Description: Detects an instance of an SES identity being deleted via the "DeleteIdentity" event. This may be an indicator of an adversary removing the account that carried out suspicious or malicious activities
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070
+
+eventName="DeleteIdentity" eventSource="ses.amazonaws.com"

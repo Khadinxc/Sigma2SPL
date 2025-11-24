@@ -1,0 +1,11 @@
+# Title: Failed DNS Zone Transfer
+# Author: Zach Mathis
+# Date: 2023-05-24
+# Level: medium
+# Description: Detects when a DNS zone transfer failed.
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.t1590.002
+# False Positives:
+#   - Unlikely
+
+EventID=6004

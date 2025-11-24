@@ -1,0 +1,11 @@
+# Title: Roles Assigned Outside PIM
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-14
+# Level: high
+# Description: Identifies when a privilege role assignment has taken place outside of PIM and may indicate an attack.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - Investigate where users are being assigned privileged roles outside of Privileged Identity Management and prohibit future assignments from there.
+
+riskEventType="rolesAssignedOutsidePrivilegedIdentityManagementAlertConfiguration"

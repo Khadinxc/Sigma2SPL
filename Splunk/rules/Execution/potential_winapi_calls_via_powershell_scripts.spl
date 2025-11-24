@@ -1,0 +1,9 @@
+# Title: Potential WinAPI Calls Via PowerShell Scripts
+# Author: Nasreddine Bencherchali (Nextron Systems), Nikita Nazarov, oscd.community
+# Date: 2020-10-06
+# Level: high
+# Description: Detects use of WinAPI functions in PowerShell scripts
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.t1106
+
+(ScriptBlockText="*OpenProcessToken*" ScriptBlockText="*DuplicateTokenEx*" ScriptBlockText="*CloseHandle*") OR (ScriptBlockText="*VirtualAlloc*" ScriptBlockText="*OpenProcess*" ScriptBlockText="*WriteProcessMemory*" ScriptBlockText="*CreateRemoteThread*") OR (ScriptBlockText="*WriteProcessMemory*" ScriptBlockText="*VirtualAlloc*" ScriptBlockText="*ReadProcessMemory*" ScriptBlockText="*VirtualFree*") OR (ScriptBlockText="*OpenProcessToken*" ScriptBlockText="*LookupPrivilegeValue*" ScriptBlockText="*AdjustTokenPrivileges*")

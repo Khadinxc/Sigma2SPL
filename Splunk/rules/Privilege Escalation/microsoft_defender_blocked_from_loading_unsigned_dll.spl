@@ -1,0 +1,9 @@
+# Title: Microsoft Defender Blocked from Loading Unsigned DLL
+# Author: Bhabesh Raj
+# Date: 2022-08-02
+# Level: high
+# Description: Detects Code Integrity (CI) engine blocking Microsoft Defender's processes (MpCmdRun and NisSrv) from loading unsigned DLLs which may be an attempt to sideload arbitrary DLL
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+
+EventID IN (11, 12) ProcessPath IN ("*\\MpCmdRun.exe", "*\\NisSrv.exe")

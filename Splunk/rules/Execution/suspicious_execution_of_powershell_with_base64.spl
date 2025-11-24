@@ -1,0 +1,9 @@
+# Title: Suspicious Execution of Powershell with Base64
+# Author: frack113
+# Date: 2022-01-02
+# Level: medium
+# Description: Commandline to launch powershell with a base64 payload
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+CommandLine IN ("* -e *", "* -en *", "* -enc *", "* -enco*", "* -ec *") Image IN ("*\\powershell.exe", "*\\pwsh.exe") NOT (ParentImage IN ("*C:\\Packages\\Plugins\\Microsoft.GuestConfiguration.ConfigurationforWindows\\*", "*\\gc_worker.exe*") OR CommandLine="* -Encoding *")

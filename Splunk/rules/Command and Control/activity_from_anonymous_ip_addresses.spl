@@ -1,0 +1,11 @@
+# Title: Activity from Anonymous IP Addresses
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-23
+# Level: medium
+# Description: Detects when a Microsoft Cloud App Security reported when users were active from an IP address that has been identified as an anonymous proxy IP address.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1573
+# False Positives:
+#   - User using a VPN or Proxy
+
+eventName="Activity from anonymous IP addresses" eventSource="SecurityComplianceCenter" status="success"

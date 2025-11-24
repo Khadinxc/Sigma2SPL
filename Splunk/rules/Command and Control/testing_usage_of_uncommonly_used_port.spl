@@ -1,0 +1,12 @@
+# Title: Testing Usage of Uncommonly Used Port
+# Author: frack113
+# Date: 2022-01-23
+# Level: medium
+# Description: Adversaries may communicate using a protocol and port paring that are typically not associated.
+# For example, HTTPS over port 8088(Citation: Symantec Elfin Mar 2019) or port 587(Citation: Fortinet Agent Tesla April 2018) as opposed to the traditional port 443.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1571
+# False Positives:
+#   - Legitimate administrative script
+
+ScriptBlockText="*Test-NetConnection*" ScriptBlockText="*-ComputerName *" ScriptBlockText="*-port *" NOT (ScriptBlockText IN ("* 443 *", "* 80 *"))

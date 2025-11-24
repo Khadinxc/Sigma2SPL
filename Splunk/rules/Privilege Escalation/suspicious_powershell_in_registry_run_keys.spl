@@ -1,0 +1,11 @@
+# Title: Suspicious PowerShell In Registry Run Keys
+# Author: frack113, Florian Roth (Nextron Systems)
+# Date: 2022-03-17
+# Level: medium
+# Description: Detects potential PowerShell commands or code within registry run keys
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1547.001
+# False Positives:
+#   - Legitimate admin or third party scripts. Baseline according to your environment
+
+Details IN ("*powershell*", "*pwsh *", "*FromBase64String*", "*.DownloadFile(*", "*.DownloadString(*", "* -w hidden *", "* -w 1 *", "*-windowstyle hidden*", "*-window hidden*", "* -nop *", "* -encodedcommand *", "*-ExecutionPolicy Bypass*", "*Invoke-Expression*", "*IEX (*", "*Invoke-Command*", "*ICM -*", "*Invoke-WebRequest*", "*IWR *", "*Invoke-RestMethod*", "*IRM *", "* -noni *", "* -noninteractive *") TargetObject IN ("*\\Software\\Microsoft\\Windows\\CurrentVersion\\Run*", "*\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run*", "*\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run*")

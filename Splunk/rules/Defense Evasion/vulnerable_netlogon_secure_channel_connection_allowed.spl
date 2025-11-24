@@ -1,0 +1,9 @@
+# Title: Vulnerable Netlogon Secure Channel Connection Allowed
+# Author: NVISO
+# Date: 2020-09-15
+# Level: high
+# Description: Detects that a vulnerable Netlogon secure channel connection was allowed, which could be an indicator of CVE-2020-1472.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1548
+
+EventID=5829 Provider_Name="NetLogon" | table SAMAccountName

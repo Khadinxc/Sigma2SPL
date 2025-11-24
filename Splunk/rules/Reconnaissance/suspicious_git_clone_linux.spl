@@ -1,0 +1,9 @@
+# Title: Suspicious Git Clone - Linux
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-03
+# Level: medium
+# Description: Detects execution of "git" in order to clone a remote repository that contain suspicious keywords which might be suspicious
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.t1593.003
+
+CommandLine="* clone *" Image="*/git" CommandLine IN ("*exploit*", "*Vulns*", "*vulnerability*", "*RCE*", "*RemoteCodeExecution*", "*Invoke-*", "*CVE-*", "*poc-*", "*ProofOfConcept*", "*proxyshell*", "*log4shell*", "*eternalblue*", "*eternal-blue*", "*MS17-*")

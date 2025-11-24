@@ -1,0 +1,13 @@
+# Title: Google Workspace Application Access Level Modified
+# Author: Bryan Lim
+# Date: 2024-01-12
+# Level: medium
+# Description: Detects when an access level is changed for a Google workspace application.
+# An access level is part of BeyondCorp Enterprise which is Google Workspace's way of enforcing Zero Trust model.
+# An adversary would be able to remove access levels to gain easier access to Google workspace resources.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1098.003
+# False Positives:
+#   - Legitimate administrative activities changing the access levels for an application
+
+eventName="CHANGE_APPLICATION_SETTING" eventService="admin.googleapis.com" setting_name="ContextAwareAccess*"

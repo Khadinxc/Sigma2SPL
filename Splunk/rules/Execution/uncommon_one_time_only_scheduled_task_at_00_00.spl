@@ -1,0 +1,11 @@
+# Title: Uncommon One Time Only Scheduled Task At 00:00
+# Author: pH-T (Nextron Systems)
+# Date: 2022-07-15
+# Level: high
+# Description: Detects scheduled task creation events that include suspicious actions, and is run once at 00:00
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.persistence, attack.privilege-escalation, attack.t1053.005
+# False Positives:
+#   - Software installation
+
+CommandLine IN ("*wscript*", "*vbscript*", "*cscript*", "*wmic *", "*wmic.exe*", "*regsvr32.exe*", "*powershell*", "*\\AppData\\*") Image="*\\schtasks.exe*" OR OriginalFileName="schtasks.exe" CommandLine="*once*" CommandLine="*00:00*"

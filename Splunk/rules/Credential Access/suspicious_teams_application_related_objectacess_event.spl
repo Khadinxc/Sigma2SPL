@@ -1,0 +1,9 @@
+# Title: Suspicious Teams Application Related ObjectAcess Event
+# Author: @SerkinValery
+# Date: 2022-09-16
+# Level: high
+# Description: Detects an access to authentication tokens and accounts of Microsoft Teams desktop application.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1528
+
+EventID=4663 ObjectName IN ("*\\Microsoft\\Teams\\Cookies*", "*\\Microsoft\\Teams\\Local Storage\\leveldb*") NOT ProcessName="*\\Microsoft\\Teams\\current\\Teams.exe*"

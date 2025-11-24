@@ -1,0 +1,11 @@
+# Title: Suspicious GetTypeFromCLSID ShellExecute
+# Author: frack113
+# Date: 2022-04-02
+# Level: medium
+# Description: Detects suspicious Powershell code that execute COM Objects
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.015
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+ScriptBlockText="*::GetTypeFromCLSID(*" ScriptBlockText="*.ShellExecute(*"

@@ -1,0 +1,11 @@
+# Title: Dump Ntds.dit To Suspicious Location
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-14
+# Level: medium
+# Description: Detects potential abuse of ntdsutil to dump ntds.dit database to a suspicious location
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - Legitimate backup operation/creating shadow copies
+
+Data IN ("*:\\ntds.dit*", "*\\Appdata\\*", "*\\Desktop\\*", "*\\Downloads\\*", "*\\Perflogs\\*", "*\\Temp\\*", "*\\Users\\Public\\*") Data="*ntds.dit*" EventID=325 Provider_Name="ESENT"

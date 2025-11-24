@@ -1,0 +1,10 @@
+# Title: Unusually Long PowerShell CommandLine
+# Author: oscd.community, Natalia Shornikova
+# Date: 2020-10-06
+# Level: low
+# Description: Detects unusually long PowerShell command lines with a length of 1000 characters or more
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.threat-hunting
+
+Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") OR Description="Windows Powershell" OR Product="PowerShell Core 6"
+| regex CommandLine=".{1000,}"

@@ -1,0 +1,9 @@
+# Title: CVE-2020-10148 SolarWinds Orion API Auth Bypass
+# Author: Bhabesh Raj, Tim Shelton
+# Date: 2020-12-27
+# Level: critical
+# Description: Detects CVE-2020-10148 SolarWinds Orion API authentication bypass attempts
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190, cve.2020-10148, detection.emerging-threats
+
+"cs-uri-query" IN ("*/WebResource.axd*", "*/ScriptResource.axd*", "*/i18n.ashx*", "*/Skipi18n*") "cs-uri-query" IN ("*/SolarWinds/*", "*/api/*") NOT ("cs-uri-query"="*Orion/Skipi18n/Profiler/*" OR "cs-uri-query" IN ("*css.i18n.ashx*", "*js.i18n.ashx*"))

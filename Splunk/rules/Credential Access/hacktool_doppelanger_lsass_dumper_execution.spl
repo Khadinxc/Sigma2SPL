@@ -1,0 +1,9 @@
+# Title: HackTool - Doppelanger LSASS Dumper Execution
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-07-01
+# Level: high
+# Description: Detects the execution of the Doppelanger hacktool which is used to dump LSASS memory via process cloning while evading common detection methods
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+
+Image="*\\Doppelganger.exe" OR Hashes IN ("*IMPHASH=AB94D5217896ADCD765A06B2D52F0AEB*", "*IMPHASH=65F0EA61156EE0C2A35421926F0C7F78*")

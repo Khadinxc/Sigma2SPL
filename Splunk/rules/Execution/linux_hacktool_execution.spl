@@ -1,0 +1,11 @@
+# Title: Linux HackTool Execution
+# Author: Nasreddine Bencherchali (Nextron Systems), Georg Lauenstein (sure[secure])
+# Date: 2023-01-03
+# Level: high
+# Description: Detects known hacktool execution based on image name.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.resource-development, attack.t1587
+# False Positives:
+#   - Unlikely
+
+Image IN ("*/cobaltstrike*", "*/teamserver*") OR Image IN ("*/crackmapexec", "*/havoc", "*/merlin-agent", "*/merlinServer-Linux-x64", "*/msfconsole", "*/msfvenom", "*/ps-empire server", "*/ps-empire", "*/sliver-client", "*/sliver-server", "*/Villain.py") OR Image IN ("*/aircrack-ng", "*/bloodhound-python", "*/bpfdos", "*/ebpfki", "*/evil-winrm", "*/hashcat", "*/hoaxshell.py", "*/hydra", "*/john", "*/ncrack", "*/nxc-ubuntu-latest", "*/pidhide", "*/pspy32", "*/pspy32s", "*/pspy64", "*/pspy64s", "*/setoolkit", "*/sqlmap", "*/writeblocker") OR Image="*/linpeas*" OR Image IN ("*/autorecon", "*/httpx", "*/legion", "*/naabu", "*/netdiscover", "*/nuclei", "*/recon-ng") OR Image="*/sniper*" OR Image IN ("*/dirb", "*/dirbuster", "*/eyewitness", "*/feroxbuster", "*/ffuf", "*/gobuster", "*/wfuzz", "*/whatweb") OR Image IN ("*/joomscan", "*/nikto", "*/wpscan")

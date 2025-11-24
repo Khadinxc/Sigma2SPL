@@ -1,0 +1,11 @@
+# Title: Github Delete Action Invoked
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2023-01-19
+# Level: medium
+# Description: Detects delete action in the Github audit logs for codespaces, environment, project and repo.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.collection, attack.t1213.003
+# False Positives:
+#   - Validate the deletion activity is permitted. The "actor" field need to be validated.
+
+action IN ("codespaces.delete", "environment.delete", "project.delete", "repo.destroy")

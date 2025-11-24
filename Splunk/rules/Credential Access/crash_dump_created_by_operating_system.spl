@@ -1,0 +1,9 @@
+# Title: Crash Dump Created By Operating System
+# Author: Jason Mull
+# Date: 2025-05-12
+# Level: medium
+# Description: Detects "BugCheck" errors indicating the system rebooted due to a crash, capturing the bugcheck code, dump file path, and report ID.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.collection, attack.t1003.002, attack.t1005
+
+EventID=1001 Provider_Name="Microsoft-Windows-WER-SystemErrorReporting"

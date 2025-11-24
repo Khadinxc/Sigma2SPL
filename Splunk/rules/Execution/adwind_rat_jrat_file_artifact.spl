@@ -1,0 +1,9 @@
+# Title: Adwind RAT / JRAT File Artifact
+# Author: Florian Roth (Nextron Systems), Tom Ueltschi, Jonhnathan Ribeiro, oscd.community
+# Date: 2017-11-10
+# Level: high
+# Description: Detects javaw.exe in AppData folder as used by Adwind / JRAT
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.005, attack.t1059.007
+
+(TargetFilename="*\\AppData\\Roaming\\Oracle\\bin\\java*" TargetFilename="*.exe*") OR (TargetFilename="*\\Retrive*" TargetFilename="*.vbs*")

@@ -1,0 +1,11 @@
+# Title: PowerShell Script Run in AppData
+# Author: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community
+# Date: 2019-01-09
+# Level: medium
+# Description: Detects a suspicious command line execution that invokes PowerShell with reference to an AppData folder
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Administrative scripts
+
+CommandLine IN ("*powershell.exe*", "*\\powershell*", "*\\pwsh*", "*pwsh.exe*") CommandLine IN ("*Local\\*", "*Roaming\\*") CommandLine="*/c *" CommandLine="*\\AppData\\*"

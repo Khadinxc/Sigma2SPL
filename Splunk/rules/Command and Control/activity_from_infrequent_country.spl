@@ -1,0 +1,9 @@
+# Title: Activity from Infrequent Country
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-23
+# Level: medium
+# Description: Detects when a Microsoft Cloud App Security reported when an activity occurs from a location that wasn't recently or never visited by any user in the organization.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1573
+
+eventName="Activity from infrequent country" eventSource="SecurityComplianceCenter" status="success"

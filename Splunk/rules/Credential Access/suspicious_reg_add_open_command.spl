@@ -1,0 +1,9 @@
+# Title: Suspicious Reg Add Open Command
+# Author: frack113
+# Date: 2021-12-20
+# Level: medium
+# Description: Threat actors performed dumping of SAM, SECURITY and SYSTEM registry hives using DelegateExecute key
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003
+
+(CommandLine="*reg*" CommandLine="*add*" CommandLine="*hkcu\\software\\classes\\ms-settings\\shell\\open\\command*" CommandLine="*/ve *" CommandLine="*/d*") OR (CommandLine="*reg*" CommandLine="*add*" CommandLine="*hkcu\\software\\classes\\ms-settings\\shell\\open\\command*" CommandLine="*/v*" CommandLine="*DelegateExecute*") OR (CommandLine="*reg*" CommandLine="*delete*" CommandLine="*hkcu\\software\\classes\\ms-settings*")

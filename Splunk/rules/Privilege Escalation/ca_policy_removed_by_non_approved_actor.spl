@@ -1,0 +1,12 @@
+# Title: CA Policy Removed by Non Approved Actor
+# Author: Corissa Koopmans, '@corissalea'
+# Date: 2022-07-19
+# Level: medium
+# Description: Monitor and alert on conditional access changes where non approved actor removed CA Policy.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.credential-access, attack.defense-evasion, attack.persistence, attack.t1548, attack.t1556
+# False Positives:
+#   - Misconfigured role permissions
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+
+properties.message="Delete conditional access policy"

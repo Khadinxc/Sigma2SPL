@@ -1,0 +1,11 @@
+# Title: Scheduled Task Deletion
+# Author: David Strassegger, Tim Shelton
+# Date: 2021-01-22
+# Level: low
+# Description: Detects scheduled task deletion events. Scheduled tasks are likely to be deleted if not used for persistence. Malicious Software often creates tasks directly under the root node e.g. \TASKNAME
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.privilege-escalation, attack.persistence, car.2013-08-001, attack.t1053.005, detection.threat-hunting
+# False Positives:
+#   - Software installation
+
+EventID=4699 NOT (TaskName IN ("*\\Mozilla\\Firefox Default Browser Agent *", "\\Microsoft\\Windows\\RemovalTools\\MRT_ERROR_HB"))

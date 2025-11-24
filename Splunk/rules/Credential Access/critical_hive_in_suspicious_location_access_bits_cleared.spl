@@ -1,0 +1,11 @@
+# Title: Critical Hive In Suspicious Location Access Bits Cleared
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-05-15
+# Level: high
+# Description: Detects events from the Kernel-General ETW indicating that the access bits of a hive with a system like hive name located in the temp directory have been reset.
+# This occurs when an application tries to access a hive and the hive has not be recognized since the last 7 days (by default).
+# Registry hive dumping utilities such as QuarksPwDump were seen emitting this behavior.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.002
+
+EventID=16 HiveName IN ("*\\Temp\\SAM*", "*\\Temp\\SECURITY*") Provider_Name="Microsoft-Windows-Kernel-General"

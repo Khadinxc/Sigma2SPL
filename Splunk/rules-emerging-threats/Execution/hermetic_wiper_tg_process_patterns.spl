@@ -1,0 +1,9 @@
+# Title: Hermetic Wiper TG Process Patterns
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-02-25
+# Level: high
+# Description: Detects process execution patterns found in intrusions related to the Hermetic Wiper malware attacks against Ukraine in February 2022
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.lateral-movement, attack.t1021.001, detection.emerging-threats
+
+Image="*\\policydefinitions\\postgresql.exe" OR CommandLine IN ("*CSIDL_SYSTEM_DRIVE\\temp\\sys.tmp*", "* 1> \\\\127.0.0.1\\ADMIN$\\__16*") OR (CommandLine="*powershell -c *" CommandLine="*\\comsvcs.dll MiniDump *" CommandLine="*\\winupd.log full*")

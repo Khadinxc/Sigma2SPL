@@ -1,0 +1,11 @@
+# Title: Potential MFA Bypass Using Legacy Client Authentication
+# Author: Harjot Singh, '@cyb3rjy0t'
+# Date: 2023-03-20
+# Level: high
+# Description: Detects successful authentication from potential clients using legacy authentication via user agent strings. This could be a sign of MFA bypass using a password spray attack.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.credential-access, attack.t1078.004, attack.t1110
+# False Positives:
+#   - Known Legacy Accounts
+
+Status="Success" userAgent IN ("*BAV2ROPC*", "*CBAinPROD*", "*CBAinTAR*")

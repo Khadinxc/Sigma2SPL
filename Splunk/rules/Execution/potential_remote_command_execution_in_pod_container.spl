@@ -1,0 +1,11 @@
+# Title: Potential Remote Command Execution In Pod Container
+# Author: Leo Tsaousis (@laripping)
+# Date: 2024-03-26
+# Level: medium
+# Description: Detects attempts to execute remote commands, within a Pod's container using e.g. the "kubectl exec" command.
+# MITRE Tactic: Execution
+# Tags: attack.t1609, attack.execution
+# False Positives:
+#   - Legitimate debugging activity. Investigate the identity performing the requests and their authorization.
+
+objectRef.resource="pods" objectRef.subresource="exec" verb="create"

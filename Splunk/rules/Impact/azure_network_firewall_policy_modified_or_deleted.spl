@@ -1,0 +1,12 @@
+# Title: Azure Network Firewall Policy Modified or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-02
+# Level: medium
+# Description: Identifies when a Firewall Policy is Modified or Deleted.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.defense-evasion, attack.t1562.007
+# False Positives:
+#   - Firewall Policy being modified or deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Firewall Policy modified or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName IN ("MICROSOFT.NETWORK/FIREWALLPOLICIES/WRITE", "MICROSOFT.NETWORK/FIREWALLPOLICIES/JOIN/ACTION", "MICROSOFT.NETWORK/FIREWALLPOLICIES/CERTIFICATES/ACTION", "MICROSOFT.NETWORK/FIREWALLPOLICIES/DELETE")

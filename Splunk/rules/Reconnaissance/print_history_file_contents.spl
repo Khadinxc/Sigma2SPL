@@ -1,0 +1,11 @@
+# Title: Print History File Contents
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-06-20
+# Level: medium
+# Description: Detects events in which someone prints the contents of history files to the commandline or redirects it to a file for reconnaissance
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.t1592.004
+# False Positives:
+#   - Legitimate administration activities
+
+Image IN ("*/cat", "*/head", "*/tail", "*/more") CommandLine IN ("*/.bash_history*", "*/.zsh_history*") OR CommandLine IN ("*_history", "*.history", "*zhistory")

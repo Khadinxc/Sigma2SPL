@@ -1,0 +1,9 @@
+# Title: AD Object WriteDAC Access
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-09-12
+# Level: critical
+# Description: Detects WRITE_DAC access to a domain object
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1222.001
+
+AccessMask="0x40000" EventID=4662 ObjectServer="DS" ObjectType IN ("19195a5b-6da0-11d0-afd3-00c04fd930c9", "domainDNS")

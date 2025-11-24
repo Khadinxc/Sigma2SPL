@@ -1,0 +1,12 @@
+# Title: Kubernetes Rolebinding Modification
+# Author: kelnage
+# Date: 2024-07-11
+# Level: medium
+# Description: Detects when a Kubernetes Rolebinding is created or modified.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# False Positives:
+#   - Modifying a Kubernetes Rolebinding may need to be done by a system administrator.
+#   - Automated processes may need to take these actions and may need to be filtered.
+
+objectRef.apiGroup="rbac.authorization.k8s.io" objectRef.resource IN ("clusterrolebindings", "rolebindings") verb IN ("create", "delete", "patch", "replace", "update")

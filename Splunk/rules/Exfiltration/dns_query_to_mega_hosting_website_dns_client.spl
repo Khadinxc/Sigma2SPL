@@ -1,0 +1,11 @@
+# Title: DNS Query To MEGA Hosting Website - DNS Client
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-16
+# Level: medium
+# Description: Detects DNS queries for subdomains related to MEGA sharing website
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1567.002
+# False Positives:
+#   - Legitimate DNS queries and usage of Mega
+
+EventID=3008 QueryName="*userstorage.mega.co.nz*"

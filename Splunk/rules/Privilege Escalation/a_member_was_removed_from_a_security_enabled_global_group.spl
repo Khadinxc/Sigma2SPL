@@ -1,0 +1,9 @@
+# Title: A Member Was Removed From a Security-Enabled Global Group
+# Author: Alexandr Yampolskyi, SOC Prime
+# Date: 2023-04-26
+# Level: low
+# Description: Detects activity when a member is removed from a security-enabled global group
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1098
+
+EventID IN (633, 4729)

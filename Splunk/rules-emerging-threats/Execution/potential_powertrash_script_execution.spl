@@ -1,0 +1,9 @@
+# Title: Potential POWERTRASH Script Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-04
+# Level: high
+# Description: Detects potential execution of the PowerShell script POWERTRASH
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.g0046, detection.emerging-threats
+
+ScriptBlockText="*IO.Compression.DeflateStream*" ScriptBlockText="*IO.MemoryStream*" ScriptBlockText="*::FromBase64String*" ScriptBlockText="*GetDelegateForFunctionPointer*" ScriptBlockText="*.Invoke()*" ScriptBlockText="*GlobalAssemblyCache*"

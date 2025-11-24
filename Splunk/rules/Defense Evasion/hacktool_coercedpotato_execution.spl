@@ -1,0 +1,9 @@
+# Title: HackTool - CoercedPotato Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2023-10-11
+# Level: high
+# Description: Detects the use of CoercedPotato, a tool for privilege escalation
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055
+
+Image="*\\CoercedPotato.exe" OR Hashes IN ("*IMPHASH=A75D7669DB6B2E107A44C4057FF7F7D6*", "*IMPHASH=F91624350E2C678C5DCBE5E1F24E22C9*", "*IMPHASH=14C81850A079A87E83D50CA41C709A15*") OR CommandLine="* --exploitId *"

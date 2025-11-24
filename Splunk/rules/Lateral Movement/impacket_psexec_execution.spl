@@ -1,0 +1,9 @@
+# Title: Impacket PsExec Execution
+# Author: Bhabesh Raj
+# Date: 2020-12-14
+# Level: high
+# Description: Detects execution of Impacket's psexec.py.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+
+EventID=5145 RelativeTargetName IN ("*RemCom_stdin*", "*RemCom_stdout*", "*RemCom_stderr*") ShareName="\\\\\*\\IPC$"

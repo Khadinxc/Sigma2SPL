@@ -1,0 +1,9 @@
+# Title: Potentially Suspicious Office Document Executed From Trusted Location
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-21
+# Level: high
+# Description: Detects the execution of an Office application that points to a document that is located in a trusted location. Attackers often used this to avoid macro security and execute their malicious code.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1202
+
+Image IN ("*\\EXCEL.EXE", "*\\POWERPNT.EXE", "*\\WINWORD.exe") OR OriginalFileName IN ("Excel.exe", "POWERPNT.EXE", "WinWord.exe") ParentImage IN ("*\\explorer.exe", "*\\dopus.exe") CommandLine IN ("*\\AppData\\Roaming\\Microsoft\\Templates*", "*\\AppData\\Roaming\\Microsoft\\Word\\Startup\\*", "*\\Microsoft Office\\root\\Templates\\*", "*\\Microsoft Office\\Templates\\*") NOT (CommandLine IN ("*.dotx", "*.xltx", "*.potx"))

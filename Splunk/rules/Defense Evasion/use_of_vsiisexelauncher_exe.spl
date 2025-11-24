@@ -1,0 +1,9 @@
+# Title: Use of VSIISExeLauncher.exe
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-09
+# Level: medium
+# Description: The "VSIISExeLauncher.exe" binary part of the Visual Studio/VS Code can be used to execute arbitrary binaries
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1127
+
+CommandLine IN ("* -p *", "* -a *") Image="*\\VSIISExeLauncher.exe" OR OriginalFileName="VSIISExeLauncher.exe"

@@ -1,0 +1,12 @@
+# Title: Shadow Copies Deletion Using Operating Systems Utilities
+# Author: Florian Roth (Nextron Systems), Michael Haag, Teymur Kheirkhabarov, Daniil Yugoslavskiy, oscd.community, Andreas Hunkeler (@Karneades)
+# Date: 2019-10-22
+# Level: high
+# Description: Shadow Copies deletion using operating systems utilities
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.impact, attack.t1070, attack.t1490
+# False Positives:
+#   - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason
+#   - LANDesk LDClient Ivanti-PSModule (PS EncodedCommand)
+
+(CommandLine="*shadow*" CommandLine="*delete*" Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\wmic.exe", "*\\vssadmin.exe", "*\\diskshadow.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll", "wmic.exe", "VSSADMIN.EXE", "diskshadow.exe")) OR (CommandLine="*delete*" CommandLine="*catalog*" CommandLine="*quiet*" Image="*\\wbadmin.exe" OR OriginalFileName="WBADMIN.EXE") OR (CommandLine IN ("*unbounded*", "*/MaxSize=*") CommandLine="*resize*" CommandLine="*shadowstorage*" Image="*\\vssadmin.exe" OR OriginalFileName="VSSADMIN.EXE") | table CommandLine,ParentCommandLine

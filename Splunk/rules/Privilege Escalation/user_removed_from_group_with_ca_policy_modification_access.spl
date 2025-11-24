@@ -1,0 +1,11 @@
+# Title: User Removed From Group With CA Policy Modification Access
+# Author: Mark Morowczynski '@markmorow', Thomas Detzner '@tdetzner'
+# Date: 2022-08-04
+# Level: medium
+# Description: Monitor and alert on group membership removal of groups that have CA policy modification access
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.credential-access, attack.defense-evasion, attack.persistence, attack.t1548, attack.t1556
+# False Positives:
+#   - User removed from the group is approved
+
+properties.message="Remove member from group"

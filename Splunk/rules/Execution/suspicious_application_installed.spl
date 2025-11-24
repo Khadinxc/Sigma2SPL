@@ -1,0 +1,11 @@
+# Title: Suspicious Application Installed
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-14
+# Level: medium
+# Description: Detects suspicious application installed by looking at the added shortcut to the app resolver cache
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - Packages or applications being legitimately used by users or administrators
+
+(EventID=28115 Name IN ("*Zenmap*", "*AnyDesk*", "*wireshark*", "*openvpn*")) OR (AppID IN ("*zenmap.exe*", "*prokzult ad*", "*wireshark*", "*openvpn*") EventID=28115)

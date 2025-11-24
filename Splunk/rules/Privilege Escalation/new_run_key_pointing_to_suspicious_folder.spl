@@ -1,0 +1,11 @@
+# Title: New RUN Key Pointing to Suspicious Folder
+# Author: Florian Roth (Nextron Systems), Markus Neis, Sander Wiebing, Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2018-08-25
+# Level: high
+# Description: Detects suspicious new RUN key element pointing to an executable in a suspicious folder
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1547.001
+# False Positives:
+#   - Software using weird folders for updates
+
+TargetObject IN ("*\\Software\\Microsoft\\Windows\\CurrentVersion\\Run*", "*\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run*", "*\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run*") Details IN ("*:\\Perflogs*", "*:\\ProgramData'*", "*:\\Windows\\Temp*", "*:\\Temp*", "*\\AppData\\Local\\Temp*", "*\\AppData\\Roaming*", "*:\\$Recycle.bin*", "*:\\Users\\Default*", "*:\\Users\\public*", "*%temp%*", "*%tmp%*", "*%Public%*", "*%AppData%*") OR (Details="*:\\Users\\*" Details IN ("*\\Favorites*", "*\\Favourites*", "*\\Contacts*", "*\\Music*", "*\\Pictures*", "*\\Documents*", "*\\Photos*")) NOT (Details IN ("*\\AppData\\Local\\Temp\\*", "*C:\\Windows\\Temp\\*") Details="*rundll32.exe *" Details="*C:\\WINDOWS\\system32\\advpack.dll,DelNodeRunDLL32*" Image="C:\\Windows\\SoftwareDistribution\\Download\\*" TargetObject="*\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\*") NOT (Details="*Spotify.exe --autostart --minimized" Image IN ("*C:\\Program Files\\Spotify\\Spotify.exe", "*C:\\Program Files (x86)\\Spotify\\Spotify.exe", "*\\AppData\\Roaming\\Spotify\\Spotify.exe") TargetObject="*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Spotify")

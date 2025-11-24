@@ -1,0 +1,13 @@
+# Title: AWS EC2 Disable EBS Encryption
+# Author: Sittikorn S
+# Date: 2021-06-29
+# Level: medium
+# Description: Identifies disabling of default Amazon Elastic Block Store (EBS) encryption in the current region.
+# Disabling default encryption does not change the encryption status of your existing volumes.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1486, attack.t1565
+# False Positives:
+#   - System Administrator Activities
+#   - DEV, UAT, SAT environment. You should apply this rule with PROD account only.
+
+eventName="DisableEbsEncryptionByDefault" eventSource="ec2.amazonaws.com"

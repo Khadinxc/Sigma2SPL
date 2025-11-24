@@ -1,0 +1,12 @@
+# Title: New PDQDeploy Service - Server Side
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-22
+# Level: medium
+# Description: Detects a PDQDeploy service installation which indicates that PDQDeploy was installed on the machines.
+# PDQDeploy can be abused by attackers to remotely install packages or execute commands on target machines
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1543.003
+# False Positives:
+#   - Legitimate use of the tool
+
+EventID=7045 Provider_Name="Service Control Manager" ImagePath="*PDQDeployService.exe*" OR ServiceName IN ("PDQDeploy", "PDQ Deploy")

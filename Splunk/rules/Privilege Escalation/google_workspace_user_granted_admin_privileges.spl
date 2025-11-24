@@ -1,0 +1,11 @@
+# Title: Google Workspace User Granted Admin Privileges
+# Author: Austin Songer
+# Date: 2021-08-23
+# Level: medium
+# Description: Detects when an Google Workspace user is granted admin privileges.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1098
+# False Positives:
+#   - Google Workspace admin role privileges, may be modified by system administrators.
+
+eventName IN ("GRANT_DELEGATED_ADMIN_PRIVILEGES", "GRANT_ADMIN_PRIVILEGE") eventService="admin.googleapis.com"

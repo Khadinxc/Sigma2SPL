@@ -1,0 +1,11 @@
+# Title: OpenCanary - FTP Login Attempt
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where an FTP service on an OpenCanary node has had a login attempt.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.exfiltration, attack.lateral-movement, attack.t1190, attack.t1021
+# False Positives:
+#   - Unlikely
+
+logtype=2000

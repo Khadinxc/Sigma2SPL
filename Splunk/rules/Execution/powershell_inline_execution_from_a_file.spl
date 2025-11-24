@@ -1,0 +1,9 @@
+# Title: Powershell Inline Execution From A File
+# Author: frack113
+# Date: 2022-12-25
+# Level: medium
+# Description: Detects inline execution of PowerShell code from a file
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+CommandLine IN ("*iex *", "*Invoke-Expression *", "*Invoke-Command *", "*icm *") CommandLine="* -raw*" CommandLine IN ("*cat *", "*get-content *", "*type *")

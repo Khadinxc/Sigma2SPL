@@ -1,0 +1,16 @@
+# Title: Potential Data Exfiltration Activity Via CommandLine Tools
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-02
+# Level: high
+# Description: Detects the use of various CLI utilities exfiltrating data via web requests
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Unlikely
+
+
+| rex field=CommandLine "(?<CommandLineMatch>net\\s+view)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch2>sc\\s+query)"
+| eval CommandLineCondition2=if(isnotnull(CommandLineMatch2), "true", "false")
+| search (CommandLine IN ("*curl *", "*Invoke-RestMethod*", "*Invoke-WebRequest*", "*irm *", "*iwr *", "*wget *") CommandLine="* -ur*" CommandLine="* -me*" CommandLine="* -b*" CommandLine="* POST *" Image IN ("*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\cmd.exe")) OR (CommandLine="*--ur*" Image="*\\curl.exe" CommandLine IN ("* -d *", "* --data *")) OR (CommandLine IN ("*--post-data*", "*--post-file*") Image="*\\wget.exe") CommandLineCondition="true" OR CommandLineCondition2="true" OR CommandLine IN ("*Get-Content*", "*GetBytes*", "*hostname*", "*ifconfig*", "*ipconfig*", "*netstat*", "*nltest*", "*qprocess*", "*systeminfo*", "*tasklist*", "*ToBase64String*", "*whoami*") OR (CommandLine="*type *" CommandLine="* > *" CommandLine="* C:\\*")

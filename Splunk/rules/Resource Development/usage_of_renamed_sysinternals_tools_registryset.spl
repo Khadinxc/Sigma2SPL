@@ -1,0 +1,11 @@
+# Title: Usage of Renamed Sysinternals Tools - RegistrySet
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-24
+# Level: high
+# Description: Detects non-sysinternals tools setting the "accepteula" key which normally is set on sysinternals tool execution
+# MITRE Tactic: Resource Development
+# Tags: attack.resource-development, attack.t1588.002
+# False Positives:
+#   - Unlikely
+
+TargetObject IN ("*\\PsExec*", "*\\ProcDump*", "*\\Handle*", "*\\LiveKd*", "*\\Process Explorer*", "*\\PsLoglist*", "*\\PsPasswd*", "*\\Active Directory Explorer*") TargetObject="*\\EulaAccepted" NOT (Image IN ("*\\PsExec.exe", "*\\PsExec64.exe", "*\\procdump.exe", "*\\procdump64.exe", "*\\handle.exe", "*\\handle64.exe", "*\\livekd.exe", "*\\livekd64.exe", "*\\procexp.exe", "*\\procexp64.exe", "*\\psloglist.exe", "*\\psloglist64.exe", "*\\pspasswd.exe", "*\\pspasswd64.exe", "*\\ADExplorer.exe", "*\\ADExplorer64.exe")) NOT NOT Image=*

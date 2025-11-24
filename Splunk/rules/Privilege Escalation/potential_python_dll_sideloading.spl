@@ -1,0 +1,11 @@
+# Title: Potential Python DLL SideLoading
+# Author: Swachchhanda Shrawan Poudel
+# Date: 2024-10-06
+# Level: medium
+# Description: Detects potential DLL sideloading of Python DLL files.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+# False Positives:
+#   - Legitimate software using Python DLLs
+
+ImageLoaded IN ("*\\python39.dll", "*\\python310.dll", "*\\python311.dll", "*\\python312.dll") NOT (ImageLoaded IN ("C:\\Program Files\\Python3*", "C:\\Program Files (x86)\\Python3*") OR ImageLoaded="*\\AppData\\Local\\Programs\\Python\\Python3*" OR (Company="Python Software Foundation" Description="Python" Product="Python" Signed="true")) NOT (ImageLoaded="C:\\ProgramData\\Anaconda3\\*" OR ImageLoaded IN ("*\\cpython\\externals\\*", "*\\cpython\\PCbuild\\*") OR (ImageLoaded="*\\AppData\\Local\\Temp\\_MEI*" ImageLoaded="C:\\Users*") OR ImageLoaded="C:\\Program Files\\Microsoft Visual Studio\\*")

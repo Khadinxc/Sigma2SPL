@@ -1,0 +1,12 @@
+# Title: HackTool - LaZagne Execution
+# Author: Nasreddine Bencherchali, Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2024-06-24
+# Level: medium
+# Description: Detects the execution of the LaZagne. A utility used to retrieve multiple types of passwords stored on a local computer.
+# LaZagne has been leveraged multiple times by threat actors in order to dump credentials.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access
+# False Positives:
+#   - Some false positive is expected from tools with similar command line flags.
+
+(CommandLine IN ("*.exe all", "*.exe browsers", "*.exe chats", "*.exe databases", "*.exe games", "*.exe git", "*.exe mails", "*.exe maven", "*.exe memory", "*.exe multimedia", "*.exe sysadmin", "*.exe unused", "*.exe wifi", "*.exe windows") Image IN ("*:\\PerfLogs\\*", "*:\\ProgramData\\*", "*:\\Temp\\*", "*:\\Tmp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Temp\\*", "*\\$Recycle.bin*", "*\\AppData\\*", "*\\Desktop\\*", "*\\Downloads\\*", "*\\Favorites\\*", "*\\Links\\*", "*\\Music\\*", "*\\Photos\\*", "*\\Pictures\\*", "*\\Saved Games\\*", "*\\Searches\\*", "*\\Users\\Contacts\\*", "*\\Users\\Default\\*", "*\\Users\\Searches\\*", "*\\Videos\\*", "*\\Windows\\addins\\*", "*\\Windows\\Fonts\\*", "*\\Windows\\IME\\*")) OR Image="*\\lazagne.exe" OR (CommandLine IN ("* all *", "* browsers *", "* chats *", "* databases *", "* games *", "* mails *", "* maven *", "* memory *", "* multimedia *", "* php *", "* svn *", "* sysadmin *", "* unused *", "* wifi *") CommandLine IN ("*-1Password*", "*-apachedirectorystudio*", "*-autologon*", "*-ChromiumBased*", "*-coreftp*", "*-credfiles*", "*-credman*", "*-cyberduck*", "*-dbvis*", "*-EyeCon*", "*-filezilla*", "*-filezillaserver*", "*-ftpnavigator*", "*-galconfusion*", "*-gitforwindows*", "*-hashdump*", "*-iisapppool*", "*-IISCentralCertP*", "*-kalypsomedia*", "*-keepass*", "*-keepassconfig*", "*-lsa_secrets*", "*-mavenrepositories*", "*-memory_dump*", "*-Mozilla*", "*-mRemoteNG*", "*-mscache*", "*-opensshforwindows*", "*-openvpn*", "*-outlook*", "*-pidgin*", "*-postgresql*", "*-psi-im*", "*-puttycm*", "*-pypykatz*", "*-Rclone*", "*-rdpmanager*", "*-robomongo*", "*-roguestale*", "*-skype*", "*-SQLDeveloper*", "*-squirrel*", "*-tortoise*", "*-turba*", "*-UCBrowser*", "*-unattended*", "*-vault*", "*-vaultfiles*", "*-vnc*", "*-winscp*"))

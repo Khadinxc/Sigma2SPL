@@ -1,0 +1,11 @@
+# Title: ProcessHacker Privilege Elevation
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-05-27
+# Level: high
+# Description: Detects a ProcessHacker tool that elevated privileges to a very high level
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.execution, attack.privilege-escalation, attack.t1543.003, attack.t1569.002
+# False Positives:
+#   - Unlikely
+
+AccountName="LocalSystem" EventID=7045 Provider_Name="Service Control Manager" ServiceName="ProcessHacker*"

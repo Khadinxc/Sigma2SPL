@@ -1,0 +1,13 @@
+# Title: AWS Key Pair Import Activity
+# Author: Ivan Saakov
+# Date: 2024-12-19
+# Level: medium
+# Description: Detects the import of SSH key pairs into AWS EC2, which may indicate an attacker attempting to gain unauthorized access to instances. This activity could lead to initial access, persistence, or privilege escalation, potentially compromising sensitive data and operations.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - Legitimate administrative actions by authorized users importing keys for valid purposes.
+#   - Automated processes for infrastructure setup may trigger this alert.
+#   - Verify the user identity, user agent, and source IP address to ensure they are expected.
+
+eventName="ImportKeyPair" eventSource="ec2.amazonaws.com"

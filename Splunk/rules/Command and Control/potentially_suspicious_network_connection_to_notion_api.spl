@@ -1,0 +1,11 @@
+# Title: Potentially Suspicious Network Connection To Notion API
+# Author: Gavin Knapp
+# Date: 2023-05-03
+# Level: low
+# Description: Detects a non-browser process communicating with the Notion API. This could indicate potential use of a covert C2 channel such as "OffensiveNotion C2"
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1102
+# False Positives:
+#   - Legitimate applications communicating with the "api.notion.com" endpoint that are not already in the exclusion list. The desktop and browser applications do not appear to be using the API by default unless integrations are configured.
+
+DestinationHostname="*api.notion.com*" NOT (Image="*\\brave.exe" OR Image IN ("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe") OR Image="C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\*" OR Image="*\\WindowsApps\\MicrosoftEdge.exe" OR Image IN ("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe") OR (Image IN ("*\\msedge.exe", "*\\msedgewebview2.exe") Image IN ("C:\\Program Files (x86)\\Microsoft\\EdgeCore\\*", "C:\\Program Files\\Microsoft\\EdgeCore\\*")) OR Image IN ("C:\\Program Files\\Mozilla Firefox\\firefox.exe", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe") OR Image IN ("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe", "C:\\Program Files\\Internet Explorer\\iexplore.exe") OR Image="*\\maxthon.exe" OR Image="*\\AppData\\Local\\Programs\\Notion\\Notion.exe" OR Image="*\\opera.exe" OR Image="*\\safari.exe" OR Image="*\\seamonkey.exe" OR Image="*\\vivaldi.exe" OR Image="*\\whale.exe")

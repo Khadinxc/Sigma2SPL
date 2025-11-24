@@ -1,0 +1,9 @@
+# Title: Potentially Suspicious Regsvr32 HTTP/FTP Pattern
+# Author: Florian Roth (Nextron Systems)
+# Date: 2023-05-24
+# Level: medium
+# Description: Detects regsvr32 execution to download/install/register new DLLs that are hosted on Web or FTP servers.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.010
+
+CommandLine IN ("* /i*", "* -i*") Image="*\\regsvr32.exe" OR OriginalFileName="REGSVR32.EXE" CommandLine IN ("*ftp*", "*http*")

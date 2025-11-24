@@ -1,0 +1,13 @@
+# Title: Potential Homoglyph Attack Using Lookalike Characters
+# Author: Micah Babinski, @micahbabinski
+# Date: 2023-05-07
+# Level: medium
+# Description: Detects the presence of unicode characters which are homoglyphs, or identical in appearance, to ASCII letter characters.
+# This is used as an obfuscation and masquerading techniques. Only "perfect" homoglyphs are included; these are characters that
+# are indistinguishable from ASCII characters and thus may make excellent candidates for homoglyph attack characters.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036, attack.t1036.003
+# False Positives:
+#   - Commandlines with legitimate Cyrillic text; will likely require tuning (or not be usable) in countries where these alphabets are in use.
+
+CommandLine IN ("*а*", "*е*", "*о*", "*р*", "*с*", "*х*", "*ѕ*", "*і*", "*ӏ*", "*ј*", "*һ*", "*ԁ*", "*ԛ*", "*ԝ*", "*ο*") OR CommandLine IN ("*А*", "*В*", "*Е*", "*К*", "*М*", "*Н*", "*О*", "*Р*", "*С*", "*Т*", "*Х*", "*Ѕ*", "*І*", "*Ј*", "*Ү*", "*Ӏ*", "*Ԍ*", "*Ԛ*", "*Ԝ*", "*Α*", "*Β*", "*Ε*", "*Ζ*", "*Η*", "*Ι*", "*Κ*", "*Μ*", "*Ν*", "*Ο*", "*Ρ*", "*Τ*", "*Υ*", "*Χ*")

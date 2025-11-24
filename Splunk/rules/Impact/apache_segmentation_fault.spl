@@ -1,0 +1,9 @@
+# Title: Apache Segmentation Fault
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-02-28
+# Level: high
+# Description: Detects a segmentation fault error message caused by a crashing apache worker process
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1499.004
+
+"exit signal Segmentation Fault"

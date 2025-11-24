@@ -1,0 +1,11 @@
+# Title: WMI Persistence
+# Author: Florian Roth (Nextron Systems), Gleb Sukhodolskiy, Timur Zinniatullin oscd.community
+# Date: 2017-08-22
+# Level: medium
+# Description: Detects suspicious WMI event filter and command line event consumer based on WMI and Security Logs.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1546.003
+# False Positives:
+#   - Unknown (data set is too small; further testing needed)
+
+(EventID=5861 "ActiveScriptEventConsumer" OR "CommandLineEventConsumer" OR "CommandLineTemplate") OR EventID=5859 NOT (PossibleCause="Permanent" Provider="SCM Event Provider" Query="select * from MSFT_SCMEventLogEvent" User="S-1-5-32-544")

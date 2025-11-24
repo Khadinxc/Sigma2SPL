@@ -1,0 +1,11 @@
+# Title: Potentially Suspicious GrantedAccess Flags On LSASS
+# Author: Florian Roth, Roberto Rodriguez, Dimitrios Slamaris, Mark Russinovich, Thomas Patzke, Teymur Kheirkhabarov, Sherif Eldeeb, James Dickenson, Aleksey Potapov, oscd.community
+# Date: 2021-11-22
+# Level: medium
+# Description: Detects process access requests to LSASS process with potentially suspicious access flags
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001, attack.s0002
+# False Positives:
+#   - Legitimate software such as AV and EDR
+
+GrantedAccess IN ("*30", "*50", "*70", "*90", "*B0", "*D0", "*F0", "*18", "*38", "*58", "*78", "*98", "*B8", "*D8", "*F8", "*1A", "*3A", "*5A", "*7A", "*9A", "*BA", "*DA", "*FA", "*0x14C2") OR GrantedAccess IN ("0x100000*", "0x1418*", "0x1438*", "0x143a*", "0x1f0fff*", "0x1f1fff*", "0x1f2fff*", "0x1f3fff*", "0x40*") TargetImage="*\\lsass.exe" NOT ((GrantedAccess="0x401" SourceImage="*\\explorer.exe") OR SourceImage IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*") OR (SourceImage="*:\\ProgramData\\Microsoft\\Windows Defender\\*" SourceImage="*\\MsMpEng.exe") OR (CallTrace="*|*:\\ProgramData\\Microsoft\\Windows Defender\\Definition Updates\\{*" CallTrace="*}\\mpengine.dll+*" GrantedAccess="0x1418") OR CallTrace IN ("*|c:\\program files\\windows defender\\mprtp.dll*", "*|c:\\program files\\windows defender\\MpClient.dll*")) NOT (SourceImage="*:\\ProgramData\\MALWAREBYTES\\MBAMSERVICE\\ctlrupdate\\mbupdatr.exe" OR (GrantedAccess="0x40" SourceImage="*\\MBAMInstallerService.exe") OR (GrantedAccess="0x40" SourceImage IN ("*\\aurora-agent-64.exe", "*\\aurora-agent.exe", "*\\thor.exe", "*\\thor64.exe")) OR SourceImage="*\\SteamLibrary\\steamapps\\*" OR (GrantedAccess="0x40" SourceImage IN ("*\\handle.exe", "*\\handle64.exe")) OR (GrantedAccess="0x40" SourceImage IN ("*\\PROCEXP64.EXE", "*\\PROCEXP.EXE")) OR (SourceImage="*:\\ProgramData\\VMware\\VMware Tools\\*" SourceImage="*\\vmtoolsd.exe") OR SourceImage="*\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe" OR (GrantedAccess="0x401" SourceImage="*\\AppData\\Local\\WebEx\\WebexHost.exe"))

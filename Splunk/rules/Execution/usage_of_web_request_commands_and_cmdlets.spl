@@ -1,0 +1,11 @@
+# Title: Usage Of Web Request Commands And Cmdlets
+# Author: James Pemberton / @4A616D6573, Endgame, JHasenbusch, oscd.community, Austin Songer @austinsonger
+# Date: 2019-10-24
+# Level: medium
+# Description: Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases) via CommandLine
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Use of Get-Command and Get-Help modules to reference Invoke-WebRequest and Start-BitsTransfer.
+
+CommandLine IN ("*[System.Net.WebRequest]::create*", "*curl *", "*Invoke-RestMethod*", "*Invoke-WebRequest*", "* irm *", "*iwr *", "*Resume-BitsTransfer*", "*Start-BitsTransfer*", "*wget *", "*WinHttp.WinHttpRequest*")

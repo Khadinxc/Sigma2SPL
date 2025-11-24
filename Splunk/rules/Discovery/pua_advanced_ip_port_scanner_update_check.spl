@@ -1,0 +1,11 @@
+# Title: PUA - Advanced IP/Port Scanner Update Check
+# Author: Axel Olsson
+# Date: 2022-08-14
+# Level: medium
+# Description: Detect the update check performed by Advanced IP/Port Scanner utilities.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.reconnaissance, attack.t1590
+# False Positives:
+#   - Expected if you legitimately use the Advanced IP or Port Scanner utilities in your environement.
+
+"c-uri-query"="*lng=*" "c-uri-query"="*ver=*" "c-uri-query"="*beta=*" "c-uri-query"="*type=*" "c-uri-query"="*rmode=*" "c-uri-query"="*product=*" "c-uri"="*/checkupdate.php*"

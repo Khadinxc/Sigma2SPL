@@ -1,0 +1,11 @@
+# Title: Lace Tempest File Indicators
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-11-09
+# Level: high
+# Description: Detects PowerShell script file creation with specific names or suffixes which was seen being used often in PowerShell scripts by FIN7
+# MITRE Tactic: Execution
+# Tags: attack.execution, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+TargetFilename IN ("*:\\Program Files\\SysAidServer\\tomcat\\webapps\\usersfiles\\user.exe", "*:\\Program Files\\SysAidServer\\tomcat\\webapps\\usersfiles.war", "*:\\Program Files\\SysAidServer\\tomcat\\webapps\\leave") OR TargetFilename="*:\\Program Files\\SysAidServer\\tomcat\\webapps\\user.*"

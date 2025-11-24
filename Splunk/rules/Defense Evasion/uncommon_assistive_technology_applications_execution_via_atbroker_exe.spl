@@ -1,0 +1,11 @@
+# Title: Uncommon  Assistive Technology Applications Execution Via AtBroker.EXE
+# Author: Mateusz Wydra, oscd.community
+# Date: 2020-10-12
+# Level: medium
+# Description: Detects the start of a non built-in assistive technology applications via "Atbroker.EXE".
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+# False Positives:
+#   - Legitimate, non-default assistive technology applications execution
+
+CommandLine="*start*" Image="*\\AtBroker.exe" OR OriginalFileName="AtBroker.exe" NOT (CommandLine IN ("*animations*", "*audiodescription*", "*caretbrowsing*", "*caretwidth*", "*colorfiltering*", "*cursorindicator*", "*cursorscheme*", "*filterkeys*", "*focusborderheight*", "*focusborderwidth*", "*highcontrast*", "*keyboardcues*", "*keyboardpref*", "*livecaptions*", "*magnifierpane*", "*messageduration*", "*minimumhitradius*", "*mousekeys*", "*Narrator*", "*osk*", "*overlappedcontent*", "*showsounds*", "*soundsentry*", "*speechreco*", "*stickykeys*", "*togglekeys*", "*voiceaccess*", "*windowarranging*", "*windowtracking*", "*windowtrackingtimeout*", "*windowtrackingzorder*")) NOT CommandLine="*Oracle_JavaAccessBridge*"

@@ -1,0 +1,9 @@
+# Title: PsExec Service Installation
+# Author: Thomas Patzke
+# Date: 2017-06-12
+# Level: medium
+# Description: Detects PsExec service installation and execution events
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002, attack.s0029
+
+EventID=7045 Provider_Name="Service Control Manager" ServiceName="PSEXESVC" OR ImagePath="*\\PSEXESVC.exe"

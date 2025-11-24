@@ -1,0 +1,11 @@
+# Title: Goofy Guineapig Backdoor Potential C2 Communication
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-14
+# Level: high
+# Description: Detects potential C2 communication related to Goofy Guineapig backdoor
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+"c-useragent"="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36" "cs-host"="static.tcplog.com"

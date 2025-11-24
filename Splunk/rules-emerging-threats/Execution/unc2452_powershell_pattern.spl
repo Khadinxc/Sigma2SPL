@@ -1,0 +1,11 @@
+# Title: UNC2452 PowerShell Pattern
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-01-20
+# Level: critical
+# Description: Detects a specific PowerShell command line pattern used by the UNC2452 actors as mentioned in Microsoft and Symantec reports
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.t1047, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+(CommandLine="*Invoke-WMIMethod win32_process -name create -argumentlist*" CommandLine="*rundll32 c:\\windows*") OR (CommandLine="*wmic /node:*" CommandLine="*process call create \"rundll32 c:\\windows*")

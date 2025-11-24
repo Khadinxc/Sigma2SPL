@@ -1,0 +1,11 @@
+# Title: DNS Query Request By QuickAssist.EXE
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-12-19
+# Level: low
+# Description: Detects DNS queries initiated by "QuickAssist.exe" to Microsoft Quick Assist primary endpoint that is used to establish a session.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.initial-access, attack.lateral-movement, attack.t1071.001, attack.t1210
+# False Positives:
+#   - Legitimate use of Quick Assist in the environment.
+
+Image="*\\QuickAssist.exe" QueryName="*remoteassistance.support.services.microsoft.com"

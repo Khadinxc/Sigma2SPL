@@ -1,0 +1,12 @@
+# Title: Potentially Suspicious PowerShell Child Processes
+# Author: Florian Roth (Nextron Systems), Tim Shelton
+# Date: 2022-04-26
+# Level: medium
+# Description: Detects potentially suspicious child processes spawned by PowerShell.
+# Use this rule to hunt for potential anomalies initiating from PowerShell scripts and commands.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.threat-hunting
+# False Positives:
+#   - False positives are to be expected from PowerShell scripts that might make use of additional binaries such as "mshta", "bitsadmin", etc. Apply additional filters for those scripts.
+
+Image IN ("*\\bash.exe", "*\\bitsadmin.exe", "*\\certutil.exe", "*\\cscript.exe", "*\\forfiles.exe", "*\\hh.exe", "*\\mshta.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\schtasks.exe", "*\\scrcons.exe", "*\\scriptrunner.exe", "*\\sh.exe", "*\\wmic.exe", "*\\wscript.exe") ParentImage IN ("*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe") NOT ((CommandLine="*-verifystore *" Image="*\\certutil.exe") OR (CommandLine IN ("*qfe list*", "*diskdrive *", "*csproduct *", "*computersystem *", "* os *", "*") Image="*\\wmic.exe")) NOT (CommandLine="*\\Program Files\\Amazon\\WorkspacesConfig\\Scripts\\*" ParentCommandLine="*\\Program Files\\Amazon\\WorkspacesConfig\\Scripts\\*")

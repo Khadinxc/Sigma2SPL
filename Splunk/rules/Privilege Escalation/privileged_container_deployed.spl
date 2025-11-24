@@ -1,0 +1,11 @@
+# Title: Privileged Container Deployed
+# Author: Leo Tsaousis (@laripping)
+# Date: 2024-03-26
+# Level: low
+# Description: Detects the creation of a "privileged" container, an action which could be indicative of a threat actor mounting a container breakout attacks.
+# A privileged container is a container that can access the host with all of the root capabilities of the host machine. This allows it to view, interact and modify processes, network operations, IPC calls, the file system, mount points, SELinux configurations etc. as the root user on the host.
+# Various versions of "privileged" containers can be specified, e.g. by setting the securityContext.privileged flag in the resource specification, setting non-standard Linux capabilities, or configuring the hostNetwork/hostPID fields
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.t1611, attack.privilege-escalation
+
+capabilities="*" objectRef.resource="pods" verb="create"

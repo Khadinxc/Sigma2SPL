@@ -1,0 +1,13 @@
+# Title: Renamed PAExec Execution
+# Author: Florian Roth (Nextron Systems), Jason Lynch
+# Date: 2021-05-22
+# Level: high
+# Description: Detects execution of renamed version of PAExec. Often used by attackers
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1202
+# False Positives:
+#   - Weird admins that rename their tools
+#   - Software companies that bundle PAExec with their software and rename it, so that it is less embarrassing
+#   - When executed with the "-s" flag. PAExec will copy itself to the "C:\Windows\" directory with a different name. Usually like this "PAExec-[XXXXX]-[ComputerName]"
+
+Description="PAExec Application" OR OriginalFileName="PAExec.exe" OR Product="*PAExec*" OR Hashes IN ("*IMPHASH=11D40A7B7876288F919AB819CC2D9802*", "*IMPHASH=6444f8a34e99b8f7d9647de66aabe516*", "*IMPHASH=dfd6aa3f7b2b1035b76b718f1ddc689f*", "*IMPHASH=1a6cca4d5460b1710a12dea39e4a592c*") NOT (Image IN ("*\\paexec.exe", "C:\\Windows\\PAExec-*"))

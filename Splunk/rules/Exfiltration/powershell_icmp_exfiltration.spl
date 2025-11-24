@@ -1,0 +1,11 @@
+# Title: PowerShell ICMP Exfiltration
+# Author: Bartlomiej Czyz @bczyz1, oscd.community
+# Date: 2020-10-10
+# Level: medium
+# Description: Detects Exfiltration Over Alternative Protocol - ICMP. Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1048.003
+# False Positives:
+#   - Legitimate usage of System.Net.NetworkInformation.Ping class
+
+ScriptBlockText="*New-Object*" ScriptBlockText="*System.Net.NetworkInformation.Ping*" ScriptBlockText="*.Send(*"

@@ -1,0 +1,11 @@
+# Title: Local Firewall Rules Enumeration Via NetFirewallRule Cmdlet
+# Author: Christopher Peacock @SecurePeacock, SCYTHE @scythe_io
+# Date: 2023-07-13
+# Level: low
+# Description: Detects execution of "Get-NetFirewallRule" or "Show-NetFirewallRule" to enumerate the local firewall rules on a host.
+# MITRE Tactic: Discovery
+# Tags: detection.threat-hunting, attack.discovery, attack.t1518.001, attack.t1016
+# False Positives:
+#   - Administration scripts
+
+ContextInfo IN ("*Get-NetFirewallRule*", "*Show-NetFirewallRule*") OR Payload IN ("*Get-NetFirewallRule*", "*Show-NetFirewallRule*")

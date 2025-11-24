@@ -1,0 +1,10 @@
+# Title: Potentially Suspicious Usage Of Qemu
+# Author: Muhammad Faisal (@faisalusuf), Hunter Juhan (@threatHNTR)
+# Date: 2024-06-03
+# Level: medium
+# Description: Detects potentially suspicious execution of the Qemu utility in a Windows environment.
+# Threat actors have leveraged this utility and this technique for achieving network access as reported by Kaspersky.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1090, attack.t1572
+
+CommandLine IN ("*-m 1M*", "*-m 2M*", "*-m 3M*") CommandLine="*restrict=off*" CommandLine="*-netdev *" CommandLine="*connect=*" CommandLine="*-nographic*" NOT (CommandLine IN ("* -cdrom *", "* type=virt *", "* -blockdev *"))

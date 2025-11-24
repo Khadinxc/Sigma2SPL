@@ -1,0 +1,11 @@
+# Title: New Windows Firewall Rule Added Via New-NetFirewallRule Cmdlet
+# Author: frack113
+# Date: 2024-05-03
+# Level: low
+# Description: Detects calls to the "New-NetFirewallRule" cmdlet from PowerShell in order to add a new firewall rule with an "Allow" action.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004, detection.threat-hunting
+# False Positives:
+#   - Administrator script
+
+CommandLine="*New-NetFirewallRule *" CommandLine="* -Action *" CommandLine="*allow*" Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\powershell_ise.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll")

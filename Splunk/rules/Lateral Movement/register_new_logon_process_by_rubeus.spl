@@ -1,0 +1,9 @@
+# Title: Register new Logon Process by Rubeus
+# Author: Roberto Rodriguez (source), Ilyas Ochkov (rule), oscd.community
+# Date: 2019-10-24
+# Level: high
+# Description: Detects potential use of Rubeus via registered new trusted logon process
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.privilege-escalation, attack.credential-access, attack.t1558.003
+
+EventID=4611 LogonProcessName="User32LogonProcesss"

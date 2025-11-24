@@ -1,0 +1,11 @@
+# Title: Raw Paste Service Access
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-12-05
+# Level: high
+# Description: Detects direct access to raw pastes in different paste services often used by malware in their second stages to download malicious code in encrypted or encoded form
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001, attack.t1102.001, attack.t1102.003, attack.defense-evasion
+# False Positives:
+#   - User activity (e.g. developer that shared and copied code snippets and used the raw link instead of just copy & paste)
+
+"c-uri" IN ("*.paste.ee/r/*", "*.pastebin.com/raw/*", "*.hastebin.com/raw/*", "*.ghostbin.co/paste/*/raw/*", "*pastetext.net/*", "*pastebin.pl/*", "*paste.ee/*")

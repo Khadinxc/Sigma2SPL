@@ -1,0 +1,11 @@
+# Title: Persistence Via Cron Files
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC
+# Date: 2021-10-15
+# Level: medium
+# Description: Detects creation of cron file or files in Cron directories which could indicates potential persistence.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.003
+# False Positives:
+#   - Any legitimate cron file.
+
+TargetFilename IN ("/etc/cron.d/*", "/etc/cron.daily/*", "/etc/cron.hourly/*", "/etc/cron.monthly/*", "/etc/cron.weekly/*", "/var/spool/cron/crontabs/*") OR TargetFilename IN ("*/etc/cron.allow*", "*/etc/cron.deny*", "*/etc/crontab*")

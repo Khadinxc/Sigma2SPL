@@ -1,0 +1,10 @@
+# Title: Invoke-Obfuscation CLIP+ Launcher - PowerShell Module
+# Author: Jonathan Cheong, oscd.community
+# Date: 2020-10-13
+# Level: high
+# Description: Detects Obfuscated use of Clip.exe to execute PowerShell
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+
+*
+| regex Payload="cmd.{0,5}(?:/c|/r).+clip(?:\\.exe)?.{0,4}&&.+clipboard]::\\(\\s\\\\\"\\{\\d\\}.+-f.+\""

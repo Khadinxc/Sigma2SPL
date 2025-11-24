@@ -1,0 +1,11 @@
+# Title: HackTool - Default PowerSploit/Empire Scheduled Task Creation
+# Author: Markus Neis, @Karneades
+# Date: 2018-03-06
+# Level: high
+# Description: Detects the creation of a schtask via PowerSploit or Empire Default Configuration.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.persistence, attack.privilege-escalation, attack.s0111, attack.g0022, attack.g0060, car.2013-08-001, attack.t1053.005, attack.t1059.001
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*/SC ONLOGON*", "*/SC DAILY /ST*", "*/SC ONIDLE*", "*/SC HOURLY*") CommandLine="*/Create*" CommandLine="*powershell.exe -NonI*" CommandLine="*/TN Updater /TR*" Image="*\\schtasks.exe" ParentImage IN ("*\\powershell.exe", "*\\pwsh.exe")

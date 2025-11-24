@@ -1,0 +1,11 @@
+# Title: BITS Transfer Job With Uncommon Or Suspicious Remote TLD
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-06-10
+# Level: medium
+# Description: Detects a suspicious download using the BITS client from a FQDN that is unusual. Adversaries may abuse BITS jobs to persistently execute or clean up after malicious payloads.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.t1197
+# False Positives:
+#   - This rule doesn't exclude other known TLDs such as ".org" or ".net". It's recommended to apply additional filters for software and scripts that leverage the BITS service
+
+EventID=16403 NOT (RemoteName IN ("*.azureedge.net/*", "*.com/*", "*.sfx.ms/*", "*download.mozilla.org/*", "*cdn.onenote.net/*", "*cdn.office.net/*"))

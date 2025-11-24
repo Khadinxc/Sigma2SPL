@@ -1,0 +1,9 @@
+# Title: Executable from Webdav
+# Author: SOC Prime, Adam Swan
+# Date: 2020-05-01
+# Level: medium
+# Description: Detects executable access via webdav6. Can be seen in APT 29 such as from the emulated APT 29 hackathon https://github.com/OTRF/detection-hackathon-apt29/
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1105
+
+"c-useragent"="*WebDAV*" OR "c-uri"="*webdav*" resp_mime_types="*dosexec*" OR "c-uri"="*.exe"

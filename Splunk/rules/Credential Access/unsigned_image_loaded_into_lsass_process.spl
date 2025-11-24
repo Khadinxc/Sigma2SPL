@@ -1,0 +1,11 @@
+# Title: Unsigned Image Loaded Into LSASS Process
+# Author: Teymur Kheirkhabarov, oscd.community
+# Date: 2019-10-22
+# Level: medium
+# Description: Loading unsigned image (DLL, EXE) into LSASS process
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# False Positives:
+#   - Valid user connecting using RDP
+
+Image="*\\lsass.exe" Signed="false"

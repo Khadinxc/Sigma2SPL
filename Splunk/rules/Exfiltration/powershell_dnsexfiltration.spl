@@ -1,0 +1,11 @@
+# Title: Powershell DNSExfiltration
+# Author: frack113
+# Date: 2022-01-07
+# Level: high
+# Description: DNSExfiltrator allows for transferring (exfiltrate) a file over a DNS request covert channel
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1048
+# False Positives:
+#   - Legitimate script
+
+ScriptBlockText="*Invoke-DNSExfiltrator*" OR (ScriptBlockText="* -i *" ScriptBlockText="* -d *" ScriptBlockText="* -p *" ScriptBlockText="* -doh *" ScriptBlockText="* -t *")

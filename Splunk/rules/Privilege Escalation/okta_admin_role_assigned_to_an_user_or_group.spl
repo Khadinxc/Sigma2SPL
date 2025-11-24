@@ -1,0 +1,11 @@
+# Title: Okta Admin Role Assigned to an User or Group
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-12
+# Level: medium
+# Description: Detects when an the Administrator role is assigned to an user or group.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1098.003
+# False Positives:
+#   - Administrator roles could be assigned to users or group by other admin users.
+
+eventtype IN ("group.privilege.grant", "user.account.privilege.grant")

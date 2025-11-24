@@ -1,0 +1,11 @@
+# Title: ScreenSaver Registry Key Set
+# Author: Jose Luis Sanchez Martinez (@Joseliyo_Jstnk)
+# Date: 2022-05-04
+# Level: medium
+# Description: Detects registry key established after masqueraded .scr file execution using Rundll32 through desk.cpl
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.011
+# False Positives:
+#   - Legitimate use of screen saver
+
+Image="*\\rundll32.exe" Details="*.scr" TargetObject="*\\Control Panel\\Desktop\\SCRNSAVE.EXE*" NOT (Details IN ("*C:\\Windows\\System32\\*", "*C:\\Windows\\SysWOW64\\*"))

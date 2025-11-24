@@ -1,0 +1,9 @@
+# Title: NtdllPipe Like Activity Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-05
+# Level: high
+# Description: Detects command that type the content of ntdll.dll to a different file or a pipe in order to evade AV / EDR detection. As seen being used in the POC NtdllPipe
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+CommandLine IN ("*type %windir%\\system32\\ntdll.dll*", "*type %systemroot%\\system32\\ntdll.dll*", "*type c:\\windows\\system32\\ntdll.dll*", "*\\ntdll.dll > \\\\.\\pipe\\*")

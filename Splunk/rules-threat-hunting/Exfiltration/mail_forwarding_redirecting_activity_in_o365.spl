@@ -1,0 +1,11 @@
+# Title: Mail Forwarding/Redirecting Activity In O365
+# Author: RedCanary Team (idea), Harjot Singh @cyb3rjy0t
+# Date: 2023-10-11
+# Level: medium
+# Description: Detects email forwarding or redirecting acitivty in O365 Audit logs.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1020, detection.threat-hunting
+# False Positives:
+#   - False positives are expected from legitimate mail forwarding rules. You need organisation specific knowledge. Filter out the domains that are allowed as forwarding targets as well as any additional metadata that you can use for exclusion from trusted sources/targets in order to promote this to a potential detection rule.
+
+(Operation IN ("*New-InboxRule*", "*Set-InboxRule*") Parameters IN ("*ForwardAsAttachmentTo*", "*ForwardingAddress*", "*ForwardingSmtpAddress*", "*ForwardTo*", "*RedirectTo*", "*RedirectToRecipients*")) OR (Operation="*Set-Mailbox*" Parameters IN ("*ForwardingSmtpAddress*", "*ForwardingAddress*")) OR (OperationProperties IN ("*Forward*", "*Recipients*") Operation="*UpdateInboxRules*")

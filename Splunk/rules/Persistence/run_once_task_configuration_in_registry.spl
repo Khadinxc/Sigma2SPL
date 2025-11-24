@@ -1,0 +1,11 @@
+# Title: Run Once Task Configuration in Registry
+# Author: Avneet Singh @v3t0_, oscd.community
+# Date: 2020-11-15
+# Level: medium
+# Description: Rule to detect the configuration of Run Once registry key. Configured payload can be run by runonce.exe /AlternateShellStartup
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1112
+# False Positives:
+#   - Legitimate modification of the registry key by legitimate program
+
+TargetObject="*\\Microsoft\\Active Setup\\Installed Components*" TargetObject="*\\StubPath" NOT ((Details="*C:\\Program Files\\Google\\Chrome\\Application\\*" Details="*\\Installer\\chrmstp.exe\" --configure-user-settings --verbose-logging --system-level*") OR (Details IN ("*C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\*", "*C:\\Program Files\\Microsoft\\Edge\\Application\\*") Details="*\\Installer\\setup.exe\" --configure-user-settings --verbose-logging --system-level --msedge --channel=stable"))

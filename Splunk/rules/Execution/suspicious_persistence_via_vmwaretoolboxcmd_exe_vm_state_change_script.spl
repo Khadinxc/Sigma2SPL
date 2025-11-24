@@ -1,0 +1,9 @@
+# Title: Suspicious Persistence Via VMwareToolBoxCmd.EXE VM State Change Script
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-14
+# Level: high
+# Description: Detects execution of the "VMwareToolBoxCmd.exe" with the "script" and "set" flag to setup a specific script that's located in a potentially suspicious location to run for a specific VM state
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.persistence, attack.t1059
+
+CommandLine="* script *" CommandLine="* set *" Image="*\\VMwareToolBoxCmd.exe" OR OriginalFileName="toolbox-cmd.exe" CommandLine IN ("*:\\PerfLogs\\*", "*:\\Temp\\*", "*:\\Windows\\System32\\Tasks\\*", "*:\\Windows\\Tasks\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp*")

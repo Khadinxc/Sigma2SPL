@@ -1,0 +1,11 @@
+# Title: LSASS Dump Keyword In CommandLine
+# Author: E.M. Anhaus, Tony Lambert, oscd.community, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2019-10-24
+# Level: high
+# Description: Detects the presence of the keywords "lsass" and ".dmp" in the commandline, which could indicate a potential attempt to dump or create a dump of the lsass process.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*lsass.dmp*", "*lsass.zip*", "*lsass.rar*", "*Andrew.dmp*", "*Coredump.dmp*", "*NotLSASS.zip*", "*lsass_2*", "*lsassdump*", "*lsassdmp*") OR (CommandLine="*lsass*" CommandLine="*.dmp*") OR (CommandLine="*SQLDmpr*" CommandLine="*.mdmp*") OR (CommandLine="*nanodump*" CommandLine="*.dmp*")

@@ -1,0 +1,11 @@
+# Title: Certificate Exported From Local Certificate Store
+# Author: Zach Mathis
+# Date: 2023-05-13
+# Level: medium
+# Description: Detects when an application exports a certificate (and potentially the private key as well) from the local Windows certificate store.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1649
+# False Positives:
+#   - Legitimate application requesting certificate exports will trigger this. Apply additional filters as needed
+
+EventID=1007

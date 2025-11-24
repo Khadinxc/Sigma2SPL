@@ -1,0 +1,11 @@
+# Title: DriverQuery.EXE Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-19
+# Level: medium
+# Description: Detect usage of the "driverquery" utility. Which can be used to perform reconnaissance on installed drivers
+# MITRE Tactic: Discovery
+# Tags: attack.discovery
+# False Positives:
+#   - Legitimate use by third party tools in order to investigate installed drivers
+
+Image="*driverquery.exe" OR OriginalFileName="drvqry.exe" NOT (ParentImage IN ("*\\cscript.exe", "*\\mshta.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe") OR ParentImage IN ("*\\AppData\\Local\\*", "*\\Users\\Public\\*", "*\\Windows\\Temp\\*"))

@@ -1,0 +1,9 @@
+# Title: Narrator's Feedback-Hub Persistence
+# Author: Dmitriy Lifanov, oscd.community
+# Date: 2019-10-25
+# Level: high
+# Description: Detects abusing Windows 10 Narrator's Feedback-Hub
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1547.001
+
+(EventType="DeleteValue" TargetObject="*\\AppXypsaf9f1qserqevf0sws76dx4k9a5206\\Shell\\open\\command\\DelegateExecute") OR TargetObject="*\\AppXypsaf9f1qserqevf0sws76dx4k9a5206\\Shell\\open\\command\\(Default)"

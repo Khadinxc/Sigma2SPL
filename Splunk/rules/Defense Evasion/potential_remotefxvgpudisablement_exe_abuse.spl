@@ -1,0 +1,9 @@
+# Title: Potential RemoteFXvGPUDisablement.EXE Abuse
+# Author: frack113, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2021-07-13
+# Level: high
+# Description: Detects PowerShell module creation where the module Contents are set to "function Get-VMRemoteFXPhysicalVideoAdapter". This could be a sign of potential abuse of  the "RemoteFXvGPUDisablement.exe" binary which is known to be vulnerable to module load-order hijacking.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+
+Data="*ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {*"

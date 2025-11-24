@@ -1,0 +1,11 @@
+# Title: Delete Volume Shadow Copies Via WMI With PowerShell
+# Author: frack113
+# Date: 2021-06-03
+# Level: high
+# Description: Shadow Copies deletion using operating systems utilities via PowerShell
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1490
+# False Positives:
+#   - Legitimate Administrator deletes Shadow Copies using operating systems utilities for legitimate reason
+
+Data IN ("*Delete()*", "*Remove-WmiObject*") Data="*Get-WmiObject*" Data="*Win32_ShadowCopy*"

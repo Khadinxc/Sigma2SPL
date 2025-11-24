@@ -1,0 +1,11 @@
+# Title: Potential WinAPI Calls Via CommandLine
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-09-06
+# Level: high
+# Description: Detects the use of WinAPI Functions via the commandline. As seen used by threat actors via the tool winapiexec
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1106
+# False Positives:
+#   - Some legitimate action or applications may use these functions. Investigate further to determine the legitimacy of the activity.
+
+CommandLine IN ("*AddSecurityPackage*", "*AdjustTokenPrivileges*", "*Advapi32*", "*CloseHandle*", "*CreateProcessWithToken*", "*CreatePseudoConsole*", "*CreateRemoteThread*", "*CreateThread*", "*CreateUserThread*", "*DangerousGetHandle*", "*DuplicateTokenEx*", "*EnumerateSecurityPackages*", "*FreeHGlobal*", "*FreeLibrary*", "*GetDelegateForFunctionPointer*", "*GetLogonSessionData*", "*GetModuleHandle*", "*GetProcAddress*", "*GetProcessHandle*", "*GetTokenInformation*", "*ImpersonateLoggedOnUser*", "*kernel32*", "*LoadLibrary*", "*memcpy*", "*MiniDumpWriteDump*", "*ntdll*", "*OpenDesktop*", "*OpenProcess*", "*OpenProcessToken*", "*OpenThreadToken*", "*OpenWindowStation*", "*PtrToString*", "*QueueUserApc*", "*ReadProcessMemory*", "*RevertToSelf*", "*RtlCreateUserThread*", "*secur32*", "*SetThreadToken*", "*VirtualAlloc*", "*VirtualFree*", "*VirtualProtect*", "*WaitForSingleObject*", "*WriteInt32*", "*WriteProcessMemory*", "*ZeroFreeGlobalAllocUnicode*") NOT ((CommandLine IN ("*FreeHGlobal*", "*PtrToString*", "*kernel32*", "*CloseHandle*") ParentImage="*\\CompatTelRunner.exe") OR (CommandLine="*GetLoadLibraryWAddress32*" Image="*\\MpCmdRun.exe"))

@@ -1,0 +1,9 @@
+# Title: Scheduled Task Executed From A Suspicious Location
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-12-05
+# Level: medium
+# Description: Detects the execution of Scheduled Tasks where the Program being run is located in a suspicious location or it's an unusale program to be run from a Scheduled Task
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.005
+
+EventID=129 Path IN ("*C:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp\\*", "*\\Desktop\\*", "*\\Downloads\\*", "*\\Users\\Public\\*", "*C:\\Temp\\*")

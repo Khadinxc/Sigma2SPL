@@ -1,0 +1,12 @@
+# Title: Antivirus Ransomware Detection
+# Author: Florian Roth (Nextron Systems), Arnim Rupp
+# Date: 2022-05-12
+# Level: critical
+# Description: Detects a highly relevant Antivirus alert that reports ransomware.
+# This event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.
+# MITRE Tactic: Impact
+# Tags: attack.t1486, attack.impact
+# False Positives:
+#   - Unlikely
+
+Signature IN ("*BlackWorm*", "*Chaos*", "*Cobra*", "*ContiCrypt*", "*Crypter*", "*CRYPTES*", "*Cryptor*", "*CylanCrypt*", "*DelShad*", "*Destructor*", "*Filecoder*", "*GandCrab*", "*GrandCrab*", "*Haperlock*", "*Hiddentear*", "*HydraCrypt*", "*Krypt*", "*Lockbit*", "*Locker*", "*Mallox*", "*Phobos*", "*Ransom*", "*Ryuk*", "*Ryzerlo*", "*Stopcrypt*", "*Tescrypt*", "*TeslaCrypt*", "*WannaCry*", "*Xorist*")

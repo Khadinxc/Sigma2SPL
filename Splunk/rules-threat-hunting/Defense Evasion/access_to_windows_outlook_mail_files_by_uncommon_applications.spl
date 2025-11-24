@@ -1,0 +1,16 @@
+# Title: Access To Windows Outlook Mail Files By Uncommon Applications
+# Author: frack113
+# Date: 2024-05-10
+# Level: low
+# Description: Detects file access requests to Windows Outlook Mail by uncommon processes.
+# Could indicate potential attempt of credential stealing.
+# Requires heavy baselining before usage
+# MITRE Tactic: Defense Evasion
+# Tags: attack.t1070.008, attack.defense-evasion, detection.threat-hunting
+# False Positives:
+#   - Antivirus, Anti-Spyware, Anti-Malware Software
+#   - Backup software
+#   - Legitimate software installed on partitions other than "C:\"
+#   - Searching software such as "everything.exe"
+
+FileName IN ("*\\AppData\\Local\\Comms\\Unistore\\data*", "*\\AppData\\Local\\Comms\\UnistoreDB\\store.vol") NOT (Image IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*", "C:\\Windows\\system32\\*", "C:\\Windows\\SysWOW64\\*") OR Image="System") NOT ((Image IN ("*\\MpCopyAccelerator.exe", "*\\MsMpEng.exe") Image="C:\\ProgramData\\Microsoft\\Windows Defender\\*") OR Image IN ("*\\thor64.exe", "*\\thor.exe"))

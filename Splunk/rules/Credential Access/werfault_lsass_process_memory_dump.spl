@@ -1,0 +1,9 @@
+# Title: WerFault LSASS Process Memory Dump
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-06-27
+# Level: high
+# Description: Detects WerFault creating a dump file with a name that indicates that the dump file could be an LSASS process memory, which contains user credentials
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+
+Image="C:\\WINDOWS\\system32\\WerFault.exe" TargetFilename IN ("*\\lsass*", "*lsass.exe*")

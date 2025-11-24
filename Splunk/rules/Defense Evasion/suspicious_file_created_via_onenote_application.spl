@@ -1,0 +1,12 @@
+# Title: Suspicious File Created Via OneNote Application
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-02-09
+# Level: high
+# Description: Detects suspicious files created via the OneNote application. This could indicate a potential malicious ".one"/".onepkg" file was executed as seen being used in malware activity in the wild
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - False positives should be very low with the extensions list cited. Especially if you don't heavily utilize OneNote.
+#   - Occasional FPs might occur if OneNote is used internally to share different embedded documents
+
+Image IN ("*\\onenote.exe", "*\\onenotem.exe", "*\\onenoteim.exe") TargetFilename="*\\AppData\\Local\\Temp\\OneNote\\*" TargetFilename IN ("*.bat", "*.chm", "*.cmd", "*.dll", "*.exe", "*.hta", "*.htm", "*.html", "*.js", "*.lnk", "*.ps1", "*.vbe", "*.vbs", "*.wsf")

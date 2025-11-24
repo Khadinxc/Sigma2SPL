@@ -1,0 +1,11 @@
+# Title: Okta MFA Reset or Deactivated
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-21
+# Level: medium
+# Description: Detects when an attempt at deactivating  or resetting MFA.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.credential-access, attack.defense-evasion, attack.t1556.006
+# False Positives:
+#   - If a MFA reset or deactivated was performed by a system administrator.
+
+eventtype IN ("user.mfa.factor.deactivate", "user.mfa.factor.reset_all")

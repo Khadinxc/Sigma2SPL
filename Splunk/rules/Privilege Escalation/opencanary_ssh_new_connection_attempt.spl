@@ -1,0 +1,11 @@
+# Title: OpenCanary - SSH New Connection Attempt
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where an SSH service on an OpenCanary node has had a connection attempt.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.initial-access, attack.lateral-movement, attack.persistence, attack.t1133, attack.t1021, attack.t1078
+# False Positives:
+#   - Unlikely
+
+logtype=4000

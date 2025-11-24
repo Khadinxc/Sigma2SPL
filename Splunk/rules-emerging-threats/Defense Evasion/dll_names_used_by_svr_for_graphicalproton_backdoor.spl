@@ -1,0 +1,9 @@
+# Title: DLL Names Used By SVR For GraphicalProton Backdoor
+# Author: CISA
+# Date: 2023-12-18
+# Level: medium
+# Description: Hunts known SVR-specific DLL names.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001, detection.emerging-threats
+
+ImageLoaded IN ("*\\AclNumsInvertHost.dll", "*\\AddressResourcesSpec.dll", "*\\BlendMonitorStringBuild.dll", "*\\ChildPaletteConnected.dll", "*\\DeregisterSeekUsers.dll", "*\\HandleFrequencyAll.dll", "*\\HardSwapColor.dll", "*\\LengthInMemoryActivate.dll", "*\\ModeBitmapNumericAnimate.dll", "*\\ModeFolderSignMove.dll", "*\\ParametersNamesPopup.dll", "*\\PerformanceCaptionApi.dll", "*\\ScrollbarHandleGet.dll", "*\\UnregisterAncestorAppendAuto.dll", "*\\WowIcmpRemoveReg.dll")

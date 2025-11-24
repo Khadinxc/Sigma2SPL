@@ -1,0 +1,11 @@
+# Title: Backup Files Deleted
+# Author: frack113
+# Date: 2022-01-02
+# Level: medium
+# Description: Detects deletion of files with extensions often used for backup files. Adversaries may delete or remove built-in operating system data and turn off services designed to aid in the recovery of a corrupted system to prevent recovery.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1490
+# False Positives:
+#   - Legitimate usage
+
+Image IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wt.exe", "*\\rundll32.exe", "*\\regsvr32.exe") TargetFilename IN ("*.VHD", "*.bac", "*.bak", "*.wbcat", "*.bkf", "*.set", "*.win", "*.dsk")

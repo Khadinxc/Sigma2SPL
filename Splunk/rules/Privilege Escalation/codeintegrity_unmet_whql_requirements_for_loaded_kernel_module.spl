@@ -1,0 +1,11 @@
+# Title: CodeIntegrity - Unmet WHQL Requirements For Loaded Kernel Module
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-06
+# Level: high
+# Description: Detects loaded kernel modules that did not meet the WHQL signing requirements.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# False Positives:
+#   - Unlikely
+
+EventID IN (3082, 3083) NOT (FileNameBuffer IN ("system32\\drivers\\vsock.sys", "System32\\drivers\\vmci.sys"))

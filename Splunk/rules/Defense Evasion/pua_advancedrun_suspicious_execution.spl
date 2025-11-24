@@ -1,0 +1,9 @@
+# Title: PUA - AdvancedRun Suspicious Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-01-20
+# Level: high
+# Description: Detects the execution of AdvancedRun utility in the context of the TrustedInstaller, SYSTEM, Local Service or Network Service accounts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1134.002
+
+CommandLine IN ("*/EXEFilename*", "*/CommandLine*") CommandLine IN ("* /RunAs 8 *", "* /RunAs 4 *", "* /RunAs 10 *", "* /RunAs 11 *") OR CommandLine IN ("*/RunAs 8", "*/RunAs 4", "*/RunAs 10", "*/RunAs 11")

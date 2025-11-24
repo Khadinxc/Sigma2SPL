@@ -1,0 +1,11 @@
+# Title: Suspicious WindowsTerminal Child Processes
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-25
+# Level: medium
+# Description: Detects suspicious children spawned via the Windows Terminal application which could be a sign of persistence via WindowsTerminal (see references section)
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.persistence
+# False Positives:
+#   - Other legitimate "Windows Terminal" profiles
+
+ParentImage IN ("*\\WindowsTerminal.exe", "*\\wt.exe") Image IN ("*\\rundll32.exe", "*\\regsvr32.exe", "*\\certutil.exe", "*\\cscript.exe", "*\\wscript.exe", "*\\csc.exe") OR Image IN ("*C:\\Users\\Public\\*", "*\\Downloads\\*", "*\\Desktop\\*", "*\\AppData\\Local\\Temp\\*", "*\\Windows\\TEMP\\*") OR CommandLine IN ("* iex *", "* icm*", "*Invoke-*", "*Import-Module *", "*ipmo *", "*DownloadString(*", "* /c *", "* /k *", "* /r *") NOT ((CommandLine="*Import-Module*" CommandLine="*Microsoft.VisualStudio.DevShell.dll*" CommandLine="*Enter-VsDevShell*") OR (CommandLine="*\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_*" CommandLine="*\\LocalState\\settings.json*") OR (CommandLine="*C:\\Program Files\\Microsoft Visual Studio\\*" CommandLine="*\\Common7\\Tools\\VsDevCmd.bat*"))

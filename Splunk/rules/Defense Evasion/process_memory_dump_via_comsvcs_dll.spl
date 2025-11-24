@@ -1,0 +1,11 @@
+# Title: Process Memory Dump Via Comsvcs.DLL
+# Author: Florian Roth (Nextron Systems), Modexp, Nasreddine Bencherchali (Nextron Systems), Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2020-02-18
+# Level: high
+# Description: Detects a process memory dump via "comsvcs.dll" using rundll32, covering multiple different techniques (ordinal, minidump function, etc.)
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.credential-access, attack.t1036, attack.t1003.001, car.2013-05-009
+# False Positives:
+#   - Unlikely
+
+(Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE" OR CommandLine="*rundll32*" CommandLine IN ("*#-*", "*#+*", "*#24*", "*24 *", "*MiniDump*", "*#65560*") CommandLine="*comsvcs*" CommandLine="*full*") OR (CommandLine IN ("* #*", "*,#*", "*, #*", "*\"#*") CommandLine="*24*" CommandLine="*comsvcs*" CommandLine="*full*")

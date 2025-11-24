@@ -1,0 +1,9 @@
+# Title: Potential Encoded PowerShell Patterns In CommandLine
+# Author: Teymur Kheirkhabarov (idea), Vasiliy Burov (rule), oscd.community, Tim Shelton
+# Date: 2020-10-11
+# Level: low
+# Description: Detects specific combinations of encoding methods in PowerShell via the commandline
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+
+Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") (CommandLine IN ("*ToInt*", "*ToDecimal*", "*ToByte*", "*ToUint*", "*ToSingle*", "*ToSByte*") CommandLine IN ("*ToChar*", "*ToString*", "*String*")) OR (CommandLine="*char*" CommandLine="*join*") OR (CommandLine="*split*" CommandLine="*join*")

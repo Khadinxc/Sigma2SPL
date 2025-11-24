@@ -1,0 +1,11 @@
+# Title: Addition of SID History to Active Directory Object
+# Author: Thomas Patzke, @atc_project (improvements)
+# Date: 2017-02-19
+# Level: medium
+# Description: An attacker can use the SID history attribute to gain additional privileges.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1134.005
+# False Positives:
+#   - Migration of an account into a new domain
+
+EventID IN (4765, 4766) OR (EventID=4738 NOT (SidHistory IN ("-", "%%1793")) NOT NOT SidHistory=*)

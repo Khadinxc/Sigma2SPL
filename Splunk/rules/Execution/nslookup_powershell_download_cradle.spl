@@ -1,0 +1,9 @@
+# Title: Nslookup PowerShell Download Cradle
+# Author: Sai Prashanth Pulisetti @pulisettis, Aishwarya Singam
+# Date: 2022-12-10
+# Level: medium
+# Description: Detects a powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+Data IN ("*-q=txt http*", "*-querytype=txt http*", "*-type=txt http*") Data="*powershell*" Data="*nslookup*" Data="*[1]*"

@@ -1,0 +1,11 @@
+# Title: Invalid PIM License
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-14
+# Level: high
+# Description: Identifies when an organization doesn't have the proper license for PIM and is out of compliance.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - Investigate if licenses have expired.
+
+riskEventType="invalidLicenseAlertIncident"

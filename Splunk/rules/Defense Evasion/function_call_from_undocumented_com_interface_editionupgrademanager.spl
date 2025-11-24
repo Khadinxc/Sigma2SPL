@@ -1,0 +1,9 @@
+# Title: Function Call From Undocumented COM Interface EditionUpgradeManager
+# Author: oscd.community, Dmitry Uchakin
+# Date: 2020-10-07
+# Level: medium
+# Description: Detects function calls from the EditionUpgradeManager COM interface. Which is an interface that is not used by standard executables.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1548.002
+
+CallTrace="*editionupgrademanagerobj.dll*"

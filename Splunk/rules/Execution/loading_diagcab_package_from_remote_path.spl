@@ -1,0 +1,11 @@
+# Title: Loading Diagcab Package From Remote Path
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-14
+# Level: high
+# Description: Detects loading of diagcab packages from a remote path, as seen in DogWalk vulnerability
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - Legitimate package hosted on a known and authorized remote location
+
+EventID=101 PackagePath="*\\\\*"

@@ -1,0 +1,9 @@
+# Title: Silenttrinity Stager Msbuild Activity
+# Author: Kiran kumar s, oscd.community
+# Date: 2020-10-11
+# Level: high
+# Description: Detects a possible remote connections to Silenttrinity c2
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.defense-evasion, attack.t1127.001
+
+Image="*\\msbuild.exe" DestinationPort IN (80, 443) Initiated="true"

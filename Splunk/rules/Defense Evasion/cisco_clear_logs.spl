@@ -1,0 +1,11 @@
+# Title: Cisco Clear Logs
+# Author: Austin Clark
+# Date: 2019-08-12
+# Level: high
+# Description: Clear command history in network OS which is used for defense evasion
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.003
+# False Positives:
+#   - Legitimate administrators may run these commands
+
+"clear logging" OR "clear archive"

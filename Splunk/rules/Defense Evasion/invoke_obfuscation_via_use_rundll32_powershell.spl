@@ -1,0 +1,9 @@
+# Title: Invoke-Obfuscation Via Use Rundll32 - PowerShell
+# Author: Nikita Nazarov, oscd.community
+# Date: 2019-10-08
+# Level: high
+# Description: Detects Obfuscated Powershell via use Rundll32 in Scripts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+
+ScriptBlockText IN ("*value*", "*invoke*", "*comspec*", "*iex*") ScriptBlockText="*&&*" ScriptBlockText="*rundll32*" ScriptBlockText="*shell32.dll*" ScriptBlockText="*shellexec_rundll*"

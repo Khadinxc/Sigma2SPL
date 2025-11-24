@@ -1,0 +1,11 @@
+# Title: OpenCanary - HTTPPROXY Login Attempt
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where an HTTPPROXY service on an OpenCanary node has had an attempt to proxy another page.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.command-and-control, attack.t1090
+# False Positives:
+#   - Unlikely
+
+logtype=7001

@@ -1,0 +1,12 @@
+# Title: New Remote Desktop Connection Initiated Via Mstsc.EXE
+# Author: frack113
+# Date: 2022-01-07
+# Level: medium
+# Description: Detects the usage of "mstsc.exe" with the "/v" flag to initiate a connection to a remote server.
+# Adversaries may use valid accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.001
+# False Positives:
+#   - WSL (Windows Sub System For Linux)
+
+CommandLine="* -v:*" OR CommandLine="* /v:*" OR CommandLine="* –v:*" OR CommandLine="* —v:*" OR CommandLine="* ―v:*" Image="*\\mstsc.exe" OR OriginalFileName="mstsc.exe" NOT (CommandLine="*C:\\ProgramData\\Microsoft\\WSL\\wslg.rdp*" ParentImage="C:\\Windows\\System32\\lxss\\wslhost.exe")

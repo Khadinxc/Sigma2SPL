@@ -1,0 +1,9 @@
+# Title: Suspicious Environment Variable Has Been Registered
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-12-20
+# Level: high
+# Description: Detects the creation of user-specific or system-wide environment variables via the registry. Which contains suspicious commands and strings
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence
+
+Details IN ("powershell", "pwsh") OR Details IN ("*\\AppData\\Local\\Temp\\*", "*C:\\Users\\Public\\*", "*TVqQAAMAAAAEAAAA*", "*TVpQAAIAAAAEAA8A*", "*TVqAAAEAAAAEABAA*", "*TVoAAAAAAAAAAAAA*", "*TVpTAQEAAAAEAAAA*", "*SW52b2tlL*", "*ludm9rZS*", "*JbnZva2Ut*", "*SQBuAHYAbwBrAGUALQ*", "*kAbgB2AG8AawBlAC0A*", "*JAG4AdgBvAGsAZQAtA*") OR Details IN ("SUVY*", "SQBFAF*", "SQBuAH*", "cwBhA*", "aWV4*", "aQBlA*", "R2V0*", "dmFy*", "dgBhA*", "dXNpbm*", "H4sIA*", "Y21k*", "cABhAH*", "Qzpc*", "Yzpc*") TargetObject="*\\Environment\\*"

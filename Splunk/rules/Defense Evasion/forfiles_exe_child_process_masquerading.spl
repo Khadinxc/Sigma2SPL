@@ -1,0 +1,9 @@
+# Title: Forfiles.EXE Child Process Masquerading
+# Author: Nasreddine Bencherchali (Nextron Systems), Anish Bogati
+# Date: 2024-01-05
+# Level: high
+# Description: Detects the execution of "forfiles" from a non-default location, in order to potentially spawn a custom "cmd.exe" from the current working directory.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036
+
+CommandLine="/c echo \"*" Image="*\\cmd.exe" ParentCommandLine IN ("*.exe", "*.exe\"") NOT (Image IN ("*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*") Image="*\\cmd.exe" ParentImage IN ("*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*") ParentImage="*\\forfiles.exe")

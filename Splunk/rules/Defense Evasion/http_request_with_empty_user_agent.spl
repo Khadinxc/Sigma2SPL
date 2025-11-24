@@ -1,0 +1,10 @@
+# Title: HTTP Request With Empty User Agent
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-07-08
+# Level: medium
+# Description: Detects a potentially suspicious empty user agent strings in proxy log.
+# Could potentially indicate an uncommon request method.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.command-and-control, attack.t1071.001
+
+"c-useragent"=""

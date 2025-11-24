@@ -1,0 +1,9 @@
+# Title: GALLIUM Artefacts - Builtin
+# Author: Tim Burrell
+# Date: 2020-02-07
+# Level: high
+# Description: Detects artefacts associated with activity group GALLIUM - Microsoft Threat Intelligence Center indicators released in December 2019.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.command-and-control, attack.t1071, detection.emerging-threats
+
+EventID=257 QNAME IN ("asyspy256.ddns.net", "hotkillmail9sddcc.ddns.net", "rosaf112.ddns.net", "cvdfhjh1231.myftp.biz", "sz2016rose.ddns.net", "dffwescwer4325.myftp.biz", "cvdfhjh1231.ddns.net")

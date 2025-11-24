@@ -1,0 +1,11 @@
+# Title: FakeUpdates/SocGholish Activity
+# Author: @kostastsale
+# Date: 2022-06-16
+# Level: high
+# Description: Detects initial execution of FakeUpdates/SocGholish malware via wscript that later executes commands via cmd or powershell.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+Image IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe") ParentCommandLine IN ("*Chrome*", "*Edge*", "*Firefox*", "*Opera*", "*Brave*", "*Vivaldi*") ParentCommandLine="*\\AppData\\Local\\Temp*" ParentCommandLine="*.zip*" ParentCommandLine="*update*" ParentCommandLine="*.js*" ParentImage="*\\wscript.exe"

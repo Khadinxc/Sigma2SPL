@@ -1,0 +1,11 @@
+# Title: Shai-Hulud NPM Package Malicious Exfiltration via Curl
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-09-24
+# Level: high
+# Description: Detects potential Shai Hulud NPM package attack attempting to exfiltrate data via curl to external webhook sites.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1041, attack.collection, attack.t1005, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine="*curl*" CommandLine="*-d*" CommandLine="*webhook.site/bb8ca5f6-4175-45d2-b042-fc9ebb8170b7*" Image="*/curl"

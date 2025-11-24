@@ -1,0 +1,12 @@
+# Title: Possible PrintNightmare Print Driver Install - CVE-2021-1675
+# Author: @neu5ron (Nate Guagenti)
+# Date: 2021-08-23
+# Level: medium
+# Description: Detects the remote installation of a print driver which is possible indication of the exploitation of PrintNightmare (CVE-2021-1675).
+# The occurrence of print drivers being installed remotely via RPC functions should be rare, as print drivers are normally installed locally and or through group policy.
+# MITRE Tactic: Execution
+# Tags: attack.execution, cve.2021-1678, cve.2021-1675, cve.2021-34527, detection.emerging-threats
+# False Positives:
+#   - Legitimate remote alteration of a printer driver.
+
+operation IN ("RpcAsyncInstallPrinterDriverFromPackage", "RpcAsyncAddPrintProcessor", "RpcAddPrintProcessor", "RpcAddPrinterDriverEx", "RpcAddPrinterDriver", "RpcAsyncAddPrinterDriver")

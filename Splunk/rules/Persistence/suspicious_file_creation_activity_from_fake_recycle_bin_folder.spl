@@ -1,0 +1,9 @@
+# Title: Suspicious File Creation Activity From Fake Recycle.Bin Folder
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-07-12
+# Level: high
+# Description: Detects file write event from/to a fake recycle bin folder that is often used as a staging directory for malware
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion
+
+Image IN ("*RECYCLERS.BIN\\*", "*RECYCLER.BIN\\*") OR TargetFilename IN ("*RECYCLERS.BIN\\*", "*RECYCLER.BIN\\*")

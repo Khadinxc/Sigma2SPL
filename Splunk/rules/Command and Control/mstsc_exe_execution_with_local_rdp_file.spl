@@ -1,0 +1,11 @@
+# Title: Mstsc.EXE Execution With Local RDP File
+# Author: Nasreddine Bencherchali (Nextron Systems), Christopher Peacock @securepeacock
+# Date: 2023-04-18
+# Level: low
+# Description: Detects potential RDP connection via Mstsc using a local ".rdp" file
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1219.002
+# False Positives:
+#   - Likely with legitimate usage of ".rdp" files
+
+CommandLine IN ("*.rdp", "*.rdp\"") Image="*\\mstsc.exe" OR OriginalFileName="mstsc.exe" NOT (CommandLine="*C:\\ProgramData\\Microsoft\\WSL\\wslg.rdp*" ParentImage="C:\\Windows\\System32\\lxss\\wslhost.exe")

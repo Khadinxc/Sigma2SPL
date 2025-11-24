@@ -1,0 +1,11 @@
+# Title: Security Software Discovery - Linux
+# Author: Daniil Yugoslavskiy, oscd.community
+# Date: 2020-10-19
+# Level: low
+# Description: Detects usage of system utilities (only grep and egrep for now) to discover security software discovery
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1518.001
+# False Positives:
+#   - Legitimate activities
+
+CommandLine IN ("*nessusd*", "*td-agent*", "*packetbeat*", "*filebeat*", "*auditbeat*", "*osqueryd*", "*cbagentd*", "*falcond*") Image IN ("*/grep", "*/egrep")

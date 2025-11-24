@@ -1,0 +1,13 @@
+# Title: Potential Packet Capture Activity Via Start-NetEventSession - ScriptBlock
+# Author: frack113
+# Date: 2024-05-12
+# Level: medium
+# Description: Detects the execution of powershell scripts with calls to the "Start-NetEventSession" cmdlet. Which allows an attacker to start event and packet capture for a network event session.
+# Adversaries may attempt to capture network to gather information over the course of an operation.
+# Data captured via this technique may include user credentials, especially those sent over an insecure, unencrypted protocol.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.discovery, attack.t1040
+# False Positives:
+#   - Legitimate network diagnostic scripts.
+
+ScriptBlockText="*Start-NetEventSession*"

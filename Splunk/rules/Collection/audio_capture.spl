@@ -1,0 +1,9 @@
+# Title: Audio Capture
+# Author: Pawel Mazur, Milad Cheraghi
+# Date: 2021-09-04
+# Level: low
+# Description: Detects attempts to record audio using the arecord and ecasound utilities.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1123
+
+(a0="arecord" a1="-vv" a2="-fdat" type="EXECVE") OR (exe="*/ecasound" syscall="memfd_create" type="SYSCALL")

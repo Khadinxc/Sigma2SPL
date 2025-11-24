@@ -1,0 +1,9 @@
+# Title: Potential Process Hollowing Activity
+# Author: Christopher Peacock '@securepeacock', SCYTHE '@scythe_io', Sittikorn S
+# Date: 2022-01-25
+# Level: medium
+# Description: Detects when a memory process image does not match the disk image, indicative of process hollowing.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055.012
+
+Type="Image is replaced" NOT (Image IN ("*:\\Program Files (x86)*", "*:\\Program Files\\*", "*:\\Windows\\System32\\wbem\\WMIADAP.exe*", "*:\\Windows\\SysWOW64\\wbem\\WMIADAP.exe*")) NOT (Image="*\\WindowsApps\\MicrosoftEdge.exe" OR (Image="*\\AppData\\Local\\Programs\\Opera\\*" Image="*\\opera.exe"))

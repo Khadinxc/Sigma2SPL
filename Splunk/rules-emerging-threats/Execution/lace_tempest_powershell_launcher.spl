@@ -1,0 +1,11 @@
+# Title: Lace Tempest PowerShell Launcher
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-11-09
+# Level: high
+# Description: Detects a PowerShell script used by Lace Tempest APT to launch their malware loader by exploiting CVE-2023-47246 as reported by SysAid Team
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+ScriptBlockText="*\\SysAidServer\\tomcat\\webapps*" ScriptBlockText="*Starting user.exe*" ScriptBlockText="*\\usersfiles\\user.exe*" ScriptBlockText="*Remove-Item -Force \"$wapps*" ScriptBlockText="*(Sophos).*"

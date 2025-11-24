@@ -1,0 +1,9 @@
+# Title: HackTool - CACTUSTORCH Remote Thread Creation
+# Author: @SBousseaden (detection), Thomas Patzke (rule)
+# Date: 2019-02-01
+# Level: high
+# Description: Detects remote thread creation from CACTUSTORCH as described in references.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.execution, attack.t1055.012, attack.t1059.005, attack.t1059.007, attack.t1218.005
+
+SourceImage IN ("*\\System32\\cscript.exe", "*\\System32\\wscript.exe", "*\\System32\\mshta.exe", "*\\winword.exe", "*\\excel.exe") NOT StartModule=* TargetImage="*\\SysWOW64\\*"

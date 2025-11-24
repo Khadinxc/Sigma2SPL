@@ -1,0 +1,11 @@
+# Title: Potential Persistence Via Microsoft Office Add-In
+# Author: NVISO
+# Date: 2020-05-11
+# Level: high
+# Description: Detects potential persistence activity via startup add-ins that load when Microsoft Office starts (.wll/.xll are simply .dll fit for Word or Excel).
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1137.006
+# False Positives:
+#   - Legitimate add-ins
+
+(TargetFilename="*\\Microsoft\\Addins\\*" TargetFilename IN ("*.xlam", "*.xla", "*.ppam")) OR (TargetFilename="*\\Microsoft\\Word\\Startup\\*" TargetFilename="*.wll") OR (TargetFilename="*Microsoft\\Excel\\XLSTART\\*" TargetFilename="*.xlam") OR (TargetFilename="*\\Microsoft\\Excel\\Startup\\*" TargetFilename="*.xll")

@@ -1,0 +1,16 @@
+# Title: ASLR Disabled Via Sysctl or Direct Syscall - Linux
+# Author: Milad Cheraghi
+# Date: 2025-05-26
+# Level: high
+# Description: Detects actions that disable Address Space Layout Randomization (ASLR) in Linux, including:
+#   - Use of the `personality` syscall with the ADDR_NO_RANDOMIZE flag (0x0040000)
+#   - Modification of the /proc/sys/kernel/randomize_va_space file
+#   - Execution of the `sysctl` command to set `kernel.randomize_va_space=0`
+# Disabling ASLR is often used by attackers during exploit development or to bypass memory protection mechanisms.
+# A successful use of these methods can reduce the effectiveness of ASLR and make memory corruption attacks more reliable.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1562.001, attack.t1055.009
+# False Positives:
+#   - Debugging or legitimate software testing
+
+(a0=40000 syscall="personality" type="SYSCALL") OR (a0="sysctl" a1="-w" a2="kernel.randomize_va_space=0" type="EXECVE")

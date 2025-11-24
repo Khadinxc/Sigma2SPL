@@ -1,0 +1,12 @@
+# Title: Azure Kubernetes Pods Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-07-24
+# Level: medium
+# Description: Identifies the deletion of Azure Kubernetes Pods.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - Pods may be deleted by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Pods deletions from unfamiliar users or hosts should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName="MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/PODS/DELETE"

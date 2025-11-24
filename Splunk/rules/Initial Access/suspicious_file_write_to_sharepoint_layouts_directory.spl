@@ -1,0 +1,10 @@
+# Title: Suspicious File Write to SharePoint Layouts Directory
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-07-24
+# Level: high
+# Description: Detects suspicious file writes to SharePoint layouts directory which could indicate webshell activity or post-exploitation.
+# This behavior has been observed in the exploitation of SharePoint vulnerabilities such as CVE-2025-49704, CVE-2025-49706 or CVE-2025-53770.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190, attack.persistence, attack.t1505.003
+
+Image IN ("*\\cmd.exe", "*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\w3wp.exe") TargetFilename IN ("*\\15\\TEMPLATE\\LAYOUTS\\*", "*\\16\\TEMPLATE\\LAYOUTS\\*") TargetFilename IN ("*.asax", "*.ascx", "*.ashx", "*.asmx", "*.asp", "*.aspx", "*.bat", "*.cmd", "*.cer", "*.config", "*.hta", "*.js", "*.jsp", "*.jspx", "*.php", "*.ps1", "*.vbs") TargetFilename IN ("C:\\Program Files\\Common Files\\Microsoft Shared\\Web Server Extensions\\*", "C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Web Server Extensions\\*")

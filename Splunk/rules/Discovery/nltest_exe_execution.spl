@@ -1,0 +1,11 @@
+# Title: Nltest.EXE Execution
+# Author: Arun Chauhan
+# Date: 2023-02-03
+# Level: low
+# Description: Detects nltest commands that can be used for information discovery
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1016, attack.t1018, attack.t1482
+# False Positives:
+#   - Legitimate administration activity
+
+Image="*\\nltest.exe" OR OriginalFileName="nltestrk.exe"

@@ -1,0 +1,9 @@
+# Title: Unusual File Download From File Sharing Websites - File Stream
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-08-24
+# Level: medium
+# Description: Detects the download of suspicious file type from a well-known file and paste sharing domain
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.s0139, attack.t1564.004
+
+Contents IN ("*.githubusercontent.com*", "*anonfiles.com*", "*cdn.discordapp.com*", "*ddns.net*", "*dl.dropboxusercontent.com*", "*ghostbin.co*", "*glitch.me*", "*gofile.io*", "*hastebin.com*", "*mediafire.com*", "*mega.nz*", "*onrender.com*", "*pages.dev*", "*paste.ee*", "*pastebin.com*", "*pastebin.pl*", "*pastetext.net*", "*pixeldrain.com*", "*privatlab.com*", "*privatlab.net*", "*send.exploit.in*", "*sendspace.com*", "*storage.googleapis.com*", "*storjshare.io*", "*supabase.co*", "*temp.sh*", "*transfer.sh*", "*trycloudflare.com*", "*ufile.io*", "*w3spaces.com*", "*workers.dev*") TargetFilename IN ("*.bat:Zone*", "*.cmd:Zone*", "*.ps1:Zone*")

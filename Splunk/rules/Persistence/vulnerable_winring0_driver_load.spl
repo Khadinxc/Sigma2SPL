@@ -1,0 +1,9 @@
+# Title: Vulnerable WinRing0 Driver Load
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-07-26
+# Level: high
+# Description: Detects the load of a signed WinRing0 driver often used by threat actors, crypto miners (XMRIG) or malware for privilege escalation
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1543.003
+
+Hashes="*IMPHASH=D41FA95D4642DC981F10DE36F4DC8CD7*" OR ImageLoaded IN ("*\\WinRing0x64.sys", "*\\WinRing0.sys", "*\\WinRing0.dll", "*\\WinRing0x64.dll", "*\\winring00x64.sys")

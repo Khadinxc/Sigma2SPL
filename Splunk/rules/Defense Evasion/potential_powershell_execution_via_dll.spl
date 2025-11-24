@@ -1,0 +1,10 @@
+# Title: Potential PowerShell Execution Via DLL
+# Author: Markus Neis, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2018-08-25
+# Level: high
+# Description: Detects potential PowerShell execution from a DLL instead of the usual PowerShell process as seen used in PowerShdll.
+# This detection assumes that PowerShell commands are passed via the CommandLine.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.011
+
+CommandLine IN ("*Default.GetString*", "*DownloadString*", "*FromBase64String*", "*ICM *", "*IEX *", "*Invoke-Command*", "*Invoke-Expression*") Image IN ("*\\InstallUtil.exe", "*\\RegAsm.exe", "*\\RegSvcs.exe", "*\\regsvr32.exe", "*\\rundll32.exe") OR OriginalFileName IN ("InstallUtil.exe", "RegAsm.exe", "RegSvcs.exe", "REGSVR32.EXE", "RUNDLL32.EXE")

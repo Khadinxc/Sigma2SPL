@@ -1,0 +1,9 @@
+# Title: End User Consent Blocked
+# Author: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'
+# Date: 2022-07-10
+# Level: medium
+# Description: Detects when end user consent is blocked due to risk-based consent.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1528
+
+failure_status_reason="Microsoft.online.Security.userConsentBlockedForRiskyAppsExceptions"

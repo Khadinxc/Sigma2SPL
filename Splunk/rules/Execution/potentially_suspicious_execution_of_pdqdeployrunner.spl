@@ -1,0 +1,11 @@
+# Title: Potentially Suspicious Execution Of PDQDeployRunner
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-22
+# Level: medium
+# Description: Detects suspicious execution of "PDQDeployRunner" which is part of the PDQDeploy service stack that is responsible for executing commands and packages on a remote machines
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - Legitimate use of the PDQDeploy tool to execute these commands
+
+Image IN ("*\\bash.exe", "*\\certutil.exe", "*\\cmd.exe", "*\\csc.exe", "*\\cscript.exe", "*\\dllhost.exe", "*\\mshta.exe", "*\\msiexec.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\scriptrunner.exe", "*\\wmic.exe", "*\\wscript.exe", "*\\wsl.exe") OR Image IN ("*:\\ProgramData\\*", "*:\\Users\\Public\\*", "*:\\Windows\\TEMP\\*", "*\\AppData\\Local\\Temp*") OR CommandLine IN ("* -decode *", "* -enc *", "* -encodedcommand *", "* -w hidden*", "*DownloadString*", "*FromBase64String*", "*http*", "*iex *", "*Invoke-*") ParentImage="*\\PDQDeployRunner-*"

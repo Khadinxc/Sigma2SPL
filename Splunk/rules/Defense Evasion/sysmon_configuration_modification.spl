@@ -1,0 +1,11 @@
+# Title: Sysmon Configuration Modification
+# Author: frack113
+# Date: 2021-06-04
+# Level: high
+# Description: Detects when an attacker tries to hide from Sysmon by disabling or stopping it
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564
+# False Positives:
+#   - Legitimate administrative action
+
+"Sysmon config state changed" OR State="Stopped" NOT State="Started"

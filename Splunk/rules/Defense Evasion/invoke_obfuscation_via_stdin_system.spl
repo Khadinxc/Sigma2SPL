@@ -1,0 +1,9 @@
+# Title: Invoke-Obfuscation Via Stdin - System
+# Author: Nikita Nazarov, oscd.community
+# Date: 2020-10-12
+# Level: high
+# Description: Detects Obfuscated Powershell via Stdin in Scripts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+
+EventID=7045 ImagePath IN ("*environment*", "*invoke*", "*input*") ImagePath="*set*" ImagePath="*&&*" Provider_Name="Service Control Manager"

@@ -1,0 +1,9 @@
+# Title: Sofacy Trojan Loader Activity
+# Author: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community
+# Date: 2018-03-01
+# Level: high
+# Description: Detects Trojan loader activity as used by APT28
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.g0007, attack.t1059.003, attack.t1218.011, car.2013-10-002, detection.emerging-threats
+
+CommandLine="*.dat\",*" OR CommandLine IN ("*.dll #1", "*.dll\" #1", "*.dll\",#1") CommandLine IN ("*%LOCALAPPDATA%*", "*\\AppData\\Local\\*") Image="*\\rundll32.exe" NOT CommandLine="*\\AppData\\Local\\Temp\\*"

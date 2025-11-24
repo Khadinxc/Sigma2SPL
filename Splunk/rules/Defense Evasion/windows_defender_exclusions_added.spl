@@ -1,0 +1,11 @@
+# Title: Windows Defender Exclusions Added
+# Author: Christian Burkard (Nextron Systems)
+# Date: 2021-07-06
+# Level: medium
+# Description: Detects the Setting of Windows Defender Exclusions
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Administrator actions
+
+EventID=5007 NewValue="*\\Microsoft\\Windows Defender\\Exclusions*"

@@ -1,0 +1,9 @@
+# Title: Potential Discovery Activity Using Find - MacOS
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-12-28
+# Level: medium
+# Description: Detects usage of "find" binary in a suspicious manner to perform discovery
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1083
+
+CommandLine IN ("*-perm -4000*", "*-perm -2000*", "*-perm 0777*", "*-perm -222*", "*-perm -o w*", "*-perm -o x*", "*-perm -u=s*", "*-perm -g=s*") Image="*/find"

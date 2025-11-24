@@ -1,0 +1,11 @@
+# Title: Potential Webshell Creation On Static Website
+# Author: Beyu Denis, oscd.community, Tim Shelton, Thurein Oo
+# Date: 2019-10-22
+# Level: medium
+# Description: Detects the creation of files with certain extensions on a static web site. This can be indicative of potential uploads of a web shell.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+# False Positives:
+#   - Legitimate administrator or developer creating legitimate executable files in a web application folder
+
+(TargetFilename IN ("*.ashx*", "*.asp*", "*.ph*", "*.soap*") TargetFilename="*\\inetpub\\wwwroot\\*") OR (TargetFilename="*.ph*" TargetFilename IN ("*\\www\\*", "*\\htdocs\\*", "*\\html\\*")) NOT (TargetFilename="*\\xampp*" OR Image="System" OR TargetFilename IN ("*\\AppData\\Local\\Temp\\*", "*\\Windows\\Temp\\*"))

@@ -1,0 +1,9 @@
+# Title: PowerShell Logging Disabled Via Registry Key Tampering
+# Author: frack113
+# Date: 2022-04-02
+# Level: high
+# Description: Detects changes to the registry for the currently logged-in user. In order to disable PowerShell module logging, script block logging or transcription and script execution logging
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564.001
+
+Details="DWORD (0x00000000)" TargetObject IN ("*\\Microsoft\\Windows\\PowerShell\\*", "*\\Microsoft\\PowerShellCore\\*") TargetObject IN ("*\\ModuleLogging\\EnableModuleLogging", "*\\ScriptBlockLogging\\EnableScriptBlockLogging", "*\\ScriptBlockLogging\\EnableScriptBlockInvocationLogging", "*\\Transcription\\EnableTranscripting", "*\\Transcription\\EnableInvocationHeader", "*\\EnableScripts")

@@ -1,0 +1,9 @@
+# Title: PUA - Radmin Viewer Utility Execution
+# Author: frack113
+# Date: 2022-01-22
+# Level: medium
+# Description: Detects the execution of Radmin which can be abused by an adversary to remotely control Windows machines
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.lateral-movement, attack.t1072
+
+Description="Radmin Viewer" OR Product="Radmin Viewer" OR OriginalFileName="Radmin.exe"

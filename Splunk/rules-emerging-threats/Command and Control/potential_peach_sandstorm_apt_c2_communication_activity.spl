@@ -1,0 +1,9 @@
+# Title: Potential Peach Sandstorm APT C2 Communication Activity
+# Author: X__Junior (Nextron Systems)
+# Date: 2024-01-15
+# Level: medium
+# Description: Detects potential C2 communication activity related to Peach Sandstorm APT
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, detection.emerging-threats
+
+"c-uri" IN ("*/api/Core/Command/Init", "*/api/Core/Command/Restart") "cs-method"="GET"

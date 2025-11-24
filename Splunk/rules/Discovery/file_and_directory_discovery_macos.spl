@@ -1,0 +1,14 @@
+# Title: File and Directory Discovery - MacOS
+# Author: Daniil Yugoslavskiy, oscd.community
+# Date: 2020-10-19
+# Level: informational
+# Description: Detects usage of system utilities to discover files and directories
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1083
+# False Positives:
+#   - Legitimate activities
+
+
+| rex field=CommandLine "(?<CommandLineMatch>(.){200,})"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search (CommandLineCondition="true" Image="/usr/bin/file") OR Image="/usr/bin/find" OR Image="/usr/bin/mdfind" OR (CommandLine="*-R*" Image="/bin/ls") OR Image="/tree"

@@ -1,0 +1,11 @@
+# Title: Roles Activated Too Frequently
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-14
+# Level: high
+# Description: Identifies when the same privilege role has multiple activations by the same user.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - Investigate where if active time period for a role is set too short.
+
+riskEventType="sequentialActivationRenewalsAlertIncident"

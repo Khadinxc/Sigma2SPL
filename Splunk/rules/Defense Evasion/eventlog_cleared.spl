@@ -1,0 +1,12 @@
+# Title: Eventlog Cleared
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-01-10
+# Level: medium
+# Description: One of the Windows Eventlogs has been cleared. e.g. caused by "wevtutil cl" command execution
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.001, car.2016-04-002
+# False Positives:
+#   - Rollout of log collection agents (the setup routine often includes a reset of the local Eventlog)
+#   - System provisioning (system reset before the golden image creation)
+
+EventID=104 Provider_Name="Microsoft-Windows-Eventlog" NOT (Channel IN ("Microsoft-Windows-PowerShell/Operational", "Microsoft-Windows-Sysmon/Operational", "PowerShellCore/Operational", "Security", "System", "Windows PowerShell"))

@@ -1,0 +1,11 @@
+# Title: HTTP Request to Low Reputation TLD or Suspicious File Extension
+# Author: @signalblur, Corelight
+# Date: 2025-02-26
+# Level: medium
+# Description: Detects HTTP requests to low reputation TLDs (e.g. .xyz, .top, .ru) or ending in suspicious file extensions (.exe, .dll, .hta), which may indicate malicious activity.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.command-and-control
+# False Positives:
+#   - Rare legitimate software downloads from low quality TLDs
+
+host IN ("*.bid", "*.by", "*.cf", "*.click", "*.cm", "*.ga", "*.gq", "*.ir", "*.kp", "*.loan", "*.ml", "*.mm", "*.party", "*.pw", "*.ru", "*.su", "*.sy", "*.tk", "*.top", "*.tv", "*.ve", "*.work", "*.xyz") uri IN ("*.bat", "*.bin", "*.cmd", "*.cpl", "*.dll", "*.dylib", "*.elf", "*.exe", "*.hta", "*.iso", "*.jar", "*.js", "*.lnk", "*.msi", "*.pif", "*.ps1", "*.py", "*.reg", "*.scr", "*.sh", "*.so", "*.vbs", "*.wsf") OR resp_mime_types IN ("application/vnd.microsoft.portable-executable", "application/x-bat", "application/x-dosexec", "application/x-elf", "application/x-iso9660-image", "application/x-java-archive", "application/x-ms-shortcut", "application/x-msdos-program", "application/x-msdownload", "application/x-python-code", "application/x-sh")

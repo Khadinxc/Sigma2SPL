@@ -1,0 +1,11 @@
+# Title: Linux Webshell Indicators
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2021-10-15
+# Level: high
+# Description: Detects suspicious sub processes of web server processes
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+# False Positives:
+#   - Web applications that invoke Linux command line tools
+
+ParentImage IN ("*/httpd", "*/lighttpd", "*/nginx", "*/apache2", "*/node", "*/caddy") OR (ParentCommandLine="*/bin/java*" ParentCommandLine="*tomcat*") OR (ParentCommandLine="*/bin/java*" ParentCommandLine="*websphere*") Image IN ("*/whoami", "*/ifconfig", "*/ip", "*/bin/uname", "*/bin/cat", "*/bin/crontab", "*/hostname", "*/iptables", "*/netstat", "*/pwd", "*/route")

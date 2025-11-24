@@ -1,0 +1,9 @@
+# Title: Potential Remote Desktop Tunneling
+# Author: Tim Rauch, Elastic (idea)
+# Date: 2022-09-27
+# Level: medium
+# Description: Detects potential use of an SSH utility to establish RDP over a reverse SSH Tunnel. This can be used by attackers to enable routing of network packets that would otherwise not reach their intended destination.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021
+
+CommandLine="*:3389*" CommandLine IN ("* -L *", "* -P *", "* -R *", "* -pw *", "* -ssh *")

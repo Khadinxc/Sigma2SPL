@@ -1,0 +1,11 @@
+# Title: Remote Server Service Abuse for Lateral Movement
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to possibly abuse remote encryption service via MS-EFSR
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.execution, attack.t1569.002
+# False Positives:
+#   - Administrative tasks on remote services
+
+EventID=3 EventLog="RPCFW" InterfaceUuid="367abb81-9844-35f1-ad32-98f038001003"

@@ -1,0 +1,12 @@
+# Title: Suspicious Kerberos RC4 Ticket Encryption
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-02-06
+# Level: medium
+# Description: Detects service ticket requests using RC4 encryption type
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558.003
+# False Positives:
+#   - Service accounts used on legacy systems (e.g. NetApp)
+#   - Windows Domains with DFL 2003 and legacy systems
+
+EventID=4769 TicketEncryptionType="0x17" TicketOptions="0x40810000" NOT ServiceName="*$"

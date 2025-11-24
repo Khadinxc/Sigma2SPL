@@ -1,0 +1,9 @@
+# Title: AppX Package Installation Attempts Via AppInstaller.EXE
+# Author: frack113
+# Date: 2021-11-24
+# Level: medium
+# Description: Detects DNS queries made by "AppInstaller.EXE". The AppInstaller is the default handler for the "ms-appinstaller" URI. It attempts to load/install a package from the referenced URL
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1105
+
+Image="*\\AppInstaller.exe" Image="C:\\Program Files\\WindowsApps\\Microsoft.DesktopAppInstaller_*"

@@ -1,0 +1,9 @@
+# Title: Invoke-Obfuscation VAR+ Launcher - Security
+# Author: Jonathan Cheong, oscd.community
+# Date: 2020-10-15
+# Level: high
+# Description: Detects Obfuscated use of Environment Variables to execute PowerShell
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+
+EventID=4697 ServiceFileName IN ("*/c*", "*/r*") ServiceFileName="*cmd*" ServiceFileName="*\"set*" ServiceFileName="*-f*"

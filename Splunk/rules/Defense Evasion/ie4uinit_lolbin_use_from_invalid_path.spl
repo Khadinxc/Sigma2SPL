@@ -1,0 +1,11 @@
+# Title: Ie4uinit Lolbin Use From Invalid Path
+# Author: frack113
+# Date: 2022-05-07
+# Level: medium
+# Description: Detect use of ie4uinit.exe to execute commands from a specially prepared ie4uinit.inf file from a directory other than the usual directories
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+# False Positives:
+#   - ViberPC updater calls this binary with the following commandline "ie4uinit.exe -ClearIconCache"
+
+Image="*\\ie4uinit.exe" OR OriginalFileName="IE4UINIT.EXE" NOT (CurrentDirectory IN ("c:\\windows\\system32\\", "c:\\windows\\sysWOW64\\") OR NOT CurrentDirectory=*)

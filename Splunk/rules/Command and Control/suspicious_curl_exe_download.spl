@@ -1,0 +1,9 @@
+# Title: Suspicious Curl.EXE Download
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2020-07-03
+# Level: high
+# Description: Detects a suspicious curl process start on Windows and outputs the requested document to a local file
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1105
+
+Image="*\\curl.exe" OR Product="The curl executable" CommandLine IN ("*.dll", "*.gif", "*.jpeg", "*.jpg", "*.png", "*.temp", "*.tmp", "*.txt", "*.vbe", "*.vbs") OR CommandLine IN ("*%AppData%*", "*%Public%*", "*%Temp%*", "*%tmp%*", "*\\AppData\\*", "*\\Desktop\\*", "*\\Temp\\*", "*\\Users\\Public\\*", "*C:\\PerfLogs\\*", "*C:\\ProgramData\\*", "*C:\\Windows\\Temp\\*") NOT (CommandLine="*--silent --show-error --output *" CommandLine="*gfw-httpget-*" CommandLine="*AppData*" Image="C:\\Program Files\\Git\\mingw64\\bin\\curl.exe" ParentImage="C:\\Program Files\\Git\\usr\\bin\\sh.exe")

@@ -1,0 +1,11 @@
+# Title: Devil Bait Potential C2 Communication Traffic
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-15
+# Level: high
+# Description: Detects potential C2 communication related to Devil Bait malware
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+"cs-method"="GET" "cs-uri"="*/cross.php*op=*" "cs-uri"="*&dt=*" "cs-uri"="*&uid=*"

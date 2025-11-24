@@ -1,0 +1,11 @@
+# Title: Flash Player Update from Suspicious Location
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-10-25
+# Level: high
+# Description: Detects a flashplayer update from an unofficial location
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1189, attack.execution, attack.t1204.002, attack.defense-evasion, attack.t1036.005
+# False Positives:
+#   - Unknown flash download locations
+
+"c-uri" IN ("*/flash_install.php*", "*/install_flash_player.exe") NOT "cs-host"="*.adobe.com"

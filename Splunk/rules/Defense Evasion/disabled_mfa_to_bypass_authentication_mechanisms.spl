@@ -1,0 +1,11 @@
+# Title: Disabled MFA to Bypass Authentication Mechanisms
+# Author: @ionsor
+# Date: 2022-02-08
+# Level: medium
+# Description: Detection for when multi factor authentication has been disabled, which might indicate a malicious activity to bypass authentication mechanisms.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.credential-access, attack.persistence, attack.t1556
+# False Positives:
+#   - Authorized modification by administrators
+
+eventName="Disable Strong Authentication." eventSource="AzureActiveDirectory" status="success"

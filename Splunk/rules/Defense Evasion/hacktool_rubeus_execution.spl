@@ -1,0 +1,11 @@
+# Title: HackTool - Rubeus Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2018-12-19
+# Level: critical
+# Description: Detects the execution of the hacktool Rubeus via PE information of command line parameters
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.credential-access, attack.t1003, attack.t1558.003, attack.lateral-movement, attack.t1550.003
+# False Positives:
+#   - Unlikely
+
+Image="*\\Rubeus.exe" OR OriginalFileName="Rubeus.exe" OR Description="Rubeus" OR CommandLine IN ("*asreproast *", "*dump /service:krbtgt *", "*dump /luid:0x*", "*kerberoast *", "*createnetonly /program:*", "*ptt /ticket:*", "*/impersonateuser:*", "*renew /ticket:*", "*asktgt /user:*", "*harvest /interval:*", "*s4u /user:*", "*s4u /ticket:*", "*hash /password:*", "*golden /aes256:*", "*silver /user:*")

@@ -1,0 +1,9 @@
+# Title: DCOM InternetExplorer.Application Iertutil DLL Hijack - Security
+# Author: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR)
+# Date: 2020-10-12
+# Level: high
+# Description: Detects a threat actor creating a file named `iertutil.dll` in the `C:\Program Files\Internet Explorer\` directory over the network for a DCOM InternetExplorer DLL Hijack scenario.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002, attack.t1021.003
+
+EventID=5145 RelativeTargetName="*\\Internet Explorer\\iertutil.dll" NOT SubjectUserName="*$"

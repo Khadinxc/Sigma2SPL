@@ -1,0 +1,9 @@
+# Title: Microsoft 365 - Impossible Travel Activity
+# Author: Austin Songer @austinsonger
+# Date: 2020-07-06
+# Level: medium
+# Description: Detects when a Microsoft Cloud App Security reported a risky sign-in attempt due to a login associated with an impossible travel.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+
+eventName="Impossible travel activity" eventSource="SecurityComplianceCenter" status="success"

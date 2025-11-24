@@ -1,0 +1,16 @@
+# Title: Metasploit SMB Authentication
+# Author: Chakib Gzenayi (@Chak092), Hosni Mribah
+# Date: 2020-05-06
+# Level: high
+# Description: Alerts on Metasploit host's authentications on the domain.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+# False Positives:
+#   - Linux hostnames composed of 16 characters.
+
+
+| rex field=WorkstationName "(?<WorkstationNameMatch>^[A-Za-z0-9]{16}$)"
+| eval WorkstationNameCondition=if(isnotnull(WorkstationNameMatch), "true", "false")
+| rex field=Workstation "(?<WorkstationMatch>^[A-Za-z0-9]{16}$)"
+| eval WorkstationCondition=if(isnotnull(WorkstationMatch), "true", "false")
+| search (AuthenticationPackageName="NTLM" EventID IN (4625, 4624) LogonType=3 WorkstationNameCondition="true") OR (EventID=4776 WorkstationCondition="true")

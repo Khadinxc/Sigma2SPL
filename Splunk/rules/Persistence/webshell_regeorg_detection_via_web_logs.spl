@@ -1,0 +1,11 @@
+# Title: Webshell ReGeorg Detection Via Web Logs
+# Author: Cian Heasley
+# Date: 2020-08-04
+# Level: high
+# Description: Certain strings in the uri_query field when combined with null referer and null user agent can indicate activity associated with the webshell ReGeorg.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+# False Positives:
+#   - Web applications that use the same URL parameters as ReGeorg
+
+"cs-uri-query" IN ("*cmd=read*", "*connect&target*", "*cmd=connect*", "*cmd=disconnect*", "*cmd=forward*") "cs-method"="POST" NOT "cs-referer"=* NOT "cs-user-agent"=* | table cs-uri-query,cs-referer,cs-method,cs-User-Agent

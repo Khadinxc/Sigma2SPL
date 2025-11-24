@@ -1,0 +1,9 @@
+# Title: SMB Create Remote File Admin Share
+# Author: Jose Rodriguez (@Cyb3rPandaH), OTR (Open Threat Research)
+# Date: 2020-08-06
+# Level: high
+# Description: Look for non-system accounts SMB accessing a file with write (0x2) access mask via administrative share (i.e C$).
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+
+AccessMask="0x2" EventID=5145 ShareName="*C$" NOT SubjectUserName="*$" NOT IpAddress="::1"

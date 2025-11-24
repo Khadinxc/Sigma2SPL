@@ -1,0 +1,11 @@
+# Title: Interactive Bash Suspicious Children
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-14
+# Level: medium
+# Description: Detects suspicious interactive bash as a parent to rather uncommon child processes
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.defense-evasion, attack.t1059.004, attack.t1036
+# False Positives:
+#   - Legitimate software that uses these patterns
+
+ParentCommandLine="bash -i" CommandLine IN ("*-c import *", "*base64*", "*pty.spawn*") OR Image IN ("*whoami", "*iptables", "*/ncat", "*/nc", "*/netcat")

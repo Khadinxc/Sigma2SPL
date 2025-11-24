@@ -1,0 +1,9 @@
+# Title: Windows Binaries Write Suspicious Extensions
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-12
+# Level: high
+# Description: Detects Windows executables that write files with suspicious extensions
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036
+
+(Image IN ("*\\csrss.exe", "*\\lsass.exe", "*\\RuntimeBroker.exe", "*\\sihost.exe", "*\\smss.exe", "*\\wininit.exe", "*\\winlogon.exe") TargetFilename IN ("*.bat", "*.dll", "*.exe", "*.hta", "*.iso", "*.ps1", "*.txt", "*.vbe", "*.vbs")) OR (Image IN ("*\\dllhost.exe", "*\\rundll32.exe", "*\\svchost.exe") TargetFilename IN ("*.bat", "*.hta", "*.iso", "*.ps1", "*.vbe", "*.vbs")) NOT ((Image="C:\\Windows\\System32\\dllhost.exe" TargetFilename="*:\\Users\\*" TargetFilename="*\\AppData\\Local\\Temp\\__PSScriptPolicyTest_*" TargetFilename="*.ps1") OR (Image="C:\\Windows\\system32\\svchost.exe" TargetFilename="*C:\\Program Files\\WindowsApps\\Clipchamp*" TargetFilename="*.ps1*") OR (Image IN ("C:\\Windows\\system32\\svchost.exe", "C:\\Windows\\SysWOW64\\svchost.exe") TargetFilename="*.ps1" TargetFilename IN ("C:\\Program Files\\WindowsApps\\Microsoft.PowerShellPreview*", "C:\\Program Files (x86)\\WindowsApps\\Microsoft.PowerShellPreview*")) OR (Image="C:\\Windows\\system32\\svchost.exe" TargetFilename="*C:\\Windows\\System32\\GroupPolicy\\DataStore\\*" TargetFilename="*\\sysvol\\*" TargetFilename="*\\Policies\\*" TargetFilename="*\\Machine\\Scripts\\Startup\\*" TargetFilename IN ("*.ps1", "*.bat")))

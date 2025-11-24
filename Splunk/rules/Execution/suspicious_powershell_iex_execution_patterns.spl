@@ -1,0 +1,11 @@
+# Title: Suspicious PowerShell IEX Execution Patterns
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-03-24
+# Level: high
+# Description: Detects suspicious ways to run Invoke-Execution using IEX alias
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Legitimate scripts that use IEX
+
+(CommandLine IN ("* | iex;*", "* | iex *", "* | iex}*", "* | IEX ;*", "* | IEX -Error*", "* | IEX (new*", "*);IEX *") Image IN ("*\\powershell.exe", "*\\pwsh.exe") CommandLine IN ("*::FromBase64String*", "*.GetString([System.Convert]::*")) OR CommandLine IN ("*)|iex;$*", "*);iex($*", "*);iex $*", "* | IEX | *", "* | iex\\\"*")

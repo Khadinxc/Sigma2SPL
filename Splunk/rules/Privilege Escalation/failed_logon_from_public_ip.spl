@@ -1,0 +1,12 @@
+# Title: Failed Logon From Public IP
+# Author: NVISO
+# Date: 2020-05-06
+# Level: medium
+# Description: Detects a failed logon attempt from a public IP. A login from a public IP can indicate a misconfigured firewall or network boundary.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.initial-access, attack.persistence, attack.t1078, attack.t1190, attack.t1133
+# False Positives:
+#   - Legitimate logon attempts over the internet
+#   - IPv4-to-IPv6 mapped IPs
+
+EventID=4625 NOT (IpAddress="*-*" OR IpAddress="::1/128" OR IpAddress="10.0.0.0/8" OR IpAddress="127.0.0.0/8" OR IpAddress="172.16.0.0/12" OR IpAddress="192.168.0.0/16" OR IpAddress="169.254.0.0/16" OR IpAddress="fc00::/7" OR IpAddress="fe80::/10")

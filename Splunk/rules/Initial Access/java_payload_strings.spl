@@ -1,0 +1,11 @@
+# Title: Java Payload Strings
+# Author: frack113, Harjot Singh, "@cyb3rjy0t" (update)
+# Date: 2022-06-04
+# Level: high
+# Description: Detects possible Java payloads in web access logs
+# MITRE Tactic: Initial Access
+# Tags: cve.2022-26134, cve.2021-26084, attack.initial-access, attack.t1190
+# False Positives:
+#   - Legitimate apps
+
+"%24%7B%28%23a%3D%40" OR "${(#a=@" OR "%24%7B%40java" OR "${@java" OR "u0022java" OR "%2F%24%7B%23" OR "/${#" OR "new+java." OR "getRuntime().exec(" OR "getRuntime%28%29.exec%28"

@@ -1,0 +1,11 @@
+# Title: Potential Suspicious Change To Sensitive/Critical Files
+# Author: @d4ns4n_ (Wuerth-Phoenix)
+# Date: 2023-05-30
+# Level: medium
+# Description: Detects changes of sensitive and critical files. Monitors files that you don't expect to change without planning on Linux system.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1565.001
+# False Positives:
+#   - Some false positives are to be expected on user or administrator machines. Apply additional filters as needed.
+
+(CommandLine="*>*" Image IN ("*/cat", "*/echo", "*/grep", "*/head", "*/more", "*/tail")) OR Image IN ("*/emacs", "*/nano", "*/sed", "*/vi", "*/vim") CommandLine IN ("*/bin/login*", "*/bin/passwd*", "*/boot/*", "*/etc/*.conf*", "*/etc/cron.*", "*/etc/crontab*", "*/etc/hosts*", "*/etc/init.d*", "*/etc/sudoers*", "*/opt/bin/*", "*/sbin*", "*/usr/bin/*", "*/usr/local/bin/*")

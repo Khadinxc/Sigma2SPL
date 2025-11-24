@@ -1,0 +1,11 @@
+# Title: Access of Sudoers File Content
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-06-20
+# Level: medium
+# Description: Detects the execution of a text-based file access or inspection utilities to read the content of /etc/sudoers in order to potentially list all users that have sudo rights.
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.t1592.004
+# False Positives:
+#   - Legitimate administration activities
+
+CommandLine="* /etc/sudoers*" Image IN ("*/cat", "*/ed", "*/egrep", "*/emacs", "*/fgrep", "*/grep", "*/head", "*/less", "*/more", "*/nano", "*/tail")

@@ -1,0 +1,9 @@
+# Title: Shell Execution via Find - Linux
+# Author: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)
+# Date: 2024-09-02
+# Level: high
+# Description: Detects the use of the find command to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or exploitation attempt.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1083
+
+CommandLine IN ("*/bin/bash*", "*/bin/dash*", "*/bin/fish*", "*/bin/sh*", "*/bin/zsh*") CommandLine="* . *" CommandLine="*-exec*" Image="*/find"

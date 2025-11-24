@@ -1,0 +1,11 @@
+# Title: AWS Snapshot Backup Exfiltration
+# Author: Darin Smith
+# Date: 2021-05-17
+# Level: medium
+# Description: Detects the modification of an EC2 snapshot's permissions to enable access from another account
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1537
+# False Positives:
+#   - Valid change to a snapshot's permissions
+
+eventName="ModifySnapshotAttribute" eventSource="ec2.amazonaws.com"

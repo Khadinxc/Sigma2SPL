@@ -1,0 +1,9 @@
+# Title: New or Renamed User Account with '$' Character
+# Author: Ilyas Ochkov, oscd.community
+# Date: 2019-10-25
+# Level: medium
+# Description: Detects the creation of a user with the "$" character. This can be used by attackers to hide a user or trick detection systems that lack the parsing mechanisms.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036
+
+(EventID=4720 SamAccountName="*$*") OR (EventID=4781 NewTargetUserName="*$*") NOT (EventID=4720 TargetUserName="HomeGroupUser$")

@@ -1,0 +1,11 @@
+# Title: HackTool - Bloodhound/Sharphound Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-12-20
+# Level: high
+# Description: Detects command line parameters used by Bloodhound and Sharphound hack tools
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1087.001, attack.t1087.002, attack.t1482, attack.t1069.001, attack.t1069.002, attack.execution, attack.t1059.001
+# False Positives:
+#   - Other programs that use these command line option and accepts an 'All' parameter
+
+CommandLine IN ("* -CollectionMethod All *", "* --CollectionMethods Session *", "* --Loop --Loopduration *", "* --PortScanTimeout *", "*.exe -c All -d *", "*Invoke-Bloodhound*", "*Get-BloodHoundData*") OR (CommandLine="* -JsonFolder *" CommandLine="* -ZipFileName *") OR (CommandLine="* DCOnly *" CommandLine="* --NoSaveCache *") OR Product="*SharpHound*" OR Description="*SharpHound*" OR Company IN ("*SpecterOps*", "*evil corp*") OR Image IN ("*\\Bloodhound.exe*", "*\\SharpHound.exe*")

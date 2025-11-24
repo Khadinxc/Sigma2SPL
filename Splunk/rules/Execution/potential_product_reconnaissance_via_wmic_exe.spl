@@ -1,0 +1,9 @@
+# Title: Potential Product Reconnaissance Via Wmic.EXE
+# Author: Nasreddine Bencherchali
+# Date: 2023-02-14
+# Level: medium
+# Description: Detects the execution of WMIC in order to get a list of firewall and antivirus products
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1047
+
+CommandLine="*Product*" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe" NOT (CommandLine IN ("* uninstall*", "* install*"))

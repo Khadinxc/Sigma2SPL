@@ -1,0 +1,11 @@
+# Title: Uncommon Userinit Child Process
+# Author: Tom Ueltschi (@c_APT_ure), Tim Shelton
+# Date: 2019-01-12
+# Level: high
+# Description: Detects uncommon "userinit.exe" child processes, which could be a sign of uncommon shells or login scripts used for persistence.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.t1037.001, attack.persistence
+# False Positives:
+#   - Legitimate logon scripts or custom shells may trigger false positives. Apply additional filters accordingly.
+
+ParentImage="*\\userinit.exe" NOT Image="*:\\WINDOWS\\explorer.exe" NOT (Image IN ("*:\\Program Files (x86)\\Citrix\\HDX\\bin\\cmstart.exe", "*:\\Program Files (x86)\\Citrix\\HDX\\bin\\icast.exe", "*:\\Program Files (x86)\\Citrix\\System32\\icast.exe", "*:\\Program Files\\Citrix\\HDX\\bin\\cmstart.exe", "*:\\Program Files\\Citrix\\HDX\\bin\\icast.exe", "*:\\Program Files\\Citrix\\System32\\icast.exe") OR NOT Image=* OR CommandLine IN ("*netlogon.bat*", "*UsrLogon.cmd*") OR Image IN ("*:\\Windows\\System32\\proquota.exe", "*:\\Windows\\SysWOW64\\proquota.exe") OR CommandLine="PowerShell.exe")

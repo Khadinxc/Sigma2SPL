@@ -1,0 +1,12 @@
+# Title: MITRE BZAR Indicators for Persistence
+# Author: @neu5ron, SOC Prime
+# Date: 2020-03-19
+# Level: medium
+# Description: Windows DCE-RPC functions which indicate a persistence techniques on the remote system. All credit for the Zeek mapping of the suspicious endpoint/operation field goes to MITRE.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1547.004
+# False Positives:
+#   - Windows administrator tasks or troubleshooting
+#   - Windows management scripts or software
+
+(endpoint="spoolss" operation="RpcAddMonitor") OR (endpoint="spoolss" operation="RpcAddPrintProcessor") OR (endpoint="IRemoteWinspool" operation="RpcAsyncAddMonitor") OR (endpoint="IRemoteWinspool" operation="RpcAsyncAddPrintProcessor") OR (endpoint="ISecLogon" operation="SeclCreateProcessWithLogonW") OR (endpoint="ISecLogon" operation="SeclCreateProcessWithLogonExW")

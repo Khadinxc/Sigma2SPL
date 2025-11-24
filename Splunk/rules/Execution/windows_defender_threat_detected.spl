@@ -1,0 +1,11 @@
+# Title: Windows Defender Threat Detected
+# Author: Ján Trenčanský
+# Date: 2020-07-28
+# Level: high
+# Description: Detects actions taken by Windows Defender malware detection engines
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# False Positives:
+#   - Unlikely
+
+EventID IN (1006, 1015, 1116, 1117)

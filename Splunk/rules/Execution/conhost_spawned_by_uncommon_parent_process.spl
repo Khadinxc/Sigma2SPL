@@ -1,0 +1,9 @@
+# Title: Conhost Spawned By Uncommon Parent Process
+# Author: Tim Rauch, Elastic (idea)
+# Date: 2022-09-28
+# Level: medium
+# Description: Detects when the Console Window Host (conhost.exe) process is spawned by an uncommon parent process, which could be indicative of potential code injection activity.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+
+Image="*\\conhost.exe" ParentImage IN ("*\\explorer.exe", "*\\lsass.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\services.exe", "*\\smss.exe", "*\\spoolsv.exe", "*\\svchost.exe", "*\\userinit.exe", "*\\wininit.exe", "*\\winlogon.exe") NOT (ParentCommandLine IN ("*-k apphost -s AppHostSvc*", "*-k imgsvc*", "*-k localService -p -s RemoteRegistry*", "*-k LocalSystemNetworkRestricted -p -s NgcSvc*", "*-k NetSvcs -p -s NcaSvc*", "*-k netsvcs -p -s NetSetupSvc*", "*-k netsvcs -p -s wlidsvc*", "*-k NetworkService -p -s DoSvc*", "*-k wsappx -p -s AppXSvc*", "*-k wsappx -p -s ClipSVC*", "*-k wusvcs -p -s WaaSMedicSvc*")) NOT (ParentCommandLine IN ("*C:\\Program Files (x86)\\Dropbox\\Client\\*", "*C:\\Program Files\\Dropbox\\Client\\*"))

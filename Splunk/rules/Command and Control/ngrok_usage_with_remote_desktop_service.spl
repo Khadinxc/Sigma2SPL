@@ -1,0 +1,9 @@
+# Title: Ngrok Usage with Remote Desktop Service
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-04-29
+# Level: high
+# Description: Detects cases in which ngrok, a reverse proxy tool, forwards events to the local RDP port, which could be a sign of malicious behaviour
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1090
+
+Address="*16777216*" EventID=21

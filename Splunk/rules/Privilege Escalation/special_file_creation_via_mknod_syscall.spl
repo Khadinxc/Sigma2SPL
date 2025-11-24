@@ -1,0 +1,16 @@
+# Title: Special File Creation via Mknod Syscall
+# Author: Milad Cheraghi
+# Date: 2025-05-31
+# Level: low
+# Description: Detects usage of the `mknod` syscall to create special files (e.g., character or block devices).
+# Attackers or malware might use `mknod` to create fake devices, interact with kernel interfaces,
+# or establish covert channels in Linux systems.
+# Monitoring the use of `mknod` is important because this syscall is rarely used by legitimate applications,
+# and it can be abused to bypass file system restrictions or create backdoors.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1543.003
+# False Positives:
+#   - Device creation by legitimate scripts or init systems (udevadm, MAKEDEV)
+#   - Container runtimes or security tools during initialization
+
+syscall="mknod" type="SYSCALL"

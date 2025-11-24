@@ -1,0 +1,15 @@
+# Title: Access To Chromium Browsers Sensitive Files By Uncommon Applications
+# Author: X__Junior (Nextron Systems)
+# Date: 2024-07-29
+# Level: low
+# Description: Detects file access requests to chromium based browser sensitive files by uncommon processes.
+# Could indicate potential attempt of stealing sensitive information.
+# MITRE Tactic: Credential Access
+# Tags: attack.t1003, attack.credential-access, detection.threat-hunting
+# False Positives:
+#   - Antivirus, Anti-Spyware, Anti-Malware Software
+#   - Backup software
+#   - Legitimate software installed on partitions other than "C:\"
+#   - Searching software such as "everything.exe"
+
+FileName IN ("*\\User Data\\Default\\Cookies*", "*\\User Data\\Default\\History*", "*\\User Data\\Default\\Network\\Cookies*", "*\\User Data\\Default\\Web Data*") NOT (Image IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*", "C:\\Windows\\system32\\*", "C:\\Windows\\SysWOW64\\*") OR Image="System") NOT (Image IN ("*\\MpCopyAccelerator.exe", "*\\MsMpEng.exe") Image="C:\\ProgramData\\Microsoft\\Windows Defender\\*")

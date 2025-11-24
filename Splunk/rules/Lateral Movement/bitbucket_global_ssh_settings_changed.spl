@@ -1,0 +1,11 @@
+# Title: Bitbucket Global SSH Settings Changed
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-02-25
+# Level: medium
+# Description: Detects Bitbucket global SSH access configuration changes.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.defense-evasion, attack.t1562.001, attack.t1021.004
+# False Positives:
+#   - Legitimate user activity.
+
+auditType.action="SSH settings changed" auditType.category="Global administration"

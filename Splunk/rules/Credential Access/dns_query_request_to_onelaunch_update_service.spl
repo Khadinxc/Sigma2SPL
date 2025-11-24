@@ -1,0 +1,12 @@
+# Title: DNS Query Request To OneLaunch Update Service
+# Author: Josh Nickels
+# Date: 2024-02-26
+# Level: low
+# Description: Detects DNS query requests to "update.onelaunch.com". This domain is associated with the OneLaunch adware application.
+# When the OneLaunch application is installed it will attempt to get updates from this domain.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.collection, attack.t1056
+# False Positives:
+#   - Unlikely
+
+Image="*\\OneLaunch.exe" QueryName="update.onelaunch.com"

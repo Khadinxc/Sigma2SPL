@@ -1,0 +1,9 @@
+# Title: Windows Shell/Scripting Application File Write to Suspicious Folder
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-11-20
+# Level: high
+# Description: Detects Windows shells and scripting applications that write files to suspicious folders
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+
+(Image IN ("*\\bash.exe", "*\\cmd.exe", "*\\cscript.exe", "*\\msbuild.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\sh.exe", "*\\wscript.exe") TargetFilename IN ("C:\\PerfLogs\\*", "C:\\Users\\Public\\*")) OR (Image IN ("*\\certutil.exe", "*\\forfiles.exe", "*\\mshta.exe", "*\\schtasks.exe", "*\\scriptrunner.exe", "*\\wmic.exe") TargetFilename IN ("*C:\\PerfLogs\\*", "*C:\\Users\\Public\\*", "*C:\\Windows\\Temp\\*"))

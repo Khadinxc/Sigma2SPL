@@ -1,0 +1,11 @@
+# Title: Unsigned Module Loaded by ClickOnce Application
+# Author: @SerkinValery
+# Date: 2023-06-08
+# Level: medium
+# Description: Detects unsigned module load by ClickOnce application.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.persistence, attack.t1574.001
+# False Positives:
+#   - Unlikely
+
+Image="*\\AppData\\Local\\Apps\\2.0\\*" Signed="false" OR SignatureStatus="Expired"

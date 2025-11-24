@@ -1,0 +1,9 @@
+# Title: Suspicious Service DACL Modification Via Set-Service Cmdlet
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-10-18
+# Level: high
+# Description: Detects suspicious DACL modifications via the "Set-Service" cmdlet using the "SecurityDescriptorSddl" flag (Only available with PowerShell 7) that can be used to hide services or make them unstopable
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1543.003
+
+Image="*\\pwsh.exe" OR OriginalFileName="pwsh.dll" CommandLine IN ("*-SecurityDescriptorSddl *", "*-sd *") CommandLine IN ("*;;;IU*", "*;;;SU*", "*;;;BA*", "*;;;SY*", "*;;;WD*") CommandLine="*Set-Service *" CommandLine="*D;;*"

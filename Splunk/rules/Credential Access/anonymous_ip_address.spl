@@ -1,0 +1,11 @@
+# Title: Anonymous IP Address
+# Author: Gloria Lee, '@gleeiamglo'
+# Date: 2023-08-22
+# Level: high
+# Description: Indicates sign-ins from an anonymous IP address, for example, using an anonymous browser or VPN.
+# MITRE Tactic: Credential Access
+# Tags: attack.t1528, attack.credential-access
+# False Positives:
+#   - We recommend investigating the sessions flagged by this detection in the context of other sign-ins
+
+riskEventType="anonymizedIPAddress"

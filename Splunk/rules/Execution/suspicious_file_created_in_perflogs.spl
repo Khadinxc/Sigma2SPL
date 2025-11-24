@@ -1,0 +1,11 @@
+# Title: Suspicious File Created In PerfLogs
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-05
+# Level: medium
+# Description: Detects suspicious file based on their extension being created in "C:\PerfLogs\". Note that this directory mostly contains ".etl" files
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# False Positives:
+#   - Unlikely
+
+TargetFilename IN ("*.7z", "*.bat", "*.bin", "*.chm", "*.dll", "*.exe", "*.hta", "*.lnk", "*.ps1", "*.psm1", "*.py", "*.scr", "*.sys", "*.vbe", "*.vbs", "*.zip") TargetFilename="C:\\PerfLogs\\*"

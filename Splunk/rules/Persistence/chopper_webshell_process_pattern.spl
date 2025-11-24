@@ -1,0 +1,9 @@
+# Title: Chopper Webshell Process Pattern
+# Author: Florian Roth (Nextron Systems), MSTI (query)
+# Date: 2022-10-01
+# Level: high
+# Description: Detects patterns found in process executions cause by China Chopper like tiny (ASPX) webshells
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.discovery, attack.t1505.003, attack.t1018, attack.t1033, attack.t1087
+
+CommandLine IN ("*&ipconfig&echo*", "*&quser&echo*", "*&whoami&echo*", "*&c:&echo*", "*&cd&echo*", "*&dir&echo*", "*&echo [E]*", "*&echo [S]*") Image="*\\w3wp.exe" OR ParentImage="*\\w3wp.exe"

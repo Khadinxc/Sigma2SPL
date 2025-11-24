@@ -1,0 +1,9 @@
+# Title: Computer System Reconnaissance Via Wmic.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-09-08
+# Level: medium
+# Description: Detects execution of wmic utility with the "computersystem" flag in order to obtain information about the machine such as the domain, username, model, etc.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.execution, attack.t1047
+
+CommandLine="*computersystem*" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe"

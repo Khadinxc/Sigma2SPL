@@ -1,0 +1,9 @@
+# Title: Suspicious Greedy Compression Using Rar.EXE
+# Author: X__Junior (Nextron Systems), Florian Roth (Nextron Systems)
+# Date: 2022-12-15
+# Level: high
+# Description: Detects RAR usage that creates an archive from a suspicious folder, either a system folder or one of the folders often used by attackers for staging purposes
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+
+Image="*\\rar.exe" OR Description="Command line RAR" OR CommandLine IN ("*.exe a *", "* a -m*") CommandLine="* -hp*" CommandLine="* -r *" CommandLine IN ("* *:\\\*.*", "* *:\\\\\*.*", "* *:\\$Recycle.bin\\*", "* *:\\PerfLogs\\*", "* *:\\Temp*", "* *:\\Users\\Public\\*", "* *:\\Windows\\*", "* %public%*")

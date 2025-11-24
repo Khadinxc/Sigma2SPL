@@ -1,0 +1,9 @@
+# Title: HackTool - CreateMiniDump Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-12-22
+# Level: high
+# Description: Detects the use of CreateMiniDump hack tool used to dump the LSASS process memory for credential extraction on the attacker's machine
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+
+Image="*\\CreateMiniDump.exe" OR Hashes="*IMPHASH=4a07f944a83e8a7c2525efa35dd30e2f*"

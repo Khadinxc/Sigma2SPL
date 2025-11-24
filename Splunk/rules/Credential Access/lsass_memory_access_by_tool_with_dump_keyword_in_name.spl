@@ -1,0 +1,11 @@
+# Title: LSASS Memory Access by Tool With Dump Keyword In Name
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-02-10
+# Level: high
+# Description: Detects LSASS process access requests from a source process with the "dump" keyword in its image name.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001, attack.s0002
+# False Positives:
+#   - Rare programs that contain the word dump in their name and access lsass
+
+GrantedAccess IN ("*10", "*30", "*50", "*70", "*90", "*B0", "*D0", "*F0", "*18", "*38", "*58", "*78", "*98", "*B8", "*D8", "*F8", "*1A", "*3A", "*5A", "*7A", "*9A", "*BA", "*DA", "*FA", "*0x14C2", "*FF") SourceImage="*dump*" TargetImage="*\\lsass.exe"

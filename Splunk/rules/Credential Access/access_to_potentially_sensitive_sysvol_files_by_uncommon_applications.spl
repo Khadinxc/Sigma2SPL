@@ -1,0 +1,9 @@
+# Title: Access To Potentially Sensitive Sysvol Files By Uncommon Applications
+# Author: frack113
+# Date: 2023-12-21
+# Level: medium
+# Description: Detects file access requests to potentially sensitive files hosted on the Windows Sysvol share.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1552.006
+
+FileName="*\\sysvol\\*" FileName="*\\Policies\\*" FileName IN ("*audit.csv", "*Files.xml", "*GptTmpl.inf", "*groups.xml", "*Registry.pol", "*Registry.xml", "*scheduledtasks.xml", "*scripts.ini", "*services.xml") FileName="\\*" NOT (Image="C:\\Windows\\explorer.exe" OR Image IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*", "C:\\Windows\\system32\\*", "C:\\Windows\\SysWOW64\\*"))

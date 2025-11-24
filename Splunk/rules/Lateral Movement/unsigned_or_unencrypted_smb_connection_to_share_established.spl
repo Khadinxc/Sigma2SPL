@@ -1,0 +1,12 @@
+# Title: Unsigned or Unencrypted SMB Connection to Share Established
+# Author: Mohamed Abdelghani
+# Date: 2025-10-19
+# Level: medium
+# Description: Detects SMB server connections to shares without signing or encryption enabled.
+# This could indicate potential lateral movement activity using unsecured SMB shares.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+# False Positives:
+#   - Connections from local or private IP addresses to SMB shares without signing or encryption enabled for older systems or misconfigured environments. Apply additional tuning as needed.
+
+EventID=4000 ShareName IN ("*IPC$*", "*ADMIN$*", "*C$*") SigningUsed="false" OR EncyptionUsed="false" NOT (ClientAddress="127.0.0.0/8" OR ClientAddress="169.254.0.0/16" OR ClientAddress="::1/128" OR ClientAddress="fe80::/10" OR ClientAddress="fc00::/7" OR ClientAddress IN ("*00000000000000000000000000000001*", "*FE80000000000000*", "*FC00000000000000*", "*0200****7F*", "*0200****A9FE*"))

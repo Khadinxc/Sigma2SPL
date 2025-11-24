@@ -1,0 +1,11 @@
+# Title: Remote PowerShell Session (PS Module)
+# Author: Roberto Rodriguez @Cyb3rWard0g, Tim Shelton
+# Date: 2019-08-10
+# Level: high
+# Description: Detects remote PowerShell sessions
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.lateral-movement, attack.t1021.006
+# False Positives:
+#   - Legitimate use remote PowerShell sessions
+
+ContextInfo="* = ServerRemoteHost *" ContextInfo="*wsmprovhost.exe*" NOT ContextInfo="*\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Microsoft.PowerShell.Archive\\Microsoft.PowerShell.Archive.psm1*"

@@ -1,0 +1,11 @@
+# Title: Remote Event Log Recon
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to get event log information via EVEN or EVEN6
+# MITRE Tactic: Discovery
+# Tags: attack.discovery
+# False Positives:
+#   - Remote administrative tasks on Windows Events
+
+EventID=3 EventLog="RPCFW" InterfaceUuid IN ("82273fdc-e32a-18c3-3f78-827929dc23ea", "f6beaff7-1e19-4fbb-9f8f-b89e2018337c")

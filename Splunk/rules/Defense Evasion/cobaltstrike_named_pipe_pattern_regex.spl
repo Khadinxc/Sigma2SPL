@@ -1,0 +1,48 @@
+# Title: CobaltStrike Named Pipe Pattern Regex
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-07-30
+# Level: critical
+# Description: Detects the creation of a named pipe matching a pattern used by CobaltStrike Malleable C2 profiles
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055
+
+
+| rex field=PipeName "(?<PipeNameMatch>\\\\mojo\\.5688\\.8052\\.(?:183894939787088877|35780273329370473)[0-9a-f]{2})"
+| eval PipeNameCondition=if(isnotnull(PipeNameMatch), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch2>\\\\wkssvc_?[0-9a-f]{2})"
+| eval PipeNameCondition2=if(isnotnull(PipeNameMatch2), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch3>\\\\ntsvcs[0-9a-f]{2})"
+| eval PipeNameCondition3=if(isnotnull(PipeNameMatch3), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch4>\\\\DserNamePipe[0-9a-f]{2})"
+| eval PipeNameCondition4=if(isnotnull(PipeNameMatch4), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch5>\\\\SearchTextHarvester[0-9a-f]{2})"
+| eval PipeNameCondition5=if(isnotnull(PipeNameMatch5), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch6>\\\\mypipe-(?:f|h)[0-9a-f]{2})"
+| eval PipeNameCondition6=if(isnotnull(PipeNameMatch6), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch7>\\\\windows\\.update\\.manager[0-9a-f]{2,3})"
+| eval PipeNameCondition7=if(isnotnull(PipeNameMatch7), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch8>\\\\ntsvcs_[0-9a-f]{2})"
+| eval PipeNameCondition8=if(isnotnull(PipeNameMatch8), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch9>\\\\scerpc_?[0-9a-f]{2})"
+| eval PipeNameCondition9=if(isnotnull(PipeNameMatch9), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch10>\\\\PGMessagePipe[0-9a-f]{2})"
+| eval PipeNameCondition10=if(isnotnull(PipeNameMatch10), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch11>\\\\MsFteWds[0-9a-f]{2})"
+| eval PipeNameCondition11=if(isnotnull(PipeNameMatch11), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch12>\\\\f4c3[0-9a-f]{2})"
+| eval PipeNameCondition12=if(isnotnull(PipeNameMatch12), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch13>\\\\fullduplex_[0-9a-f]{2})"
+| eval PipeNameCondition13=if(isnotnull(PipeNameMatch13), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch14>\\\\msrpc_[0-9a-f]{4})"
+| eval PipeNameCondition14=if(isnotnull(PipeNameMatch14), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch15>\\\\win\\\\msrpc_[0-9a-f]{2})"
+| eval PipeNameCondition15=if(isnotnull(PipeNameMatch15), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch16>\\\\f53f[0-9a-f]{2})"
+| eval PipeNameCondition16=if(isnotnull(PipeNameMatch16), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch17>\\\\rpc_[0-9a-f]{2})"
+| eval PipeNameCondition17=if(isnotnull(PipeNameMatch17), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch18>\\\\spoolss_[0-9a-f]{2})"
+| eval PipeNameCondition18=if(isnotnull(PipeNameMatch18), "true", "false")
+| rex field=PipeName "(?<PipeNameMatch19>\\\\Winsock2\\\\CatalogChangeListener-[0-9a-f]{3}-0,)"
+| eval PipeNameCondition19=if(isnotnull(PipeNameMatch19), "true", "false")
+| search PipeNameCondition="true" OR PipeNameCondition2="true" OR PipeNameCondition3="true" OR PipeNameCondition4="true" OR PipeNameCondition5="true" OR PipeNameCondition6="true" OR PipeNameCondition7="true" OR PipeNameCondition8="true" OR PipeNameCondition9="true" OR PipeNameCondition10="true" OR PipeNameCondition11="true" OR PipeNameCondition12="true" OR PipeNameCondition13="true" OR PipeNameCondition14="true" OR PipeNameCondition15="true" OR PipeNameCondition16="true" OR PipeNameCondition17="true" OR PipeNameCondition18="true" OR PipeNameCondition19="true"

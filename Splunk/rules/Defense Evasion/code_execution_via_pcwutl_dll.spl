@@ -1,0 +1,11 @@
+# Title: Code Execution via Pcwutl.dll
+# Author: Julia Fomina, oscd.community
+# Date: 2020-10-05
+# Level: medium
+# Description: Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.011
+# False Positives:
+#   - Use of Program Compatibility Troubleshooter Helper
+
+CommandLine="*pcwutl*" CommandLine="*LaunchApplication*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE"

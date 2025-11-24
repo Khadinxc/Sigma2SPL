@@ -1,0 +1,9 @@
+# Title: Renamed AutoHotkey.EXE Execution
+# Author: Nasreddine Bencherchali
+# Date: 2023-02-07
+# Level: medium
+# Description: Detects execution of a renamed autohotkey.exe binary based on PE metadata fields
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+Product="*AutoHotkey*" OR Description="*AutoHotkey*" OR OriginalFileName IN ("AutoHotkey.exe", "AutoHotkey.rc") NOT (Image IN ("*\\AutoHotkey.exe", "*\\AutoHotkey32.exe", "*\\AutoHotkey32_UIA.exe", "*\\AutoHotkey64.exe", "*\\AutoHotkey64_UIA.exe", "*\\AutoHotkeyA32.exe", "*\\AutoHotkeyA32_UIA.exe", "*\\AutoHotkeyU32.exe", "*\\AutoHotkeyU32_UIA.exe", "*\\AutoHotkeyU64.exe", "*\\AutoHotkeyU64_UIA.exe") OR Image="*\\AutoHotkey*")

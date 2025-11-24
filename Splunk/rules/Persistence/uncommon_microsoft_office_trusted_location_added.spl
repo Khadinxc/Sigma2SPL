@@ -1,0 +1,11 @@
+# Title: Uncommon Microsoft Office Trusted Location Added
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-21
+# Level: high
+# Description: Detects changes to registry keys related to "Trusted Location" of Microsoft Office where the path is set to something uncommon. Attackers might add additional trusted locations to avoid macro security restrictions.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1112
+# False Positives:
+#   - Other unknown legitimate or custom paths need to be filtered to avoid false positives
+
+TargetObject="*Security\\Trusted Locations\\Location*" TargetObject="*\\Path" NOT (Image IN ("*:\\Program Files\\Microsoft Office\\*", "*:\\Program Files (x86)\\Microsoft Office\\*") OR (Image="*:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\*" Image="*\\OfficeClickToRun.exe")) NOT (Details IN ("*%APPDATA%\\Microsoft\\Templates*", "*%%APPDATA%%\\Microsoft\\Templates*", "*%APPDATA%\\Microsoft\\Word\\Startup*", "*%%APPDATA%%\\Microsoft\\Word\\Startup*", "*:\\Program Files (x86)\\Microsoft Office\\root\\Templates\\*", "*:\\Program Files\\Microsoft Office (x86)\\Templates*", "*:\\Program Files\\Microsoft Office\\root\\Templates\\*", "*:\\Program Files\\Microsoft Office\\Templates\\*"))

@@ -1,0 +1,9 @@
+# Title: Potential Rcdll.DLL Sideloading
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-03-13
+# Level: high
+# Description: Detects potential DLL sideloading of rcdll.dll
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.001
+
+ImageLoaded="*\\rcdll.dll" NOT (ImageLoaded IN ("C:\\Program Files (x86)\\Microsoft Visual Studio\\*", "C:\\Program Files (x86)\\Windows Kits\\*"))

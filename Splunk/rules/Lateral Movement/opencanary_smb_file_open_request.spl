@@ -1,0 +1,11 @@
+# Title: OpenCanary - SMB File Open Request
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where an SMB service on an OpenCanary node has had a file open request.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.collection, attack.t1021, attack.t1005
+# False Positives:
+#   - Unlikely
+
+logtype=5000

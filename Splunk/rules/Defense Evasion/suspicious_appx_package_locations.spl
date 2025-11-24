@@ -1,0 +1,9 @@
+# Title: Suspicious AppX Package Locations
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-11
+# Level: high
+# Description: Detects an appx package added the pipeline of the "to be processed" packages which is located in suspicious locations
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+EventID=854 Path IN ("*C:\\Users\\Public\\*", "*/users/public/*", "*C:\\PerfLogs\\*", "*C:/perflogs/*", "*\\Desktop\\*", "*/desktop/*", "*\\Downloads\\*", "*/Downloads/*", "*C:\\Windows\\Temp\\*", "*C:/Windows/Temp/*", "*\\AppdData\\Local\\Temp\\*", "*/AppdData/Local/Temp/*")

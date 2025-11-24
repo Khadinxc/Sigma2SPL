@@ -1,0 +1,11 @@
+# Title: FortiGate - New Administrator Account Created
+# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Date: 2025-11-01
+# Level: medium
+# Description: Detects the creation of an administrator account on a Fortinet FortiGate Firewall.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1136.001
+# False Positives:
+#   - An administrator account can be created for legitimate purposes. Investigate the account details to determine if it is authorized.
+
+action="Add" cfgpath="system.admin"

@@ -1,0 +1,9 @@
+# Title: Remote Thread Creation Ttdinject.exe Proxy
+# Author: frack113
+# Date: 2022-05-16
+# Level: high
+# Description: Detects a remote thread creation of Ttdinject.exe used as proxy
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1127
+
+SourceImage="*\\ttdinject.exe"

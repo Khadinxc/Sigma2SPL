@@ -1,0 +1,9 @@
+# Title: Suspicious PowerShell Invocations - Specific
+# Author: Florian Roth (Nextron Systems), Jonhnathan Ribeiro
+# Date: 2017-03-05
+# Level: high
+# Description: Detects suspicious PowerShell invocation command parameters
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+(ScriptBlockText="*-nop*" ScriptBlockText="* -w *" ScriptBlockText="*hidden*" ScriptBlockText="* -c *" ScriptBlockText="*[Convert]::FromBase64String*") OR (ScriptBlockText="* -w *" ScriptBlockText="*hidden*" ScriptBlockText="*-ep*" ScriptBlockText="*bypass*" ScriptBlockText="*-Enc*") OR (ScriptBlockText="* -w *" ScriptBlockText="*hidden*" ScriptBlockText="*-noni*" ScriptBlockText="*-nop*" ScriptBlockText="* -c *" ScriptBlockText="*iex*" ScriptBlockText="*New-Object*") OR (ScriptBlockText="*iex*" ScriptBlockText="*New-Object*" ScriptBlockText="*Net.WebClient*" ScriptBlockText="*.Download*") OR (ScriptBlockText IN ("*\\software\\microsoft\\windows\\currentversion\\run*", "*\\software\\wow6432node\\microsoft\\windows\\currentversion\\run*", "*\\software\\microsoft\\windows\\currentversion\\policies\\explorer\\run*") ScriptBlockText="*powershell*" ScriptBlockText="*reg*" ScriptBlockText="*add*") OR (ScriptBlockText="*bypass*" ScriptBlockText="*-noprofile*" ScriptBlockText="*-windowstyle*" ScriptBlockText="*hidden*" ScriptBlockText="*new-object*" ScriptBlockText="*system.net.webclient*" ScriptBlockText="*.download*") NOT (ScriptBlockText IN ("*(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1*", "*(New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')*", "*Write-ChocolateyWarning*"))

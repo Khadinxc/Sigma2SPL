@@ -1,0 +1,11 @@
+# Title: Suspicious Rejected SMB Guest Logon From IP
+# Author: Florian Roth (Nextron Systems), KevTheHermit, fuzzyf10w
+# Date: 2021-06-30
+# Level: medium
+# Description: Detect Attempt PrintNightmare (CVE-2021-1675) Remote code execution in Windows Spooler Service
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1110.001
+# False Positives:
+#   - Account fallback reasons (after failed login with specific account)
+
+EventID=31017 ServerName="\\1*" UserName="" | table Computer,User

@@ -1,0 +1,11 @@
+# Title: SMB over QUIC Via PowerShell Script
+# Author: frack113
+# Date: 2023-07-21
+# Level: medium
+# Description: Detects the mounting of Windows SMB shares over QUIC, which can be an unexpected event in some enterprise environments
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1570, detection.threat-hunting
+# False Positives:
+#   - Due to the nature of the script block, the matching of the string could sometimes result in a false positive. Use this rule to hunt for potential malicious or suspicious scripts.
+
+ScriptBlockText="*New-SmbMapping*" ScriptBlockText="*-TransportType QUIC*"

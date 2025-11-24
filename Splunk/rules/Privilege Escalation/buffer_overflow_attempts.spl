@@ -1,0 +1,11 @@
+# Title: Buffer Overflow Attempts
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-01
+# Level: high
+# Description: Detects buffer overflow attempts in Unix system log files
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.t1068, attack.privilege-escalation
+# False Positives:
+#   - Base64 encoded data in log entries
+
+"attempt to execute code on stack by" OR "0bin0sh1" OR "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" OR "stack smashing detected"

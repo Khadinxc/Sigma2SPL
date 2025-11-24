@@ -1,0 +1,9 @@
+# Title: NTDS.DIT Creation By Uncommon Process
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-01-11
+# Level: high
+# Description: Detects creation of a file named "ntds.dit" (Active Directory Database) by an uncommon process or a process located in a suspicious directory
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.002, attack.t1003.003
+
+TargetFilename="*\\ntds.dit" Image IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe", "*\\wsl.exe", "*\\wt.exe") OR Image IN ("*\\AppData\\*", "*\\Temp\\*", "*\\Public\\*", "*\\PerfLogs\\*")

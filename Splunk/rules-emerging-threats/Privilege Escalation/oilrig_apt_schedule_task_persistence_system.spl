@@ -1,0 +1,11 @@
+# Title: OilRig APT Schedule Task Persistence - System
+# Author: Florian Roth (Nextron Systems), Markus Neis, Jonhnathan Ribeiro, Daniil Yugoslavskiy, oscd.community
+# Date: 2018-03-23
+# Level: critical
+# Description: Detects OilRig schedule task persistence as reported by Nyotron in their March 2018 report
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.g0049, attack.t1053.005, attack.s0111, attack.t1543.003, attack.defense-evasion, attack.t1112, attack.command-and-control, attack.t1071.004, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+EventID=7045 Provider_Name="Service Control Manager" ServiceName IN ("SC Scheduled Scan", "UpdatMachine")

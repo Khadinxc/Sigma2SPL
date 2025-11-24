@@ -1,0 +1,11 @@
+# Title: Anomalous Token
+# Author: Mark Morowczynski '@markmorow'
+# Date: 2023-08-07
+# Level: high
+# Description: Indicates that there are abnormal characteristics in the token such as an unusual token lifetime or a token that is played from an unfamiliar location.
+# MITRE Tactic: Credential Access
+# Tags: attack.t1528, attack.credential-access
+# False Positives:
+#   - We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user.
+
+riskEventType="anomalousToken"

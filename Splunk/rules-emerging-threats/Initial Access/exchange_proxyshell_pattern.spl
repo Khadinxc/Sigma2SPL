@@ -1,0 +1,9 @@
+# Title: Exchange ProxyShell Pattern
+# Author: Florian Roth (Nextron Systems), Rich Warren
+# Date: 2021-08-07
+# Level: high
+# Description: Detects URL patterns that could be found in ProxyShell exploitation attempts against Exchange servers (failed and successful)
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190, detection.emerging-threats
+
+("sc-status"=401 "cs-uri-query"="*/autodiscover.json*" "cs-uri-query" IN ("*/powershell*", "*/mapi/nspi*", "*/EWS*", "*X-Rps-CAT*")) OR ("cs-uri-query" IN ("*autodiscover.json*@*", "*autodiscover.json%3f@*", "*%3f@foo.com*", "*Email=autodiscover/autodiscover.json*", "*json*@foo.com*") "sc-status"=401)

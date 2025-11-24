@@ -1,0 +1,11 @@
+# Title: AWS ElastiCache Security Group Modified or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-07-24
+# Level: low
+# Description: Identifies when an ElastiCache security group has been modified or deleted.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1531
+# False Positives:
+#   - A ElastiCache security group deletion may be done by a system or network administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. Security Group deletions from unfamiliar users or hosts should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+eventName IN ("DeleteCacheSecurityGroup", "AuthorizeCacheSecurityGroupIngress", "RevokeCacheSecurityGroupIngress", "AuthorizeCacheSecurityGroupEgress", "RevokeCacheSecurityGroupEgress") eventSource="elasticache.amazonaws.com"

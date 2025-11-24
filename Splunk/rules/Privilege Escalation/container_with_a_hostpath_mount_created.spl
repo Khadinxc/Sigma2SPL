@@ -1,0 +1,13 @@
+# Title: Container With A hostPath Mount Created
+# Author: Leo Tsaousis (@laripping)
+# Date: 2024-03-26
+# Level: low
+# Description: Detects creation of a container with a hostPath mount.
+# A hostPath volume mounts a directory or a file from the node to the container.
+# Attackers who have permissions to create a new pod in the cluster may create one with a writable hostPath volume and chroot to escape to the underlying node.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.t1611, attack.privilege-escalation
+# False Positives:
+#   - The DaemonSet controller creates pods with hostPath volumes within the kube-system namespace.
+
+hostPath="*" objectRef.resource="pods" verb="create"

@@ -1,0 +1,9 @@
+# Title: Suspicious Remote AppX Package Locations
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-11
+# Level: high
+# Description: Detects an appx package added to the pipeline of the "to be processed" packages which was downloaded from a suspicious domain.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+EventID=854 Path IN ("*.githubusercontent.com*", "*anonfiles.com*", "*cdn.discordapp.com*", "*ddns.net*", "*dl.dropboxusercontent.com*", "*ghostbin.co*", "*glitch.me*", "*gofile.io*", "*hastebin.com*", "*mediafire.com*", "*mega.nz*", "*onrender.com*", "*pages.dev*", "*paste.ee*", "*pastebin.com*", "*pastebin.pl*", "*pastetext.net*", "*privatlab.com*", "*privatlab.net*", "*send.exploit.in*", "*sendspace.com*", "*storage.googleapis.com*", "*storjshare.io*", "*supabase.co*", "*temp.sh*", "*transfer.sh*", "*trycloudflare.com*", "*ufile.io*", "*w3spaces.com*", "*workers.dev*")

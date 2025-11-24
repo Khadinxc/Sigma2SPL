@@ -1,0 +1,11 @@
+# Title: Successful Authentications From Countries You Do Not Operate Out Of
+# Author: MikeDuddington, '@dudders1'
+# Date: 2022-07-28
+# Level: medium
+# Description: Detect successful authentications from countries you do not operate out of.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.credential-access, attack.t1078.004, attack.t1110
+# False Positives:
+#   - If this was approved by System Administrator.
+
+Status="Success" NOT Location="*<Countries you DO operate out of e,g GB, use OR for multiple>*"

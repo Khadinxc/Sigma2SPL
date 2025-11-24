@@ -1,0 +1,11 @@
+# Title: Privileged Account Creation
+# Author: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H', Tim Shelton
+# Date: 2022-08-11
+# Level: medium
+# Description: Detects when a new admin is created.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1078.004
+# False Positives:
+#   - A legitimate new admin account being created
+
+Status="Success" properties.message="*Add user*" properties.message="*Add member to role*"

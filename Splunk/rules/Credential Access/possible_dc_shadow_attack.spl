@@ -1,0 +1,11 @@
+# Title: Possible DC Shadow Attack
+# Author: Ilyas Ochkov, oscd.community, Chakib Gzenayi (@Chak092), Hosni Mribah
+# Date: 2019-10-25
+# Level: medium
+# Description: Detects DCShadow via create new SPN
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.defense-evasion, attack.t1207
+# False Positives:
+#   - Valid on domain controllers; exclude known DCs
+
+(EventID=4742 ServicePrincipalNames="*GC/*") OR (AttributeLDAPDisplayName="servicePrincipalName" AttributeValue="GC/*" EventID=5136)

@@ -1,0 +1,11 @@
+# Title: Greenbug Espionage Group Indicators
+# Author: Florian Roth (Nextron Systems)
+# Date: 2020-05-20
+# Level: critical
+# Description: Detects tools and process executions used by Greenbug in their May 2020 campaign as reported by Symantec
+# MITRE Tactic: Execution
+# Tags: attack.g0049, attack.execution, attack.t1059.001, attack.command-and-control, attack.t1105, attack.defense-evasion, attack.t1036.005, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+Image IN ("*:\\ProgramData\\adobe\\Adobe.exe", "*:\\ProgramData\\oracle\\local.exe", "*\\revshell.exe", "*\\infopagesbackup\\ncat.exe", "*:\\ProgramData\\comms\\comms.exe") OR (CommandLine="*-ExecutionPolicy Bypass -File*" CommandLine="*\\msf.ps1*") OR (CommandLine="*infopagesbackup*" CommandLine="*\\ncat*" CommandLine="*-e cmd.exe*") OR CommandLine="*L3NlcnZlcj1*" OR CommandLine IN ("*system.Data.SqlClient.SqlDataAdapter($cmd); [void]$da.fill*", "*-nop -w hidden -c $k=new-object*", "*[Net.CredentialCache]::DefaultCredentials;IEX *", "* -nop -w hidden -c $m=new-object net.webclient;$m*", "*-noninteractive -executionpolicy bypass whoami*", "*-noninteractive -executionpolicy bypass netstat -a*")

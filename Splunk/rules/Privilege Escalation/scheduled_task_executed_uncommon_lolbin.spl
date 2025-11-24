@@ -1,0 +1,11 @@
+# Title: Scheduled Task Executed Uncommon LOLBIN
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-12-05
+# Level: medium
+# Description: Detects the execution of Scheduled Tasks where the program being run is located in a suspicious location or where it is an unusual program to be run from a Scheduled Task
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.005
+# False Positives:
+#   - False positives may occur with some of the selected binaries if you have tasks using them (which could be very common in your environment). Exclude all the specific trusted tasks before using this rule
+
+EventID=129 Path IN ("*\\calc.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\mspaint.exe", "*\\notepad.exe", "*\\regsvr32.exe", "*\\wscript.exe")

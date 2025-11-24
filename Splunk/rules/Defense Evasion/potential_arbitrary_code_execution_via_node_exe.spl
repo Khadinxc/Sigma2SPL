@@ -1,0 +1,11 @@
+# Title: Potential Arbitrary Code Execution Via Node.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-09-09
+# Level: high
+# Description: Detects the execution node.exe which is shipped with multiple software such as VMware, Adobe...etc. In order to execute arbitrary code. For example to establish reverse shell as seen in Log4j attacks...etc
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1127
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("* -e *", "* --eval *") Image="*\\node.exe" CommandLine="*.exec(*" CommandLine="*net.socket*" CommandLine="*.connect*" CommandLine="*child_process*"

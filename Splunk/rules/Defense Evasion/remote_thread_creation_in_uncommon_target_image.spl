@@ -1,0 +1,9 @@
+# Title: Remote Thread Creation In Uncommon Target Image
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-16
+# Level: medium
+# Description: Detects uncommon target processes for remote thread creation
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055.003
+
+TargetImage IN ("*\\calc.exe", "*\\calculator.exe", "*\\mspaint.exe", "*\\notepad.exe", "*\\ping.exe", "*\\sethc.exe", "*\\spoolsv.exe", "*\\wordpad.exe", "*\\write.exe") NOT (SourceImage="C:\\Windows\\System32\\csrss.exe" OR (SourceImage IN ("C:\\Windows\\System32\\explorer.exe", "C:\\Windows\\System32\\OpenWith.exe") TargetImage="C:\\Windows\\System32\\notepad.exe") OR (SourceImage="C:\\Windows\\System32\\AtBroker.exe" TargetImage="C:\\Windows\\System32\\Sethc.exe")) NOT (StartFunction="EtwpNotificationThread" OR SourceImage="*unknown process*" OR (SourceImage="C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe" StartFunction="GetCommandLineW" TargetImage IN ("C:\\Windows\\System32\\notepad.exe", "C:\\Windows\\System32\\spoolsv.exe")) OR (SourceImage="C:\\Program Files\\Xerox\\XeroxPrintExperience\\CommonFiles\\XeroxPrintJobEventManagerService.exe" StartFunction="LoadLibraryW" TargetImage="C:\\Windows\\System32\\spoolsv.exe"))

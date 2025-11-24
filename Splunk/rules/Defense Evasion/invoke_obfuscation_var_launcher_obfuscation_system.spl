@@ -1,0 +1,9 @@
+# Title: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System
+# Author: Timur Zinniatullin, oscd.community
+# Date: 2020-10-13
+# Level: high
+# Description: Detects Obfuscated Powershell via VAR++ LAUNCHER
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+
+EventID=7045 ImagePath IN ("*{0}*", "*{1}*", "*{2}*", "*{3}*", "*{4}*", "*{5}*") ImagePath="*&&set*" ImagePath="*cmd*" ImagePath="*/c*" ImagePath="*-f*" Provider_Name="Service Control Manager"

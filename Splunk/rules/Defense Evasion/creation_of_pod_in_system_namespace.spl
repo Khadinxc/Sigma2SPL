@@ -1,0 +1,14 @@
+# Title: Creation Of Pod In System Namespace
+# Author: Leo Tsaousis (@laripping)
+# Date: 2024-03-26
+# Level: medium
+# Description: Detects deployments of pods within the kube-system namespace, which could be intended to imitate system pods.
+# System pods, created by controllers such as Deployments or DaemonSets have random suffixes in their names.
+# Attackers can use this fact and name their backdoor pods as if they were created by these controllers to avoid detection.
+# Deployment of such a backdoor container e.g. named kube-proxy-bv61v, could be attempted in the kube-system namespace alongside the other administrative containers.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036.005
+# False Positives:
+#   - System components such as daemon-set-controller and kube-scheduler also create pods in the kube-system namespace
+
+objectRef.namespace="kube-system" objectRef.resource="pods" verb="create"

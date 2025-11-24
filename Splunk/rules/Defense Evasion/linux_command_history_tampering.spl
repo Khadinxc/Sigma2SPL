@@ -1,0 +1,10 @@
+# Title: Linux Command History Tampering
+# Author: Patrick Bareiss
+# Date: 2019-03-24
+# Level: high
+# Description: Detects commands that try to clear or tamper with the Linux command history.
+# This technique is used by threat actors in order to evade defenses and execute commands without them being recorded in files such as "bash_history" or "zsh_history".
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.003
+
+"cat /dev/null >*sh_history" OR "cat /dev/zero >*sh_history" OR "chattr +i*sh_history" OR "echo \"\" >*sh_history" OR "empty_bash_history" OR "export HISTFILESIZE=0" OR "history -c" OR "history -w" OR "ln -sf /dev/null *sh_history" OR "ln -sf /dev/zero *sh_history" OR "rm *sh_history" OR "shopt -ou history" OR "shopt -uo history" OR "shred *sh_history" OR "truncate -s0 *sh_history"

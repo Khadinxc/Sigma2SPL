@@ -1,0 +1,11 @@
+# Title: Dfsvc.EXE Network Connection To Non-Local IPs
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-12
+# Level: medium
+# Description: Detects network connections from "dfsvc.exe" used to handled ClickOnce applications to non-local IPs
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1203, detection.threat-hunting
+# False Positives:
+#   - False positives are expected from ClickOnce manifests hosted on public IPs and domains. Apply additional filters for the accepted IPs in your environement as necessary
+
+Image="*\\dfsvc.exe" Initiated="true" NOT (DestinationIp="127.0.0.0/8" OR DestinationIp="10.0.0.0/8" OR DestinationIp="169.254.0.0/16" OR DestinationIp="172.16.0.0/12" OR DestinationIp="192.168.0.0/16" OR DestinationIp="::1/128" OR DestinationIp="fe80::/10" OR DestinationIp="fc00::/7")

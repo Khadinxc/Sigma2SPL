@@ -1,0 +1,11 @@
+# Title: HackTool - Inveigh Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-10-24
+# Level: critical
+# Description: Detects the use of Inveigh a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# False Positives:
+#   - Very unlikely
+
+Image="*\\Inveigh.exe" OR OriginalFileName IN ("\\Inveigh.exe", "\\Inveigh.dll") OR Description="Inveigh" OR CommandLine IN ("* -SpooferIP*", "* -ReplyToIPs *", "* -ReplyToDomains *", "* -ReplyToMACs *", "* -SnifferIP*")

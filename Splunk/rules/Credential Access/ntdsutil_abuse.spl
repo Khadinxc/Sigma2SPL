@@ -1,0 +1,11 @@
+# Title: Ntdsutil Abuse
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-14
+# Level: medium
+# Description: Detects potential abuse of ntdsutil to dump ntds.dit database
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.003
+# False Positives:
+#   - Legitimate backup operation/creating shadow copies
+
+Data="*ntds.dit*" EventID IN (216, 325, 326, 327) Provider_Name="ESENT"

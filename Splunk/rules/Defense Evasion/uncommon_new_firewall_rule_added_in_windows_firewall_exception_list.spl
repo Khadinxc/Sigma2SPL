@@ -1,0 +1,9 @@
+# Title: Uncommon New Firewall Rule Added In Windows Firewall Exception List
+# Author: frack113
+# Date: 2022-02-19
+# Level: medium
+# Description: Detects when a rule has been added to the Windows Firewall exception list
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004
+
+EventID IN (2004, 2071, 2097) NOT (Action=2 OR ApplicationPath IN ("*C:\\PerfLogs\\*", "*C:\\Temp\\*", "*C:\\Tmp\\*", "*C:\\Users\\Public\\*", "*C:\\Windows\\Tasks\\*", "*C:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp\\*") OR ApplicationPath IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*", "C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*") OR NOT ApplicationPath=* OR (ApplicationPath="System" ModifyingApplication="C:\\Windows\\System32\\dllhost.exe") OR (ModifyingApplication="*\\TiWorker.exe" ModifyingApplication="C:\\Windows\\WinSxS\\*")) NOT ((ModifyingApplication="*\\MsMpEng.exe" ModifyingApplication IN ("C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*", "C:\\Program Files\\Windows Defender\\*")) OR (ApplicationPath="*\\MsMpEng.exe" ApplicationPath IN ("C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*", "C:\\Program Files\\Windows Defender\\*")) OR (ApplicationPath="" ModifyingApplication IN ("C:\\Windows\\System32\\svchost.exe", "C:\\Windows\\System32\\dllhost.exe")))

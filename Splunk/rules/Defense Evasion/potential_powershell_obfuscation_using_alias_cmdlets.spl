@@ -1,0 +1,9 @@
+# Title: Potential PowerShell Obfuscation Using Alias Cmdlets
+# Author: frack113
+# Date: 2023-01-08
+# Level: low
+# Description: Detects Set-Alias or New-Alias cmdlet usage. Which can be use as a mean to obfuscate PowerShell scripts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.t1027, attack.t1059.001
+
+ScriptBlockText IN ("*Set-Alias *", "*New-Alias *") NOT (ScriptBlockText IN ("Set-Alias -Name ncms -Value New-CimSession -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name gcls -Value Get-CimClass -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name ncso -Value New-CimSessionOption -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name gcms -Value Get-CimSession -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name rcms -Value Remove-cimSession -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name rcie -Value Register-CimIndicationEvent -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name gcai -Value Get-CimAssociatedInstance -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name gcim -Value Get-CimInstance -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name scim -Value Set-CimInstance -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name ncim -Value New-CimInstance -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name rcim -Value Remove-cimInstance -Option ReadOnly, AllScope -ErrorAction SilentlyContinue", "Set-Alias -Name icim -Value Invoke-CimMethod -Option ReadOnly, AllScope -ErrorAction SilentlyContinue"))

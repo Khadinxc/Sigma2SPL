@@ -1,0 +1,13 @@
+# Title: OMIGOD SCX RunAsProvider ExecuteShellCommand
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research), MSTIC
+# Date: 2021-10-15
+# Level: high
+# Description: Rule to detect the use of the SCX RunAsProvider Invoke_ExecuteShellCommand to execute any UNIX/Linux command using the /bin/sh shell.
+# SCXcore, started as the Microsoft Operations Manager UNIX/Linux Agent, is now used in a host of products including
+# Microsoft Operations Manager, Microsoft Azure, and Microsoft Operations Management Suite.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.initial-access, attack.execution, attack.t1068, attack.t1190, attack.t1203
+# False Positives:
+#   - Legitimate use of SCX RunAsProvider Invoke_ExecuteShellCommand.
+
+CommandLine="*/bin/sh*" CurrentDirectory="/var/opt/microsoft/scx/tmp" LogonId=0 User="root"

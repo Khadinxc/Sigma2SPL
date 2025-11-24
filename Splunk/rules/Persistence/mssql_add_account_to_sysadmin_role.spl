@@ -1,0 +1,11 @@
+# Title: MSSQL Add Account To Sysadmin Role
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-13
+# Level: high
+# Description: Detects when an attacker tries to backdoor the MSSQL server by adding a backdoor account to the sysadmin fixed server role
+# MITRE Tactic: Persistence
+# Tags: attack.persistence
+# False Positives:
+#   - Rare legitimate administrative activity
+
+Data="*object_name:sysadmin*" Data="*statement:alter server role [sysadmin] add member *" EventID=33205 Provider_Name="*MSSQL*"

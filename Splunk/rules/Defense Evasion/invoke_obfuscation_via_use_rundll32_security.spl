@@ -1,0 +1,9 @@
+# Title: Invoke-Obfuscation Via Use Rundll32 - Security
+# Author: Nikita Nazarov, oscd.community
+# Date: 2020-10-09
+# Level: high
+# Description: Detects Obfuscated Powershell via use Rundll32 in Scripts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+
+EventID=4697 ServiceFileName IN ("*value*", "*invoke*", "*comspec*", "*iex*") ServiceFileName="*&&*" ServiceFileName="*rundll32*" ServiceFileName="*shell32.dll*" ServiceFileName="*shellexec_rundll*"

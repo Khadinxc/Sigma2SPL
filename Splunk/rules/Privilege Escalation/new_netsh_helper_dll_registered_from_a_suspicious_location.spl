@@ -1,0 +1,9 @@
+# Title: New Netsh Helper DLL Registered From A Suspicious Location
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-11-28
+# Level: high
+# Description: Detects changes to the Netsh registry key to add a new DLL value that is located on a suspicious location. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.007
+
+TargetObject="*\\SOFTWARE\\Microsoft\\NetSh*" Details IN ("*:\\Perflogs\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp\\*", "*\\Temporary Internet*") OR (Details="*:\\Users\\*" Details="*\\Favorites\\*") OR (Details="*:\\Users\\*" Details="*\\Favourites\\*") OR (Details="*:\\Users\\*" Details="*\\Contacts\\*") OR (Details="*:\\Users\\*" Details="*\\Pictures\\*")

@@ -1,0 +1,10 @@
+# Title: Suspicious Executable File Creation
+# Author: frack113
+# Date: 2022-09-05
+# Level: high
+# Description: Detect creation of suspicious executable file names.
+# Some strings look for suspicious file extensions, others look for filenames that exploit unquoted service paths.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564
+
+TargetFilename IN ("*:\\$Recycle.Bin.exe", "*:\\Documents and Settings.exe", "*:\\MSOCache.exe", "*:\\PerfLogs.exe", "*:\\Recovery.exe", "*.bat.exe", "*.sys.exe")

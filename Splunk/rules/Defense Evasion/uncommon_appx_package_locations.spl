@@ -1,0 +1,9 @@
+# Title: Uncommon AppX Package Locations
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-11
+# Level: medium
+# Description: Detects an appx package added the pipeline of the "to be processed" packages which is located in uncommon locations
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+EventID=854 NOT (Path IN ("*C:\\Program Files\\WindowsApps\\*", "*C:\\Program Files (x86)\\*", "*C:\\Windows\\SystemApps\\*", "*C:\\Windows\\PrintDialog\\*", "*C:\\Windows\\ImmersiveControlPanel\\*", "*x-windowsupdate://*", "*file:///C:/Program%20Files*", "*AppData/Local/Temp/WinGet/Microsoft.Winget.Source*") OR Path IN ("*https://statics.teams.cdn.live.net/*", "*https://statics.teams.cdn.office.net/*", "*microsoft.com*", "*https://installer.teams.static.microsoft/*", "*https://res.cdn.office.net*")) NOT Path="*AppData\\Local\\Microsoft\\OneDrive\\*"

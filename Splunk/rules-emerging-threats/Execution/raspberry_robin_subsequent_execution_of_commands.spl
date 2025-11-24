@@ -1,0 +1,11 @@
+# Title: Raspberry Robin Subsequent Execution of Commands
+# Author: @kostastsale
+# Date: 2022-05-06
+# Level: high
+# Description: Detects raspberry robin subsequent execution of commands.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*installdriver*", "*setfiledsndir*", "*vkipdse*") CommandLine="*odbcconf.exe*" CommandLine="*regsvr*" CommandLine="*shellexec_rundll*" CommandLine="*-a" OR CommandLine="*/a" OR CommandLine="*–a" OR CommandLine="*—a" OR CommandLine="*―a" OR CommandLine="*-f" OR CommandLine="*/f" OR CommandLine="*–f" OR CommandLine="*—f" OR CommandLine="*―f" OR CommandLine="*-s" OR CommandLine="*/s" OR CommandLine="*–s" OR CommandLine="*—s" OR CommandLine="*―s" Image IN ("*\\rundll32.exe", "*\\regsvr32.exe") ParentImage="*\\fodhelper.exe"

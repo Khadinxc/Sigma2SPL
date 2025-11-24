@@ -1,0 +1,11 @@
+# Title: Potential PendingFileRenameOperations Tampering
+# Author: frack113
+# Date: 2023-01-27
+# Level: medium
+# Description: Detect changes to the "PendingFileRenameOperations" registry key from uncommon or suspicious images locations to stage currently used files for rename or deletion after reboot.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036.003
+# False Positives:
+#   - Installers and updaters may set currently in use files for rename or deletion after a reboot.
+
+TargetObject="*\\CurrentControlSet\\Control\\Session Manager\\PendingFileRenameOperations*" Image IN ("*\\reg.exe", "*\\regedit.exe") OR Image="*\\Users\\Public\\*"

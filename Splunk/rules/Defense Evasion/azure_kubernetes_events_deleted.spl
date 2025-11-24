@@ -1,0 +1,11 @@
+# Title: Azure Kubernetes Events Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-07-24
+# Level: medium
+# Description: Detects when Events are deleted in Azure Kubernetes. An adversary may delete events in Azure Kubernetes in an attempt to evade detection.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562, attack.t1562.001
+# False Positives:
+#   - Event deletions may be done by a system or network administrator. Verify whether the username, hostname, and/or resource name should be making changes in your environment. Events deletions from unfamiliar users or hosts should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName="MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/EVENTS.K8S.IO/EVENTS/DELETE"

@@ -1,0 +1,12 @@
+# Title: Local User Creation
+# Author: Patrick Bareiss
+# Date: 2019-04-18
+# Level: low
+# Description: Detects local user creation on Windows servers, which shouldn't happen in an Active Directory environment. Apply this Sigma Use Case on your Windows server logs and not on your DC logs.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1136.001
+# False Positives:
+#   - Domain Controller Logs
+#   - Local accounts managed by privileged account management tools
+
+EventID=4720

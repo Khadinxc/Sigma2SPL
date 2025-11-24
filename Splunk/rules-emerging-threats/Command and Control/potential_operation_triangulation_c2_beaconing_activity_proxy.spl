@@ -1,0 +1,9 @@
+# Title: Potential Operation Triangulation C2 Beaconing Activity - Proxy
+# Author: Florian Roth (Nextron Systems)
+# Date: 2023-06-01
+# Level: high
+# Description: Detects potential beaconing activity to domains used in 0day attacks on iOS devices and revealed by Kaspersky and the FSB
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.g0020, detection.emerging-threats
+
+"cs-host" IN ("*addatamarket.net*", "*ans7tv.net*", "*anstv.net*", "*backuprabbit.com*", "*businessvideonews.com*", "*cloudsponcer.com*", "*datamarketplace.net*", "*growthtransport.com*", "*mobilegamerstats.com*", "*snoweeanalytics.com*", "*tagclick-cdn.com*", "*topographyupdates.com*", "*unlimitedteacup.com*", "*virtuallaughing.com*", "*web-trackers.com*")

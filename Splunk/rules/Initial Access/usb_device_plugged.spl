@@ -1,0 +1,11 @@
+# Title: USB Device Plugged
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-11-09
+# Level: low
+# Description: Detects plugged/unplugged USB devices
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1200
+# False Positives:
+#   - Legitimate administrative activity
+
+EventID IN (2003, 2100, 2102)

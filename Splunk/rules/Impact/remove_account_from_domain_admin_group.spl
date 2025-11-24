@@ -1,0 +1,10 @@
+# Title: Remove Account From Domain Admin Group
+# Author: frack113
+# Date: 2021-12-26
+# Level: medium
+# Description: Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users.
+# Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1531
+
+ScriptBlockText="*Remove-ADGroupMember*" ScriptBlockText="*-Identity *" ScriptBlockText="*-Members *"

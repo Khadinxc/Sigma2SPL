@@ -1,0 +1,9 @@
+# Title: Suspicious NTLM Authentication on the Printer Spooler Service
+# Author: Elastic (idea), Tobias Michalski (Nextron Systems)
+# Date: 2022-05-04
+# Level: high
+# Description: Detects a privilege elevation attempt by coercing NTLM authentication on the Printer Spooler service
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.credential-access, attack.t1212
+
+CommandLine IN ("*spoolss*", "*srvsvc*", "*/print/pipe/*") CommandLine="*C:\\windows\\system32\\davclnt.dll,DavSetCookie*" CommandLine="*http*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE"

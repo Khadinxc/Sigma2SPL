@@ -1,0 +1,11 @@
+# Title: Operation Wocao Activity - Security
+# Author: Florian Roth (Nextron Systems), frack113
+# Date: 2019-12-20
+# Level: high
+# Description: Detects activity mentioned in Operation Wocao report
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.discovery, attack.t1012, attack.defense-evasion, attack.t1036.004, attack.t1027, attack.execution, attack.t1053.005, attack.t1059.001, detection.emerging-threats
+# False Positives:
+#   - Administrators that use checkadmin.exe tool to enumerate local administrators
+
+CallerProcessName="*\\checkadmin.exe" EventID=4799 TargetUserName="Administr*"

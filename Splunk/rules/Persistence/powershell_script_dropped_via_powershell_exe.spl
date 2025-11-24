@@ -1,0 +1,11 @@
+# Title: PowerShell Script Dropped Via PowerShell.EXE
+# Author: frack113
+# Date: 2023-05-09
+# Level: low
+# Description: Detects PowerShell creating a PowerShell file (.ps1). While often times this behavior is benign, sometimes it can be a sign of a dropper script trying to achieve persistence.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence
+# False Positives:
+#   - False positives will differ depending on the environment and scripts used. Apply additional filters accordingly.
+
+Image IN ("*\\powershell.exe", "*\\pwsh.exe") TargetFilename="*.ps1" NOT ((TargetFilename="*\\AppData\\Local\\Temp\\*" TargetFilename="C:\\Users\\*") OR TargetFilename="*__PSScriptPolicyTest_*" OR TargetFilename="C:\\Windows\\Temp\\*")

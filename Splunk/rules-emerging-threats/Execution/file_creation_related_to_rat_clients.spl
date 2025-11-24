@@ -1,0 +1,11 @@
+# Title: File Creation Related To RAT Clients
+# Author: Joseliyo Sanchez, @Joseliyo_Jstnk
+# Date: 2024-12-19
+# Level: high
+# Description: File .conf created related to VenomRAT, AsyncRAT and Lummac samples observed in the wild.
+# MITRE Tactic: Execution
+# Tags: attack.execution, detection.emerging-threats
+# False Positives:
+#   - Legitimate software creating a file with the same name
+
+TargetFilename="*\\AppData\\Roaming\\*" TargetFilename IN ("*\\mydata\\*", "*\\datalogs\\*", "*\\hvnc\\*", "*\\dcrat\\*") TargetFilename IN ("*\\datalogs.conf", "*\\hvnc.conf", "*\\dcrat.conf")

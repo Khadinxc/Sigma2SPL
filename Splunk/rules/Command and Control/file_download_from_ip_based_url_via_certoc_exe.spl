@@ -1,0 +1,10 @@
+# Title: File Download From IP Based URL Via CertOC.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-10-18
+# Level: high
+# Description: Detects when a user downloads a file from an IP based URL using CertOC.exe
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.execution, attack.t1105
+
+CommandLine="*-GetCACAPS*" Image="*\\certoc.exe" OR OriginalFileName="CertOC.exe"
+| regex CommandLine="://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"

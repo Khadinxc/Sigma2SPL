@@ -1,0 +1,11 @@
+# Title: Suspicious Appended Extension
+# Author: frack113
+# Date: 2022-07-16
+# Level: medium
+# Description: Detects file renames where the target filename uses an uncommon double extension. Could indicate potential ransomware activity renaming files and adding a custom extension to the encrypted files, such as ".jpg.crypted", ".docx.locky", etc.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1486
+# False Positives:
+#   - Backup software
+
+SourceFilename IN ("*.doc", "*.docx", "*.jpeg", "*.jpg", "*.lnk", "*.pdf", "*.png", "*.pst", "*.rtf", "*.xls", "*.xlsx") TargetFilename IN ("*.doc.*", "*.docx.*", "*.jpeg.*", "*.jpg.*", "*.lnk.*", "*.pdf.*", "*.png.*", "*.pst.*", "*.rtf.*", "*.xls.*", "*.xlsx.*") NOT (TargetFilename IN ("*.backup", "*.bak", "*.old", "*.orig", "*.temp", "*.tmp")) NOT (TargetFilename="*:\\ProgramData\\Anaconda3\\*" TargetFilename="*.c~")

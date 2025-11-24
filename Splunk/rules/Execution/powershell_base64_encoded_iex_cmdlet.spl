@@ -1,0 +1,9 @@
+# Title: PowerShell Base64 Encoded IEX Cmdlet
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-08-23
+# Level: high
+# Description: Detects usage of a base64 encoded "IEX" cmdlet in a process command line
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+CommandLine="*SUVYIChb*" OR CommandLine="*lFWCAoW*" OR CommandLine="*JRVggKF*" OR CommandLine="*aWV4IChb*" OR CommandLine="*lleCAoW*" OR CommandLine="*pZXggKF*" OR CommandLine="*aWV4IChOZX*" OR CommandLine="*lleCAoTmV3*" OR CommandLine="*pZXggKE5ld*" OR CommandLine="*SUVYIChOZX*" OR CommandLine="*lFWCAoTmV3*" OR CommandLine="*JRVggKE5ld*" OR CommandLine="*SUVYKF*" OR CommandLine="*lFWChb*" OR CommandLine="*JRVgoW*" OR CommandLine="*aWV4KF*" OR CommandLine="*lleChb*" OR CommandLine="*pZXgoW*" OR CommandLine="*aWV4KE5ld*" OR CommandLine="*lleChOZX*" OR CommandLine="*pZXgoTmV3*" OR CommandLine="*SUVYKE5ld*" OR CommandLine="*lFWChOZX*" OR CommandLine="*JRVgoTmV3*" OR CommandLine="*SUVYKCgn*" OR CommandLine="*lFWCgoJ*" OR CommandLine="*JRVgoKC*" OR CommandLine="*aWV4KCgn*" OR CommandLine="*lleCgoJ*" OR CommandLine="*pZXgoKC*" OR CommandLine IN ("*SQBFAFgAIAAoAFsA*", "*kARQBYACAAKABbA*", "*JAEUAWAAgACgAWw*", "*aQBlAHgAIAAoAFsA*", "*kAZQB4ACAAKABbA*", "*pAGUAeAAgACgAWw*", "*aQBlAHgAIAAoAE4AZQB3A*", "*kAZQB4ACAAKABOAGUAdw*", "*pAGUAeAAgACgATgBlAHcA*", "*SQBFAFgAIAAoAE4AZQB3A*", "*kARQBYACAAKABOAGUAdw*", "*JAEUAWAAgACgATgBlAHcA*")

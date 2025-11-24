@@ -1,0 +1,13 @@
+# Title: Azure Owner Removed From Application or Service Principal
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-03
+# Level: medium
+# Description: Identifies when a owner is was removed from a application or service principal in Azure.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Owner being removed may be performed by a system administrator.
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Owner removed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+properties.message IN ("Remove owner from service principal", "Remove owner from application")

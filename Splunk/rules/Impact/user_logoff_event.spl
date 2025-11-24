@@ -1,0 +1,9 @@
+# Title: User Logoff Event
+# Author: frack113
+# Date: 2022-10-14
+# Level: informational
+# Description: Detects a user log-off activity. Could be used for example to correlate information during forensic investigations
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1531
+
+EventID IN (4634, 4647)

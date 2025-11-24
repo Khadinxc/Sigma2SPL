@@ -1,0 +1,11 @@
+# Title: Okta FastPass Phishing Detection
+# Author: Austin Songer @austinsonger
+# Date: 2023-05-07
+# Level: high
+# Description: Detects when Okta FastPass prevents a known phishing site.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1566
+# False Positives:
+#   - Unlikely
+
+eventtype="user.authentication.auth_via_mfa" outcome.reason="FastPass declined phishing attempt" outcome.result="FAILURE"

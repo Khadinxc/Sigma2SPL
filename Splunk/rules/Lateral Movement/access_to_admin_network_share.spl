@@ -1,0 +1,11 @@
+# Title: Access To ADMIN$ Network Share
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-04
+# Level: low
+# Description: Detects access to ADMIN$ network share
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+# False Positives:
+#   - Legitimate administrative activity
+
+EventID=5140 ShareName="Admin$" NOT SubjectUserName="*$"

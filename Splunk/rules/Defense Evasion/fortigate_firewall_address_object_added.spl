@@ -1,0 +1,11 @@
+# Title: FortiGate - Firewall Address Object Added
+# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Date: 2025-11-01
+# Level: medium
+# Description: Detects the addition of firewall address objects on a Fortinet FortiGate Firewall.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562
+# False Positives:
+#   - An address could be added or deleted for legitimate purposes.
+
+action="Add" cfgpath="firewall.address"

@@ -1,0 +1,9 @@
+# Title: Suspicious SignIns From A Non Registered Device
+# Author: Harjot Singh, '@cyb3rjy0t'
+# Date: 2023-01-10
+# Level: high
+# Description: Detects risky authentication from a non AD registered device without MFA being required.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.defense-evasion, attack.t1078
+
+AuthenticationRequirement="singleFactorAuthentication" RiskState="atRisk" Status="Success" DeviceDetail.trusttype="" OR NOT DeviceDetail.trusttype=*

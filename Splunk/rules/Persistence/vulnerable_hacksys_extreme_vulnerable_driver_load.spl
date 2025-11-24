@@ -1,0 +1,11 @@
+# Title: Vulnerable HackSys Extreme Vulnerable Driver Load
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-18
+# Level: high
+# Description: Detects the load of HackSys Extreme Vulnerable Driver which is an intentionally vulnerable Windows driver developed for security enthusiasts to learn and polish their exploitation skills at Kernel level and often abused by threat actors
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1543.003
+# False Positives:
+#   - Unlikely
+
+ImageLoaded="*\\HEVD.sys" OR Hashes IN ("*IMPHASH=f26d0b110873a1c7d8c4f08fbeab89c5*", "*IMPHASH=c46ea2e651fd5f7f716c8867c6d13594*")

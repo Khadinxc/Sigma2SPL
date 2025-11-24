@@ -1,0 +1,9 @@
+# Title: Enumeration for 3rd Party Creds From CLI
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-20
+# Level: medium
+# Description: Detects processes that query known 3rd party registry keys that holds credentials via commandline
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1552.002
+
+CommandLine IN ("*\\Software\\Aerofox\\Foxmail\\V3.1*", "*\\Software\\Aerofox\\FoxmailPreview*", "*\\Software\\DownloadManager\\Passwords*", "*\\Software\\FTPWare\\COREFTP\\Sites*", "*\\Software\\IncrediMail\\Identities*", "*\\Software\\Martin Prikryl\\WinSCP 2\\Sessions*", "*\\Software\\Mobatek\\MobaXterm\\*", "*\\Software\\OpenSSH\\Agent\\Keys*", "*\\Software\\OpenVPN-GUI\\configs*", "*\\Software\\ORL\\WinVNC3\\Password*", "*\\Software\\Qualcomm\\Eudora\\CommandLine*", "*\\Software\\RealVNC\\WinVNC4*", "*\\Software\\RimArts\\B2\\Settings*", "*\\Software\\SimonTatham\\PuTTY\\Sessions*", "*\\Software\\SimonTatham\\PuTTY\\SshHostKeys\\*", "*\\Software\\Sota\\FFFTP*", "*\\Software\\TightVNC\\Server*", "*\\Software\\WOW6432Node\\Radmin\\v3.0\\Server\\Parameters\\Radmin*") NOT (CommandLine IN ("*export*", "*save*") Image="*reg.exe")

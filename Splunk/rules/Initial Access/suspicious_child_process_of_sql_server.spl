@@ -1,0 +1,9 @@
+# Title: Suspicious Child Process Of SQL Server
+# Author: FPT.EagleEye Team, wagga
+# Date: 2020-12-11
+# Level: high
+# Description: Detects suspicious child processes of the SQLServer process. This could indicate potential RCE or SQL Injection.
+# MITRE Tactic: Initial Access
+# Tags: attack.t1505.003, attack.t1190, attack.initial-access, attack.persistence, attack.privilege-escalation
+
+Image IN ("*\\bash.exe", "*\\bitsadmin.exe", "*\\cmd.exe", "*\\netstat.exe", "*\\nltest.exe", "*\\ping.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\sh.exe", "*\\systeminfo.exe", "*\\tasklist.exe", "*\\wsl.exe") ParentImage="*\\sqlservr.exe" NOT (CommandLine="\"C:\\Windows\\system32\\cmd.exe\" *" Image="C:\\Windows\\System32\\cmd.exe" ParentImage="*DATEV_DBENGINE\\MSSQL\\Binn\\sqlservr.exe" ParentImage="C:\\Program Files\\Microsoft SQL Server\\*")

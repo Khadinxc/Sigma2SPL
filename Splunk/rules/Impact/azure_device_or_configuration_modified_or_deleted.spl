@@ -1,0 +1,13 @@
+# Title: Azure Device or Configuration Modified or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-03
+# Level: medium
+# Description: Identifies when a device or device configuration in azure is modified or deleted.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1485, attack.t1565.001
+# False Positives:
+#   - Device or device configuration being modified or deleted may be performed by a system administrator.
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Device or device configuration modified or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+properties.message IN ("Delete device", "Delete device configuration", "Update device", "Update device configuration")

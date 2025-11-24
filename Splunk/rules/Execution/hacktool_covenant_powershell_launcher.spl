@@ -1,0 +1,9 @@
+# Title: HackTool - Covenant PowerShell Launcher
+# Author: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community
+# Date: 2020-06-04
+# Level: high
+# Description: Detects suspicious command lines used in Covenant luanchers
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.defense-evasion, attack.t1059.001, attack.t1564.003
+
+(CommandLine IN ("*-Command*", "*-EncodedCommand*") CommandLine="*-Sta*" CommandLine="*-Nop*" CommandLine="*-Window*" CommandLine="*Hidden*") OR CommandLine IN ("*sv o (New-Object IO.MemorySteam);sv d *", "*mshta file.hta*", "*GruntHTTP*", "*-EncodedCommand cwB2ACAAbwAgA*")

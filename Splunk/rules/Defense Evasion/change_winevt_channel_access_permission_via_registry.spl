@@ -1,0 +1,9 @@
+# Title: Change Winevt Channel Access Permission Via Registry
+# Author: frack113
+# Date: 2022-09-17
+# Level: high
+# Description: Detects tampering with the "ChannelAccess" registry key in order to change access to Windows event channel.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.002
+
+Details IN ("*(A;;0x1;;;LA)*", "*(A;;0x1;;;SY)*", "*(A;;0x5;;;BA)*") TargetObject="*\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\*" TargetObject="*\\ChannelAccess" NOT ((Image="*\\TiWorker.exe" Image="C:\\Windows\\WinSxS\\*") OR Image="C:\\Windows\\servicing\\TrustedInstaller.exe")

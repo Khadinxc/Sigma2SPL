@@ -1,0 +1,11 @@
+# Title: Uncommon File Created In Office Startup Folder
+# Author: frack113, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-05
+# Level: high
+# Description: Detects the creation of a file with an uncommon extension in an Office application startup folder
+# MITRE Tactic: Resource Development
+# Tags: attack.resource-development, attack.t1587.001
+# False Positives:
+#   - False positive might stem from rare extensions used by other Office utilities.
+
+(TargetFilename="*\\Microsoft\\Word\\STARTUP*" OR (TargetFilename="*\\Office*" TargetFilename="*\\Program Files*" TargetFilename="*\\STARTUP*") NOT (TargetFilename IN ("*.docb", "*.docm", "*.docx", "*.dotm", "*.mdb", "*.mdw", "*.pdf", "*.wll", "*.wwl"))) OR (TargetFilename="*\\Microsoft\\Excel\\XLSTART*" OR (TargetFilename="*\\Office*" TargetFilename="*\\Program Files*" TargetFilename="*\\XLSTART*") NOT (TargetFilename IN ("*.xll", "*.xls", "*.xlsm", "*.xlsx", "*.xlt", "*.xltm", "*.xlw"))) NOT ((Image IN ("*:\\Program Files\\Microsoft Office\\*", "*:\\Program Files (x86)\\Microsoft Office\\*") Image IN ("*\\winword.exe", "*\\excel.exe")) OR (Image="*:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\*" Image="*\\OfficeClickToRun.exe"))

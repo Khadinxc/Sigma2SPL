@@ -1,0 +1,10 @@
+# Title: Suspicious Connection to Remote Account
+# Author: frack113
+# Date: 2021-12-27
+# Level: low
+# Description: Adversaries with no prior knowledge of legitimate credentials within the system or environment may guess passwords to attempt access to accounts.
+# Without knowledge of the password for an account, an adversary may opt to systematically guess the password using a repetitive or iterative mechanism
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1110.001
+
+ScriptBlockText IN ("*System.DirectoryServices.Protocols.LdapDirectoryIdentifier*", "*System.Net.NetworkCredential*", "*System.DirectoryServices.Protocols.LdapConnection*")

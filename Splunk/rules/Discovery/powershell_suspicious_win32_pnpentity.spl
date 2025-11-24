@@ -1,0 +1,11 @@
+# Title: Powershell Suspicious Win32_PnPEntity
+# Author: frack113
+# Date: 2021-08-23
+# Level: low
+# Description: Adversaries may attempt to gather information about attached peripheral devices and components connected to a computer system.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1120
+# False Positives:
+#   - Admin script
+
+ScriptBlockText="*Win32_PnPEntity*"

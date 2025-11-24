@@ -1,0 +1,11 @@
+# Title: Important Windows Service Terminated With Error
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-04-14
+# Level: high
+# Description: Detects important or interesting Windows services that got terminated for whatever reason
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Rare false positives could occur since service termination could happen due to multiple reasons
+
+EventID=7023 Provider_Name="Service Control Manager" param1 IN ("* Antivirus*", "* Firewall*", "*Application Guard*", "*BitLocker Drive Encryption Service*", "*Encrypting File System*", "*Microsoft Defender*", "*Threat Protection*", "*Windows Event Log*") OR Binary IN ("*770069006e0064006500660065006e006400*", "*4500760065006e0074004c006f006700*", "*6d0070007300730076006300*", "*530065006e0073006500*", "*450046005300*", "*420044004500530056004300*")

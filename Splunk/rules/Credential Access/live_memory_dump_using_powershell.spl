@@ -1,0 +1,11 @@
+# Title: Live Memory Dump Using Powershell
+# Author: Max Altgelt (Nextron Systems)
+# Date: 2021-09-21
+# Level: high
+# Description: Detects usage of a PowerShell command to dump the live memory of a Windows machine
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003
+# False Positives:
+#   - Diagnostics
+
+ScriptBlockText="*Get-StorageDiagnosticInfo*" ScriptBlockText="*-IncludeLiveDump*"

@@ -1,0 +1,11 @@
+# Title: OpenCanary - REDIS Action Command Attempt
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where a REDIS service on an OpenCanary node has had an action command attempted.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.collection, attack.t1003, attack.t1213
+# False Positives:
+#   - Unlikely
+
+logtype=17001

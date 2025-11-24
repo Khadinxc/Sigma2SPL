@@ -1,0 +1,12 @@
+# Title: Removal of Potential COM Hijacking Registry Keys
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-05-02
+# Level: medium
+# Description: Detects any deletion of entries in ".*\shell\open\command" registry keys.
+# These registry keys might have been used for COM hijacking activities by a threat actor or an attacker and the deletion could indicate steps to remove its tracks.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1112
+# False Positives:
+#   - Legitimate software (un)installations are known to cause false positives. Please add them as a filter when encountered
+
+TargetObject="*\\shell\\open\\command" NOT (Image="*C:\\Windows\\explorer.exe" OR Image IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*") OR Image IN ("C:\\Windows\\System32\\msiexec.exe", "C:\\Windows\\SysWOW64\\msiexec.exe") OR Image="C:\\Windows\\System32\\OpenWith.exe" OR Image="C:\\Windows\\system32\\svchost.exe") NOT ((Image IN ("C:\\Program Files (x86)\\Avira\\Antivirus\\", "C:\\Program Files\\Avira\\Antivirus\\") TargetObject IN ("*\\CLSID\\{305CA226-D286-468e-B848-2B2E8E697B74}\\Shell\\Open\\Command", "*\\AntiVir.Keyfile\\shell\\open\\command")) OR (Image="*\\reg.exe" TargetObject="*\\Discord\\shell\\open\\command") OR (Image="*\\Dropbox.exe" TargetObject="*\\Dropbox.*") OR (Image="*C:\\eclipse\\eclipse.exe" TargetObject="*_Classes\\eclipse+*") OR Image="*\\Microsoft\\EdgeUpdate\\Install*" OR (Image="*\\Everything.exe" TargetObject="*\\Everything.*") OR (Image="*AppData\\Local\\Temp*" Image="*\\setup.exe*") OR (Image="*\\Temp\\is-*" Image="*\\target.tmp*") OR (Image="*\\installer.exe" Image="C:\\Program Files (x86)\\Java\\*" TargetObject="*\\Classes\\WOW6432Node\\CLSID\\{4299124F-F2C3-41b4-9C73-9236B2AD0E8F}*") OR Image="*\\ninite.exe" OR (Image="*peazip*" TargetObject="*\\PeaZip.*") OR (Image="*\\Spotify.exe" TargetObject="*\\Spotify\\shell\\open\\command") OR (Image="*\\Temp*" Image="*\\TeamViewer*") OR Image="C:\\Windows\\Installer\\MSI*" OR (Image="*\\AppData\\Local\\Temp\\Wireshark_uninstaller.exe" TargetObject="*\\wireshark-capture-file\\*"))

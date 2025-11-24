@@ -1,0 +1,12 @@
+# Title: Outbound RDP Connections Over Non-Standard Tools
+# Author: Markus Neis
+# Date: 2019-05-15
+# Level: high
+# Description: Detects Non-Standard tools initiating a connection over port 3389 indicating possible lateral movement.
+# An initial baseline is required before using this utility to exclude third party RDP tooling that you might use.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.001, car.2013-07-002
+# False Positives:
+#   - Third party RDP tools
+
+DestinationPort=3389 Initiated="true" NOT (Image IN ("C:\\Windows\\System32\\mstsc.exe", "C:\\Windows\\SysWOW64\\mstsc.exe")) NOT (Image IN ("*\\Avast Software\\Avast\\AvastSvc.exe", "*\\Avast\\AvastSvc.exe") OR Image="C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" OR (Image="C:\\Windows\\System32\\dns.exe" Protocol="udp" SourcePort=53) OR Image="" OR Image="C:\\Program Files\\Mozilla Firefox\\firefox.exe" OR NOT Image=* OR Image="*\\Ranger\\SentinelRanger.exe" OR Image="C:\\Program Files\\SplunkUniversalForwarder\\bin\\*" OR Image="*\\RDCMan.exe" OR Image IN ("*\\FSAssessment.exe", "*\\FSDiscovery.exe", "*\\MobaRTE.exe", "*\\mRemote.exe", "*\\mRemoteNG.exe", "*\\Passwordstate.exe", "*\\RemoteDesktopManager.exe", "*\\RemoteDesktopManager64.exe", "*\\RemoteDesktopManagerFree.exe", "*\\RSSensor.exe", "*\\RTS2App.exe", "*\\RTSApp.exe", "*\\spiceworks-finder.exe", "*\\Terminals.exe", "*\\ws_TunnelService.exe") OR Image IN ("*\\thor.exe", "*\\thor64.exe") OR Image IN ("C:\\Program Files\\TSplus\\Java\\bin\\HTML5service.exe", "C:\\Program Files (x86)\\TSplus\\Java\\bin\\HTML5service.exe") OR Image="<unknown process>")

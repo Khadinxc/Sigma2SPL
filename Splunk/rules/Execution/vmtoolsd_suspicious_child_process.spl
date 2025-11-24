@@ -1,0 +1,11 @@
+# Title: VMToolsd Suspicious Child Process
+# Author: bohops, Bhabesh Raj
+# Date: 2021-10-08
+# Level: high
+# Description: Detects suspicious child process creations of VMware Tools process which may indicate persistence setup
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.persistence, attack.t1059
+# False Positives:
+#   - Legitimate use by VM administrator
+
+Image IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe") OR OriginalFileName IN ("Cmd.Exe", "cscript.exe", "MSHTA.EXE", "PowerShell.EXE", "pwsh.dll", "REGSVR32.EXE", "RUNDLL32.EXE", "wscript.exe") ParentImage="*\\vmtoolsd.exe" NOT ((CommandLine="" Image="*\\cmd.exe") OR (NOT CommandLine=* Image="*\\cmd.exe") OR (CommandLine IN ("*\\VMware\\VMware Tools\\poweron-vm-default.bat*", "*\\VMware\\VMware Tools\\poweroff-vm-default.bat*", "*\\VMware\\VMware Tools\\resume-vm-default.bat*", "*\\VMware\\VMware Tools\\suspend-vm-default.bat*") Image="*\\cmd.exe"))

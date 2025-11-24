@@ -1,0 +1,11 @@
+# Title: Python Initiated Connection
+# Author: frack113
+# Date: 2021-12-10
+# Level: medium
+# Description: Detects a Python process initiating a network connection. While this often relates to package installation, it can also indicate a potential malicious script communicating with a C&C server.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1046
+# False Positives:
+#   - Legitimate python scripts using the socket library or similar will trigger this. Apply additional filters and perform an initial baseline before deploying.
+
+Image="*\\python*" Image="*.exe*" Initiated="true" NOT ((DestinationIp="127.0.0.1" SourceIp="127.0.0.1") OR (CommandLine="*pip.exe*" CommandLine="*install*")) NOT ((CommandLine="*:\\ProgramData\\Anaconda3\\Scripts\\conda-script.py*" CommandLine="*update*" ParentImage="C:\\ProgramData\\Anaconda3\\Scripts\\conda.exe") OR (CommandLine="*C:\\ProgramData\\Anaconda3\\Scripts\\jupyter-notebook-script.py*" ParentImage="C:\\ProgramData\\Anaconda3\\python.exe"))

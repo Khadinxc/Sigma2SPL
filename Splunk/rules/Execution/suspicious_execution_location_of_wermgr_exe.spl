@@ -1,0 +1,9 @@
+# Title: Suspicious Execution Location Of Wermgr.EXE
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-10-14
+# Level: high
+# Description: Detects suspicious Windows Error Reporting manager (wermgr.exe) execution location.
+# MITRE Tactic: Execution
+# Tags: attack.execution
+
+Image="*\\wermgr.exe" NOT (Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*"))

@@ -1,0 +1,11 @@
+# Title: Elevated System Shell Spawned From Uncommon Parent Location
+# Author: frack113, Tim Shelton (update fp)
+# Date: 2022-12-05
+# Level: medium
+# Description: Detects when a shell program such as the Windows command prompt or PowerShell is launched with system privileges from a uncommon parent location.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.execution, attack.t1059
+# False Positives:
+#   - Some legitimate applications may spawn shells from uncommon parent locations. Apply additional filters and perform an initial baseline before deploying.
+
+Image IN ("*\\powershell.exe", "*\\powershell_ise.exe", "*\\pwsh.exe", "*\\cmd.exe") OR OriginalFileName IN ("PowerShell.EXE", "powershell_ise.EXE", "pwsh.dll", "Cmd.Exe") LogonId="0x3e7" User IN ("*AUTHORI*", "*AUTORI*") NOT (ParentImage IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\ProgramData\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*", "*:\\Windows\\Temp\\*", "*:\\Windows\\WinSxS\\*") OR ParentImage IN ("", "-") OR NOT ParentImage=*) NOT ((CommandLine="*:\\WINDOWS\\system32\\cmd.exe /c \"*" CurrentDirectory="*:\\WINDOWS\\Temp\\asgard2-agent\\*") OR (CommandLine="*:\\IBM\\SpectrumProtect\\webserver\\scripts\\*" ParentImage="*:\\IBM\\SpectrumProtect\\webserver\\scripts\\*") OR (Image="*\\cmd.exe" ParentImage="*:\\ManageEngine\\ADManager Plus\\pgsql\\bin\\postgres.exe"))

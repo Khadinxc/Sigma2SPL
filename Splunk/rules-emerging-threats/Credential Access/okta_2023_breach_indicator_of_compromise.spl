@@ -1,0 +1,10 @@
+# Title: Okta 2023 Breach Indicator Of Compromise
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2023-10-25
+# Level: medium
+# Description: Detects new user account creation or activation with specific names related to the Okta Support System 2023 breach.
+# This rule can be enhanced by filtering out known and legitimate username used in your environnement.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, detection.emerging-threats
+
+eventtype IN ("user.lifecycle.create", "user.lifecycle.activate") target.user.display.name="*svc_network_backup*"

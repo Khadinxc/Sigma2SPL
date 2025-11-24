@@ -1,0 +1,9 @@
+# Title: Suspicious TCP Tunnel Via PowerShell Script
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-08
+# Level: medium
+# Description: Detects powershell scripts that creates sockets/listeners which could be indicative of tunneling activity
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1090
+
+ScriptBlockText="*[System.Net.HttpWebRequest]*" ScriptBlockText="*System.Net.Sockets.TcpListener*" ScriptBlockText="*AcceptTcpClient*"

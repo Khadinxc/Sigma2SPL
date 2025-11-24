@@ -1,0 +1,9 @@
+# Title: File Download with Headless Browser
+# Author: Sreeman, Florian Roth (Nextron Systems)
+# Date: 2022-01-04
+# Level: high
+# Description: Detects execution of chromium based browser in headless mode using the "dump-dom" command line to download files
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.command-and-control, attack.t1105, attack.t1564.003
+
+CommandLine="*--headless*" CommandLine="*dump-dom*" CommandLine="*http*" Image IN ("*\\brave.exe", "*\\chrome.exe", "*\\msedge.exe", "*\\opera.exe", "*\\vivaldi.exe") NOT ((CommandLine="*--headless --disable-gpu --disable-extensions --disable-plugins --mute-audio --no-first-run --incognito --aggressive-cache-discard --dump-dom*" Image IN ("*\\msedge.exe", "*\\msedgewebview2.exe", "*\\MicrosoftEdge.exe") Image IN ("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\*", "C:\\Program Files (x86)\\Microsoft\\EdgeCore\\*", "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\*", "C:\\Program Files\\Microsoft\\Edge\\Application\\*", "C:\\Program Files\\Microsoft\\EdgeCore\\*", "C:\\Program Files\\Microsoft\\EdgeWebView\\*", "C:\\Program Files\\WindowsApps\\Microsoft.MicrosoftEdge*")) OR (CommandLine="*--headless --disable-gpu --disable-extensions --disable-plugins --mute-audio --no-first-run --incognito --aggressive-cache-discard --dump-dom*" Image IN ("*\\AppData\\Local\\Microsoft\\WindowsApps\\*", "*\\Windows\\SystemApps\\Microsoft.MicrosoftEdge*") Image IN ("*\\msedge.exe", "*\\MicrosoftEdge.exe")))

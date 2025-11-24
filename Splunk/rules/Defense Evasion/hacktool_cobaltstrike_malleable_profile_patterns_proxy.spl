@@ -1,0 +1,9 @@
+# Title: HackTool - CobaltStrike Malleable Profile Patterns - Proxy
+# Author: Markus Neis, Florian Roth (Nextron Systems)
+# Date: 2024-02-15
+# Level: high
+# Description: Detects cobalt strike malleable profiles patterns (URI, User-Agents, Methods).
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.command-and-control, attack.t1071.001
+
+("c-uri"="/s/ref=nb_sb_noss_1/167-3294888-0262949/field-keywords=books" "c-useragent"="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko" "cs-cookie"="*=csm-hit=s-24KU11BB82RZSYGJ3BDK|1419899012996" "cs-host"="www.amazon.com" "cs-method"="GET") OR ("c-uri"="/N4215/adj/amzn.us.sr.aps" "c-useragent"="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko" "cs-host"="www.amazon.com" "cs-method"="POST") OR "c-useragent" IN ("Mozilla/4.0 (compatible; MSIE 6.0;Windows NT 5.1)", "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E )", "Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 5.2) Java/1.5.0_08") OR "c-useragent"="*; MANM; MANM)" OR ("c-uri"="*?manifest=wac" "cs-host"="onedrive.live.com" "cs-method"="GET") OR ("c-uri"="*/oscp/*" "cs-host"="ocsp.verisign.com") NOT ("c-uri"="*://onedrive.live.com/*" "c-uri"="http*")

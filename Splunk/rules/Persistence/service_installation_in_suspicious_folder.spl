@@ -1,0 +1,9 @@
+# Title: Service Installation in Suspicious Folder
+# Author: pH-T (Nextron Systems)
+# Date: 2022-03-18
+# Level: medium
+# Description: Detects service installation in suspicious folder appdata
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, car.2013-09-005, attack.t1543.003
+
+EventID=7045 ImagePath IN ("*\\AppData\\*", "*\\\\127.0.0.1*", "*\\\\localhost*") Provider_Name="Service Control Manager" NOT (ImagePath="*:\\Program Files\\Common Files\\Zoom\\Support\\CptService.exe*" ServiceName="Zoom Sharing Service")

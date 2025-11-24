@@ -1,0 +1,11 @@
+# Title: Potential DLL Sideloading Of MsCorSvc.DLL
+# Author: Wietze Beukema
+# Date: 2024-07-11
+# Level: medium
+# Description: Detects potential DLL sideloading of "mscorsvc.dll".
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+# False Positives:
+#   - Legitimate applications loading their own versions of the DLL mentioned in this rule.
+
+ImageLoaded="*\\mscorsvc.dll" NOT (ImageLoaded IN ("C:\\Windows\\Microsoft.NET\\Framework\\*", "C:\\Windows\\Microsoft.NET\\Framework64\\*", "C:\\Windows\\Microsoft.NET\\FrameworkArm\\*", "C:\\Windows\\Microsoft.NET\\FrameworkArm64\\*", "C:\\Windows\\WinSxS\\*"))

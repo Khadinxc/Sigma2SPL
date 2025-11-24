@@ -1,0 +1,11 @@
+# Title: New BITS Job Created Via Bitsadmin
+# Author: frack113
+# Date: 2022-03-01
+# Level: low
+# Description: Detects the creation of a new bits job by Bitsadmin
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.t1197
+# False Positives:
+#   - Many legitimate applications or scripts could leverage "bitsadmin". This event is best correlated with EID 16403 via the JobID field
+
+EventID=3 processPath="*\\bitsadmin.exe"

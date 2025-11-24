@@ -1,0 +1,9 @@
+# Title: Suspicious External WebDAV Execution
+# Author: Ahmed Farouk
+# Date: 2024-05-10
+# Level: high
+# Description: Detects executables launched from external WebDAV shares using the WebDAV Explorer integration, commonly seen in initial access campaigns.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.resource-development, attack.t1584, attack.t1566
+
+"c-uri" IN ("*.7z", "*.bat", "*.dat", "*.cmd", "*.exe", "*.js", "*.lnk", "*.ps1", "*.rar", "*.url", "*.vbe", "*.vbs", "*.zip") "c-useragent"="Microsoft-WebDAV-MiniRedir/*" "cs-method"="GET" NOT (dst_ip="127.0.0.0/8" OR dst_ip="10.0.0.0/8" OR dst_ip="172.16.0.0/12" OR dst_ip="192.168.0.0/16" OR dst_ip="169.254.0.0/16" OR dst_ip="::1/128" OR dst_ip="fe80::/10" OR dst_ip="fc00::/7")

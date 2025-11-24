@@ -1,0 +1,11 @@
+# Title: PSAsyncShell - Asynchronous TCP Reverse Shell
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-10-04
+# Level: high
+# Description: Detects the use of PSAsyncShell an Asynchronous TCP Reverse Shell written in powershell
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Unlikely
+
+ScriptBlockText="*PSAsyncShell*"

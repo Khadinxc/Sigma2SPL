@@ -1,0 +1,9 @@
+# Title: Suspicious Execution of Shutdown
+# Author: frack113
+# Date: 2022-01-01
+# Level: medium
+# Description: Use of the commandline to shutdown or reboot windows
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1529
+
+CommandLine IN ("*/r *", "*/s *") Image="*\\shutdown.exe"

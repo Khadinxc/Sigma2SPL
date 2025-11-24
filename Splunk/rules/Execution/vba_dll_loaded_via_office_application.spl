@@ -1,0 +1,11 @@
+# Title: VBA DLL Loaded Via Office Application
+# Author: Antonlovesdnb
+# Date: 2020-02-19
+# Level: high
+# Description: Detects VB DLL's loaded by an office application. Which could indicate the presence of VBA Macros.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204.002
+# False Positives:
+#   - Legitimate macro usage. Add the appropriate filter according to your environment
+
+ImageLoaded IN ("*\\VBE7.DLL", "*\\VBEUI.DLL", "*\\VBE7INTL.DLL") Image IN ("*\\excel.exe", "*\\mspub.exe", "*\\onenote.exe", "*\\onenoteim.exe", "*\\outlook.exe", "*\\powerpnt.exe", "*\\winword.exe")

@@ -1,0 +1,9 @@
+# Title: ETW Trace Evasion Activity
+# Author: @neu5ron, Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community
+# Date: 2019-03-22
+# Level: high
+# Description: Detects command line activity that tries to clear or disable any ETW trace log which could be a sign of logging evasion.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070, attack.t1562.006, car.2016-04-002
+
+(CommandLine="*cl*" CommandLine="*/Trace*") OR (CommandLine="*clear-log*" CommandLine="*/Trace*") OR (CommandLine="*sl*" CommandLine="*/e:false*") OR (CommandLine="*set-log*" CommandLine="*/e:false*") OR (CommandLine="*logman*" CommandLine="*update*" CommandLine="*trace*" CommandLine="*--p*" CommandLine="*-ets*") OR CommandLine="*Remove-EtwTraceProvider*" OR (CommandLine="*Set-EtwTraceProvider*" CommandLine="*0x11*")

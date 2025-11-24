@@ -1,0 +1,11 @@
+# Title: Publicly Accessible RDP Service
+# Author: Josh Brower @DefensiveDepth
+# Date: 2020-08-22
+# Level: high
+# Description: Detects connections from routable IPs to an RDP listener. Which is indicative of a publicly-accessible RDP service.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.001
+# False Positives:
+#   - Although it is recommended to NOT have RDP exposed to the internet, verify that this is a) allowed b) the server has not already been compromised via some brute force or remote exploit since it has been exposed to the internet. Work to secure the server if you are unable to remove it from being exposed to the internet.
+
+NOT (id.orig_h="::1/128" OR id.orig_h="10.0.0.0/8" OR id.orig_h="127.0.0.0/8" OR id.orig_h="172.16.0.0/12" OR id.orig_h="192.168.0.0/16" OR id.orig_h="169.254.0.0/16" OR id.orig_h="2620:83:8000::/48" OR id.orig_h="fc00::/7" OR id.orig_h="fe80::/10")

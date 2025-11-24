@@ -1,0 +1,12 @@
+# Title: Shai-Hulud NPM Attack GitHub Activity
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-09-24
+# Level: high
+# Description: Detects GitHub activity associated with the 'Shai-Hulud' NPM supply chain attack. The attack involves malicious NPM packages that use stolen GitHub tokens to create a new branch,
+# inject a malicious workflow file to exfiltrate secrets, and make private repositories public.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.impact, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+"shai-hulud-workflow.yml"

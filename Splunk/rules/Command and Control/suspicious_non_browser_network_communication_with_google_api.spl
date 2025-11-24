@@ -1,0 +1,11 @@
+# Title: Suspicious Non-Browser Network Communication With Google API
+# Author: Gavin Knapp
+# Date: 2023-05-01
+# Level: medium
+# Description: Detects a non-browser process interacting with the Google API which could indicate the use of a covert C2 such as Google Sheet C2 (GC2-sheet)
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1102
+# False Positives:
+#   - Legitimate applications communicating with the "googleapis.com" endpoints that are not already in the exclusion list. This is environmental dependent and requires further testing and tuning.
+
+DestinationHostname IN ("*drive.googleapis.com*", "*oauth2.googleapis.com*", "*sheets.googleapis.com*", "*www.googleapis.com*") NOT (Image="" OR NOT Image=*) NOT (Image="*\\brave.exe" OR Image IN ("*:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "*:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe") OR Image="*:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\*" OR Image IN ("*:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", "*:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe", "*\\WindowsApps\\MicrosoftEdge.exe") OR (Image IN ("*:\\Program Files (x86)\\Microsoft\\EdgeCore\\*", "*:\\Program Files\\Microsoft\\EdgeCore\\*") Image IN ("*\\msedge.exe", "*\\msedgewebview2.exe")) OR Image IN ("*:\\Program Files\\Mozilla Firefox\\firefox.exe", "*:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe") OR (Image="*:\\Program Files\\Google\\Drive File Stream\\*" Image="*\\GoogleDriveFS.exe") OR Image="*\\GoogleUpdate.exe" OR Image IN ("*:\\Program Files (x86)\\Internet Explorer\\iexplore.exe", "*:\\Program Files\\Internet Explorer\\iexplore.exe") OR Image="*\\maxthon.exe" OR Image="*\\opera.exe" OR Image="*\\outlook.exe" OR Image="*\\safari.exe" OR Image="*\\seamonkey.exe" OR Image="*\\vivaldi.exe" OR Image="*\\whale.exe")

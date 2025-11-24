@@ -1,0 +1,9 @@
+# Title: Suspicious PowerShell Invocations - Specific - PowerShell Module
+# Author: Florian Roth (Nextron Systems), Jonhnathan Ribeiro
+# Date: 2017-03-05
+# Level: high
+# Description: Detects suspicious PowerShell invocation command parameters
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+(ContextInfo="*-nop*" ContextInfo="* -w *" ContextInfo="*hidden*" ContextInfo="* -c *" ContextInfo="*[Convert]::FromBase64String*") OR (ContextInfo="* -w *" ContextInfo="*hidden*" ContextInfo="*-ep*" ContextInfo="*bypass*" ContextInfo="*-Enc*") OR (ContextInfo="* -w *" ContextInfo="*hidden*" ContextInfo="*-noni*" ContextInfo="*-nop*" ContextInfo="* -c *" ContextInfo="*iex*" ContextInfo="*New-Object*") OR (ContextInfo="*iex*" ContextInfo="*New-Object*" ContextInfo="*Net.WebClient*" ContextInfo="*.Download*") OR (ContextInfo IN ("*\\software\\microsoft\\windows\\currentversion\\run*", "*\\software\\wow6432node\\microsoft\\windows\\currentversion\\run*", "*\\software\\microsoft\\windows\\currentversion\\policies\\explorer\\run*") ContextInfo="*powershell*" ContextInfo="*reg*" ContextInfo="*add*") OR (ContextInfo="*bypass*" ContextInfo="*-noprofile*" ContextInfo="*-windowstyle*" ContextInfo="*hidden*" ContextInfo="*new-object*" ContextInfo="*system.net.webclient*" ContextInfo="*.download*") NOT (ContextInfo IN ("*(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1*", "*Write-ChocolateyWarning*"))

@@ -1,0 +1,9 @@
+# Title: File With Suspicious Extension Downloaded Via Bitsadmin
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-28
+# Level: high
+# Description: Detects usage of bitsadmin downloading a file with a suspicious extension
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.t1197, attack.s0190, attack.t1036.003
+
+CommandLine IN ("*.7z*", "*.asax*", "*.ashx*", "*.asmx*", "*.asp*", "*.aspx*", "*.bat*", "*.cfm*", "*.cgi*", "*.chm*", "*.cmd*", "*.dll*", "*.gif*", "*.jpeg*", "*.jpg*", "*.jsp*", "*.jspx*", "*.log*", "*.png*", "*.ps1*", "*.psm1*", "*.rar*", "*.scf*", "*.sct*", "*.txt*", "*.vbe*", "*.vbs*", "*.war*", "*.wsf*", "*.wsh*", "*.xll*", "*.zip*") CommandLine IN ("* /transfer *", "* /create *", "* /addfile *") Image="*\\bitsadmin.exe" OR OriginalFileName="bitsadmin.exe"

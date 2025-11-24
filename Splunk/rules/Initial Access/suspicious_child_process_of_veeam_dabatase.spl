@@ -1,0 +1,9 @@
+# Title: Suspicious Child Process Of Veeam Dabatase
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-04
+# Level: critical
+# Description: Detects suspicious child processes of the Veeam service process. This could indicate potential RCE or SQL Injection.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation
+
+ParentCommandLine="*VEEAMSQL*" ParentImage="*\\sqlservr.exe" (CommandLine IN ("*-ex *", "*bypass*", "*cscript*", "*DownloadString*", "*http://*", "*https://*", "*mshta*", "*regsvr32*", "*rundll32*", "*wscript*", "*copy *") Image IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wsl.exe", "*\\wt.exe")) OR Image IN ("*\\net.exe", "*\\net1.exe", "*\\netstat.exe", "*\\nltest.exe", "*\\ping.exe", "*\\tasklist.exe", "*\\whoami.exe")

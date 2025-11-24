@@ -1,0 +1,9 @@
+# Title: Suspicious Download From Direct IP Via Bitsadmin
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-06-28
+# Level: high
+# Description: Detects usage of bitsadmin downloading a file using an URL that contains an IP
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.t1197, attack.s0190, attack.t1036.003
+
+CommandLine IN ("*://1*", "*://2*", "*://3*", "*://4*", "*://5*", "*://6*", "*://7*", "*://8*", "*://9*") CommandLine IN ("* /transfer *", "* /create *", "* /addfile *") Image="*\\bitsadmin.exe" OR OriginalFileName="bitsadmin.exe" NOT CommandLine="*://7-*" | table CommandLine,ParentCommandLine

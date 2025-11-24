@@ -1,0 +1,10 @@
+# Title: Write Protect For Storage Disabled
+# Author: Sreeman
+# Date: 2021-06-11
+# Level: medium
+# Description: Detects applications trying to modify the registry in order to disable any write-protect property for storage devices.
+# This could be a precursor to a ransomware attack and has been an observed technique used by cypherpunk group.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562
+
+CommandLine="*\\System\\CurrentControlSet\\Control*" CommandLine="*Write Protection*" CommandLine="*0*" CommandLine="*storage*"

@@ -1,0 +1,11 @@
+# Title: Github Fork Private Repositories Setting Enabled/Cleared
+# Author: Romain Gaillard (@romain-gaillard)
+# Date: 2024-07-29
+# Level: medium
+# Description: Detects when the policy allowing forks of private and internal repositories is changed (enabled or cleared).
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.exfiltration, attack.t1020, attack.t1537
+# False Positives:
+#   - Allowed administrative activities.
+
+action IN ("private_repository_forking.clear", "private_repository_forking.enable")

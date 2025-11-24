@@ -1,0 +1,13 @@
+# Title: Google Cloud SQL Database Modified or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-10-15
+# Level: medium
+# Description: Detect when a Cloud SQL DB has been modified or deleted.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - SQL Database being modified or deleted may be performed by a system administrator.
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - SQL Database modified or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+gcp.audit.method_name IN ("cloudsql.instances.create", "cloudsql.instances.delete", "cloudsql.users.update", "cloudsql.users.delete")

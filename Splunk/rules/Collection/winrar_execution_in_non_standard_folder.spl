@@ -1,0 +1,11 @@
+# Title: WinRAR Execution in Non-Standard Folder
+# Author: Florian Roth (Nextron Systems), Tigzy
+# Date: 2021-11-17
+# Level: medium
+# Description: Detects a suspicious WinRAR execution in a folder which is not the default installation folder
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1560.001
+# False Positives:
+#   - Legitimate use of WinRAR in a folder of a software that bundles WinRAR
+
+Image IN ("*\\rar.exe", "*\\winrar.exe") OR Description IN ("Command line RAR", "WinRAR") NOT (Image IN ("*:\\Program Files (x86)\\WinRAR\\*", "*:\\Program Files\\WinRAR\\*") OR Image="*\\UnRAR.exe") NOT Image="*:\\Windows\\Temp\\*"

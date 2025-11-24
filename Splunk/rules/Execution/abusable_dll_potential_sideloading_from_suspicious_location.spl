@@ -1,0 +1,9 @@
+# Title: Abusable DLL Potential Sideloading From Suspicious Location
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-07-11
+# Level: high
+# Description: Detects potential DLL sideloading of DLLs that are known to be abused from suspicious locations
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+
+ImageLoaded IN ("*\\coreclr.dll", "*\\facesdk.dll", "*\\HPCustPartUI.dll", "*\\libcef.dll", "*\\ZIPDLL.dll") ImageLoaded IN ("*:\\Perflogs\\*", "*:\\Users\\Public\\*", "*\\Temporary Internet*", "*\\Windows\\Temp\\*") OR (ImageLoaded="*:\\Users\\*" ImageLoaded="*\\Favorites\\*") OR (ImageLoaded="*:\\Users\\*" ImageLoaded="*\\Favourites\\*") OR (ImageLoaded="*:\\Users\\*" ImageLoaded="*\\Contacts\\*") OR (ImageLoaded="*:\\Users\\*" ImageLoaded="*\\Pictures\\*")

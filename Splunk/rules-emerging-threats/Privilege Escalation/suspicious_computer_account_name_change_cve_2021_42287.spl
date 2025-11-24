@@ -1,0 +1,9 @@
+# Title: Suspicious Computer Account Name Change CVE-2021-42287
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-12-22
+# Level: high
+# Description: Detects the renaming of an existing computer account to a account name that doesn't contain a $ symbol as seen in attacks against CVE-2021-42287
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.persistence, attack.t1036, attack.t1098, cve.2021-42287, detection.emerging-threats
+
+EventID=4781 OldTargetUserName="*$*" NOT NewTargetUserName="*$*" | table EventID,SubjectUserName

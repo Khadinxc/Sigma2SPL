@@ -1,0 +1,9 @@
+# Title: Suspicious Volume Shadow Copy Vssapi.dll Load
+# Author: frack113
+# Date: 2022-10-31
+# Level: high
+# Description: Detects the image load of VSS DLL by uncommon executables
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.impact, attack.t1490
+
+ImageLoaded="*\\vssapi.dll" NOT (NOT Image=* OR Image IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*") OR Image IN ("C:\\Windows\\explorer.exe", "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe") OR Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\Temp\\{*", "C:\\Windows\\WinSxS\\*")) NOT ((Image="*\\temp\\is-*" Image="*\\avira_system_speedup.tmp*") OR Image="C:\\ProgramData\\Package Cache\\*")

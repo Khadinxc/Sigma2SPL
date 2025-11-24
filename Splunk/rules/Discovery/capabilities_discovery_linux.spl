@@ -1,0 +1,9 @@
+# Title: Capabilities Discovery - Linux
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-12-28
+# Level: low
+# Description: Detects usage of "getcap" binary. This is often used during recon activity to determine potential binaries that can be abused as GTFOBins or other.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1083
+
+CommandLine="* -r *" OR CommandLine="* /r *" OR CommandLine="* –r *" OR CommandLine="* —r *" OR CommandLine="* ―r *" Image="*/getcap"

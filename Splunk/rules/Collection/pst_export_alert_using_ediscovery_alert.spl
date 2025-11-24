@@ -1,0 +1,11 @@
+# Title: PST Export Alert Using eDiscovery Alert
+# Author: Sorina Ionescu
+# Date: 2022-02-08
+# Level: medium
+# Description: Alert on when a user has performed an eDiscovery search or exported a PST file from the search. This PST file usually has sensitive information including email body content
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1114
+# False Positives:
+#   - PST export can be done for legitimate purposes but due to the sensitive nature of its content it must be monitored.
+
+eventName="eDiscovery search started or exported" eventSource="SecurityComplianceCenter" status="success"

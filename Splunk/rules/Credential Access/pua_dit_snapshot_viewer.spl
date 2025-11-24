@@ -1,0 +1,11 @@
+# Title: PUA - DIT Snapshot Viewer
+# Author: Furkan Caliskan (@caliskanfurkan_)
+# Date: 2020-07-04
+# Level: high
+# Description: Detects the use of Ditsnap tool, an inspection tool for Active Directory database, ntds.dit.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.003
+# False Positives:
+#   - Legitimate admin usage
+
+Image="*\\ditsnap.exe" OR CommandLine="*ditsnap.exe*"

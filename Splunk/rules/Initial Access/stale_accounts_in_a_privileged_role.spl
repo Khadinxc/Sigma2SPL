@@ -1,0 +1,11 @@
+# Title: Stale Accounts In A Privileged Role
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-14
+# Level: high
+# Description: Identifies when an account hasn't signed in during the past n number of days.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - Investigate if potential generic account that cannot be removed.
+
+riskEventType="staleSignInAlertIncident"

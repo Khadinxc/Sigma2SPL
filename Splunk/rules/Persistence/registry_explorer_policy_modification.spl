@@ -1,0 +1,11 @@
+# Title: Registry Explorer Policy Modification
+# Author: frack113
+# Date: 2022-03-18
+# Level: medium
+# Description: Detects registry modifications that disable internal tools or functions in explorer (malware like Agent Tesla uses this technique)
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1112
+# False Positives:
+#   - Legitimate admin script
+
+Details="DWORD (0x00000001)" TargetObject IN ("*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoLogOff", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoDesktop", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoRun", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoFind", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoControlPanel", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoFileMenu", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoClose", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoSetTaskbar", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoPropertiesMyDocuments", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoTrayContextMenu")

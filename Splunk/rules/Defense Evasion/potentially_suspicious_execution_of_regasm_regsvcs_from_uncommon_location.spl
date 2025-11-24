@@ -1,0 +1,9 @@
+# Title: Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Location
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-25
+# Level: medium
+# Description: Detects potentially suspicious execution of the Regasm/Regsvcs utilities from a potentially suspicious location
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.009
+
+CommandLine IN ("*\\AppData\\Local\\Temp\\*", "*\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\*", "*\\PerfLogs\\*", "*\\Users\\Public\\*", "*\\Windows\\Temp\\*") Image IN ("*\\Regsvcs.exe", "*\\Regasm.exe") OR OriginalFileName IN ("RegSvcs.exe", "RegAsm.exe")

@@ -1,0 +1,12 @@
+# Title: PowerShell Remote Session Creation
+# Author: frack113
+# Date: 2022-01-06
+# Level: medium
+# Description: Adversaries may abuse PowerShell commands and scripts for execution.
+# PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Legitimate administrative script
+
+ScriptBlockText="*New-PSSession*" ScriptBlockText="*-ComputerName *"

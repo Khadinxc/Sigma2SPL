@@ -1,0 +1,9 @@
+# Title: Remote Thread Creation Via PowerShell In Uncommon Target
+# Author: Florian Roth (Nextron Systems)
+# Date: 2018-06-25
+# Level: medium
+# Description: Detects the creation of a remote thread from a Powershell process in an uncommon target process
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.t1218.011, attack.t1059.001
+
+SourceImage IN ("*\\powershell.exe", "*\\pwsh.exe") TargetImage IN ("*\\rundll32.exe", "*\\regsvr32.exe")

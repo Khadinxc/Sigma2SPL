@@ -1,0 +1,11 @@
+# Title: PUA - Chisel Tunneling Tool Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-09-13
+# Level: high
+# Description: Detects usage of the Chisel tunneling tool via the commandline arguments
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1090.001
+# False Positives:
+#   - Some false positives may occur with other tools with similar commandlines
+
+Image="*\\chisel.exe" OR (CommandLine IN ("*exe client *", "*exe server *") CommandLine IN ("*-socks5*", "*-reverse*", "* r:*", "*:127.0.0.1:*", "*-tls-skip-verify *", "*:socks*"))

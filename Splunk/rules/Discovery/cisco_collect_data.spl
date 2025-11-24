@@ -1,0 +1,11 @@
+# Title: Cisco Collect Data
+# Author: Austin Clark
+# Date: 2019-08-11
+# Level: low
+# Description: Collect pertinent data from the configuration files
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.credential-access, attack.collection, attack.t1087.001, attack.t1552.001, attack.t1005
+# False Positives:
+#   - Commonly run by administrators
+
+"show running-config" OR "show startup-config" OR "show archive config" OR "more"

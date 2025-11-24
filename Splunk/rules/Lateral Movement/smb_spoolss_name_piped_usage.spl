@@ -1,0 +1,11 @@
+# Title: SMB Spoolss Name Piped Usage
+# Author: OTR (Open Threat Research), @neu5ron
+# Date: 2018-11-28
+# Level: medium
+# Description: Detects the use of the spoolss named pipe over SMB. This can be used to trigger the authentication via NTLM of any machine that has the spoolservice enabled.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+# False Positives:
+#   - Domain Controllers that are sometimes, commonly although should not be, acting as printer servers too
+
+name="spoolss" path="*IPC$"

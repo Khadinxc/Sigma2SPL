@@ -1,0 +1,15 @@
+# Title: PetitPotam Suspicious Kerberos TGT Request
+# Author: Mauricio Velazco, Michael Haag
+# Date: 2021-09-02
+# Level: high
+# Description: Detect suspicious Kerberos TGT requests.
+# Once an attacer obtains a computer certificate by abusing Active Directory Certificate Services in combination with PetitPotam, the next step would be to leverage the certificate for malicious purposes.
+# One way of doing this is to request a Kerberos Ticket Granting Ticket using a tool like Rubeus.
+# This request will generate a 4768 event with some unusual fields depending on the environment.
+# This analytic will require tuning, we recommend filtering Account_Name to the Domain Controller computer accounts.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1187
+# False Positives:
+#   - False positives are possible if the environment is using certificates for authentication. We recommend filtering Account_Name to the Domain Controller computer accounts.
+
+CertThumbprint="*" EventID=4768 TargetUserName="*$" NOT (IpAddress="::1" OR CertThumbprint="")

@@ -1,0 +1,11 @@
+# Title: PUA - Seatbelt Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-10-18
+# Level: high
+# Description: Detects the execution of the PUA/Recon tool Seatbelt via PE information of command line parameters
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1526, attack.t1087, attack.t1083
+# False Positives:
+#   - Unlikely
+
+Image="*\\Seatbelt.exe" OR OriginalFileName="Seatbelt.exe" OR Description="Seatbelt" OR CommandLine IN ("* DpapiMasterKeys*", "* InterestingProcesses*", "* InterestingFiles*", "* CertificateThumbprints*", "* ChromiumBookmarks*", "* ChromiumHistory*", "* ChromiumPresence*", "* CloudCredentials*", "* CredEnum*", "* CredGuard*", "* FirefoxHistory*", "* ProcessCreationEvents*") OR (CommandLine IN ("* -group=misc*", "* -group=remote*", "* -group=chromium*", "* -group=slack*", "* -group=system*", "* -group=user*", "* -group=all*") CommandLine="* -outputfile=*")

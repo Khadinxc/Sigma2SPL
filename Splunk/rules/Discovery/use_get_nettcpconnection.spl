@@ -1,0 +1,9 @@
+# Title: Use Get-NetTCPConnection
+# Author: frack113
+# Date: 2021-12-10
+# Level: low
+# Description: Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1049
+
+Data="*Get-NetTCPConnection*"

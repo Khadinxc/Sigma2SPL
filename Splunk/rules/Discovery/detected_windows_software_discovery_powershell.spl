@@ -1,0 +1,11 @@
+# Title: Detected Windows Software Discovery - PowerShell
+# Author: Nikita Nazarov, oscd.community
+# Date: 2020-10-16
+# Level: medium
+# Description: Adversaries may attempt to enumerate software for a variety of reasons, such as figuring out what security measures are present or if the compromised system has a version of software that is vulnerable.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1518
+# False Positives:
+#   - Legitimate administration activities
+
+ScriptBlockText="*get-itemProperty*" ScriptBlockText="*\\software\\*" ScriptBlockText="*select-object*" ScriptBlockText="*format-table*"

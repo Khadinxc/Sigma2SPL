@@ -1,0 +1,9 @@
+# Title: Suspicious Process Created Via Wmic.EXE
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2020-10-12
+# Level: high
+# Description: Detects WMIC executing "process call create" with suspicious calls to processes such as "rundll32", "regsrv32", etc.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1047
+
+CommandLine IN ("*rundll32*", "*bitsadmin*", "*regsvr32*", "*cmd.exe /c *", "*cmd.exe /k *", "*cmd.exe /r *", "*cmd /c *", "*cmd /k *", "*cmd /r *", "*powershell*", "*pwsh*", "*certutil*", "*cscript*", "*wscript*", "*mshta*", "*\\Users\\Public\\*", "*\\Windows\\Temp\\*", "*\\AppData\\Local\\*", "*%temp%*", "*%tmp%*", "*%ProgramData%*", "*%appdata%*", "*%comspec%*", "*%localappdata%*") CommandLine="*process *" CommandLine="*call *" CommandLine="*create *"

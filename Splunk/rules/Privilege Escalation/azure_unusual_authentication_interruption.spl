@@ -1,0 +1,9 @@
+# Title: Azure Unusual Authentication Interruption
+# Author: Austin Songer @austinsonger
+# Date: 2021-11-26
+# Level: medium
+# Description: Detects when there is a interruption in the authentication process.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+
+(ResultDescription="Device authentication is required" ResultType=50097) OR (ResultDescription="DeviceAuthenticationFailed" ResultType=50155) OR (ResultDescription="ExternalSecurityChallenge - External security challenge was not satisfied" ResultType=50158)

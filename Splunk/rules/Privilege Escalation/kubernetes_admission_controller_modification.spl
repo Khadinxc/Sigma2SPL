@@ -1,0 +1,12 @@
+# Title: Kubernetes Admission Controller Modification
+# Author: kelnage
+# Date: 2024-07-11
+# Level: medium
+# Description: Detects when a modification (create, update or replace) action is taken that affects mutating or validating webhook configurations, as they can be used by an adversary to achieve persistence or exfiltrate access credentials.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.initial-access, attack.defense-evasion, attack.persistence, attack.t1078, attack.credential-access, attack.t1552, attack.t1552.007
+# False Positives:
+#   - Modifying the Kubernetes Admission Controller may need to be done by a system administrator.
+#   - Automated processes may need to take these actions and may need to be filtered.
+
+objectRef.apiGroup="admissionregistration.k8s.io" objectRef.resource IN ("mutatingwebhookconfigurations", "validatingwebhookconfigurations") verb IN ("create", "delete", "patch", "replace", "update")

@@ -1,0 +1,12 @@
+# Title: FortiGate - New VPN SSL Web Portal Added
+# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Date: 2025-11-01
+# Level: medium
+# Description: Detects the addition of a VPN SSL Web Portal on a Fortinet FortiGate Firewall.
+# This behavior was observed in pair with modification of VPN SSL settings.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.initial-access, attack.t1133
+# False Positives:
+#   - A VPN SSL Web Portal can be added for legitimate purposes.
+
+action="Add" cfgpath="vpn.ssl.web.portal"

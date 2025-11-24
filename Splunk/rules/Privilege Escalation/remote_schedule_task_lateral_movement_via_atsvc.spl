@@ -1,0 +1,9 @@
+# Title: Remote Schedule Task Lateral Movement via ATSvc
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to create or execute a scheduled task via ATSvc
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.lateral-movement, attack.execution, attack.persistence, attack.t1053, attack.t1053.002
+
+EventID=3 EventLog="RPCFW" InterfaceUuid="1ff70682-0a51-30e8-076d-740be8cee98b" OpNum IN (0, 1)

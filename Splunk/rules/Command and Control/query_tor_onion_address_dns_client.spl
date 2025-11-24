@@ -1,0 +1,11 @@
+# Title: Query Tor Onion Address - DNS Client
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-02-20
+# Level: high
+# Description: Detects DNS resolution of an .onion address related to Tor routing networks
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1090.003
+# False Positives:
+#   - Unlikely
+
+EventID=3008 QueryName IN ("*.hiddenservice.net", "*.onion.ca", "*.onion.cab", "*.onion.casa", "*.onion.city", "*.onion.direct", "*.onion.dog", "*.onion.glass", "*.onion.gq", "*.onion.guide", "*.onion.in.net", "*.onion.ink", "*.onion.it", "*.onion.link", "*.onion.lt", "*.onion.lu", "*.onion.ly", "*.onion.mn", "*.onion.network", "*.onion.nu", "*.onion.pet", "*.onion.plus", "*.onion.pt", "*.onion.pw", "*.onion.rip", "*.onion.sh", "*.onion.si", "*.onion.to", "*.onion.top", "*.onion.ws", "*.onion", "*.s1.tor-gateways.de", "*.s2.tor-gateways.de", "*.s3.tor-gateways.de", "*.s4.tor-gateways.de", "*.s5.tor-gateways.de", "*.t2w.pw", "*.tor2web.ae.org", "*.tor2web.blutmagie.de", "*.tor2web.com", "*.tor2web.fi", "*.tor2web.io", "*.tor2web.org", "*.tor2web.xyz", "*.torlink.co")

@@ -1,0 +1,11 @@
+# Title: Remote Access Tool - ScreenConnect File Transfer
+# Author: Ali Alwashali
+# Date: 2023-10-10
+# Level: low
+# Description: Detects file being transferred via ScreenConnect RMM
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.003
+# False Positives:
+#   - Legitimate use of ScreenConnect
+
+Data="*Transferred files with action*" EventID=201 Provider_Name="ScreenConnect"

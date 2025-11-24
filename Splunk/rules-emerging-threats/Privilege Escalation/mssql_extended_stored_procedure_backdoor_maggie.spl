@@ -1,0 +1,11 @@
+# Title: MSSQL Extended Stored Procedure Backdoor Maggie
+# Author: Denis Szadkowski, DIRT / DCSO CyTec
+# Date: 2022-10-09
+# Level: high
+# Description: This rule detects the execution of the extended storage procedure backdoor named Maggie in the context of Microsoft SQL server
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546, detection.emerging-threats
+# False Positives:
+#   - Legitimate extended stored procedures named maggie
+
+EventID=8128 Message="*maggie*" Provider_Name="MSSQLSERVER"

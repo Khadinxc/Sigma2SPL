@@ -1,0 +1,11 @@
+# Title: Start Windows Service Via Net.EXE
+# Author: Timur Zinniatullin, Daniil Yugoslavskiy, oscd.community
+# Date: 2019-10-21
+# Level: low
+# Description: Detects the usage of the "net.exe" command to start a service using the "start" flag
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002
+# False Positives:
+#   - Legitimate administrator or user executes a service for legitimate reasons.
+
+CommandLine="* start *" Image IN ("*\\net.exe", "*\\net1.exe") OR OriginalFileName IN ("net.exe", "net1.exe")

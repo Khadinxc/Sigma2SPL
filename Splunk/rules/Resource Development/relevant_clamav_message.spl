@@ -1,0 +1,9 @@
+# Title: Relevant ClamAV Message
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-01
+# Level: high
+# Description: Detects relevant ClamAV messages
+# MITRE Tactic: Resource Development
+# Tags: attack.resource-development, attack.t1588.001
+
+"Trojan*FOUND" OR "VirTool*FOUND" OR "Webshell*FOUND" OR "Rootkit*FOUND" OR "Htran*FOUND"

@@ -1,0 +1,9 @@
+# Title: Aruba Network Service Potential DLL Sideloading
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-22
+# Level: high
+# Description: Detects potential DLL sideloading activity via the Aruba Networks Virtual Intranet Access "arubanetsvc.exe" process using DLL Search Order Hijacking
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.persistence, attack.t1574.001
+
+ImageLoaded IN ("*\\wtsapi32.dll", "*\\msvcr100.dll", "*\\msvcp100.dll", "*\\dbghelp.dll", "*\\dbgcore.dll", "*\\wininet.dll", "*\\iphlpapi.dll", "*\\version.dll", "*\\cryptsp.dll", "*\\cryptbase.dll", "*\\wldp.dll", "*\\profapi.dll", "*\\sspicli.dll", "*\\winsta.dll", "*\\dpapi.dll") Image="*\\arubanetsvc.exe" NOT (ImageLoaded IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*"))

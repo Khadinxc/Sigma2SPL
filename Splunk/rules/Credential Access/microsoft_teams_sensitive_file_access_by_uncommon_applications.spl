@@ -1,0 +1,9 @@
+# Title: Microsoft Teams Sensitive File Access By Uncommon Applications
+# Author: @SerkinValery
+# Date: 2024-07-22
+# Level: medium
+# Description: Detects file access attempts to sensitive Microsoft teams files (leveldb, cookies) by an uncommon process.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1528
+
+FileName IN ("*\\Microsoft\\Teams\\Cookies*", "*\\Microsoft\\Teams\\Local Storage\\leveldb*") NOT Image="*\\Microsoft\\Teams\\current\\Teams.exe"

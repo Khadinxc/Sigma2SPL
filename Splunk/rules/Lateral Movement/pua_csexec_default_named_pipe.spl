@@ -1,0 +1,11 @@
+# Title: PUA - CSExec Default Named Pipe
+# Author: Nikita Nazarov, oscd.community, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-08-07
+# Level: medium
+# Description: Detects default CSExec pipe creation
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002, attack.execution, attack.t1569.002
+# False Positives:
+#   - Legitimate Administrator activity
+
+PipeName="*\\csexecsvc*"

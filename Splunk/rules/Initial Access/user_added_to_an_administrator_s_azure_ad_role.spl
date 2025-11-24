@@ -1,0 +1,11 @@
+# Title: User Added to an Administrator's Azure AD Role
+# Author: Raphaël CALVET, @MetallicHack
+# Date: 2021-10-04
+# Level: medium
+# Description: User Added to an Administrator's Azure AD Role
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1098.003, attack.t1078
+# False Positives:
+#   - PIM (Privileged Identity Management) generates this event each time 'eligible role' is enabled.
+
+"ModifiedProperties{}.NewValue" IN ("*Admins", "*Administrator") Operation="Add member to role." Workload="AzureActiveDirectory"

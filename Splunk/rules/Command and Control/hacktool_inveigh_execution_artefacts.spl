@@ -1,0 +1,11 @@
+# Title: HackTool - Inveigh Execution Artefacts
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-10-24
+# Level: critical
+# Description: Detects the presence and execution of Inveigh via dropped artefacts
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1219.002
+# False Positives:
+#   - Unlikely
+
+TargetFilename IN ("*\\Inveigh-Log.txt", "*\\Inveigh-Cleartext.txt", "*\\Inveigh-NTLMv1Users.txt", "*\\Inveigh-NTLMv2Users.txt", "*\\Inveigh-NTLMv1.txt", "*\\Inveigh-NTLMv2.txt", "*\\Inveigh-FormInput.txt", "*\\Inveigh.dll", "*\\Inveigh.exe", "*\\Inveigh.ps1", "*\\Inveigh-Relay.ps1")

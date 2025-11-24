@@ -1,0 +1,12 @@
+# Title: Potential Sidecar Injection Into Running Deployment
+# Author: Leo Tsaousis (@laripping)
+# Date: 2024-03-26
+# Level: medium
+# Description: Detects attempts to inject a sidecar container into a running deployment.
+# A sidecar container is an additional container within a pod, that resides alongside the main container.
+# One way to add containers to running resources like Deployments/DeamonSets/StatefulSets, is via a "kubectl patch" operation.
+# By injecting a new container within a legitimate pod, an attacker can run their code and hide their activity, instead of running their own separated pod in the cluster.
+# MITRE Tactic: Execution
+# Tags: attack.t1609, attack.execution
+
+apiGroup="apps" objectRef.resource="deployments" verb="patch"

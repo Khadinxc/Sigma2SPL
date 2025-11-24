@@ -1,0 +1,11 @@
+# Title: Use NTFS Short Name in Image
+# Author: frack113, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-06
+# Level: medium
+# Description: Detect use of the Windows 8.3 short name. Which could be used as a method to avoid Image based detection
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564.004
+# False Positives:
+#   - Software Installers
+
+Image IN ("*~1.bat*", "*~1.dll*", "*~1.exe*", "*~1.hta*", "*~1.js*", "*~1.msi*", "*~1.ps1*", "*~1.tmp*", "*~1.vbe*", "*~1.vbs*", "*~2.bat*", "*~2.dll*", "*~2.exe*", "*~2.hta*", "*~2.js*", "*~2.msi*", "*~2.ps1*", "*~2.tmp*", "*~2.vbe*", "*~2.vbs*") NOT ParentImage="C:\\Windows\\explorer.exe" NOT (ParentImage="*\\thor\\thor64.exe" OR Image="*\\VCREDI~1.EXE" OR ParentImage="*\\WebEx\\WebexHost.exe" OR Image="C:\\PROGRA~1\\WinZip\\WZPREL~1.EXE")

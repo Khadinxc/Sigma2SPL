@@ -1,0 +1,9 @@
+# Title: SCM Database Handle Failure
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-08-12
+# Level: medium
+# Description: Detects non-system users failing to get a handle of the SCM database.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1010
+
+AccessMask="0xf003f" EventID=4656 ObjectName="ServicesActive" ObjectType="SC_MANAGER OBJECT" NOT SubjectLogonId="0x3e4"

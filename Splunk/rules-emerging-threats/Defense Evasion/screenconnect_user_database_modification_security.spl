@@ -1,0 +1,13 @@
+# Title: ScreenConnect User Database Modification - Security
+# Author: Matt Anderson, Kris Luzadre, Andrew Schwartz, Huntress
+# Date: 2024-02-20
+# Level: medium
+# Description: This detects file modifications to the temporary xml user database file indicating local user modification in the ScreenConnect server.
+# This will occur during exploitation of the ScreenConnect Authentication Bypass vulnerability (CVE-2024-1709) in versions <23.9.8, but may also be observed when making legitimate modifications to local users or permissions.
+# This requires an Advanced Auditing policy to log a successful Windows Event ID 4663 events and with a SACL set on the directory.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, cve.2024-1709, detection.emerging-threats
+# False Positives:
+#   - This will occur legitimately as well and will result in some benign activity.
+
+AccessMask="0x6" EventID=4663 ObjectName="*Temp*" ObjectName="*ScreenConnect*" ObjectName="*.xml" ObjectType="File" ProcessName="*ScreenConnect.Service.exe*"

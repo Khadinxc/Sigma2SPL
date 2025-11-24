@@ -1,0 +1,11 @@
+# Title: Authentications To Important Apps Using Single Factor Authentication
+# Author: MikeDuddington, '@dudders1'
+# Date: 2022-07-28
+# Level: medium
+# Description: Detect when authentications to important application(s) only required single-factor authentication
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+# False Positives:
+#   - If this was approved by System Administrator.
+
+AppId="Insert Application ID use OR for multiple" AuthenticationRequirement="singleFactorAuthentication" Status="Success"

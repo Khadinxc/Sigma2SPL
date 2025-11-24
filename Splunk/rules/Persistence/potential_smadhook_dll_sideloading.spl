@@ -1,0 +1,11 @@
+# Title: Potential SmadHook.DLL Sideloading
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-06-01
+# Level: high
+# Description: Detects potential DLL sideloading of "SmadHook.dll", a DLL used by SmadAV antivirus
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.001
+# False Positives:
+#   - Unlikely
+
+ImageLoaded IN ("*\\SmadHook32c.dll", "*\\SmadHook64c.dll") NOT (Image IN ("C:\\Program Files (x86)\\SMADAV\\SmadavProtect32.exe", "C:\\Program Files (x86)\\SMADAV\\SmadavProtect64.exe", "C:\\Program Files\\SMADAV\\SmadavProtect32.exe", "C:\\Program Files\\SMADAV\\SmadavProtect64.exe") ImageLoaded IN ("C:\\Program Files (x86)\\SMADAV\\*", "C:\\Program Files\\SMADAV\\*"))

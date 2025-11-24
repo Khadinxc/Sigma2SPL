@@ -1,0 +1,9 @@
+# Title: PUA - PingCastle Execution From Potentially Suspicious Parent
+# Author: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
+# Date: 2024-01-11
+# Level: high
+# Description: Detects the execution of PingCastle, a tool designed to quickly assess the Active Directory security level via a script located in a potentially suspicious or uncommon location.
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.t1595
+
+ParentCommandLine IN ("*.bat*", "*.chm*", "*.cmd*", "*.hta*", "*.htm*", "*.html*", "*.js*", "*.lnk*", "*.ps1*", "*.vbe*", "*.vbs*", "*.wsf*") OR ParentCommandLine IN ("*:\\Perflogs\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp*", "*\\AppData\\Roaming\\*", "*\\Temporary Internet*") OR (ParentCommandLine="*:\\Users\\*" ParentCommandLine="*\\Favorites\\*") OR (ParentCommandLine="*:\\Users\\*" ParentCommandLine="*\\Favourites\\*") OR (ParentCommandLine="*:\\Users\\*" ParentCommandLine="*\\Contacts\\*") ParentCommandLine IN ("*.bat*", "*.chm*", "*.cmd*", "*.hta*", "*.htm*", "*.html*", "*.js*", "*.lnk*", "*.ps1*", "*.vbe*", "*.vbs*", "*.wsf*") Image="*\\PingCastle.exe" OR OriginalFileName="PingCastle.exe" OR Product="Ping Castle" OR CommandLine IN ("*--scanner aclcheck*", "*--scanner antivirus*", "*--scanner computerversion*", "*--scanner foreignusers*", "*--scanner laps_bitlocker*", "*--scanner localadmin*", "*--scanner nullsession*", "*--scanner nullsession-trust*", "*--scanner oxidbindings*", "*--scanner remote*", "*--scanner share*", "*--scanner smb*", "*--scanner smb3querynetwork*", "*--scanner spooler*", "*--scanner startup*", "*--scanner zerologon*") OR CommandLine="*--no-enum-limit*" OR (CommandLine="*--healthcheck*" CommandLine="*--level Full*") OR (CommandLine="*--healthcheck*" CommandLine="*--server *")

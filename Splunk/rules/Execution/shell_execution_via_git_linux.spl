@@ -1,0 +1,9 @@
+# Title: Shell Execution via Git - Linux
+# Author: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)
+# Date: 2024-09-02
+# Level: high
+# Description: Detects the use of the "git" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+
+CommandLine IN ("*bash 0<&1*", "*dash 0<&1*", "*sh 0<&1*") ParentCommandLine="* -p *" ParentCommandLine="*help*" ParentImage="*/git"

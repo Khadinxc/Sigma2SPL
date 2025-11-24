@@ -1,0 +1,11 @@
+# Title: Registry Hide Function from User
+# Author: frack113
+# Date: 2022-03-18
+# Level: medium
+# Description: Detects registry modifications that hide internal tools or functions from the user (malware like Agent Tesla, Hermetic Wiper uses this technique)
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1112
+# False Positives:
+#   - Legitimate admin script
+
+(Details="DWORD (0x00000000)" TargetObject IN ("*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowInfoTip", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowCompColor")) OR (Details="DWORD (0x00000001)" TargetObject IN ("*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideClock", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideSCAHealth", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideSCANetwork", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideSCAPower", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideSCAVolume"))

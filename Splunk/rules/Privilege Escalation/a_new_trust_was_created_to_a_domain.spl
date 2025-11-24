@@ -1,0 +1,11 @@
+# Title: A New Trust Was Created To A Domain
+# Author: Thomas Patzke
+# Date: 2019-12-03
+# Level: medium
+# Description: Addition of domains is seldom and should be verified for legitimacy.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1098
+# False Positives:
+#   - Legitimate extension of domain structure
+
+EventID=4706

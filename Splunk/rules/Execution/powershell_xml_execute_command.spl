@@ -1,0 +1,13 @@
+# Title: Powershell XML Execute Command
+# Author: frack113
+# Date: 2022-01-19
+# Level: medium
+# Description: Adversaries may abuse PowerShell commands and scripts for execution.
+# PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system. (Citation: TechNet PowerShell)
+# Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Legitimate administrative script
+
+ScriptBlockText IN ("*IEX *", "*Invoke-Expression *", "*Invoke-Command *", "*ICM -*") ScriptBlockText="*New-Object*" ScriptBlockText="*System.Xml.XmlDocument*" ScriptBlockText="*.Load*"

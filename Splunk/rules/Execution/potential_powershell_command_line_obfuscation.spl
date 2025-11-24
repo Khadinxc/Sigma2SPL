@@ -1,0 +1,21 @@
+# Title: Potential PowerShell Command Line Obfuscation
+# Author: Teymur Kheirkhabarov (idea), Vasiliy Burov (rule), oscd.community, Tim Shelton (fp)
+# Date: 2020-10-15
+# Level: high
+# Description: Detects the PowerShell command lines with special characters
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.defense-evasion, attack.t1027, attack.t1059.001
+# False Positives:
+#   - Amazon SSM Document Worker
+#   - Windows Defender ATP
+
+
+| rex field=CommandLine "(?<CommandLineMatch>\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch2>\\{.*\\{.*\\{.*\\{.*\\{.*\\{.*\\{.*\\{.*\\{.*\\{)"
+| eval CommandLineCondition2=if(isnotnull(CommandLineMatch2), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch3>\\^.*\\^.*\\^.*\\^.*\\^)"
+| eval CommandLineCondition3=if(isnotnull(CommandLineMatch3), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch4>`.*`.*`.*`.*`)"
+| eval CommandLineCondition4=if(isnotnull(CommandLineMatch4), "true", "false")
+| search Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") CommandLineCondition="true" OR CommandLineCondition2="true" OR CommandLineCondition3="true" OR CommandLineCondition4="true" NOT (ParentImage="C:\\Program Files\\Amazon\\SSM\\ssm-document-worker.exe" OR CommandLine IN ("*new EventSource(\"Microsoft.Windows.Sense.Client.Management\"*", "*public static extern bool InstallELAMCertificateInfo(SafeFileHandle handle);*"))

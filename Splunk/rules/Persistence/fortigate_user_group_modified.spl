@@ -1,0 +1,12 @@
+# Title: FortiGate - User Group Modified
+# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Date: 2025-11-01
+# Level: medium
+# Description: Detects the modification of a user group on a Fortinet FortiGate Firewall.
+# The group could be used to grant VPN access to a network.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - A group can be modified for legitimate purposes.
+
+action="Edit" cfgpath="user.group"

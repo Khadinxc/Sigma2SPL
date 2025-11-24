@@ -1,0 +1,11 @@
+# Title: HackTool - Typical HiveNightmare SAM File Export
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-07-23
+# Level: high
+# Description: Detects files written by the different tools that exploit HiveNightmare
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1552.001, cve.2021-36934
+# False Positives:
+#   - Files that accidentally contain these strings
+
+TargetFilename IN ("*\\hive_sam_*", "*\\SAM-2021-*", "*\\SAM-2022-*", "*\\SAM-2023-*", "*\\SAM-haxx*", "*\\Sam.save*") OR TargetFilename="C:\\windows\\temp\\sam"

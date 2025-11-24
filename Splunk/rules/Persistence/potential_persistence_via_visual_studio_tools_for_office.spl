@@ -1,0 +1,11 @@
+# Title: Potential Persistence Via Visual Studio Tools for Office
+# Author: Bhabesh Raj
+# Date: 2021-01-10
+# Level: medium
+# Description: Detects persistence via Visual Studio Tools for Office (VSTO) add-ins in Office applications.
+# MITRE Tactic: Persistence
+# Tags: attack.t1137.006, attack.persistence
+# False Positives:
+#   - Legitimate Addin Installation
+
+TargetObject IN ("*\\Software\\Microsoft\\Office\\Outlook\\Addins\\*", "*\\Software\\Microsoft\\Office\\Word\\Addins\\*", "*\\Software\\Microsoft\\Office\\Excel\\Addins\\*", "*\\Software\\Microsoft\\Office\\Powerpoint\\Addins\\*", "*\\Software\\Microsoft\\VSTO\\Security\\Inclusion\\*") NOT (Image IN ("C:\\Program Files (x86)\\Microsoft Office\\root\\integration\\integrator.exe", "C:\\Program Files\\Microsoft Office\\root\\integration\\integrator.exe") OR (Image IN ("*\\excel.exe", "*\\Integrator.exe", "*\\outlook.exe", "*\\powerpnt.exe", "*\\Teams.exe", "*\\visio.exe", "*\\winword.exe") Image IN ("C:\\Program Files\\Microsoft Office\\OFFICE*", "C:\\Program Files (x86)\\Microsoft Office\\OFFICE*", "C:\\Program Files\\Microsoft Office\\Root\\OFFICE*", "C:\\Program Files (x86)\\Microsoft Office\\Root\\OFFICE*")) OR (Image="*\\OfficeClickToRun.exe" Image IN ("C:\\Program Files\\Common Files (x86)\\Microsoft Shared\\ClickToRun\\*", "C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\*")) OR Image IN ("C:\\Windows\\System32\\msiexec.exe", "C:\\Windows\\SysWOW64\\msiexec.exe", "C:\\Windows\\System32\\regsvr32.exe", "C:\\Windows\\SysWOW64\\regsvr32.exe")) NOT ((Image IN ("C:\\Program Files\\Avast Software\\Avast\\RegSvr.exe", "C:\\Program Files (x86)\\Avast Software\\Avast\\RegSvr.exe") TargetObject="*\\Microsoft\\Office\\Outlook\\Addins\\Avast.AsOutExt\\*") OR (Image IN ("C:\\Program Files\\AVG\\Antivirus\\RegSvr.exe", "C:\\Program Files (x86)\\AVG\\Antivirus\\RegSvr.exe") TargetObject="*\\Microsoft\\Office\\Outlook\\Addins\\Antivirus.AsOutExt\\*"))

@@ -1,0 +1,9 @@
+# Title: Potential Script Proxy Execution Via CL_Mutexverifiers.ps1
+# Author: Nasreddine Bencherchali (Nextron Systems), oscd.community, Natalia Shornikova, frack113
+# Date: 2022-05-21
+# Level: medium
+# Description: Detects the use of the Microsoft signed script "CL_mutexverifiers" to proxy the execution of additional PowerShell script commands
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1216
+
+CommandLine="* -nologo -windowstyle minimized -file *" Image="*\\powershell.exe" ParentImage IN ("*\\powershell.exe", "*\\pwsh.exe") CommandLine IN ("*\\AppData\\Local\\Temp\\*", "*\\Windows\\Temp\\*")

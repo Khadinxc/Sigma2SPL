@@ -1,0 +1,9 @@
+# Title: Microsoft Sync Center Suspicious Network Connections
+# Author: elhoim
+# Date: 2022-04-28
+# Level: medium
+# Description: Detects suspicious connections from Microsoft Sync Center to non-private IPs.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.t1055, attack.t1218, attack.execution, attack.defense-evasion
+
+Image="*\\mobsync.exe" NOT (DestinationIp="127.0.0.0/8" OR DestinationIp="10.0.0.0/8" OR DestinationIp="172.16.0.0/12" OR DestinationIp="192.168.0.0/16" OR DestinationIp="169.254.0.0/16" OR DestinationIp="::1/128" OR DestinationIp="fe80::/10" OR DestinationIp="fc00::/7")

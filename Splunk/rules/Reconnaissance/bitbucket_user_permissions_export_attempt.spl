@@ -1,0 +1,11 @@
+# Title: Bitbucket User Permissions Export Attempt
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-02-25
+# Level: medium
+# Description: Detects user permission data export attempt.
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.collection, attack.discovery, attack.t1213, attack.t1082, attack.t1591.004
+# False Positives:
+#   - Legitimate user activity.
+
+auditType.action IN ("User details export failed", "User details export started", "User details exported") auditType.category="Users and groups"

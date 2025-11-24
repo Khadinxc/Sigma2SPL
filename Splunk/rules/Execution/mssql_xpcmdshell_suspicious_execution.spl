@@ -1,0 +1,9 @@
+# Title: MSSQL XPCmdshell Suspicious Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-12
+# Level: high
+# Description: Detects when the MSSQL "xp_cmdshell" stored procedure is used to execute commands
+# MITRE Tactic: Execution
+# Tags: attack.execution
+
+Data="*object_name:xp_cmdshell*" Data="*statement:EXEC*" EventID=33205 Provider_Name="*MSSQL*"

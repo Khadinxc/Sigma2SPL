@@ -1,0 +1,9 @@
+# Title: Suspicious Nohup Execution
+# Author: Joseliyo Sanchez, @Joseliyo_Jstnk
+# Date: 2023-06-02
+# Level: high
+# Description: Detects execution of binaries located in potentially suspicious locations via "nohup"
+# MITRE Tactic: Execution
+# Tags: attack.execution
+
+CommandLine="*/tmp/*" Image="*/nohup"

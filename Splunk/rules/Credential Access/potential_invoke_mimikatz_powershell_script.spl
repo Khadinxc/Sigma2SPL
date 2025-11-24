@@ -1,0 +1,11 @@
+# Title: Potential Invoke-Mimikatz PowerShell Script
+# Author: Tim Rauch, Elastic (idea)
+# Date: 2022-09-28
+# Level: high
+# Description: Detects Invoke-Mimikatz PowerShell script and alike. Mimikatz is a credential dumper capable of obtaining plaintext Windows account logins and passwords.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003
+# False Positives:
+#   - Mimikatz can be useful for testing the security of networks
+
+(ScriptBlockText="*DumpCreds*" ScriptBlockText="*DumpCerts*") OR ScriptBlockText="*sekurlsa::logonpasswords*" OR (ScriptBlockText="*crypto::certificates*" ScriptBlockText="*CERT_SYSTEM_STORE_LOCAL_MACHINE*")

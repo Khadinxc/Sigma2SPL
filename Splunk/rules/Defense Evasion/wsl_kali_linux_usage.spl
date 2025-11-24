@@ -1,0 +1,11 @@
+# Title: WSL Kali-Linux Usage
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-10-10
+# Level: high
+# Description: Detects the use of Kali Linux through Windows Subsystem for Linux
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1202
+# False Positives:
+#   - Legitimate installation or usage of Kali Linux WSL by administrators or security teams
+
+(Image="*:\\Users\\*" Image="*\\AppData\\Local\\packages\\KaliLinux*") OR (Image="*:\\Users\\*" Image="*\\AppData\\Local\\Microsoft\\WindowsApps\\kali.exe*") OR (Image="*:\\Program Files\\WindowsApps\\KaliLinux.*" Image="*\\kali.exe") OR (Image IN ("*\\kali.exe*", "*\\KaliLinux*") OR CommandLine IN ("*Kali.exe*", "*Kali-linux*", "*kalilinux*") ParentImage IN ("*\\wsl.exe", "*\\wslhost.exe") NOT (CommandLine IN ("* -i *", "* --install *", "* --unregister *")))

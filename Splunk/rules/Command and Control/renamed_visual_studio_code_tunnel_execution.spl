@@ -1,0 +1,9 @@
+# Title: Renamed Visual Studio Code Tunnel Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-09-28
+# Level: high
+# Description: Detects renamed Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001, attack.t1219
+
+((CommandLine="*.exe tunnel" NOT OriginalFileName=*) OR (CommandLine="*.exe tunnel*" CommandLine="*--accept-server-license-terms*") OR (CommandLine="*tunnel *" CommandLine="*service*" CommandLine="*internal-run*" CommandLine="*tunnel-service.log*") NOT (Image IN ("*\\code-tunnel.exe", "*\\code.exe"))) OR (CommandLine="*/d /c *" CommandLine="*\\servers\\Stable-*" CommandLine="*code-server.cmd*" Image="*\\cmd.exe" ParentCommandLine="* tunnel" NOT (ParentImage IN ("*\\code-tunnel.exe", "*\\code.exe")))

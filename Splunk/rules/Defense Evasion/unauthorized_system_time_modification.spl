@@ -1,0 +1,11 @@
+# Title: Unauthorized System Time Modification
+# Author: @neu5ron
+# Date: 2019-02-05
+# Level: low
+# Description: Detect scenarios where a potentially unauthorized application or user is modifying the system time.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.006
+# False Positives:
+#   - HyperV or other virtualization technologies with binary not listed in filter portion of detection
+
+EventID=4616 NOT (ProcessName IN ("C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe", "C:\\Windows\\System32\\VBoxService.exe", "C:\\Windows\\System32\\oobe\\msoobe.exe") OR (ProcessName="C:\\Windows\\System32\\svchost.exe" SubjectUserSid="S-1-5-19"))

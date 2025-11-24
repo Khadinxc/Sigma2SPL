@@ -1,0 +1,9 @@
+# Title: Elevated System Shell Spawned
+# Author: Nasreddine Bencherchali (Nextron Systems), frack113
+# Date: 2023-11-23
+# Level: medium
+# Description: Detects when a shell program such as the Windows command prompt or PowerShell is launched with system privileges. Use this rule to hunt for potential suspicious processes.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.execution, attack.t1059, detection.threat-hunting
+
+Image IN ("*\\powershell.exe", "*\\powershell_ise.exe", "*\\pwsh.exe", "*\\cmd.exe") OR OriginalFileName IN ("PowerShell.EXE", "powershell_ise.EXE", "pwsh.dll", "Cmd.Exe") LogonId="0x3e7" User IN ("*AUTHORI*", "*AUTORI*")

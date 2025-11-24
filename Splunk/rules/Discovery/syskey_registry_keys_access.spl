@@ -1,0 +1,9 @@
+# Title: SysKey Registry Keys Access
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-08-12
+# Level: high
+# Description: Detects handle requests and access operations to specific registry keys to calculate the SysKey
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1012
+
+EventID IN (4656, 4663) ObjectName IN ("*lsa\\JD", "*lsa\\GBG", "*lsa\\Skew1", "*lsa\\Data") ObjectType="key"

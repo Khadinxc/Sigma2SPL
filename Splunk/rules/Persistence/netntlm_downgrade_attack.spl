@@ -1,0 +1,9 @@
+# Title: NetNTLM Downgrade Attack
+# Author: Florian Roth (Nextron Systems), wagga
+# Date: 2018-03-20
+# Level: high
+# Description: Detects NetNTLM downgrade attack
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1562.001, attack.t1112
+
+EventID=4657 ObjectName="*\\REGISTRY\\MACHINE\\SYSTEM*" ObjectName="*ControlSet*" ObjectName="*\\Control\\Lsa*" ObjectValueName IN ("LmCompatibilityLevel", "NtlmMinClientSec", "RestrictSendingNTLMTraffic")

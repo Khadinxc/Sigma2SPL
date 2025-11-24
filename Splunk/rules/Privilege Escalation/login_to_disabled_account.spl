@@ -1,0 +1,9 @@
+# Title: Login to Disabled Account
+# Author: AlertIQ
+# Date: 2021-10-10
+# Level: medium
+# Description: Detect failed attempts to sign in to disabled accounts.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078.004
+
+ResultDescription="User account is disabled. The account has been disabled by an administrator." ResultType=50057

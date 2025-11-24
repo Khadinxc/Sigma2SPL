@@ -1,0 +1,11 @@
+# Title: TacticalRMM Service Installation
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-11-28
+# Level: medium
+# Description: Detects a TacticalRMM service installation. Tactical RMM is a remote monitoring & management tool.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1219.002
+# False Positives:
+#   - Legitimate use of the tool
+
+EventID=7045 Provider_Name="Service Control Manager" ImagePath="*tacticalrmm.exe*" OR ServiceName="*TacticalRMM Agent Service*"

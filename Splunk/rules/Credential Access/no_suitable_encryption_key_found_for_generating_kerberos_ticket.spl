@@ -1,0 +1,10 @@
+# Title: No Suitable Encryption Key Found For Generating Kerberos Ticket
+# Author: @SerkinValery
+# Date: 2024-03-07
+# Level: low
+# Description: Detects errors when a target server doesn't have suitable keys for generating kerberos tickets.
+# This issue can occur for example when a service uses a user account or a computer account that is configured for only DES encryption on a computer that is running Windows 7 which has DES encryption for Kerberos authentication disabled.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558.003
+
+EventID IN (16, 27) Provider_Name IN ("Kerberos-Key-Distribution-Center", "Microsoft-Windows-Kerberos-Key-Distribution-Center")

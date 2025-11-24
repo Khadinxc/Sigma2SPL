@@ -1,0 +1,9 @@
+# Title: PowerShell Called from an Executable Version Mismatch
+# Author: Sean Metcalf (source), Florian Roth (Nextron Systems)
+# Date: 2017-03-05
+# Level: high
+# Description: Detects PowerShell called from an executable by the version mismatch method
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.t1059.001
+
+Data IN ("*EngineVersion=2.*", "*EngineVersion=4.*", "*EngineVersion=5.*") Data="*HostVersion=3.*"

@@ -1,0 +1,11 @@
+# Title: Unsigned Mfdetours.DLL Sideloading
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-08-11
+# Level: high
+# Description: Detects DLL sideloading of unsigned "mfdetours.dll". Executing "mftrace.exe" can be abused to attach to an arbitrary process and force load any DLL named "mfdetours.dll" from the current directory of execution.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.001
+# False Positives:
+#   - Unlikely
+
+ImageLoaded="*\\mfdetours.dll" NOT (ImageLoaded="*:\\Program Files (x86)\\Windows Kits\\10\\bin\\*" SignatureStatus="Valid")

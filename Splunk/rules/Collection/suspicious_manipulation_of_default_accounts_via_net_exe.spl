@@ -1,0 +1,11 @@
+# Title: Suspicious Manipulation Of Default Accounts Via Net.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-09-01
+# Level: high
+# Description: Detects suspicious manipulations of default accounts such as 'administrator' and 'guest'. For example 'enable' or 'disable' accounts or change the password...etc
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1560.001
+# False Positives:
+#   - Some false positives could occur with the admin or guest account. It depends on the scripts being used by the admins in your env. If you experience a lot of FP you could reduce the level to medium
+
+Image IN ("*\\net.exe", "*\\net1.exe") OR OriginalFileName IN ("net.exe", "net1.exe") CommandLine="* user *" CommandLine IN ("* Järjestelmänvalvoja *", "* Rendszergazda *", "* Администратор *", "* Administrateur *", "* Administrador *", "* Administratör *", "* Administrator *", "* guest *", "* DefaultAccount *", "* \"Järjestelmänvalvoja\" *", "* \"Rendszergazda\" *", "* \"Администратор\" *", "* \"Administrateur\" *", "* \"Administrador\" *", "* \"Administratör\" *", "* \"Administrator\" *", "* \"guest\" *", "* \"DefaultAccount\" *", "* 'Järjestelmänvalvoja' *", "* 'Rendszergazda' *", "* 'Администратор' *", "* 'Administrateur' *", "* 'Administrador' *", "* 'Administratör' *", "* 'Administrator' *", "* 'guest' *", "* 'DefaultAccount' *") NOT (CommandLine="*guest*" CommandLine="*/active no*")

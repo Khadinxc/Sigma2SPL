@@ -1,0 +1,11 @@
+# Title: Disabling Security Tools - Builtin
+# Author: Ömer Günal, Alejandro Ortuno, oscd.community
+# Date: 2020-06-17
+# Level: medium
+# Description: Detects disabling security tools
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004
+# False Positives:
+#   - Legitimate administration activities
+
+"stopping iptables" OR "stopping ip6tables" OR "stopping firewalld" OR "stopping cbdaemon" OR "stopping falcon-sensor"

@@ -1,0 +1,9 @@
+# Title: Suspicious File Characteristics Due to Missing Fields
+# Author: Markus Neis, Sander Wiebing
+# Date: 2018-11-22
+# Level: medium
+# Description: Detects Executables in the Downloads folder without FileVersion,Description,Product,Company likely created with py2exe
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.006
+
+(Description="?" FileVersion="?") OR (Description="?" Product="?") OR (Company="?" Description="?") Image="*\\Downloads\\*" | table CommandLine,ParentCommandLine

@@ -1,0 +1,11 @@
+# Title: SAML Token Issuer Anomaly
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-03
+# Level: high
+# Description: Indicates the SAML token issuer for the associated SAML token is potentially compromised. The claims included in the token are unusual or match known attacker patterns
+# MITRE Tactic: Credential Access
+# Tags: attack.t1606, attack.credential-access
+# False Positives:
+#   - We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user.
+
+riskEventType="tokenIssuerAnomaly"

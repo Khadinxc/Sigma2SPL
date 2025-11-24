@@ -1,0 +1,11 @@
+# Title: Remote Access Tool - ScreenConnect Potential Suspicious Remote Command Execution
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems), @Kostastsale
+# Date: 2022-02-25
+# Level: medium
+# Description: Detects potentially suspicious child processes launched via the ScreenConnect client service.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1219.002
+# False Positives:
+#   - If the script being executed make use of any of the utilities mentioned in the detection then they should filtered out or allowed.
+
+Image IN ("*\\bitsadmin.exe", "*\\cmd.exe", "*\\curl.exe", "*\\dllhost.exe", "*\\net.exe", "*\\nltest.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\rundll32.exe", "*\\wevtutil.exe") ParentCommandLine="*:\\Windows\\TEMP\\ScreenConnect\\*" ParentCommandLine="*run.cmd*"

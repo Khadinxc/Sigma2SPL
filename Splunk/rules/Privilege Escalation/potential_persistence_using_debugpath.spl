@@ -1,0 +1,9 @@
+# Title: Potential Persistence Using DebugPath
+# Author: frack113
+# Date: 2022-07-27
+# Level: medium
+# Description: Detects potential persistence using Appx DebugPath
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.015
+
+(TargetObject="*Classes\\ActivatableClasses\\Package\\Microsoft.*" TargetObject="*\\DebugPath") OR (TargetObject="*\\Software\\Microsoft\\Windows\\CurrentVersion\\PackagedAppXDebug\\Microsoft.*" TargetObject="*\\(Default)")

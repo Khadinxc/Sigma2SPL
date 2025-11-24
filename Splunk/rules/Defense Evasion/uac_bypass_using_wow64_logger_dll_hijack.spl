@@ -1,0 +1,9 @@
+# Title: UAC Bypass Using WOW64 Logger DLL Hijack
+# Author: Christian Burkard (Nextron Systems)
+# Date: 2021-08-23
+# Level: high
+# Description: Detects the pattern of UAC Bypass using a WoW64 logger DLL hijack (UACMe 30)
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1548.002
+
+CallTrace="UNKNOWN(0000000000000000)|UNKNOWN(0000000000000000)|*" GrantedAccess="0x1fffff" SourceImage="*:\\Windows\\SysWOW64\\*"

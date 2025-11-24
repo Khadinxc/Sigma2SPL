@@ -1,0 +1,10 @@
+# Title: Potential DLL Sideloading Of KeyScramblerIE.DLL Via KeyScrambler.EXE
+# Author: Swachchhanda Shrawan Poudel
+# Date: 2024-04-15
+# Level: high
+# Description: Detects potential DLL side loading of "KeyScramblerIE.dll" by "KeyScrambler.exe".
+# Various threat actors and malware have been found side loading a masqueraded "KeyScramblerIE.dll" through "KeyScrambler.exe".
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.001
+
+ImageLoaded="*\\KeyScramblerIE.dll" Image IN ("*\\KeyScrambler.exe", "*\\KeyScramblerLogon.exe") NOT ((ImageLoaded IN ("*C:\\Program Files (x86)\\KeyScrambler\\*", "*C:\\Program Files\\KeyScrambler\\*") Image IN ("*C:\\Program Files (x86)\\KeyScrambler\\*", "*C:\\Program Files\\KeyScrambler\\*")) OR (Signature="QFX Software Corporation" SignatureStatus="Valid"))

@@ -1,0 +1,11 @@
+# Title: DPAPI Backup Keys And Certificate Export Activity IOC
+# Author: Nounou Mbeiri, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-06-26
+# Level: high
+# Description: Detects file names with specific patterns seen generated and used by tools such as Mimikatz and DSInternals related to exported or stolen DPAPI backup keys and certificates.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1555, attack.t1552.004
+# False Positives:
+#   - Unlikely
+
+TargetFilename IN ("*ntds_capi_*", "*ntds_legacy_*", "*ntds_unknown_*") TargetFilename IN ("*.cer", "*.key", "*.pfx", "*.pvk")

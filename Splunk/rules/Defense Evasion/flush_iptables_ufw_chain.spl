@@ -1,0 +1,11 @@
+# Title: Flush Iptables Ufw Chain
+# Author: Joseliyo Sanchez, @Joseliyo_Jstnk
+# Date: 2023-01-18
+# Level: medium
+# Description: Detect use of iptables to flush all firewall rules, tables and chains and allow all network traffic
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004
+# False Positives:
+#   - Network administrators
+
+Image IN ("*/iptables", "*/xtables-legacy-multi", "*/iptables-legacy-multi", "*/ip6tables", "*/ip6tables-legacy-multi") CommandLine IN ("*-F*", "*-Z*", "*-X*") CommandLine IN ("*ufw-logging-deny*", "*ufw-logging-allow*", "*ufw6-logging-deny*", "*ufw6-logging-allow*")

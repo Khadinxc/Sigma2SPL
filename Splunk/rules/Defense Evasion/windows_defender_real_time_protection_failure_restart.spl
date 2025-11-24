@@ -1,0 +1,11 @@
+# Title: Windows Defender Real-Time Protection Failure/Restart
+# Author: Nasreddine Bencherchali (Nextron Systems), Christopher Peacock '@securepeacock' (Update)
+# Date: 2023-03-28
+# Level: medium
+# Description: Detects issues with Windows Defender Real-Time Protection features
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Some crashes can occur sometimes and the event doesn't provide enough information to tune out these cases. Manual exception is required
+
+EventID IN (3002, 3007) NOT (Feature_Name="%%886" Reason IN ("%%892", "%%858"))

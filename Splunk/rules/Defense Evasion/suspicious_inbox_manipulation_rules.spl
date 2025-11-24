@@ -1,0 +1,11 @@
+# Title: Suspicious Inbox Manipulation Rules
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-03
+# Level: high
+# Description: Detects suspicious rules that delete or move messages or folders are set on a user's inbox.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.t1140, attack.defense-evasion
+# False Positives:
+#   - Actual mailbox rules that are moving items based on their workflow.
+
+riskEventType="mcasSuspiciousInboxManipulationRules"

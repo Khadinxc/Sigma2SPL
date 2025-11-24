@@ -1,0 +1,9 @@
+# Title: Amsi.DLL Loaded Via LOLBIN Process
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-01
+# Level: medium
+# Description: Detects loading of "Amsi.dll" by a living of the land process. This could be an indication of a "PowerShell without PowerShell" attack
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+ImageLoaded="*\\amsi.dll" Image IN ("*\\ExtExport.exe", "*\\odbcconf.exe", "*\\rundll32.exe")

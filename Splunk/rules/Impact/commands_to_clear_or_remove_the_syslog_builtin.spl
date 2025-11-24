@@ -1,0 +1,11 @@
+# Title: Commands to Clear or Remove the Syslog - Builtin
+# Author: Max Altgelt (Nextron Systems)
+# Date: 2021-09-10
+# Level: high
+# Description: Detects specific commands commonly used to remove or empty the syslog
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1565.001
+# False Positives:
+#   - Log rotation
+
+"rm /var/log/syslog" OR "rm -r /var/log/syslog" OR "rm -f /var/log/syslog" OR "rm -rf /var/log/syslog" OR "mv /var/log/syslog" OR " >/var/log/syslog" OR " > /var/log/syslog" NOT "/syslog."

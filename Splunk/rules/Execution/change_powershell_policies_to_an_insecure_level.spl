@@ -1,0 +1,11 @@
+# Title: Change PowerShell Policies to an Insecure Level
+# Author: frack113
+# Date: 2021-11-01
+# Level: medium
+# Description: Detects changing the PowerShell script execution policy to a potentially insecure level using the "-ExecutionPolicy" flag.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Administrator scripts
+
+OriginalFileName IN ("powershell_ise.exe", "PowerShell.EXE", "pwsh.dll") OR Image IN ("*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe") CommandLine IN ("*Bypass*", "*Unrestricted*") CommandLine IN ("*-executionpolicy *", "* -ep *", "* -exec *") NOT (CommandLine IN ("*-NoProfile -ExecutionPolicy Bypass -File \"C:\\Program Files\\PowerShell\\7\\*", "*-NoProfile -ExecutionPolicy Bypass -File \"C:\\Program Files (x86)\\PowerShell\\7\\*") ParentImage IN ("C:\\Windows\\SysWOW64\\msiexec.exe", "C:\\Windows\\System32\\msiexec.exe")) NOT (CommandLine IN ("*-ExecutionPolicy ByPass -File \"C:\\Program Files\\Avast Software\\Avast*", "*-ExecutionPolicy ByPass -File \"C:\\Program Files (x86)\\Avast Software\\Avast\\*") ParentImage IN ("*C:\\Program Files\\Avast Software\\Avast\\*", "*C:\\Program Files (x86)\\Avast Software\\Avast\\*", "*\\instup.exe*"))

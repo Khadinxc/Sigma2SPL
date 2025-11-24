@@ -1,0 +1,9 @@
+# Title: Exchange Set OabVirtualDirectory ExternalUrl Property
+# Author: Jose Rodriguez @Cyb3rPandaH
+# Date: 2021-03-15
+# Level: high
+# Description: Rule to detect an adversary setting OabVirtualDirectory External URL property to a script in Exchange Management log
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+
+"Set-OabVirtualDirectory" "ExternalUrl" "Page_Load" "script"

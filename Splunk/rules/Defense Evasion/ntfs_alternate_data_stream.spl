@@ -1,0 +1,9 @@
+# Title: NTFS Alternate Data Stream
+# Author: Sami Ruohonen
+# Date: 2018-07-24
+# Level: high
+# Description: Detects writing data into NTFS alternate data streams from powershell. Needs Script Block Logging.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564.004, attack.execution, attack.t1059.001
+
+ScriptBlockText IN ("*set-content*", "*add-content*") ScriptBlockText="*-stream*"

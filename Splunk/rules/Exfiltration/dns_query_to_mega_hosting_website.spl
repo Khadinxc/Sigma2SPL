@@ -1,0 +1,11 @@
+# Title: DNS Query To MEGA Hosting Website
+# Author: Aaron Greetham (@beardofbinary) - NCC Group
+# Date: 2021-05-26
+# Level: medium
+# Description: Detects DNS queries for subdomains related to MEGA sharing website
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1567.002
+# False Positives:
+#   - Legitimate DNS queries and usage of Mega
+
+QueryName="*userstorage.mega.co.nz*"

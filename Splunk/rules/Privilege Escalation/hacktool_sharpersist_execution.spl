@@ -1,0 +1,9 @@
+# Title: HackTool - SharPersist Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-09-15
+# Level: high
+# Description: Detects the execution of the hacktool SharPersist - used to deploy various different kinds of persistence mechanisms
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053
+
+CommandLine IN ("* -t schtask -c *", "* -t startupfolder -c *") OR (CommandLine="* -t reg -c *" CommandLine="* -m add*") OR (CommandLine="* -t service -c *" CommandLine="* -m add*") OR (CommandLine="* -t schtask -c *" CommandLine="* -m add*") OR Image="*\\SharPersist.exe" OR Product="SharPersist"

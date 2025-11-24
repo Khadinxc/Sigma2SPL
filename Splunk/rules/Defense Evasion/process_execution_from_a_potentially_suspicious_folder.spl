@@ -1,0 +1,9 @@
+# Title: Process Execution From A Potentially Suspicious Folder
+# Author: Florian Roth (Nextron Systems), Tim Shelton
+# Date: 2019-01-16
+# Level: high
+# Description: Detects a potentially suspicious execution from an uncommon folder.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036
+
+Image IN ("*:\\Perflogs\\*", "*:\\Users\\All Users\\*", "*:\\Users\\Default\\*", "*:\\Users\\NetworkService\\*", "*:\\Windows\\addins\\*", "*:\\Windows\\debug\\*", "*:\\Windows\\Fonts\\*", "*:\\Windows\\Help\\*", "*:\\Windows\\IME\\*", "*:\\Windows\\Media\\*", "*:\\Windows\\repair\\*", "*:\\Windows\\security\\*", "*:\\Windows\\System32\\Tasks\\*", "*:\\Windows\\Tasks\\*", "*$Recycle.bin*", "*\\config\\systemprofile\\*", "*\\Intel\\Logs\\*", "*\\RSA\\MachineKeys\\*") NOT ((Image="*\\CitrixReceiverUpdater.exe" Image="C:\\Windows\\SysWOW64\\config\\systemprofile\\Citrix\\UpdaterBinaries\\*") OR Image="C:\\Users\\Public\\IBM\\ClientSolutions\\Start_Programs\\*")

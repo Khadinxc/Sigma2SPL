@@ -1,0 +1,9 @@
+# Title: DotNet CLR DLL Loaded By Scripting Applications
+# Author: omkar72, oscd.community
+# Date: 2020-10-14
+# Level: high
+# Description: Detects .NET CLR DLLs being loaded by scripting applications such as wscript or cscript. This could be an indication of potential suspicious execution.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.privilege-escalation, attack.t1055
+
+ImageLoaded IN ("*\\clr.dll", "*\\mscoree.dll", "*\\mscorlib.dll") Image IN ("*\\cmstp.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\msxsl.exe", "*\\regsvr32.exe", "*\\wmic.exe", "*\\wscript.exe")

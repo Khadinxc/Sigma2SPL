@@ -1,0 +1,11 @@
+# Title: Microsoft Excel Add-In Loaded From Uncommon Location
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-12
+# Level: medium
+# Description: Detects Microsoft Excel loading an Add-In (.xll) file from an uncommon location
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204.002
+# False Positives:
+#   - Some tuning might be required to allow or remove certain locations used by the rule if you consider them as safe locations
+
+ImageLoaded IN ("*\\Desktop\\*", "*\\Downloads\\*", "*\\Perflogs\\*", "*\\Temp\\*", "*\\Users\\Public\\*", "*\\Windows\\Tasks\\*") ImageLoaded="*.xll" Image="*\\excel.exe"

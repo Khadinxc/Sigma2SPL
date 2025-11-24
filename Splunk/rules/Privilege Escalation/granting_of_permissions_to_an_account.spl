@@ -1,0 +1,11 @@
+# Title: Granting Of Permissions To An Account
+# Author: sawwinnnaung
+# Date: 2020-05-07
+# Level: medium
+# Description: Identifies IPs from which users grant access to other users on azure resources and alerts when a previously unseen source IP address is used.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1098.003
+# False Positives:
+#   - Valid change
+
+"Microsoft.Authorization/roleAssignments/write"

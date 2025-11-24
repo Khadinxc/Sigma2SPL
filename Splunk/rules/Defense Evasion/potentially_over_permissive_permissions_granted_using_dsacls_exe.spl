@@ -1,0 +1,11 @@
+# Title: Potentially Over Permissive Permissions Granted Using Dsacls.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-20
+# Level: medium
+# Description: Detects usage of Dsacls to grant over permissive permissions
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+# False Positives:
+#   - Legitimate administrators granting over permissive permissions to users
+
+CommandLine="* /G *" Image="*\\dsacls.exe" OR OriginalFileName="DSACLS.EXE" CommandLine IN ("*GR*", "*GE*", "*GW*", "*GA*", "*WP*", "*WD*")

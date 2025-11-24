@@ -1,0 +1,9 @@
+# Title: Process Creation Using Sysnative Folder
+# Author: Max Altgelt (Nextron Systems)
+# Date: 2022-08-23
+# Level: medium
+# Description: Detects process creation events that use the Sysnative folder (common for CobaltStrike spawns)
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055
+
+CommandLine="*:\\Windows\\Sysnative\\*" OR Image="*:\\Windows\\Sysnative\\*" NOT (CommandLine="*install*" Image IN ("*C:\\Windows\\Microsoft.NET\\Framework64\\v*", "*C:\\Windows\\Microsoft.NET\\Framework\\v*", "*C:\\Windows\\Microsoft.NET\\FrameworkArm\\v*", "*C:\\Windows\\Microsoft.NET\\FrameworkArm64\\v*") Image="*\\ngen.exe") NOT (CommandLine="*\"C:\\Windows\\sysnative\\cmd.exe\"*" CommandLine="*\\xampp\\*" CommandLine="*\\catalina_start.bat*")

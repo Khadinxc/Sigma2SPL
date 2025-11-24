@@ -1,0 +1,9 @@
+# Title: Blue Mockingbird
+# Author: Trent Liffick (@tliffick)
+# Date: 2020-05-14
+# Level: high
+# Description: Attempts to detect system changes made by Blue Mockingbird
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.execution, attack.t1112, attack.t1047, detection.emerging-threats
+
+(CommandLine="*sc config*" CommandLine="*wercplsupporte.dll*" Image="*\\cmd.exe") OR (CommandLine="*COR_PROFILER" Image="*\\wmic.exe")

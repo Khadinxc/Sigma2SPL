@@ -1,0 +1,14 @@
+# Title: Suspicious Copy From or To System Directory
+# Author: Florian Roth (Nextron Systems), Markus Neis, Tim Shelton (HAWK.IO), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2020-07-03
+# Level: medium
+# Description: Detects a suspicious copy operation that tries to copy a program from system (System32, SysWOW64, WinSxS) directories to another on disk.
+# Often used to move LOLBINs such as 'certutil' or 'desktopimgdownldr' to a different location with a different name in order to bypass detections based on locations.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036.003
+# False Positives:
+#   - Depend on scripts and administrative tools used in the monitored environment (For example an admin scripts like https://www.itexperience.net/sccm-batch-files-and-32-bits-processes-on-64-bits-os/)
+#   - When cmd.exe and xcopy.exe are called directly
+#   - When the command contains the keywords but not in the correct order
+
+(CommandLine="*copy *" Image="*\\cmd.exe") OR Image IN ("*\\robocopy.exe", "*\\xcopy.exe") OR OriginalFileName IN ("robocopy.exe", "XCOPY.EXE") OR (CommandLine IN ("*copy-item*", "* copy *", "*cpi *", "* cp *") Image IN ("*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe")) CommandLine IN ("*\\System32*", "*\\SysWOW64*", "*\\WinSxS*") NOT (CommandLine IN ("*C:\\Program Files\\Avira\\*", "*C:\\Program Files (x86)\\Avira\\*") CommandLine="*/c copy*" CommandLine="*\\Temp\\*" CommandLine="*\\avira_system_speedup.exe*" Image="*\\cmd.exe")

@@ -1,0 +1,9 @@
+# Title: Potential PowerShell Execution Policy Tampering
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-11
+# Level: medium
+# Description: Detects changes to the PowerShell execution policy in order to bypass signing requirements for script execution
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+Details IN ("*Bypass*", "*Unrestricted*") TargetObject IN ("*\\ShellIds\\Microsoft.PowerShell\\ExecutionPolicy", "*\\Policies\\Microsoft\\Windows\\PowerShell\\ExecutionPolicy") NOT (Image IN ("*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*"))

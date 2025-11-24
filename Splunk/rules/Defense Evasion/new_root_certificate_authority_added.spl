@@ -1,0 +1,9 @@
+# Title: New Root Certificate Authority Added
+# Author: Harjot Shah Singh, '@cyb3rjy0t'
+# Date: 2024-03-26
+# Level: medium
+# Description: Detects newly added root certificate authority to an AzureAD tenant to support certificate based authentication.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.credential-access, attack.persistence, attack.privilege-escalation, attack.t1556
+
+OperationName="Set Company Information" TargetResources.modifiedProperties.newValue="*TrustedCAsForPasswordlessAuth*"

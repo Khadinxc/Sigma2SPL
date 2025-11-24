@@ -1,0 +1,12 @@
+# Title: Antivirus Hacktool Detection
+# Author: Florian Roth (Nextron Systems), Arnim Rupp
+# Date: 2021-08-16
+# Level: high
+# Description: Detects a highly relevant Antivirus alert that reports a hack tool or other attack tool.
+# This event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204
+# False Positives:
+#   - Unlikely
+
+Signature IN ("ATK/*", "Exploit.Script.CVE*", "HKTL*", "HTOOL*", "PWS.*", "PWSX*", "SecurityTool*") OR Signature IN ("*Adfind*", "*Brutel*", "*BruteR*", "*Cobalt*", "*COBEACON*", "*Cometer*", "*DumpCreds*", "*FastReverseProxy*", "*Hacktool*", "*Havoc*", "*Impacket*", "*Keylogger*", "*Koadic*", "*Mimikatz*", "*Nighthawk*", "*PentestPowerShell*", "*Potato*", "*PowerSploit*", "*PowerSSH*", "*PshlSpy*", "*PSWTool*", "*PWCrack*", "*PWDump*", "*Rozena*", "*Rusthound*", "*Sbelt*", "*Seatbelt*", "*SecurityTool*", "*SharpDump*", "*SharpHound*", "*Shellcode*", "*Sliver*", "*Snaffler*", "*SOAPHound*", "*Splinter*", "*Swrort*", "*TurtleLoader*")

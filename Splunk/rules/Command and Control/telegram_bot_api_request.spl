@@ -1,0 +1,11 @@
+# Title: Telegram Bot API Request
+# Author: Florian Roth (Nextron Systems)
+# Date: 2018-06-05
+# Level: medium
+# Description: Detects suspicious DNS queries to api.telegram.org used by Telegram Bots of any kind
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1102.002
+# False Positives:
+#   - Legitimate use of Telegram bots in the company
+
+query="api.telegram.org"

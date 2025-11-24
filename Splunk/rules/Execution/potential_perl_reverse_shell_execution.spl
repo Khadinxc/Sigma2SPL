@@ -1,0 +1,11 @@
+# Title: Potential Perl Reverse Shell Execution
+# Author: @d4ns4n_, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-04-07
+# Level: high
+# Description: Detects execution of the perl binary with the "-e" flag and common strings related to potential reverse shell activity
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - Unlikely
+
+(CommandLine="*fdopen(*" CommandLine="*::Socket::INET*") OR (CommandLine="*Socket*" CommandLine="*connect*" CommandLine="*open*" CommandLine="*exec*") CommandLine="* -e *" Image="*/perl"

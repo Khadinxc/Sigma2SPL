@@ -1,0 +1,12 @@
+# Title: LSASS Access Detected via Attack Surface Reduction
+# Author: Markus Neis
+# Date: 2018-08-26
+# Level: high
+# Description: Detects Access to LSASS Process
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# False Positives:
+#   - Google Chrome GoogleUpdate.exe
+#   - Some Taskmgr.exe related activity
+
+EventID=1121 Path="*\\lsass.exe" NOT (ProcessName IN ("C:\\Windows\\System32\\DriverStore\\*", "C:\\WINDOWS\\Installer\\*", "C:\\Program Files\\*", "C:\\Program Files (x86)\\*") OR ProcessName IN ("C:\\Windows\\System32\\atiesrxx.exe", "C:\\Windows\\System32\\CompatTelRunner.exe", "C:\\Windows\\System32\\msiexec.exe", "C:\\Windows\\System32\\nvwmi64.exe", "C:\\Windows\\System32\\svchost.exe", "C:\\Windows\\System32\\Taskmgr.exe", "C:\\Windows\\System32\\wbem\\WmiPrvSE.exe", "C:\\Windows\\SysWOW64\\msiexec.exe") OR (ProcessName IN ("*\\thor64.exe", "*\\thor.exe") ProcessName="C:\\Windows\\Temp\\asgard2-agent\\*"))

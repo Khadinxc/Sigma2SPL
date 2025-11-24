@@ -1,0 +1,9 @@
+# Title: Inline Python Execution - Spawn Shell Via OS System Library
+# Author: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.)
+# Date: 2024-09-02
+# Level: high
+# Description: Detects execution of inline Python code via the "-c" in order to call the "system" function from the "os" library, and spawn a shell.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+
+CommandLine IN ("*/bin/bash*", "*/bin/dash*", "*/bin/fish*", "*/bin/sh*", "*/bin/zsh*") CommandLine="* -c *" CommandLine="*os.system(*" Image IN ("*/python", "*/python2", "*/python3") OR Image IN ("*/python2.*", "*/python3.*")

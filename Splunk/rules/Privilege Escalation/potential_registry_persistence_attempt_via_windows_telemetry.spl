@@ -1,0 +1,12 @@
+# Title: Potential Registry Persistence Attempt Via Windows Telemetry
+# Author: Lednyov Alexey, oscd.community, Sreeman
+# Date: 2020-10-16
+# Level: high
+# Description: Detects potential persistence behavior using the windows telemetry registry key.
+# Windows telemetry makes use of the binary CompatTelRunner.exe to run a variety of commands and perform the actual telemetry collections.
+# This binary was created to be easily extensible, and to that end, it relies on the registry to instruct on which commands to run.
+# The problem is, it will run any arbitrary command without restriction of location or type.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.005
+
+Details IN ("*.bat*", "*.bin*", "*.cmd*", "*.dat*", "*.dll*", "*.exe*", "*.hta*", "*.jar*", "*.js*", "*.msi*", "*.ps*", "*.sh*", "*.vb*") TargetObject="*\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\TelemetryController\\*" TargetObject="*\\Command" NOT (Details IN ("*\\system32\\CompatTelRunner.exe*", "*\\system32\\DeviceCensus.exe*"))

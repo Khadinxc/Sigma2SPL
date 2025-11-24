@@ -1,0 +1,11 @@
+# Title: Azure AD Threat Intelligence
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-07
+# Level: high
+# Description: Indicates user activity that is unusual for the user or consistent with known attack patterns.
+# MITRE Tactic: Persistence
+# Tags: attack.t1078, attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.initial-access
+# False Positives:
+#   - We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user.
+
+riskEventType="investigationsThreatIntelligence"

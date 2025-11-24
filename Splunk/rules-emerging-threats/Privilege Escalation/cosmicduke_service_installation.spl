@@ -1,0 +1,12 @@
+# Title: CosmicDuke Service Installation
+# Author: Florian Roth (Nextron Systems), Daniil Yugoslavskiy, oscd.community (update)
+# Date: 2017-03-27
+# Level: critical
+# Description: Detects the installation of a service named "javamtsup" on the system.
+# The CosmicDuke info stealer uses Windows services typically named "javamtsup" for persistence.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1543.003, attack.t1569.002, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+EventID=4697 ServiceName="javamtsup"

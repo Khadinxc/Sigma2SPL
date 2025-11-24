@@ -1,0 +1,12 @@
+# Title: Disable Windows Defender Functionalities Via Registry Keys
+# Author: AlertIQ, Ján Trenčanský, frack113, Nasreddine Bencherchali, Swachchhanda Shrawan Poudel
+# Date: 2022-08-01
+# Level: high
+# Description: Detects when attackers or tools disable Windows Defender functionalities via the Windows registry
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Administrator actions via the Windows Defender interface
+#   - Third party Antivirus
+
+TargetObject IN ("*\\SOFTWARE\\Microsoft\\Windows Defender\\*", "*\\SOFTWARE\\Policies\\Microsoft\\Windows Defender Security Center\\*", "*\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\*") (Details="DWORD (0x00000000)" TargetObject IN ("*\\DisallowExploitProtectionOverride", "*\\Features\\TamperProtection", "*\\MpEngine\\MpEnablePus", "*\\PUAProtection", "*\\Signature Update\\ForceUpdateFromMU", "*\\SpyNet\\SpynetReporting", "*\\SpyNet\\SubmitSamplesConsent", "*\\Windows Defender Exploit Guard\\Controlled Folder Access\\EnableControlledFolderAccess")) OR (Details="DWORD (0x00000001)" TargetObject IN ("*\\DisableAntiSpyware", "*\\DisableAntiVirus", "*\\DisableBehaviorMonitoring", "*\\DisableBlockAtFirstSeen", "*\\DisableEnhancedNotifications", "*\\DisableIntrusionPreventionSystem", "*\\DisableIOAVProtection", "*\\DisableOnAccessProtection", "*\\DisableRealtimeMonitoring", "*\\DisableScanOnRealtimeEnable", "*\\DisableScriptScanning")) NOT (Image="*\\sepWscSvc64.exe" Image="C:\\Program Files\\Symantec\\Symantec Endpoint Protection\\*")

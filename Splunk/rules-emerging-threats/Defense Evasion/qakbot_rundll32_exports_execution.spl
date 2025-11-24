@@ -1,0 +1,11 @@
+# Title: Qakbot Rundll32 Exports Execution
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-05-24
+# Level: critical
+# Description: Detects specific process tree behavior of a "rundll32" execution with exports linked with Qakbot activity.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*aslr", "*bind", "*DrawThemeIcon", "*GG10", "*GL70", "*jhbvygftr", "*kjhbhkjvydrt", "*LS88", "*Motd", "*N115", "*next", "*Nikn", "*print", "*qqqb", "*qqqq", "*RS32", "*Test", "*Time", "*Updt", "*vips", "*Wind", "*WW50", "*X555", "*XL55", "*xlAutoOpen", "*XS88") CommandLine IN ("*:\\ProgramData\\*", "*:\\Users\\Public\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Roaming\\*") Image="*\\rundll32.exe" ParentImage IN ("*\\cmd.exe", "*\\cscript.exe", "*\\curl.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe")

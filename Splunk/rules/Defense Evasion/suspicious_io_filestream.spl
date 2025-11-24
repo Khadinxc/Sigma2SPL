@@ -1,0 +1,11 @@
+# Title: Suspicious IO.FileStream
+# Author: frack113
+# Date: 2022-01-09
+# Level: medium
+# Description: Open a handle on the drive volume via the \\.\ DOS device path specifier and perform direct access read of the first few bytes of the volume.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.003
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+ScriptBlockText="*New-Object*" ScriptBlockText="*IO.FileStream*" ScriptBlockText="*\\\\.\\*"

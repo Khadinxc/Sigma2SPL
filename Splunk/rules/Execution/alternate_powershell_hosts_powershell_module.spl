@@ -1,0 +1,13 @@
+# Title: Alternate PowerShell Hosts - PowerShell Module
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-08-11
+# Level: medium
+# Description: Detects alternate PowerShell hosts potentially bypassing detections looking for powershell.exe
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Programs using PowerShell directly without invocation of a dedicated interpreter
+#   - MSP Detection Searcher
+#   - Citrix ConfigSync.ps1
+
+ContextInfo="*" NOT (ContextInfo="*C:\\Windows\\system32\\dsac.exe*" OR ContextInfo="*ConfigSyncRun.exe*" OR Payload IN ("*Update-Help*", "*Failed to update Help for the module*") OR ContextInfo IN ("*= powershell*", "*= C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell*", "*= C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell*", "*= C:/Windows/System32/WindowsPowerShell/v1.0/powershell*", "*= C:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell*", "*= \\??\\C:Windows\\System32\\WindowsPowerShell\\v1.0\\powershell*", "*= \\??\\C:Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell*") OR ContextInfo="*= C:\\WINDOWS\\System32\\sdiagnhost.exe -Embedding*" OR ContextInfo="*C:\\Windows\\system32\\wsmprovhost.exe -Embedding*")

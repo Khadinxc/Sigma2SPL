@@ -1,0 +1,11 @@
+# Title: CMSTP Execution Process Access
+# Author: Nik Seetharaman
+# Date: 2018-07-16
+# Level: high
+# Description: Detects various indicators of Microsoft Connection Manager Profile Installer execution
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.003, attack.execution, attack.t1559.001, attack.g0069, attack.g0080, car.2019-04-001
+# False Positives:
+#   - Legitimate CMSTP use (unlikely in modern enterprise environments)
+
+CallTrace="*cmlua.dll*"

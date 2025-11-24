@@ -1,0 +1,11 @@
+# Title: Windows Defender AMSI Trigger Detected
+# Author: Bhabesh Raj
+# Date: 2020-09-14
+# Level: high
+# Description: Detects triggering of AMSI by Windows Defender.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# False Positives:
+#   - Unlikely
+
+EventID=1116 SourceName="AMSI"

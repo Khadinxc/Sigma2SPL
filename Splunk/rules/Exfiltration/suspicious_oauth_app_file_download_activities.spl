@@ -1,0 +1,9 @@
+# Title: Suspicious OAuth App File Download Activities
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-23
+# Level: medium
+# Description: Detects when a Microsoft Cloud App Security reported when an app downloads multiple files from Microsoft SharePoint or Microsoft OneDrive in a manner that is unusual for the user.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration
+
+eventName="Suspicious OAuth app file download activities" eventSource="SecurityComplianceCenter" status="success"

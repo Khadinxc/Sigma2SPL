@@ -1,0 +1,9 @@
+# Title: Unusual Parent Process For Cmd.EXE
+# Author: Tim Rauch, Elastic (idea)
+# Date: 2022-09-21
+# Level: medium
+# Description: Detects suspicious parent process for cmd.exe
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+
+Image="*\\cmd.exe" ParentImage IN ("*\\csrss.exe", "*\\ctfmon.exe", "*\\dllhost.exe", "*\\epad.exe", "*\\FlashPlayerUpdateService.exe", "*\\GoogleUpdate.exe", "*\\jucheck.exe", "*\\jusched.exe", "*\\LogonUI.exe", "*\\lsass.exe", "*\\regsvr32.exe", "*\\SearchIndexer.exe", "*\\SearchProtocolHost.exe", "*\\SIHClient.exe", "*\\sihost.exe", "*\\slui.exe", "*\\spoolsv.exe", "*\\sppsvc.exe", "*\\taskhostw.exe", "*\\unsecapp.exe", "*\\WerFault.exe", "*\\wermgr.exe", "*\\wlanext.exe", "*\\WUDFHost.exe")

@@ -1,0 +1,11 @@
+# Title: Outbound Network Connection To Public IP Via Winlogon
+# Author: Christopher Peacock @securepeacock, SCYTHE @scythe_io
+# Date: 2023-04-28
+# Level: medium
+# Description: Detects a "winlogon.exe" process that initiate network communications with public IP addresses
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.command-and-control, attack.t1218.011
+# False Positives:
+#   - Communication to other corporate systems that use IP addresses from public address spaces
+
+Image="*\\winlogon.exe" Initiated="true" NOT (DestinationIp="127.0.0.0/8" OR DestinationIp="10.0.0.0/8" OR DestinationIp="172.16.0.0/12" OR DestinationIp="192.168.0.0/16" OR DestinationIp="169.254.0.0/16" OR DestinationIp="::1/128" OR DestinationIp="fe80::/10" OR DestinationIp="fc00::/7")

@@ -1,0 +1,9 @@
+# Title: Application Uninstalled
+# Author: frack113
+# Date: 2022-01-28
+# Level: low
+# Description: An application has been removed. Check if it is critical.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1489
+
+EventID IN (1034, 11724) Provider_Name="MsiInstaller"

@@ -1,0 +1,11 @@
+# Title: Visual Studio Code Tunnel Execution
+# Author: Nasreddine Bencherchali (Nextron Systems), citron_ninja
+# Date: 2023-10-25
+# Level: medium
+# Description: Detects Visual Studio Code tunnel execution. Attackers can abuse this functionality to establish a C2 channel
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001, attack.t1219
+# False Positives:
+#   - Legitimate use of Visual Studio Code tunnel
+
+(CommandLine="*.exe tunnel" NOT OriginalFileName=*) OR (CommandLine="*/d /c *" CommandLine="*\\servers\\Stable-*" CommandLine="*code-server.cmd*" Image="*\\cmd.exe" ParentCommandLine="* tunnel") OR (CommandLine="*.exe tunnel*" CommandLine="*--accept-server-license-terms*")

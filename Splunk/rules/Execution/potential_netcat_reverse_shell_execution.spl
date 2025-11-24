@@ -1,0 +1,11 @@
+# Title: Potential Netcat Reverse Shell Execution
+# Author: @d4ns4n_, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-04-07
+# Level: high
+# Description: Detects execution of netcat with the "-e" flag followed by common shells. This could be a sign of a potential reverse shell setup.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("* -c *", "* -e *") Image IN ("*/nc", "*/ncat") CommandLine IN ("* ash*", "* bash*", "* bsh*", "* csh*", "* ksh*", "* pdksh*", "* sh*", "* tcsh*", "*/bin/ash*", "*/bin/bash*", "*/bin/bsh*", "*/bin/csh*", "*/bin/ksh*", "*/bin/pdksh*", "*/bin/sh*", "*/bin/tcsh*", "*/bin/zsh*", "*$IFSash*", "*$IFSbash*", "*$IFSbsh*", "*$IFScsh*", "*$IFSksh*", "*$IFSpdksh*", "*$IFSsh*", "*$IFStcsh*", "*$IFSzsh*")

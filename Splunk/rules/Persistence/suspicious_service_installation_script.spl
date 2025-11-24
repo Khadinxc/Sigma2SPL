@@ -1,0 +1,9 @@
+# Title: Suspicious Service Installation Script
+# Author: pH-T (Nextron Systems)
+# Date: 2022-03-18
+# Level: high
+# Description: Detects suspicious service installation scripts
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, car.2013-09-005, attack.t1543.003
+
+ImagePath IN ("*cscript*", "*mshta*", "*powershell*", "*pwsh*", "*regsvr32*", "*rundll32*", "*wscript*") ImagePath="* -c *" OR ImagePath="* /c *" OR ImagePath="* –c *" OR ImagePath="* —c *" OR ImagePath="* ―c *" OR ImagePath="* -r *" OR ImagePath="* /r *" OR ImagePath="* –r *" OR ImagePath="* —r *" OR ImagePath="* ―r *" OR ImagePath="* -k *" OR ImagePath="* /k *" OR ImagePath="* –k *" OR ImagePath="* —k *" OR ImagePath="* ―k *" EventID=7045 Provider_Name="Service Control Manager"

@@ -1,0 +1,12 @@
+# Title: Potential Java WebShell Upload in SAP NetViewer Server
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-05-14
+# Level: high
+# Description: Detects potential Java webshell uploads via HTTP requests with Content-Type 'application/octet-stream' and Java file extensions.
+# This behavior might indicate exploitation of vulnerabilities like CVE-2025-31324, which allows remote code execution through webshells in SAP NetViewer.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003, detection.emerging-threats, cve.2025-31324
+# False Positives:
+#   - Legitimate uploads of Java files in development environments
+
+"cs-content-type"="application/octet-stream" "cs-method"="POST" "cs-uri-stem"="*/irj/*" "cs-uri-stem"="*.jsp*" "cs-uri-stem" IN ("*.class", "*.java", "*.jsp")

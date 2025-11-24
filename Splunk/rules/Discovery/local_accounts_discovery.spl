@@ -1,0 +1,11 @@
+# Title: Local Accounts Discovery
+# Author: Timur Zinniatullin, Daniil Yugoslavskiy, oscd.community
+# Date: 2019-10-21
+# Level: low
+# Description: Local accounts, System Owner/User discovery using operating systems utilities
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1033, attack.t1087.001
+# False Positives:
+#   - Legitimate administrator or user enumerates local users for legitimate reason
+
+(CommandLine="* /c*" CommandLine="*dir *" CommandLine="*\\Users\\*" Image="*\\cmd.exe" NOT CommandLine="* rmdir *") OR (CommandLine="*user*" Image IN ("*\\net.exe", "*\\net1.exe") NOT (CommandLine IN ("*/domain*", "*/add*", "*/delete*", "*/active*", "*/expires*", "*/passwordreq*", "*/scriptpath*", "*/times*", "*/workstations*"))) OR (CommandLine="* /l*" Image="*\\cmdkey.exe") OR Image IN ("*\\whoami.exe", "*\\quser.exe", "*\\qwinsta.exe") OR OriginalFileName IN ("whoami.exe", "quser.exe", "qwinsta.exe") OR (CommandLine="*useraccount*" CommandLine="*get*" Image="*\\wmic.exe")

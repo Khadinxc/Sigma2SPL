@@ -1,0 +1,9 @@
+# Title: Turla Service Install
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-31
+# Level: high
+# Description: This method detects a service install of malicious services mentioned in Carbon Paper - Turla report by ESET
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.g0010, attack.t1543.003, detection.emerging-threats
+
+EventID=7045 Provider_Name="Service Control Manager" ServiceName IN ("srservice", "ipvpn", "hkmsvc")

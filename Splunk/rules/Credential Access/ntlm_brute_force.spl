@@ -1,0 +1,11 @@
+# Title: NTLM Brute Force
+# Author: Jerry Shockley '@jsh0x'
+# Date: 2022-02-02
+# Level: medium
+# Description: Detects common NTLM brute force device names
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1110
+# False Positives:
+#   - Systems with names equal to the spoofed ones used by the brute force tools
+
+EventID=8004 WorkstationName IN ("Rdesktop", "Remmina", "Freerdp", "Windows7", "Windows8", "Windows2012", "Windows2016", "Windows2019")

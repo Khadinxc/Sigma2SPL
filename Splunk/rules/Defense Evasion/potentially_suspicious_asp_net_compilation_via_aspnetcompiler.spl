@@ -1,0 +1,9 @@
+# Title: Potentially Suspicious ASP.NET Compilation Via AspNetCompiler
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-08-14
+# Level: high
+# Description: Detects execution of "aspnet_compiler.exe" with potentially suspicious paths for compilation.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1127
+
+CommandLine IN ("*\\Users\\Public\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Local\\Roaming\\*", "*:\\Temp\\*", "*:\\Windows\\Temp\\*", "*:\\Windows\\System32\\Tasks\\*", "*:\\Windows\\Tasks\\*") Image IN ("*:\\Windows\\Microsoft.NET\\Framework\\*", "*:\\Windows\\Microsoft.NET\\Framework64\\*", "*:\\Windows\\Microsoft.NET\\FrameworkArm\\*", "*:\\Windows\\Microsoft.NET\\FrameworkArm64\\*") Image="*\\aspnet_compiler.exe"

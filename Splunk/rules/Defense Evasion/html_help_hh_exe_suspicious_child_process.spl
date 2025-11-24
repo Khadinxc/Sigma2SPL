@@ -1,0 +1,9 @@
+# Title: HTML Help HH.EXE Suspicious Child Process
+# Author: Maxim Pavlunin, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2020-04-01
+# Level: high
+# Description: Detects a suspicious child process of a Microsoft HTML Help (HH.exe)
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.initial-access, attack.t1047, attack.t1059.001, attack.t1059.003, attack.t1059.005, attack.t1059.007, attack.t1218, attack.t1218.001, attack.t1218.010, attack.t1218.011, attack.t1566, attack.t1566.001
+
+Image IN ("*\\CertReq.exe", "*\\CertUtil.exe", "*\\cmd.exe", "*\\cscript.exe", "*\\installutil.exe", "*\\MSbuild.exe", "*\\MSHTA.EXE", "*\\msiexec.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\schtasks.exe", "*\\wmic.exe", "*\\wscript.exe") ParentImage="*\\hh.exe"

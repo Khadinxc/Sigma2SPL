@@ -1,0 +1,14 @@
+# Title: Certificate Use With No Strong Mapping
+# Author: @br4dy5
+# Date: 2023-10-09
+# Level: medium
+# Description: Detects a user certificate that was valid but could not be mapped to a user in a strong way (such as via explicit mapping, key trust mapping, or a SID)
+# This could be a sign of exploitation of the elevation of privilege vulnerabilities (CVE-2022-34691, CVE-2022-26931, CVE-2022-26923) that can occur when the KDC allows certificate spoofing by not requiring a strong mapping.
+# Events where the AccountName and CN of the Subject do not match, or where the CN ends in a dollar sign indicating a machine, may indicate certificate spoofing.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# False Positives:
+#   - If prevalent in the environment, filter on events where the AccountName and CN of the Subject do not reference the same user
+#   - If prevalent in the environment, filter on CNs that end in a dollar sign indicating it is a machine name
+
+EventID IN (39, 41) Provider_Name IN ("Kerberos-Key-Distribution-Center", "Microsoft-Windows-Kerberos-Key-Distribution-Center")

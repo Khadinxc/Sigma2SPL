@@ -1,0 +1,12 @@
+# Title: Scripting/CommandLine Process Spawned Regsvr32
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-26
+# Level: medium
+# Description: Detects various command line and scripting engines/processes such as "PowerShell", "Wscript", "Cmd", etc. spawning a "regsvr32" instance.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.010
+# False Positives:
+#   - Legitimate ".bat", ".hta", ".ps1" or ".vbs" scripts leverage legitimately often. Apply additional filter and exclusions as necessary
+#   - Some legitimate Windows services
+
+Image="*\\regsvr32.exe" ParentImage IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe") NOT (CommandLine="* /s C:\\Windows\\System32\\RpcProxy\\RpcProxy.dll" ParentImage="C:\\Windows\\System32\\cmd.exe")

@@ -1,0 +1,12 @@
+# Title: Suspicious ScreenSave Change by Reg.exe
+# Author: frack113
+# Date: 2021-08-19
+# Level: medium
+# Description: Adversaries may establish persistence by executing malicious content triggered by user inactivity.
+# Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1546.002
+# False Positives:
+#   - GPO
+
+CommandLine IN ("*HKEY_CURRENT_USER\\Control Panel\\Desktop*", "*HKCU\\Control Panel\\Desktop*") Image="*\\reg.exe" (CommandLine="*/v ScreenSaveActive*" CommandLine="*/t REG_SZ*" CommandLine="*/d 1*" CommandLine="*/f*") OR (CommandLine="*/v ScreenSaveTimeout*" CommandLine="*/t REG_SZ*" CommandLine="*/d *" CommandLine="*/f*") OR (CommandLine="*/v ScreenSaverIsSecure*" CommandLine="*/t REG_SZ*" CommandLine="*/d 0*" CommandLine="*/f*") OR (CommandLine="*/v SCRNSAVE.EXE*" CommandLine="*/t REG_SZ*" CommandLine="*/d *" CommandLine="*.scr*" CommandLine="*/f*")

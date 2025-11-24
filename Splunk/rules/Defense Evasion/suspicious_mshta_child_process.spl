@@ -1,0 +1,12 @@
+# Title: Suspicious MSHTA Child Process
+# Author: Michael Haag
+# Date: 2019-01-16
+# Level: high
+# Description: Detects a suspicious process spawning from an "mshta.exe" process, which could be indicative of a malicious HTA script execution
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.005, car.2013-02-003, car.2013-03-001, car.2014-04-003
+# False Positives:
+#   - Printer software / driver installations
+#   - HP software
+
+Image IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\sh.exe", "*\\bash.exe", "*\\reg.exe", "*\\regsvr32.exe", "*\\bitsadmin.exe") OR OriginalFileName IN ("Cmd.Exe", "PowerShell.EXE", "pwsh.dll", "wscript.exe", "cscript.exe", "Bash.exe", "reg.exe", "REGSVR32.EXE", "bitsadmin.exe") ParentImage="*\\mshta.exe"

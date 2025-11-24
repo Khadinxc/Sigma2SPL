@@ -1,0 +1,9 @@
+# Title: Suspicious Windows ANONYMOUS LOGON Local Account Created
+# Author: James Pemberton / @4A616D6573
+# Date: 2019-10-31
+# Level: high
+# Description: Detects the creation of suspicious accounts similar to ANONYMOUS LOGON, such as using additional spaces. Created as an covering detection for exclusion of Logon Type 3 from ANONYMOUS LOGON accounts.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1136.001, attack.t1136.002
+
+EventID=4720 SamAccountName="*ANONYMOUS*" SamAccountName="*LOGON*"

@@ -1,0 +1,10 @@
+# Title: Deployment Deleted From Kubernetes Cluster
+# Author: Leo Tsaousis (@laripping)
+# Date: 2024-03-26
+# Level: low
+# Description: Detects the removal of a deployment from a Kubernetes cluster.
+# This could indicate disruptive activity aiming to impact business operations.
+# MITRE Tactic: Impact
+# Tags: attack.t1498, attack.impact
+
+objectRef.resource="deployments" verb="delete"

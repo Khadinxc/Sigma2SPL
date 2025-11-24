@@ -1,0 +1,11 @@
+# Title: Triple Cross eBPF Rootkit Execve Hijack
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-05
+# Level: high
+# Description: Detects execution of a the file "execve_hijack" which is used by the Triple Cross rootkit as a way to elevate privileges
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation
+# False Positives:
+#   - Unlikely
+
+CommandLine="*execve_hijack*" Image="*/sudo"

@@ -1,0 +1,11 @@
+# Title: Suspicious Browser Child Process - MacOS
+# Author: Sohan G (D4rkCiph3r)
+# Date: 2023-04-05
+# Level: medium
+# Description: Detects suspicious child processes spawned from browsers. This could be a result of a potential web browser exploitation.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.execution, attack.t1189, attack.t1203, attack.t1059
+# False Positives:
+#   - Legitimate browser install, update and recovery scripts
+
+Image IN ("*/bash", "*/curl", "*/dash", "*/ksh", "*/osascript", "*/perl", "*/php", "*/pwsh", "*/python", "*/sh", "*/tcsh", "*/wget", "*/zsh") ParentImage IN ("*com.apple.WebKit.WebContent*", "*firefox*", "*Google Chrome Helper*", "*Google Chrome*", "*Microsoft Edge*", "*Opera*", "*Safari*", "*Tor Browser*") NOT ((CommandLine IN ("*/Volumes/Google Chrome/Google Chrome.app/Contents/Frameworks/*/Resources/install.sh*", "*/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/*/Resources/keystone_promote_preflight.sh*", "*/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/*/Resources/keystone_promote_postflight.sh*") ParentImage IN ("*Google Chrome Helper*", "*Google Chrome*")) OR (CommandLine="*/Users/*" CommandLine="*/Library/Application Support/Google/Chrome/recovery/*" CommandLine="*/ChromeRecovery*" ParentImage IN ("*Google Chrome Helper*", "*Google Chrome*")) OR CommandLine="*--defaults-torrc*" OR CommandLine="*/Library/Application Support/Microsoft/MAU*/Microsoft AutoUpdate.app/Contents/MacOS/msupdate*" OR (CommandLine IN ("*IOPlatformExpertDevice*", "*hw.model*") ParentImage="*Microsoft Edge*")) NOT (CommandLine="" OR NOT CommandLine=*)

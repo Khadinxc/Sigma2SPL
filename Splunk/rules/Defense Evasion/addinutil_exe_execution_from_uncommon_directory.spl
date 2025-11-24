@@ -1,0 +1,9 @@
+# Title: AddinUtil.EXE Execution From Uncommon Directory
+# Author: Michael McKinley (@McKinleyMike), Tony Latteri (@TheLatteri)
+# Date: 2023-09-18
+# Level: medium
+# Description: Detects execution of the Add-In deployment cache updating utility (AddInutil.exe) from a non-standard directory.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+
+Image="*\\addinutil.exe" OR OriginalFileName="AddInUtil.exe" NOT (Image IN ("*:\\Windows\\Microsoft.NET\\Framework\\*", "*:\\Windows\\Microsoft.NET\\Framework64\\*", "*:\\Windows\\Microsoft.NET\\FrameworkArm\\*", "*:\\Windows\\Microsoft.NET\\FrameworkArm64\\*", "*:\\Windows\\WinSxS\\*"))

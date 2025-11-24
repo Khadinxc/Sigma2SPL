@@ -1,0 +1,11 @@
+# Title: Locked Workstation
+# Author: Alexandr Yampolskyi, SOC Prime
+# Date: 2019-03-26
+# Level: informational
+# Description: Detects locked workstation session events that occur automatically after a standard period of inactivity.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - Likely
+
+EventID=4800

@@ -1,0 +1,11 @@
+# Title: Okta Admin Role Assignment Created
+# Author: Nikita Khalimonenkov
+# Date: 2023-01-19
+# Level: medium
+# Description: Detects when a new admin role assignment is created. Which could be a sign of privilege escalation or persistence
+# MITRE Tactic: Persistence
+# Tags: attack.persistence
+# False Positives:
+#   - Legitimate creation of a new admin role assignment
+
+eventtype="iam.resourceset.bindings.add"

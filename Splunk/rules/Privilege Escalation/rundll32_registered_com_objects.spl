@@ -1,0 +1,11 @@
+# Title: Rundll32 Registered COM Objects
+# Author: frack113
+# Date: 2022-02-13
+# Level: high
+# Description: load malicious registered COM objects
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.015
+# False Positives:
+#   - Legitimate use
+
+CommandLine IN ("*-sta *", "*-localserver *") CommandLine="*{*" CommandLine="*}*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE"

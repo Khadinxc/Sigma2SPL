@@ -1,0 +1,9 @@
+# Title: PowerShell Base64 Encoded FromBase64String Cmdlet
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-08-24
+# Level: high
+# Description: Detects usage of a base64 encoded "FromBase64String" cmdlet in a process command line
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1140, attack.execution, attack.t1059.001
+
+CommandLine="*OjpGcm9tQmFzZTY0U3RyaW5n*" OR CommandLine="*o6RnJvbUJhc2U2NFN0cmluZ*" OR CommandLine="*6OkZyb21CYXNlNjRTdHJpbm*" OR CommandLine IN ("*OgA6AEYAcgBvAG0AQgBhAHMAZQA2ADQAUwB0AHIAaQBuAGcA*", "*oAOgBGAHIAbwBtAEIAYQBzAGUANgA0AFMAdAByAGkAbgBnA*", "*6ADoARgByAG8AbQBCAGEAcwBlADYANABTAHQAcgBpAG4AZw*")

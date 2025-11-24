@@ -1,0 +1,11 @@
+# Title: Suspicious Execution Of Renamed Sysinternals Tools - Registry
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-24
+# Level: high
+# Description: Detects the creation of the "accepteula" key related to the Sysinternals tools being created from executables with the wrong name (e.g. a renamed Sysinternals tool)
+# MITRE Tactic: Resource Development
+# Tags: attack.resource-development, attack.t1588.002
+# False Positives:
+#   - Unlikely
+
+EventType="CreateKey" TargetObject IN ("*\\Active Directory Explorer*", "*\\Handle*", "*\\LiveKd*", "*\\ProcDump*", "*\\Process Explorer*", "*\\PsExec*", "*\\PsLoggedon*", "*\\PsLoglist*", "*\\PsPasswd*", "*\\PsPing*", "*\\PsService*", "*\\SDelete*") TargetObject="*\\EulaAccepted" NOT (Image IN ("*\\ADExplorer.exe", "*\\ADExplorer64.exe", "*\\handle.exe", "*\\handle64.exe", "*\\livekd.exe", "*\\livekd64.exe", "*\\procdump.exe", "*\\procdump64.exe", "*\\procexp.exe", "*\\procexp64.exe", "*\\PsExec.exe", "*\\PsExec64.exe", "*\\PsLoggedon.exe", "*\\PsLoggedon64.exe", "*\\psloglist.exe", "*\\psloglist64.exe", "*\\pspasswd.exe", "*\\pspasswd64.exe", "*\\PsPing.exe", "*\\PsPing64.exe", "*\\PsService.exe", "*\\PsService64.exe", "*\\sdelete.exe"))

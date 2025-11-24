@@ -1,0 +1,9 @@
+# Title: Schtasks From Suspicious Folders
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-04-15
+# Level: high
+# Description: Detects scheduled task creations that have suspicious action command and folder combinations
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.t1053.005
+
+CommandLine IN ("*C:\\ProgramData\\*", "*%ProgramData%*") CommandLine IN ("*powershell*", "*pwsh*", "*cmd /c *", "*cmd /k *", "*cmd /r *", "*cmd.exe /c *", "*cmd.exe /k *", "*cmd.exe /r *") CommandLine="* /create *" Image="*\\schtasks.exe" OR OriginalFileName="schtasks.exe"

@@ -1,0 +1,9 @@
+# Title: Suspicious Invoke-WebRequest Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-02
+# Level: high
+# Description: Detects a suspicious call to Invoke-WebRequest cmdlet where the and output is located in a suspicious location
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1105
+
+CommandLine IN ("*curl *", "*Invoke-WebRequest*", "*iwr *", "*wget *") CommandLine IN ("* -ur*", "* -o*") Image IN ("*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("powershell_ise.EXE", "PowerShell.EXE", "pwsh.dll") CommandLine IN ("*\\AppData\\*", "*\\Desktop\\*", "*\\Temp\\*", "*\\Users\\Public\\*", "*%AppData%*", "*%Public%*", "*%Temp%*", "*%tmp%*", "*:\\Windows\\*")

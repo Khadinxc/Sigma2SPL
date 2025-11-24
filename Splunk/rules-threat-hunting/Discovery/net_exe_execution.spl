@@ -1,0 +1,11 @@
+# Title: Net.EXE Execution
+# Author: Michael Haag, Mark Woan (improvements), James Pemberton / @4A616D6573 / oscd.community (improvements)
+# Date: 2019-01-16
+# Level: low
+# Description: Detects execution of "Net.EXE".
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1007, attack.t1049, attack.t1018, attack.t1135, attack.t1201, attack.t1069.001, attack.t1069.002, attack.t1087.001, attack.t1087.002, attack.lateral-movement, attack.t1021.002, attack.s0039, detection.threat-hunting
+# False Positives:
+#   - Likely
+
+CommandLine IN ("* accounts*", "* group*", "* localgroup*", "* share*", "* start*", "* stop *", "* user*", "* view*") Image IN ("*\\net.exe", "*\\net1.exe") OR OriginalFileName IN ("net.exe", "net1.exe")

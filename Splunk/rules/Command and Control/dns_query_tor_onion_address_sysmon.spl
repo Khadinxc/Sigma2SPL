@@ -1,0 +1,9 @@
+# Title: DNS Query Tor .Onion Address - Sysmon
+# Author: frack113
+# Date: 2022-02-20
+# Level: high
+# Description: Detects DNS queries to an ".onion" address related to Tor routing networks
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1090.003
+
+QueryName IN ("*.hiddenservice.net", "*.onion.ca", "*.onion.cab", "*.onion.casa", "*.onion.city", "*.onion.direct", "*.onion.dog", "*.onion.glass", "*.onion.gq", "*.onion.ink", "*.onion.it", "*.onion.link", "*.onion.lt", "*.onion.lu", "*.onion.nu", "*.onion.pet", "*.onion.plus", "*.onion.rip", "*.onion.sh", "*.onion.to", "*.onion.top", "*.onion", "*.s1.tor-gateways.de", "*.s2.tor-gateways.de", "*.s3.tor-gateways.de", "*.s4.tor-gateways.de", "*.s5.tor-gateways.de", "*.t2w.pw", "*.tor2web.ae.org", "*.tor2web.blutmagie.de", "*.tor2web.com", "*.tor2web.fi", "*.tor2web.io", "*.tor2web.org", "*.tor2web.xyz", "*.torlink.co")

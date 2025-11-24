@@ -1,0 +1,11 @@
+# Title: F5 BIG-IP iControl Rest API Command Execution - Proxy
+# Author: Nasreddine Bencherchali (Nextron Systems), Thurein Oo
+# Date: 2023-11-08
+# Level: medium
+# Description: Detects POST requests to the F5 BIG-IP iControl Rest API "bash" endpoint, which allows the execution of commands on the BIG-IP
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190
+# False Positives:
+#   - Legitimate usage of the BIG IP REST API to execute command for administration purposes
+
+"c-uri"="*/mgmt/tm/util/bash" "cs-method"="POST"

@@ -1,0 +1,9 @@
+# Title: Use Of Hidden Paths Or Files
+# Author: David Burkett, @signalblur
+# Date: 2022-12-30
+# Level: low
+# Description: Detects calls to hidden files or files located in hidden directories in NIX systems.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+
+name="*/.*" type="PATH" NOT (name IN ("*/.cache/*", "*/.config/*", "*/.pyenv/*", "*/.rustup/toolchains*"))

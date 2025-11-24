@@ -1,0 +1,9 @@
+# Title: Potential Persistence Attempt Via Existing Service Tampering
+# Author: Sreeman
+# Date: 2020-09-29
+# Level: medium
+# Description: Detects the modification of an existing service in order to execute an arbitrary payload when the service is started or killed as a potential method for persistence.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.persistence, attack.t1543.003, attack.t1574.011
+
+(CommandLine="*sc *" CommandLine="*config *" CommandLine="*binpath=*") OR (CommandLine="*sc *" CommandLine="*failure*" CommandLine="*command=*") OR (CommandLine IN ("*.sh*", "*.exe*", "*.dll*", "*.bin$*", "*.bat*", "*.cmd*", "*.js*", "*.msh$*", "*.reg$*", "*.scr*", "*.ps*", "*.vb*", "*.jar*", "*.pl*") (CommandLine="*reg *" CommandLine="*add *" CommandLine="*FailureCommand*") OR (CommandLine="*reg *" CommandLine="*add *" CommandLine="*ImagePath*"))

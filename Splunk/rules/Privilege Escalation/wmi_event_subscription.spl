@@ -1,0 +1,11 @@
+# Title: WMI Event Subscription
+# Author: Tom Ueltschi (@c_APT_ure)
+# Date: 2019-01-12
+# Level: medium
+# Description: Detects creation of WMI event subscription persistence method
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.003
+# False Positives:
+#   - Exclude legitimate (vetted) use of WMI event subscription in your network
+
+EventID IN (19, 20, 21)

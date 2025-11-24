@@ -1,0 +1,13 @@
+# Title: Azure Service Principal Removed
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-03
+# Level: medium
+# Description: Identifies when a service principal was removed in Azure.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Service principal being removed may be performed by a system administrator.
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Service principal removed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+properties.message="Remove service principal"

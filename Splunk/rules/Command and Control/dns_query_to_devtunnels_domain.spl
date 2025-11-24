@@ -1,0 +1,11 @@
+# Title: DNS Query To Devtunnels Domain
+# Author: citron_ninja
+# Date: 2023-10-25
+# Level: medium
+# Description: Detects DNS query requests to Devtunnels domains. Attackers can abuse that feature to establish a reverse shell or persistence on a machine.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001, attack.t1572
+# False Positives:
+#   - Legitimate use of Devtunnels will also trigger this.
+
+QueryName="*.devtunnels.ms"

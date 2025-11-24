@@ -1,0 +1,9 @@
+# Title: Suspicious MSDT Parent Process
+# Author: Nextron Systems
+# Date: 2022-06-01
+# Level: high
+# Description: Detects msdt.exe executed by a suspicious parent as seen in CVE-2022-30190 / Follina exploitation
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036, attack.t1218
+
+Image="*\\msdt.exe" OR OriginalFileName="msdt.exe" ParentImage IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\schtasks.exe", "*\\wmic.exe", "*\\wscript.exe", "*\\wsl.exe")

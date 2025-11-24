@@ -1,0 +1,11 @@
+# Title: VSSAudit Security Event Source Registration
+# Author: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR)
+# Date: 2020-10-20
+# Level: informational
+# Description: Detects the registration of the security event source VSSAudit. It would usually trigger when volume shadow copy operations happen.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.002
+# False Positives:
+#   - Legitimate use of VSSVC. Maybe backup operations. It would usually be done by C:\Windows\System32\VSSVC.exe.
+
+AuditSourceName="VSSAudit" EventID IN (4904, 4905)

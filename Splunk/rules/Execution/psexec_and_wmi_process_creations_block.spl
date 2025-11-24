@@ -1,0 +1,9 @@
+# Title: PSExec and WMI Process Creations Block
+# Author: Bhabesh Raj
+# Date: 2020-07-14
+# Level: high
+# Description: Detects blocking of process creations originating from PSExec and WMI commands
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.lateral-movement, attack.t1047, attack.t1569.002
+
+EventID=1121 ProcessName IN ("*\\wmiprvse.exe", "*\\psexesvc.exe")

@@ -1,0 +1,13 @@
+# Title: Kerberoasting Activity - Initial Query
+# Author: @kostastsale
+# Date: 2022-01-21
+# Level: medium
+# Description: This rule will collect the data needed to start looking into possible kerberoasting activity.
+# Further analysis or computation within the query is needed focusing on requests from one specific host/IP towards multiple service names within a time period of 5 seconds.
+# You can then set a threshold for the number of requests and time between the requests to turn this into an alert.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558.003
+# False Positives:
+#   - Legacy applications.
+
+EventID=4769 Status="0x0" TicketEncryptionType="0x17" NOT (ServiceName IN ("*krbtgt", "*$") OR TargetUserName="*$@*")

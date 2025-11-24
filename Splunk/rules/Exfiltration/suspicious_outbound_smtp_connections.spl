@@ -1,0 +1,12 @@
+# Title: Suspicious Outbound SMTP Connections
+# Author: frack113
+# Date: 2022-01-07
+# Level: medium
+# Description: Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel.
+# The data may also be sent to an alternate network location from the main command and control server.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1048.003
+# False Positives:
+#   - Other SMTP tools
+
+DestinationPort IN (25, 587, 465, 2525) Initiated="true" NOT (Image IN ("*\\thunderbird.exe", "*\\outlook.exe") OR Image="C:\\Program Files\\Microsoft\\Exchange Server\\*" OR (Image="*\\HxTsr.exe" Image="C:\\Program Files\\WindowsApps\\microsoft.windowscommunicationsapps_*"))

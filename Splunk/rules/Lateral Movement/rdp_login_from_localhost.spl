@@ -1,0 +1,9 @@
+# Title: RDP Login from Localhost
+# Author: Thomas Patzke
+# Date: 2019-01-28
+# Level: high
+# Description: RDP login with localhost source address may be a tunnelled login
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, car.2013-07-002, attack.t1021.001
+
+EventID=4624 IpAddress IN ("::1", "127.0.0.1") LogonType=10

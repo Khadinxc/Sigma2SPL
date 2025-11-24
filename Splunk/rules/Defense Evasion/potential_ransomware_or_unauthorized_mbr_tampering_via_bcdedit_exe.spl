@@ -1,0 +1,9 @@
+# Title: Potential Ransomware or Unauthorized MBR Tampering Via Bcdedit.EXE
+# Author: @neu5ron
+# Date: 2019-02-07
+# Level: medium
+# Description: Detects potential malicious and unauthorized usage of bcdedit.exe
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070, attack.persistence, attack.t1542.003
+
+CommandLine IN ("*delete*", "*deletevalue*", "*import*", "*safeboot*", "*network*") Image="*\\bcdedit.exe" OR OriginalFileName="bcdedit.exe"

@@ -1,0 +1,9 @@
+# Title: New Process Created Via Wmic.EXE
+# Author: Michael Haag, Florian Roth (Nextron Systems), juju4, oscd.community
+# Date: 2019-01-16
+# Level: medium
+# Description: Detects new process creation using WMIC via the "process call create" flag
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1047, car.2016-03-002
+
+CommandLine="*process*" CommandLine="*call*" CommandLine="*create*" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe"

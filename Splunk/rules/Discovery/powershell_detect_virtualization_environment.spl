@@ -1,0 +1,10 @@
+# Title: Powershell Detect Virtualization Environment
+# Author: frack113, Duc.Le-GTSC
+# Date: 2021-08-03
+# Level: medium
+# Description: Adversaries may employ various system checks to detect and avoid virtualization and analysis environments.
+# This may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.defense-evasion, attack.t1497.001
+
+ScriptBlockText IN ("*Get-WmiObject*", "*gwmi*") ScriptBlockText IN ("*MSAcpi_ThermalZoneTemperature*", "*Win32_ComputerSystem*")

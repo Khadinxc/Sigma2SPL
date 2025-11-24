@@ -1,0 +1,9 @@
+# Title: GCP Break-glass Container Workload Deployed
+# Author: Bryan Lim
+# Date: 2024-01-12
+# Level: medium
+# Description: Detects the deployment of workloads that are deployed by using the break-glass flag to override Binary Authorization controls.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1548
+
+data.protoPayload.logName IN ("cloudaudit.googleapis.com/activity", "cloudaudit.googleapis.com%2Factivity") data.protoPayload.methodName="io.k8s.core.v1.pods.create" data.protoPayload.resource.type="k8s_cluster" "image-policy.k8s.io/break-glass"

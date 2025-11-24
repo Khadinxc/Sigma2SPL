@@ -1,0 +1,11 @@
+# Title: Registry Modification to Hidden File Extension
+# Author: frack113
+# Date: 2022-01-22
+# Level: medium
+# Description: Hides the file extension through modification of the registry
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1137
+# False Positives:
+#   - Administrative scripts
+
+(Details="DWORD (0x00000002)" TargetObject="*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden") OR (Details="DWORD (0x00000001)" TargetObject="*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt")

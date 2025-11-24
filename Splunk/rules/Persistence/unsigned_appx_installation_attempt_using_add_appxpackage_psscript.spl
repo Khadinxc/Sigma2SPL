@@ -1,0 +1,11 @@
+# Title: Unsigned AppX Installation Attempt Using Add-AppxPackage - PsScript
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-31
+# Level: medium
+# Description: Detects usage of the "Add-AppxPackage" or it's alias "Add-AppPackage" to install unsigned AppX packages
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion
+# False Positives:
+#   - Installation of unsigned packages for testing purposes
+
+ScriptBlockText IN ("*Add-AppPackage *", "*Add-AppxPackage *") ScriptBlockText="* -AllowUnsigned*"

@@ -1,0 +1,12 @@
+# Title: Powershell Timestomp
+# Author: frack113
+# Date: 2021-08-03
+# Level: medium
+# Description: Adversaries may modify file time attributes to hide new or changes to existing files.
+# Timestomping is a technique that modifies the timestamps of a file (the modify, access, create, and change times), often to mimic files that are in the same folder.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.006
+# False Positives:
+#   - Legitimate admin script
+
+ScriptBlockText IN ("*.CreationTime =*", "*.LastWriteTime =*", "*.LastAccessTime =*", "*[IO.File]::SetCreationTime*", "*[IO.File]::SetLastAccessTime*", "*[IO.File]::SetLastWriteTime*")

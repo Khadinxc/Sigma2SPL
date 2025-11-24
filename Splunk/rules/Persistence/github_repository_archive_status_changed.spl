@@ -1,0 +1,11 @@
+# Title: GitHub Repository Archive Status Changed
+# Author: Ivan Saakov
+# Date: 2025-10-18
+# Level: low
+# Description: Detects when a GitHub repository is archived or unarchived, which may indicate unauthorized changes to repository status.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.impact
+# False Positives:
+#   - Archiving or unarchiving a repository is often legitimate. Investigate this action to determine if it was authorized.
+
+action IN ("repo.archived", "repo.unarchived")

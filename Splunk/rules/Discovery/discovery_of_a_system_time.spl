@@ -1,0 +1,11 @@
+# Title: Discovery of a System Time
+# Author: E.M. Anhaus (originally from Atomic Blue Detections, Endgame), oscd.community
+# Date: 2019-10-24
+# Level: low
+# Description: Identifies use of various commands to query a systems time. This technique may be used before executing a scheduled task or to discover the time zone of a target system.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1124
+# False Positives:
+#   - Legitimate use of the system utilities to discover system time for legitimate reason
+
+(CommandLine="*time*" Image IN ("*\\net.exe", "*\\net1.exe")) OR (CommandLine="*tz*" Image="*\\w32tm.exe")

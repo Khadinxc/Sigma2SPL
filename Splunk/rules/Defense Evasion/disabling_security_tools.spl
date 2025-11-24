@@ -1,0 +1,11 @@
+# Title: Disabling Security Tools
+# Author: Ömer Günal, Alejandro Ortuno, oscd.community
+# Date: 2020-06-17
+# Level: medium
+# Description: Detects disabling security tools
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004
+# False Positives:
+#   - Legitimate administration activities
+
+(CommandLine="*cbdaemon*" CommandLine="*stop*" Image="*/service") OR (CommandLine="*cbdaemon*" CommandLine="*off*" Image="*/chkconfig") OR (CommandLine="*cbdaemon*" CommandLine="*stop*" Image="*/systemctl") OR (CommandLine="*cbdaemon*" CommandLine="*disable*" Image="*/systemctl") OR (CommandLine="*stop*" CommandLine="*falcon-sensor*" Image="*/systemctl") OR (CommandLine="*disable*" CommandLine="*falcon-sensor*" Image="*/systemctl") OR (CommandLine="*firewalld*" CommandLine="*stop*" Image="*/systemctl") OR (CommandLine="*firewalld*" CommandLine="*disable*" Image="*/systemctl") OR (CommandLine="*iptables*" CommandLine="*stop*" Image="*/service") OR (CommandLine="*ip6tables*" CommandLine="*stop*" Image="*/service") OR (CommandLine="*iptables*" CommandLine="*stop*" Image="*/chkconfig") OR (CommandLine="*ip6tables*" CommandLine="*stop*" Image="*/chkconfig") OR (CommandLine="*0*" Image="*/setenforce")

@@ -1,0 +1,11 @@
+# Title: New PowerShell Instance Created
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2019-09-12
+# Level: informational
+# Description: Detects the execution of PowerShell via the creation of a named pipe starting with PSHost
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Likely
+
+PipeName="\\PSHost*"

@@ -1,0 +1,11 @@
+# Title: Insecure Proxy/DOH Transfer Via Curl.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-07-27
+# Level: medium
+# Description: Detects execution of "curl.exe" with the "insecure" flag over proxy or DOH.
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - Access to badly maintained internal or development systems
+
+CommandLine IN ("*--doh-insecure*", "*--proxy-insecure*") Image="*\\curl.exe" OR OriginalFileName="curl.exe"

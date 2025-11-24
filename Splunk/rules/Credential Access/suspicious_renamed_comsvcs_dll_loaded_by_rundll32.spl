@@ -1,0 +1,11 @@
+# Title: Suspicious Renamed Comsvcs DLL Loaded By Rundll32
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-14
+# Level: high
+# Description: Detects rundll32 loading a renamed comsvcs.dll to dump process memory
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.defense-evasion, attack.t1003.001
+# False Positives:
+#   - Unlikely
+
+Hashes IN ("*IMPHASH=eed93054cb555f3de70eaa9787f32ebb*", "*IMPHASH=5e0dbdec1fce52daae251a110b4f309d*", "*IMPHASH=eadbccbb324829acb5f2bbe87e5549a8*", "*IMPHASH=407ca0f7b523319d758a40d7c0193699*", "*IMPHASH=281d618f4e6271e527e6386ea6f748de*") Image="*\\rundll32.exe" NOT ImageLoaded="*\\comsvcs.dll"

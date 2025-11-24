@@ -1,0 +1,14 @@
+# Title: Potential Executable Run Itself As Sacrificial Process
+# Author: frack113
+# Date: 2025-10-17
+# Level: low
+# Description: Detects when an executable launches an identical instance of itself, a behavior often used to create a suspended “sacrificial” process for code injection or evasion.
+# Investigate for indicators such as the process being started in suspended mode, rapid parent termination, memory manipulation (e.g., WriteProcessMemory, CreateRemoteThread), or unsigned binaries.
+# Review command-line arguments, process ancestry, and network activity to confirm if this is legitimate behavior or process injection activity.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055, detection.threat-hunting
+# False Positives:
+#   - Legitimate software that may launch a new instance of itself, especially updaters or installers. Investigate each alert and apply whitelisting as needed.
+
+NOT (OriginalFileName IN ("Cmd.Exe", "CompatTelRunner.exe", "Discord.exe", "electron.exe", "EXPLORER.EXE", "httpd.exe", "IE4UINIT.EXE", "mmc.exe", "MpCmdRun.exe", "mscorsvw.exe", "msiexec.exe", "NGenTask.exe", "OneDriveSetup.exe", "PowerShell.EXE", "REGSVR32.EXE", "smss.exe", "Spotify.exe", "WerMgr") OR Image IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*") OR Product IN ("Avira", "Evernote", "Firefox", "Microsoft Office", "Ninite", "Opera Browser Assistant Installer", "Opera Installer", "Sysinternals Sysmon"))
+| where 'Image'='ParentImage'

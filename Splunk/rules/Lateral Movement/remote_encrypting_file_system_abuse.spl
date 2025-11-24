@@ -1,0 +1,11 @@
+# Title: Remote Encrypting File System Abuse
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to possibly abuse remote encryption service via MS-EFSR
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement
+# False Positives:
+#   - Legitimate usage of remote file encryption
+
+EventID=3 EventLog="RPCFW" InterfaceUuid IN ("df1941c5-fe89-4e79-bf10-463657acf44d", "c681d488-d850-11d0-8c52-00c04fd90f7e")

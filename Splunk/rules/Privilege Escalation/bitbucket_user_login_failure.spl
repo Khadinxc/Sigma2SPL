@@ -1,0 +1,12 @@
+# Title: Bitbucket User Login Failure
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-02-25
+# Level: medium
+# Description: Detects user authentication failure events.
+# Please note that this rule can be noisy and it is recommended to use with correlation based on "author.name" field.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.defense-evasion, attack.credential-access, attack.t1078.004, attack.t1110
+# False Positives:
+#   - Legitimate user wrong password attempts.
+
+auditType.action="User login failed" auditType.category="Authentication"

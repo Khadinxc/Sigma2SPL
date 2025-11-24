@@ -1,0 +1,11 @@
+# Title: Office Application Initiated Network Connection Over Uncommon Ports
+# Author: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-07-12
+# Level: medium
+# Description: Detects an office suit application (Word, Excel, PowerPoint, Outlook) communicating to target systems over uncommon ports.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.command-and-control
+# False Positives:
+#   - Other ports can be used, apply additional filters accordingly
+
+Image IN ("*\\excel.exe", "*\\outlook.exe", "*\\powerpnt.exe", "*\\winword.exe", "*\\wordview.exe") Initiated="true" NOT (DestinationPort IN (53, 80, 139, 389, 443, 445, 3268) OR (DestinationPort IN (143, 465, 587, 993, 995) Image="*:\\Program Files\\Microsoft Office\\*" Image="*\\OUTLOOK.EXE"))

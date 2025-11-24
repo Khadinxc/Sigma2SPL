@@ -1,0 +1,11 @@
+# Title: Sysmon Blocked File Shredding
+# Author: frack113
+# Date: 2023-07-20
+# Level: high
+# Description: Triggers on any Sysmon "FileBlockShredding" event, which indicates a violation of the configured shredding policy.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Unlikely
+
+EventID=28

@@ -1,0 +1,11 @@
+# Title: Rare Remote Thread Creation By Uncommon Source Image
+# Author: Perez Diego (@darkquassar), oscd.community
+# Date: 2019-10-27
+# Level: high
+# Description: Detects uncommon processes creating remote threads.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1055
+# False Positives:
+#   - This rule is best put in testing first in order to create a baseline that reflects the data in your environment.
+
+SourceImage IN ("*\\bash.exe", "*\\cscript.exe", "*\\cvtres.exe", "*\\defrag.exe", "*\\dialer.exe", "*\\dnx.exe", "*\\esentutl.exe", "*\\excel.exe", "*\\expand.exe", "*\\find.exe", "*\\findstr.exe", "*\\forfiles.exe", "*\\gpupdate.exe", "*\\hh.exe", "*\\installutil.exe", "*\\lync.exe", "*\\makecab.exe", "*\\mDNSResponder.exe", "*\\monitoringhost.exe", "*\\msbuild.exe", "*\\mshta.exe", "*\\mspaint.exe", "*\\outlook.exe", "*\\ping.exe", "*\\provtool.exe", "*\\python.exe", "*\\regsvr32.exe", "*\\robocopy.exe", "*\\runonce.exe", "*\\sapcimc.exe", "*\\smartscreen.exe", "*\\spoolsv.exe", "*\\tstheme.exe", "*\\userinit.exe", "*\\vssadmin.exe", "*\\vssvc.exe", "*\\w3wp.exe", "*\\winscp.exe", "*\\winword.exe", "*\\wmic.exe", "*\\wscript.exe") NOT ((SourceImage IN ("C:\\Windows\\System32\\Defrag.exe", "C:\\Windows\\System32\\makecab.exe") TargetImage="C:\\Windows\\System32\\conhost.exe") OR (SourceImage IN ("C:\\Program Files\\Microsoft Office\\*", "C:\\Program Files (x86)\\Microsoft Office\\*") TargetImage="System") OR (SourceImage="C:\\Windows\\System32\\provtool.exe" TargetImage="C:\\Windows\\System32\\svchost.exe") OR (SourceImage="C:\\Windows\\System32\\userinit.exe" TargetImage="C:\\Windows\\explorer.exe") OR (SourceImage="*\\WINWORD.EXE" TargetImage IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*"))) NOT (SourceImage="*\\SysWOW64\\explorer.exe" TargetImage IN ("C:\\Program Files (x86)\\VMware\\VMware Tools\\vmtoolsd.exe", "C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe"))

@@ -1,0 +1,9 @@
+# Title: Suspicious Msiexec Quiet Install From Remote Location
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-10-28
+# Level: medium
+# Description: Detects usage of Msiexec.exe to install packages hosted remotely quietly
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.007
+
+CommandLine="*-i*" OR CommandLine="*/i*" OR CommandLine="*–i*" OR CommandLine="*—i*" OR CommandLine="*―i*" OR CommandLine="*-package*" OR CommandLine="*/package*" OR CommandLine="*–package*" OR CommandLine="*—package*" OR CommandLine="*―package*" OR CommandLine="*-a*" OR CommandLine="*/a*" OR CommandLine="*–a*" OR CommandLine="*—a*" OR CommandLine="*―a*" OR CommandLine="*-j*" OR CommandLine="*/j*" OR CommandLine="*–j*" OR CommandLine="*—j*" OR CommandLine="*―j*" Image="*\\msiexec.exe" OR OriginalFileName="msiexec.exe" CommandLine="*-q*" OR CommandLine="*/q*" OR CommandLine="*–q*" OR CommandLine="*—q*" OR CommandLine="*―q*" CommandLine IN ("*http*", "*\\\\*") NOT (CommandLine="*\\AppData\\Local\\Temp\\OpenOffice*" CommandLine="*Installation Files\\openoffice*")

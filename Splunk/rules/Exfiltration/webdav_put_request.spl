@@ -1,0 +1,9 @@
+# Title: WebDav Put Request
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-05-02
+# Level: low
+# Description: A General detection for WebDav user-agent being used to PUT files on a WebDav network share. This could be an indicator of exfiltration.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1048.003
+
+method="PUT" user_agent="*WebDAV*" NOT (id.resp_h="10.0.0.0/8" OR id.resp_h="127.0.0.0/8" OR id.resp_h="172.16.0.0/12" OR id.resp_h="192.168.0.0/16" OR id.resp_h="169.254.0.0/16")

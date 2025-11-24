@@ -1,0 +1,9 @@
+# Title: Potential RDP Tunneling Via Plink
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-08-04
+# Level: high
+# Description: Execution of plink to perform data exfiltration and tunneling
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1572
+
+(CommandLine="*:127.0.0.1:3389*" Image="*\\plink.exe") OR (CommandLine="*:3389*" Image="*\\plink.exe" CommandLine IN ("* -P 443*", "* -P 22*"))

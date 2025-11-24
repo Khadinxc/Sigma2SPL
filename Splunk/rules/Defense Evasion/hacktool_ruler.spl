@@ -1,0 +1,11 @@
+# Title: Hacktool Ruler
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-05-31
+# Level: high
+# Description: This events that are generated when using the hacktool Ruler by Sensepost
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.discovery, attack.execution, attack.collection, attack.lateral-movement, attack.t1087, attack.t1114, attack.t1059, attack.t1550.002
+# False Positives:
+#   - Go utilities that use staaldraad awesome NTLM library
+
+(EventID=4776 Workstation="RULER") OR (EventID IN (4624, 4625) WorkstationName="RULER")

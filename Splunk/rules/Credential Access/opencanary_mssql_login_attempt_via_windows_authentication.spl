@@ -1,0 +1,11 @@
+# Title: OpenCanary - MSSQL Login Attempt Via Windows Authentication
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where an MSSQL service on an OpenCanary node has had a login attempt using Windows Authentication.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.collection, attack.t1003, attack.t1213
+# False Positives:
+#   - Unlikely
+
+logtype=9002

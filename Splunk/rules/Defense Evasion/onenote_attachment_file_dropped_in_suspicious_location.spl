@@ -1,0 +1,11 @@
+# Title: OneNote Attachment File Dropped In Suspicious Location
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-22
+# Level: medium
+# Description: Detects creation of files with the ".one"/".onepkg" extension in suspicious or uncommon locations. This could be a sign of attackers abusing OneNote attachments
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Legitimate usage of ".one" or ".onepkg" files from those locations
+
+TargetFilename IN ("*\\AppData\\Local\\Temp\\*", "*\\Users\\Public\\*", "*\\Windows\\Temp\\*", "*:\\Temp\\*") TargetFilename IN ("*.one", "*.onepkg") NOT (Image="*:\\Program Files\\Microsoft Office\\*" Image="*\\ONENOTE.EXE")

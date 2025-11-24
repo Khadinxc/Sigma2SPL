@@ -1,0 +1,9 @@
+# Title: Uncommon Service Installation Image Path
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-18
+# Level: medium
+# Description: Detects uncommon service installation commands by looking at suspicious or uncommon image path values containing references to encoded powershell commands, temporary paths, etc.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, car.2013-09-005, attack.t1543.003
+
+EventID=7045 Provider_Name="Service Control Manager" ImagePath IN ("*\\\\.\\pipe*", "*\\Users\\Public\\*", "*\\Windows\\Temp\\*") OR (ImagePath="* -e*" ImagePath IN ("* aQBlAHgA*", "* aWV4I*", "* IAB*", "* JAB*", "* PAA*", "* SQBFAFgA*", "* SUVYI*")) NOT ImagePath="C:\\ProgramData\\Microsoft\\Windows Defender\\Definition Updates\\*" NOT ImagePath="C:\\WINDOWS\\TEMP\\thor10-remote\\thor64.exe*"

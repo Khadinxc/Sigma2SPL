@@ -1,0 +1,11 @@
+# Title: HackTool - EfsPotato Named Pipe Creation
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-08-23
+# Level: high
+# Description: Detects the pattern of a pipe name as used by the hack tool EfsPotato
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055
+# False Positives:
+#   - \pipe\LOCAL\Monitorian
+
+PipeName IN ("*\\pipe\\*", "*\\pipe\\srvsvc*") NOT (PipeName IN ("*\\CtxShare*", "\\pipe\\*"))

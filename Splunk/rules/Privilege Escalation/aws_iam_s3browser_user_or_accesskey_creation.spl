@@ -1,0 +1,11 @@
+# Title: AWS IAM S3Browser User or AccessKey Creation
+# Author: daniel.bohannon@permiso.io (@danielhbohannon)
+# Date: 2023-05-17
+# Level: high
+# Description: Detects S3 Browser utility creating IAM User or AccessKey.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1059.009, attack.t1078.004
+# False Positives:
+#   - Valid usage of S3 Browser for IAM User and/or AccessKey creation
+
+eventName IN ("CreateUser", "CreateAccessKey") eventSource="iam.amazonaws.com" userAgent="*S3 Browser*"

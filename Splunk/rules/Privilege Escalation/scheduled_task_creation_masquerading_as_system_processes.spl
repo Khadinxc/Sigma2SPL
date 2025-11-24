@@ -1,0 +1,11 @@
+# Title: Scheduled Task Creation Masquerading as System Processes
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-02-05
+# Level: high
+# Description: Detects the creation of scheduled tasks that involve system processes, which may indicate malicious actors masquerading as or abusing these processes to execute payloads or maintain persistence.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.005, attack.defense-evasion, attack.t1036.004, attack.t1036.005
+# False Positives:
+#   - Legitimate system administration tasks scheduling trusted system processes.
+
+CommandLine IN ("* audiodg*", "* conhost*", "* dwm.exe*", "* explorer*", "* lsass*", "* lsm*", "* mmc*", "* msiexec*", "* regsvr32*", "* rundll32*", "* services*", "* spoolsv*", "* svchost*", "* taskeng*", "* taskhost*", "* wininit*", "* winlogon*") CommandLine="* -create *" OR CommandLine="* /create *" OR CommandLine="* –create *" OR CommandLine="* —create *" OR CommandLine="* ―create *" Image="*\\schtasks.exe" OR OriginalFileName="schtasks.exe"

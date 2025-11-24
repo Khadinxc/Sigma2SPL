@@ -1,0 +1,11 @@
+# Title: Suspicious Process Discovery With Get-Process
+# Author: frack113
+# Date: 2022-03-17
+# Level: low
+# Description: Get the processes that are running on the local computer.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1057
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+ScriptBlockText="*Get-Process*"

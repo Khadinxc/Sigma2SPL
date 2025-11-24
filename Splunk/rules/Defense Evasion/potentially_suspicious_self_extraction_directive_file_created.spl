@@ -1,0 +1,12 @@
+# Title: Potentially Suspicious Self Extraction Directive File Created
+# Author: Joseliyo Sanchez, @Joseliyo_Jstnk
+# Date: 2024-02-05
+# Level: medium
+# Description: Detects the creation of a binary file with the ".sed" extension. The ".sed" extension stand for Self Extraction Directive files.
+# These files are used by the "iexpress.exe" utility in order to create self extracting packages.
+# Attackers were seen abusing this utility and creating PE files with embedded ".sed" entries.
+# Usually ".sed" files are simple ini files and not PE binaries.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+
+TargetFilename="*.sed"

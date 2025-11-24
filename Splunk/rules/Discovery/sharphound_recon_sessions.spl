@@ -1,0 +1,9 @@
+# Title: SharpHound Recon Sessions
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls useb by SharpHound to map remote connections and local group membership.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1033
+
+EventID=3 EventLog="RPCFW" InterfaceUuid="4b324fc8-1670-01d3-1278-5a47bf6ee188" OpNum=12

@@ -1,0 +1,11 @@
+# Title: Suspicious Child Process Of Manage Engine ServiceDesk
+# Author: Florian Roth (Nextron Systems)
+# Date: 2023-01-18
+# Level: high
+# Description: Detects suspicious child processes of the "Manage Engine ServiceDesk Plus" Java web service
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1102
+# False Positives:
+#   - Legitimate sub processes started by Manage Engine ServiceDesk Pro
+
+Image IN ("*\\AppVLP.exe", "*\\bash.exe", "*\\bitsadmin.exe", "*\\calc.exe", "*\\certutil.exe", "*\\cscript.exe", "*\\curl.exe", "*\\forfiles.exe", "*\\mftrace.exe", "*\\mshta.exe", "*\\net.exe", "*\\net1.exe", "*\\notepad.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\query.exe", "*\\reg.exe", "*\\schtasks.exe", "*\\scrcons.exe", "*\\sh.exe", "*\\systeminfo.exe", "*\\whoami.exe", "*\\wmic.exe", "*\\wscript.exe") ParentImage="*\\ManageEngine\\ServiceDesk\\*" ParentImage="*\\java.exe*" NOT (CommandLine="* stop*" Image IN ("*\\net.exe", "*\\net1.exe"))

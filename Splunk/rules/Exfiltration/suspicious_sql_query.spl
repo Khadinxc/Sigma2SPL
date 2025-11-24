@@ -1,0 +1,13 @@
+# Title: Suspicious SQL Query
+# Author: @juju4
+# Date: 2022-12-27
+# Level: medium
+# Description: Detects suspicious SQL query keywrods that are often used during recon, exfiltration or destructive activities. Such as dropping tables and selecting wildcard fields
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.initial-access, attack.privilege-escalation, attack.persistence, attack.t1190, attack.t1505.001
+# False Positives:
+#   - Inventory and monitoring activity
+#   - Vulnerability scanners
+#   - Legitimate applications
+
+"drop" OR "truncate" OR "dump" OR "select \*"

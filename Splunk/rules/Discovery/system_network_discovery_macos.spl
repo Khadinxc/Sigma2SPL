@@ -1,0 +1,11 @@
+# Title: System Network Discovery - macOS
+# Author: remotephone, oscd.community
+# Date: 2020-10-06
+# Level: informational
+# Description: Detects enumeration of local network configuration
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1016
+# False Positives:
+#   - Legitimate administration activities
+
+Image IN ("*/arp", "*/ifconfig", "*/netstat", "*/networksetup", "*/socketfilterfw") OR (CommandLine="*/Library/Preferences/com.apple.alf*" CommandLine="*read*" Image="/usr/bin/defaults") NOT ParentImage="*/wifivelocityd"

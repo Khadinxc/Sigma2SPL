@@ -1,0 +1,11 @@
+# Title: MSI Installation From Suspicious Locations
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-31
+# Level: medium
+# Description: Detects MSI package installation from suspicious locations
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - False positives may occur if you allow installation from folders such as the desktop, the public folder or remote shares. A baseline is required before production use.
+
+Data IN ("*:\\Windows\\TEMP\\*", "*\\\\*", "*\\Desktop\\*", "*\\PerfLogs\\*", "*\\Users\\Public\\*") EventID IN (1040, 1042) Provider_Name="MsiInstaller" NOT (Data IN ("*C:\\Windows\\TEMP\\UpdHealthTools.msi*", "*\\AppData\\Local\\Temp\\WinGet\\*"))

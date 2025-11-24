@@ -1,0 +1,9 @@
+# Title: HackTool - NoFilter Execution
+# Author: Stamatis Chatzimangou (st0pp3r)
+# Date: 2024-01-05
+# Level: high
+# Description: Detects execution of NoFilter, a tool for abusing the Windows Filtering Platform for privilege escalation via hardcoded policy name indicators
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1134, attack.t1134.001
+
+(EventID=5447 FilterName="*RonPolicy*") OR (EventID=5449 ProviderContextName="*RonPolicy*")

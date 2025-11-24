@@ -1,0 +1,13 @@
+# Title: SQL Injection Strings In URI
+# Author: Saw Win Naung, Nasreddine Bencherchali (Nextron Systems), Thurein Oo (Yoma Bank)
+# Date: 2020-02-22
+# Level: high
+# Description: Detects potential SQL injection attempts via GET requests in access logs.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190
+# False Positives:
+#   - Java scripts and CSS Files
+#   - User searches in search boxes of the respective website
+#   - Internal vulnerability scanners can cause some serious FPs when used, if you experience a lot of FPs due to this think of adding more filters such as "User Agent" strings and more response codes
+
+"cs-method"="GET" "@@version" OR "%271%27%3D%271" OR "=select " OR "=select(" OR "=select%20" OR "concat_ws(" OR "CONCAT(0x" OR "from mysql.innodb_table_stats" OR "from%20mysql.innodb_table_stats" OR "group_concat(" OR "information_schema.tables" OR "json_arrayagg(" OR "or 1=1#" OR "or%201=1#" OR "order by " OR "order%20by%20" OR "select * " OR "select database()" OR "select version()" OR "select%20*%20" OR "select%20database()" OR "select%20version()" OR "select%28sleep%2810%29" OR "SELECTCHAR(" OR "table_schema" OR "UNION ALL SELECT" OR "UNION SELECT" OR "UNION%20ALL%20SELECT" OR "UNION%20SELECT" OR "'1'='1" NOT "sc-status"=404

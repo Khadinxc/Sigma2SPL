@@ -1,0 +1,11 @@
+# Title: Potential Conti Ransomware Activity
+# Author: frack113
+# Date: 2021-10-12
+# Level: critical
+# Description: Detects a specific command used by the Conti ransomware group
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.s0575, attack.t1486, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine="*-m *" CommandLine="*-net *" CommandLine="*-size *" CommandLine="*-nomutex *" CommandLine="*-p \\\\*" CommandLine="*$*"

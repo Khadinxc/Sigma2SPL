@@ -1,0 +1,9 @@
+# Title: File With Uncommon Extension Created By An Office Application
+# Author: Vadim Khrykov (ThreatIntel), Cyb3rEng (Rule), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2021-08-23
+# Level: high
+# Description: Detects the creation of files with an executable or script extension by an Office application.
+# MITRE Tactic: Execution
+# Tags: attack.t1204.002, attack.execution
+
+Image IN ("*\\excel.exe", "*\\msaccess.exe", "*\\mspub.exe", "*\\powerpnt.exe", "*\\visio.exe", "*\\winword.exe") TargetFilename IN ("*.bat", "*.cmd", "*.com", "*.dll", "*.exe", "*.hta", "*.ocx", "*.proj", "*.ps1", "*.scf", "*.scr", "*.sys", "*.vbe", "*.vbs", "*.wsf", "*.wsh") NOT (TargetFilename="*\\AppData\\Local\\assembly\\tmp\\*" TargetFilename="*.dll") NOT ((TargetFilename="*C:\\Users\\*" TargetFilename="*\\AppData\\Local\\Microsoft\\Office\\*" TargetFilename="*\\BackstageInAppNavCache\\*" TargetFilename="*.com") OR (Image="*\\winword.exe" TargetFilename="*\\AppData\\Local\\Temp\\webexdelta\\*" TargetFilename IN ("*.dll", "*.exe")) OR (TargetFilename="*C:\\Users\\*" TargetFilename="*\\AppData\\Local\\Microsoft\\Office\\*" TargetFilename="*\\WebServiceCache\\AllUsers*" TargetFilename="*.com"))

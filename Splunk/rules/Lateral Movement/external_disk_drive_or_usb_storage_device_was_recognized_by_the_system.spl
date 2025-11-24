@@ -1,0 +1,11 @@
+# Title: External Disk Drive Or USB Storage Device Was Recognized By The System
+# Author: Keith Wright
+# Date: 2019-11-20
+# Level: low
+# Description: Detects external disk drives or plugged-in USB devices.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.t1091, attack.t1200, attack.lateral-movement, attack.initial-access
+# False Positives:
+#   - Likely
+
+EventID=6416 ClassName="DiskDrive" OR DeviceDescription="USB Mass Storage Device"

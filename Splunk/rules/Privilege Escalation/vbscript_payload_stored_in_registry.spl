@@ -1,0 +1,9 @@
+# Title: VBScript Payload Stored in Registry
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-03-05
+# Level: high
+# Description: Detects VBScript content stored into registry keys as seen being used by UNC2452 group
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1547.001
+
+Details IN ("*vbscript:*", "*jscript:*", "*mshtml,*", "*RunHTMLApplication*", "*Execute(*", "*CreateObject*", "*window.close*") TargetObject="*Software\\Microsoft\\Windows\\CurrentVersion*" NOT (TargetObject="*Software\\Microsoft\\Windows\\CurrentVersion\\Run*" OR (Details IN ("*\\Microsoft.NET\\Primary Interop Assemblies\\Microsoft.mshtml.dll*", "*<\\Microsoft.mshtml,fileVersion=*", "*_mshtml_dll_*", "*<\\Microsoft.mshtml,culture=*") Image="*\\msiexec.exe" TargetObject="*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Installer\\UserData\\*"))

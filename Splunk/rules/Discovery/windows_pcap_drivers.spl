@@ -1,0 +1,9 @@
+# Title: Windows Pcap Drivers
+# Author: Cian Heasley
+# Date: 2020-06-10
+# Level: medium
+# Description: Detects Windows Pcap driver installation based on a list of associated .sys files.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.credential-access, attack.t1040
+
+EventID=4697 ServiceFileName IN ("*pcap*", "*npcap*", "*npf*", "*nm3*", "*ndiscap*", "*nmnt*", "*windivert*", "*USBPcap*", "*pktmon*") | table EventID,ServiceFileName,Account_Name,Computer_Name,Originating_Computer,ServiceName

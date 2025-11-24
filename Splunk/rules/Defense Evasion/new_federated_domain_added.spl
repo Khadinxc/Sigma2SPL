@@ -1,0 +1,11 @@
+# Title: New Federated Domain Added
+# Author: Splunk Threat Research Team (original rule), Harjot Singh @cyb3rjy0t (sigma rule)
+# Date: 2023-09-18
+# Level: medium
+# Description: Detects the addition of a new Federated Domain.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1484.002
+# False Positives:
+#   - The creation of a new Federated domain is not necessarily malicious, however these events need to be followed closely, as it may indicate federated credential abuse or backdoor via federated identities at a similar or different cloud provider.
+
+Operation="*domain*" Operation IN ("*add*", "*new*")

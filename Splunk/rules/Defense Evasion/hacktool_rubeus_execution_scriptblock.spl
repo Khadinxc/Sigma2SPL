@@ -1,0 +1,11 @@
+# Title: HackTool - Rubeus Execution - ScriptBlock
+# Author: Christian Burkard (Nextron Systems), Florian Roth (Nextron Systems)
+# Date: 2023-04-27
+# Level: high
+# Description: Detects the execution of the hacktool Rubeus using specific command line flags
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.credential-access, attack.t1003, attack.t1558.003, attack.lateral-movement, attack.t1550.003
+# False Positives:
+#   - Unlikely
+
+ScriptBlockText IN ("*asreproast *", "*dump /service:krbtgt *", "*dump /luid:0x*", "*kerberoast *", "*createnetonly /program:*", "*ptt /ticket:*", "*/impersonateuser:*", "*renew /ticket:*", "*asktgt /user:*", "*harvest /interval:*", "*s4u /user:*", "*s4u /ticket:*", "*hash /password:*", "*golden /aes256:*", "*silver /user:*")

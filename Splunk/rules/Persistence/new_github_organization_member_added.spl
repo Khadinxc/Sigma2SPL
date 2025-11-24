@@ -1,0 +1,11 @@
+# Title: New Github Organization Member Added
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2023-01-29
+# Level: informational
+# Description: Detects when a new member is added or invited to a github organization.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1136.003
+# False Positives:
+#   - Organization approved new members
+
+action IN ("org.add_member", "org.invite_member")

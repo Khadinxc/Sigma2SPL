@@ -1,0 +1,15 @@
+# Title: Network Connection Initiated By PowerShell Process
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-13
+# Level: low
+# Description: Detects a network connection that was initiated from a PowerShell process.
+# Often times malicious powershell scripts download additional payloads or communicate back to command and control channels via uncommon ports or IPs.
+# Use this rule as a basis for hunting for anomalies.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.threat-hunting
+# False Positives:
+#   - Administrative scripts
+#   - Microsoft IP range
+#   - Additional filters are required. Adjust to your environment (e.g. extend filters with company's ip range')
+
+Image IN ("*\\powershell.exe", "*\\pwsh.exe") Initiated="true" NOT ((DestinationIp="127.0.0.0/8" OR DestinationIp="10.0.0.0/8" OR DestinationIp="169.254.0.0/16" OR DestinationIp="172.16.0.0/12" OR DestinationIp="192.168.0.0/16" OR DestinationIp="::1/128" OR DestinationIp="fe80::/10" OR DestinationIp="fc00::/7" User IN ("*AUTHORI*", "*AUTORI*")) OR DestinationIp="20.184.0.0/13" OR DestinationIp="51.103.210.0/23")

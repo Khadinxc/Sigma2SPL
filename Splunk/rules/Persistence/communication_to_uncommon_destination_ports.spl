@@ -1,0 +1,9 @@
+# Title: Communication To Uncommon Destination Ports
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-19
+# Level: medium
+# Description: Detects programs that connect to uncommon destination ports
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.command-and-control, attack.t1571
+
+DestinationPort IN (8080, 8888) Initiated="true" NOT (DestinationIp="127.0.0.0/8" OR DestinationIp="10.0.0.0/8" OR DestinationIp="172.16.0.0/12" OR DestinationIp="192.168.0.0/16" OR DestinationIp="169.254.0.0/16" OR DestinationIp="::1/128" OR DestinationIp="fe80::/10" OR DestinationIp="fc00::/7") NOT (Image IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*"))

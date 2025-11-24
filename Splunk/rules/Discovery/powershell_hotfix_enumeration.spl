@@ -1,0 +1,11 @@
+# Title: PowerShell Hotfix Enumeration
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-21
+# Level: medium
+# Description: Detects call to "Win32_QuickFixEngineering" in order to enumerate installed hotfixes often used in "enum" scripts by attackers
+# MITRE Tactic: Discovery
+# Tags: attack.discovery
+# False Positives:
+#   - Legitimate administration scripts
+
+ScriptBlockText="*Win32_QuickFixEngineering*" ScriptBlockText="*HotFixID*"

@@ -1,0 +1,9 @@
+# Title: File Encryption/Decryption Via Gpg4win From Suspicious Locations
+# Author: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
+# Date: 2022-11-30
+# Level: high
+# Description: Detects usage of Gpg4win to encrypt/decrypt files located in potentially suspicious locations.
+# MITRE Tactic: Execution
+# Tags: attack.execution
+
+CommandLine="*-passphrase*" Image IN ("*\\gpg.exe", "*\\gpg2.exe") OR Product="GNU Privacy Guard (GnuPG)" OR Description="GnuPG’s OpenPGP tool" CommandLine IN ("*:\\PerfLogs\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Roaming\\*")

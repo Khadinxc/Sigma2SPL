@@ -1,0 +1,12 @@
+# Title: Applications That Are Using ROPC Authentication Flow
+# Author: Mark Morowczynski '@markmorow', Bailey Bercik '@baileybercik'
+# Date: 2022-06-01
+# Level: medium
+# Description: Resource owner password credentials (ROPC) should be avoided if at all possible as this requires the user to expose their current password credentials to the application directly.
+# The application then uses those credentials to authenticate the user against the identity provider.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.t1078, attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.initial-access
+# False Positives:
+#   - Applications that are being used as part of automated testing or a legacy application that cannot use any other modern authentication flow
+
+properties.message="ROPC"

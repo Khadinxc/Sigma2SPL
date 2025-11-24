@@ -1,0 +1,11 @@
+# Title: PUA - NSudo Execution
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali
+# Date: 2022-01-24
+# Level: high
+# Description: Detects the use of NSudo tool for command execution
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002, attack.s0029
+# False Positives:
+#   - Legitimate use by administrators
+
+CommandLine IN ("*-U:S *", "*-U:T *", "*-U:E *", "*-P:E *", "*-M:S *", "*-M:H *", "*-U=S *", "*-U=T *", "*-U=E *", "*-P=E *", "*-M=S *", "*-M=H *", "*-ShowWindowMode:Hide*") Image IN ("*\\NSudo.exe", "*\\NSudoLC.exe", "*\\NSudoLG.exe") OR OriginalFileName IN ("NSudo.exe", "NSudoLC.exe", "NSudoLG.exe")

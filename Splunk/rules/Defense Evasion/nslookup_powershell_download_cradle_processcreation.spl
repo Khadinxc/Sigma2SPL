@@ -1,0 +1,9 @@
+# Title: Nslookup PowerShell Download Cradle - ProcessCreation
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-09-05
+# Level: medium
+# Description: Detects suspicious powershell download cradle using nslookup. This cradle uses nslookup to extract payloads from DNS records
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+CommandLine IN ("* -q=txt *", "* -querytype=txt *") ParentImage IN ("*\\powershell.exe", "*\\pwsh.exe") Image="*\\nslookup.exe*" OR OriginalFileName="\\nslookup.exe"

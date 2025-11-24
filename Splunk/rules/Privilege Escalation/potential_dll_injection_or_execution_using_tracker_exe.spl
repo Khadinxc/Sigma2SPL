@@ -1,0 +1,9 @@
+# Title: Potential DLL Injection Or Execution Using Tracker.exe
+# Author: Avneet Singh @v3t0_, oscd.community
+# Date: 2020-10-18
+# Level: medium
+# Description: Detects potential DLL injection and execution using "Tracker.exe"
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1055.001
+
+CommandLine IN ("* /d *", "* /c *") Image="*\\tracker.exe" OR Description="Tracker" NOT (CommandLine="* /ERRORREPORT:PROMPT *" OR ParentImage IN ("*\\Msbuild\\Current\\Bin\\MSBuild.exe", "*\\Msbuild\\Current\\Bin\\amd64\\MSBuild.exe"))

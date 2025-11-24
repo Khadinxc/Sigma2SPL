@@ -1,0 +1,9 @@
+# Title: Recon Activity via SASec
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to read information about scheduled tasks via SASec
+# MITRE Tactic: Discovery
+# Tags: attack.discovery
+
+EventID=3 EventLog="RPCFW" InterfaceUuid="378e52b0-c0a9-11cf-822d-00aa0051e40f" NOT (OpNum IN (0, 1))

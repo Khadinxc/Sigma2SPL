@@ -1,0 +1,10 @@
+# Title: Replace Desktop Wallpaper by Powershell
+# Author: frack113
+# Date: 2021-12-26
+# Level: low
+# Description: An adversary may deface systems internal to an organization in an attempt to intimidate or mislead users.
+# This may take the form of modifications to internal websites, or directly to user systems with the replacement of the desktop wallpaper
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1491.001
+
+(ScriptBlockText="*Get-ItemProperty*" ScriptBlockText="*Registry::*" ScriptBlockText="*HKEY_CURRENT_USER\\Control Panel\\Desktop\\*" ScriptBlockText="*WallPaper*") OR ScriptBlockText="*SystemParametersInfo(20,0,*,3)*"

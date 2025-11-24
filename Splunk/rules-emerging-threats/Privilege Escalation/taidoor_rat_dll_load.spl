@@ -1,0 +1,9 @@
+# Title: TAIDOOR RAT DLL Load
+# Author: Florian Roth (Nextron Systems)
+# Date: 2020-07-30
+# Level: high
+# Description: Detects specific process characteristics of Chinese TAIDOOR RAT malware load
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.execution, attack.t1055.001, detection.emerging-threats
+
+CommandLine IN ("*dll,MyStart*", "*dll MyStart*") OR (CommandLine="* MyStart" CommandLine="*rundll32.exe*")

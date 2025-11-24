@@ -1,0 +1,11 @@
+# Title: NTLMv1 Logon Between Client and Server
+# Author: Tim Shelton, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-04-26
+# Level: medium
+# Description: Detects the reporting of NTLMv1 being used between a client and server. NTLMv1 is insecure as the underlying encryption algorithms can be brute-forced by modern hardware.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.lateral-movement, attack.t1550.002
+# False Positives:
+#   - Environments that use NTLMv1
+
+EventID IN (6038, 6039) Provider_Name="LsaSrv"

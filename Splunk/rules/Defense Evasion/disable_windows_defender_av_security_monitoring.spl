@@ -1,0 +1,11 @@
+# Title: Disable Windows Defender AV Security Monitoring
+# Author: ok @securonix invrep-de, oscd.community, frack113
+# Date: 2020-10-12
+# Level: high
+# Description: Detects attackers attempting to disable Windows Defender using Powershell
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Minimal, for some older versions of dev tools, such as pycharm, developers were known to sometimes disable Windows Defender to improve performance, but this generally is not considered a good security practice.
+
+(Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") CommandLine IN ("*-DisableBehaviorMonitoring $true*", "*-DisableRuntimeMonitoring $true*")) OR (Image="*\\sc.exe" OR OriginalFileName="sc.exe" (CommandLine="*delete*" CommandLine="*WinDefend*") OR (CommandLine="*config*" CommandLine="*WinDefend*" CommandLine="*start=disabled*") OR (CommandLine="*stop*" CommandLine="*WinDefend*"))

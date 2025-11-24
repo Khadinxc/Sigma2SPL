@@ -1,0 +1,9 @@
+# Title: Access To Sysvol Policies Share By Uncommon Process
+# Author: frack113
+# Date: 2023-12-21
+# Level: medium
+# Description: Detects file access requests to the Windows Sysvol Policies Share by uncommon processes
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1552.006, detection.threat-hunting
+
+FileName="*\\sysvol\\*" FileName="*\\Policies\\*" FileName="\\*" NOT (Image IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\explorer.exe*", "*:\\Windows\\system32\\*", "*:\\Windows\\SysWOW64\\*"))

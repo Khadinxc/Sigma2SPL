@@ -1,0 +1,9 @@
+# Title: Service Installed By Unusual Client - System
+# Author: Tim Rauch (Nextron Systems), Elastic (idea)
+# Date: 2022-09-15
+# Level: high
+# Description: Detects a service installed by a client which has PID 0 or whose parent has PID 0
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1543
+
+EventID=7045 ProcessId=0 Provider_Name="Service Control Manager"

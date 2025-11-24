@@ -1,0 +1,11 @@
+# Title: CodeIntegrity - Unsigned Kernel Module Loaded
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-06
+# Level: high
+# Description: Detects the presence of a loaded unsigned kernel module on the system.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# False Positives:
+#   - Unlikely
+
+EventID=3001

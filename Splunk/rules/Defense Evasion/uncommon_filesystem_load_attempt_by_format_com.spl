@@ -1,0 +1,9 @@
+# Title: Uncommon FileSystem Load Attempt By Format.com
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-01-04
+# Level: high
+# Description: Detects the execution of format.com with an uncommon filesystem selection that could indicate a defense evasion activity in which "format.com" is used to load malicious DLL files or other programs.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+CommandLine="*/fs:*" Image="*\\format.com" NOT (CommandLine IN ("*/fs:exFAT*", "*/fs:FAT*", "*/fs:NTFS*", "*/fs:ReFS*", "*/fs:UDF*"))

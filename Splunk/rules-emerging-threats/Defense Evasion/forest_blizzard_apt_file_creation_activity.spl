@@ -1,0 +1,12 @@
+# Title: Forest Blizzard APT - File Creation Activity
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-04-23
+# Level: high
+# Description: Detects the creation of specific files inside of ProgramData directory.
+# These files were seen being created by Forest Blizzard as described by MSFT.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.002, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+(TargetFilename IN ("*\\prnms003.inf_*", "*\\prnms009.inf_*") TargetFilename IN ("C:\\ProgramData\\Microsoft\\v*", "C:\\ProgramData\\Adobe\\v*", "C:\\ProgramData\\Comms\\v*", "C:\\ProgramData\\Intel\\v*", "C:\\ProgramData\\Kaspersky Lab\\v*", "C:\\ProgramData\\Bitdefender\\v*", "C:\\ProgramData\\ESET\\v*", "C:\\ProgramData\\NVIDIA\\v*", "C:\\ProgramData\\UbiSoft\\v*", "C:\\ProgramData\\Steam\\v*")) OR (TargetFilename="C:\\ProgramData\\*" TargetFilename IN ("*.save", "*\\doit.bat", "*\\execute.bat", "*\\servtask.bat") OR (TargetFilename="*\\wayzgoose*" TargetFilename="*.dll"))

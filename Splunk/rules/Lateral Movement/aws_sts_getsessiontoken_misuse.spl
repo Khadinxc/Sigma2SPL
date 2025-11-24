@@ -1,0 +1,11 @@
+# Title: AWS STS GetSessionToken Misuse
+# Author: Austin Songer @austinsonger
+# Date: 2021-07-24
+# Level: low
+# Description: Identifies the suspicious use of GetSessionToken. Tokens could be created and used by attackers to move laterally and escalate privileges.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.privilege-escalation, attack.defense-evasion, attack.t1548, attack.t1550, attack.t1550.001
+# False Positives:
+#   - GetSessionToken may be done by a system or network administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. GetSessionToken from unfamiliar users or hosts should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+eventName="GetSessionToken" eventSource="sts.amazonaws.com" userIdentity.type="IAMUser"

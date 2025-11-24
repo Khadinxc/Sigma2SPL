@@ -1,0 +1,11 @@
+# Title: First Time Seen Remote Named Pipe - Zeek
+# Author: Samir Bousseaden, @neu5ron, Tim Shelton
+# Date: 2020-04-02
+# Level: high
+# Description: This detection excludes known namped pipes accessible remotely and notify on newly observed ones, may help to detect lateral movement and remote exec using named pipes
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+# False Positives:
+#   - Update the excluded named pipe to filter out any newly observed legit named pipe
+
+path="\\\\\*\\IPC$" NOT ("samr" OR "lsarpc" OR "winreg" OR "netlogon" OR "srvsvc" OR "protected_storage" OR "wkssvc" OR "browser" OR "netdfs" OR "svcctl" OR "spoolss" OR "ntsvcs" OR "LSM_API_service" OR "HydraLsPipe" OR "TermSrv_API_service" OR "MsFteWds")

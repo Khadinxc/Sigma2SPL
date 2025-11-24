@@ -1,0 +1,12 @@
+# Title: Kubernetes Unauthorized or Unauthenticated Access
+# Author: kelnage
+# Date: 2024-04-12
+# Level: low
+# Description: Detects when a request to the Kubernetes API is rejected due to lack of authorization or due to an expired authentication token being used.
+# This may indicate an attacker attempting to leverage credentials they have obtained.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# False Positives:
+#   - A misconfigured RBAC policy, a mistake by a valid user, or a wider issue with authentication tokens can also generate these errors.
+
+responseStatus.code IN (401, 403)

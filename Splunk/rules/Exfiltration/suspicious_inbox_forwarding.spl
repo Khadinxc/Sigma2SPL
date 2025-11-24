@@ -1,0 +1,9 @@
+# Title: Suspicious Inbox Forwarding
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-22
+# Level: low
+# Description: Detects when a Microsoft Cloud App Security reported suspicious email forwarding rules, for example, if a user created an inbox rule that forwards a copy of all emails to an external address.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1020
+
+eventName="Suspicious inbox forwarding" eventSource="SecurityComplianceCenter" status="success"

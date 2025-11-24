@@ -1,0 +1,9 @@
+# Title: CobaltStrike Named Pipe
+# Author: Florian Roth (Nextron Systems), Wojciech Lesicki
+# Date: 2021-05-25
+# Level: critical
+# Description: Detects the creation of a named pipe as used by CobaltStrike
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055
+
+(PipeName="*\\MSSE-*" PipeName="*-server*") OR PipeName="\\interprocess_*" OR PipeName="\\lsarpc_*" OR PipeName="\\mojo_*" OR PipeName="\\msagent_*" OR PipeName="\\netlogon_*" OR PipeName="\\postex_*" OR PipeName="\\samr_*" OR PipeName="\\srvsvc_*" OR PipeName="\\status_*" OR PipeName="\\wkssvc_*"

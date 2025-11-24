@@ -1,0 +1,11 @@
+# Title: Dumping of Sensitive Hives Via Reg.EXE
+# Author: Teymur Kheirkhabarov, Endgame, JHasenbusch, Daniil Yugoslavskiy, oscd.community, frack113
+# Date: 2019-10-22
+# Level: high
+# Description: Detects the usage of "reg.exe" in order to dump sensitive registry hives. This includes SAM, SYSTEM and SECURITY hives.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.002, attack.t1003.004, attack.t1003.005, car.2013-07-001
+# False Positives:
+#   - Dumping hives for legitimate purpouse i.e. backup or forensic investigation
+
+CommandLine IN ("* save *", "* export *", "* ˢave *", "* eˣport *") CommandLine IN ("*\\system*", "*\\sam*", "*\\security*", "*\\ˢystem*", "*\\syˢtem*", "*\\ˢyˢtem*", "*\\ˢam*", "*\\ˢecurity*") CommandLine IN ("*hklm*", "*hk˪m*", "*hkey_local_machine*", "*hkey_˪ocal_machine*", "*hkey_loca˪_machine*", "*hkey_˪oca˪_machine*") Image="*\\reg.exe" OR OriginalFileName="reg.exe"

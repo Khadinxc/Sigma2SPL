@@ -1,0 +1,11 @@
+# Title: Local System Accounts Discovery - MacOs
+# Author: Alejandro Ortuno, oscd.community
+# Date: 2020-10-08
+# Level: low
+# Description: Detects enumeration of local systeam accounts on MacOS
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1087.001
+# False Positives:
+#   - Legitimate administration activities
+
+(CommandLine="*list*" CommandLine="*/users*" Image="*/dscl") OR (CommandLine="*-q*" CommandLine="*user*" Image="*/dscacheutil") OR CommandLine="*'x:0:'*" OR (CommandLine IN ("*/etc/passwd*", "*/etc/sudoers*") Image="*/cat") OR Image="*/id" OR (CommandLine="*-u*" Image="*/lsof")

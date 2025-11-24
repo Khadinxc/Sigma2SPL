@@ -1,0 +1,9 @@
+# Title: Data Exfiltration to Unsanctioned Apps
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-23
+# Level: medium
+# Description: Detects when a Microsoft Cloud App Security reported when a user or IP address uses an app that is not sanctioned to perform an activity that resembles an attempt to exfiltrate information from your organization.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1537
+
+eventName="Data exfiltration to unsanctioned apps" eventSource="SecurityComplianceCenter" status="success"

@@ -1,0 +1,11 @@
+# Title: Potential EmpireMonkey Activity
+# Author: Markus Neis, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2019-04-02
+# Level: high
+# Description: Detects potential EmpireMonkey APT activity
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.010, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine="*/e:jscript*" CommandLine="*\\Local\\Temp\\Errors.bat*"

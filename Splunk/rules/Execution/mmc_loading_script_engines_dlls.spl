@@ -1,0 +1,12 @@
+# Title: MMC Loading Script Engines DLLs
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-02-05
+# Level: medium
+# Description: Detects when the Microsoft Management Console (MMC) loads the DLL libraries like vbscript, jscript etc which might indicate an attempt
+# to execute malicious scripts within a trusted system process for bypassing application whitelisting or defense evasion.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.defense-evasion, attack.t1059.005, attack.t1218.014
+# False Positives:
+#   - Legitimate MMC operations or extensions loading these libraries
+
+ImageLoaded IN ("*\\vbscript.dll", "*\\jscript.dll", "*\\jscript9.dll") Image="*\\mmc.exe"

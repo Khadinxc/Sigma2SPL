@@ -1,0 +1,9 @@
+# Title: Suspicious RunAs-Like Flag Combination
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-11-11
+# Level: medium
+# Description: Detects suspicious command line flags that let the user set a target user and command as e.g. seen in PsExec-like tools
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+
+CommandLine IN ("* -c cmd*", "* -c \"cmd*", "* -c powershell*", "* -c \"powershell*", "* --command cmd*", "* --command powershell*", "* -c whoami*", "* -c wscript*", "* -c cscript*") CommandLine IN ("* -u system *", "* --user system *", "* -u NT*", "* -u \"NT*", "* -u 'NT*", "* --system *", "* -u administrator *")

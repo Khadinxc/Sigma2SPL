@@ -1,0 +1,11 @@
+# Title: APT31 Judgement Panda Activity
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-02-21
+# Level: critical
+# Description: Detects APT31 Judgement Panda activity as described in the Crowdstrike 2019 Global Threat Report
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.lateral-movement, attack.credential-access, attack.g0128, attack.t1003.001, attack.t1560.001, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+(CommandLine IN ("*\\aaaa\\procdump64.exe*", "*\\aaaa\\netsess.exe*", "*\\aaaa\\7za.exe*", "*\\c$\\aaaa\\*") CommandLine="*copy \\\\*" CommandLine="*c$*") OR (CommandLine="*ldifde*" CommandLine="*-f -n*" CommandLine="*eprod.ldf*")

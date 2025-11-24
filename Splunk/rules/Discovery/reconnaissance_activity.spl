@@ -1,0 +1,11 @@
+# Title: Reconnaissance Activity
+# Author: Florian Roth (Nextron Systems), Jack Croock (method), Jonhnathan Ribeiro (improvements), oscd.community
+# Date: 2017-03-07
+# Level: high
+# Description: Detects activity as "net user administrator /domain" and "net group domain admins /domain"
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1087.002, attack.t1069.002, attack.s0039
+# False Positives:
+#   - Administrator activity
+
+AccessMask="0x2d" EventID=4661 ObjectName IN ("*-500", "*-512") ObjectName="S-1-5-21-*" ObjectType IN ("SAM_USER", "SAM_GROUP")

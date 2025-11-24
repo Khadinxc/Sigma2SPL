@@ -1,0 +1,11 @@
+# Title: Lazarus Group Activity
+# Author: Florian Roth (Nextron Systems), wagga
+# Date: 2020-12-23
+# Level: critical
+# Description: Detects different process execution behaviors as described in various threat reports on Lazarus group activity
+# MITRE Tactic: Execution
+# Tags: attack.g0032, attack.execution, attack.t1059, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*reg.exe save hklm\\sam %temp%\\~reg_sam.save*", "*1q2w3e4r@#$@#$@#$*", "* -hp1q2w3e4 *", "*.dat data03 10000 -p *") OR (CommandLine="*netstat -aon | find *" CommandLine="*ESTA*" CommandLine="* > %temp%\\~*") OR (CommandLine="*.255 10 C:\\ProgramData\\IBM\\*" CommandLine="*.DAT*") OR (CommandLine IN ("*C:\\ProgramData\\*", "*C:\\RECYCLER\\*") CommandLine="* /c *" CommandLine="* -p 0x*") OR (CommandLine IN ("*.bin,*", "*.tmp,*", "*.dat,*", "*.io,*", "*.ini,*", "*.db,*") CommandLine="*rundll32 *" CommandLine="*C:\\ProgramData\\*")

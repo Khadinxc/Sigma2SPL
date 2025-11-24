@@ -1,0 +1,11 @@
+# Title: Remote PowerShell Sessions Network Connections (WinRM)
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-09-12
+# Level: high
+# Description: Detects basic PowerShell Remoting (WinRM) by monitoring for network inbound connections to ports 5985 OR 5986
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Legitimate use of remote PowerShell execution
+
+DestPort IN (5985, 5986) EventID=5156 LayerRTID=44

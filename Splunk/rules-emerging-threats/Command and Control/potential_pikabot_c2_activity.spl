@@ -1,0 +1,12 @@
+# Title: Potential Pikabot C2 Activity
+# Author: Andreas Braathen (mnemonic.io)
+# Date: 2023-10-27
+# Level: high
+# Description: Detects the execution of rundll32 that leads to an external network connection.
+# The malware Pikabot has been seen to use this technique to initiate C2-communication through hard-coded Windows binaries.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1573, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+Image IN ("*\\SearchFilterHost.exe", "*\\SearchProtocolHost.exe", "*\\sndvol.exe", "*\\wermgr.exe", "*\\wwahost.exe") Initiated="true" ParentImage="*\\rundll32.exe" Protocol="tcp"

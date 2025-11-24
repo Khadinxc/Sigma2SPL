@@ -1,0 +1,11 @@
+# Title: New Kernel Driver Via SC.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-14
+# Level: medium
+# Description: Detects creation of a new service (kernel driver) with the type "kernel"
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1543.003
+# False Positives:
+#   - Rare legitimate installation of kernel drivers via sc.exe
+
+CommandLine IN ("*create*", "*config*") CommandLine="*binPath*" CommandLine="*type*" CommandLine="*kernel*" Image="*\\sc.exe" NOT ((CommandLine="*create netprotection_network_filter*" CommandLine="*type= kernel start= *" CommandLine="*binPath= System32\\drivers\\netprotection_network_filter*" CommandLine="*DisplayName= netprotection_network_filter*" CommandLine="*group= PNP_TDI tag= yes*") OR (CommandLine="*create avelam binpath=C:\\Windows\\system32\\drivers\\avelam.sys*" CommandLine="*type=kernel start=boot error=critical group=Early-Launch*"))

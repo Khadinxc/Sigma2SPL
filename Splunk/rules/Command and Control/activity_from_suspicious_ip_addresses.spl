@@ -1,0 +1,10 @@
+# Title: Activity from Suspicious IP Addresses
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-23
+# Level: medium
+# Description: Detects when a Microsoft Cloud App Security reported users were active from an IP address identified as risky by Microsoft Threat Intelligence.
+# These IP addresses are involved in malicious activities, such as Botnet C&C, and may indicate compromised account.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1573
+
+eventName="Activity from suspicious IP addresses" eventSource="SecurityComplianceCenter" status="success"

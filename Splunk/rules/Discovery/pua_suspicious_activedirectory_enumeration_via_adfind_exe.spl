@@ -1,0 +1,11 @@
+# Title: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE
+# Author: frack113
+# Date: 2021-12-13
+# Level: high
+# Description: Detects active directory enumeration activity using known AdFind CLI flags
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1087.002
+# False Positives:
+#   - Authorized administrative activity
+
+CommandLine="*-sc admincountdmp*" OR CommandLine="*-sc exchaddresses*" OR CommandLine IN ("*lockoutduration*", "*lockoutthreshold*", "*lockoutobservationwindow*", "*maxpwdage*", "*minpwdage*", "*minpwdlength*", "*pwdhistorylength*", "*pwdproperties*")

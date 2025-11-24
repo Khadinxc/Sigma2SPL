@@ -1,0 +1,11 @@
+# Title: Account Created And Deleted Within A Close Time Frame
+# Author: Mark Morowczynski '@markmorow', MikeDuddington, '@dudders1', Tim Shelton
+# Date: 2022-08-11
+# Level: high
+# Description: Detects when an account was created and deleted in a short period of time.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.defense-evasion, attack.t1078
+# False Positives:
+#   - Legit administrative action
+
+Status="Success" properties.message IN ("Add user", "Delete user")

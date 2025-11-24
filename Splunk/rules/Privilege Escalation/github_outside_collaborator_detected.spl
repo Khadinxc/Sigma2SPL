@@ -1,0 +1,12 @@
+# Title: Github Outside Collaborator Detected
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2023-01-20
+# Level: medium
+# Description: Detects when an organization member or an outside collaborator is added to or removed from a project board or has their permission level changed or when an owner removes an outside collaborator from an organization or when two-factor authentication is required in an organization and an outside collaborator does not use 2FA or disables 2FA.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.collection, attack.t1098.001, attack.t1098.003, attack.t1213.003
+# False Positives:
+#   - Validate the actor if permitted to access the repo.
+#   - Validate the Multifactor Authentication changes.
+
+action IN ("org.remove_outside_collaborator", "project.update_user_permission")

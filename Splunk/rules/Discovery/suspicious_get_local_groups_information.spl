@@ -1,0 +1,12 @@
+# Title: Suspicious Get Local Groups Information
+# Author: frack113
+# Date: 2021-12-12
+# Level: low
+# Description: Detects the use of PowerShell modules and cmdlets to gather local group information.
+# Adversaries may use local system permission groups to determine which groups exist and which users belong to a particular group such as the local administrators group.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1069.001
+# False Positives:
+#   - Administrator script
+
+Payload IN ("*get-localgroup *", "*get-localgroupmember *") OR ContextInfo IN ("*get-localgroup *", "*get-localgroupmember *") OR (Payload="*win32_group*" OR ContextInfo="*win32_group*" Payload IN ("*get-wmiobject *", "*gwmi *", "*get-ciminstance *", "*gcim *") OR (ContextInfo="*get-wmiobject *" ContextInfo="*gwmi *" ContextInfo="*get-ciminstance *" ContextInfo="*gcim *"))

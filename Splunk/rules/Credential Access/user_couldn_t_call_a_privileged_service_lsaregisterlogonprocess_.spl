@@ -1,0 +1,9 @@
+# Title: User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess'
+# Author: Roberto Rodriguez (source), Ilyas Ochkov (rule), oscd.community
+# Date: 2019-10-24
+# Level: high
+# Description: The 'LsaRegisterLogonProcess' function verifies that the application making the function call is a logon process by checking that it has the SeTcbPrivilege privilege set. Possible Rubeus tries to get a handle to LSA.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.lateral-movement, attack.privilege-escalation, attack.t1558.003
+
+EventID=4673 Keywords="0x8010000000000000" Service="LsaRegisterLogonProcess()"

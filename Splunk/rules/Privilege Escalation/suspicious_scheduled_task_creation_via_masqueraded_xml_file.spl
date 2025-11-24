@@ -1,0 +1,9 @@
+# Title: Suspicious Scheduled Task Creation via Masqueraded XML File
+# Author: Swachchhanda Shrawan Poudel, Elastic (idea)
+# Date: 2023-04-20
+# Level: medium
+# Description: Detects the creation of a scheduled task using the "-XML" flag with a file without the '.xml' extension. This behavior could be indicative of potential defense evasion attempt during persistence
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.defense-evasion, attack.persistence, attack.t1036.005, attack.t1053.005
+
+CommandLine IN ("*/create*", "*-create*") CommandLine IN ("*/xml*", "*-xml*") Image="*\\schtasks.exe" OR OriginalFileName="schtasks.exe" NOT (CommandLine="*.xml*" OR (ParentCommandLine="*:\\WINDOWS\\Installer\\MSI*" ParentCommandLine="*.tmp,zzzzInvokeManagedCustomActionOutOfProc*" ParentImage="*\\rundll32.exe") OR IntegrityLevel IN ("System", "S-1-16-16384")) NOT (ParentImage IN ("*:\\ProgramData\\OEM\\UpgradeTool\\CareCenter_*\\BUnzip\\Setup_msi.exe", "*:\\Program Files\\Axis Communications\\AXIS Camera Station\\SetupActions.exe", "*:\\Program Files\\Axis Communications\\AXIS Device Manager\\AdmSetupActions.exe", "*:\\Program Files (x86)\\Zemana\\AntiMalware\\AntiMalware.exe", "*:\\Program Files\\Dell\\SupportAssist\\pcdrcui.exe"))

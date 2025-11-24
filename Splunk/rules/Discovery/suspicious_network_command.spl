@@ -1,0 +1,24 @@
+# Title: Suspicious Network Command
+# Author: frack113, Christopher Peacock '@securepeacock', SCYTHE '@scythe_io'
+# Date: 2021-12-07
+# Level: low
+# Description: Adversaries may look for details about the network configuration and settings of systems they access or through information discovery of remote systems
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1016
+# False Positives:
+#   - Administrator, hotline ask to user
+
+
+| rex field=CommandLine "(?<CommandLineMatch>ipconfig\\s+/all)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch2>netsh\\s+interface show interface)"
+| eval CommandLineCondition2=if(isnotnull(CommandLineMatch2), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch3>arp\\s+-a)"
+| eval CommandLineCondition3=if(isnotnull(CommandLineMatch3), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch4>nbtstat\\s+-n)"
+| eval CommandLineCondition4=if(isnotnull(CommandLineMatch4), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch5>net\\s+config)"
+| eval CommandLineCondition5=if(isnotnull(CommandLineMatch5), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch6>route\\s+print)"
+| eval CommandLineCondition6=if(isnotnull(CommandLineMatch6), "true", "false")
+| search CommandLineCondition="true" OR CommandLineCondition2="true" OR CommandLineCondition3="true" OR CommandLineCondition4="true" OR CommandLineCondition5="true" OR CommandLineCondition6="true"

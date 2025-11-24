@@ -1,0 +1,11 @@
+# Title: Remote Registry Recon
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to collect information
+# MITRE Tactic: Discovery
+# Tags: attack.discovery
+# False Positives:
+#   - Remote administration of registry values
+
+EventID=3 EventLog="RPCFW" InterfaceUuid="338cd001-2244-31f1-aaaa-900038001003" NOT (OpNum IN (6, 7, 8, 13, 18, 19, 21, 22, 23, 35))

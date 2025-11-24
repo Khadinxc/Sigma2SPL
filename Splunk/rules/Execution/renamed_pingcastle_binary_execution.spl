@@ -1,0 +1,9 @@
+# Title: Renamed PingCastle Binary Execution
+# Author: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
+# Date: 2024-01-11
+# Level: high
+# Description: Detects the execution of a renamed "PingCastle" binary based on the PE metadata fields.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059, attack.defense-evasion, attack.t1202
+
+OriginalFileName IN ("PingCastleReporting.exe", "PingCastleCloud.exe", "PingCastle.exe") OR CommandLine IN ("*--scanner aclcheck*", "*--scanner antivirus*", "*--scanner computerversion*", "*--scanner foreignusers*", "*--scanner laps_bitlocker*", "*--scanner localadmin*", "*--scanner nullsession*", "*--scanner nullsession-trust*", "*--scanner oxidbindings*", "*--scanner remote*", "*--scanner share*", "*--scanner smb*", "*--scanner smb3querynetwork*", "*--scanner spooler*", "*--scanner startup*", "*--scanner zerologon*") OR CommandLine="*--no-enum-limit*" OR (CommandLine="*--healthcheck*" CommandLine="*--level Full*") OR (CommandLine="*--healthcheck*" CommandLine="*--server *") NOT (Image IN ("*\\PingCastleReporting.exe", "*\\PingCastleCloud.exe", "*\\PingCastle.exe"))

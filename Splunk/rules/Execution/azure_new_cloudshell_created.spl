@@ -1,0 +1,11 @@
+# Title: Azure New CloudShell Created
+# Author: Austin Songer
+# Date: 2021-09-21
+# Level: medium
+# Description: Identifies when a new cloudshell is created inside of Azure portal.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# False Positives:
+#   - A new cloudshell may be created by a system administrator.
+
+operationName="MICROSOFT.PORTAL/CONSOLES/WRITE"

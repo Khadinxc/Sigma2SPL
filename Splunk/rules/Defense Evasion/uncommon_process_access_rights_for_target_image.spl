@@ -1,0 +1,9 @@
+# Title: Uncommon Process Access Rights For Target Image
+# Author: Nasreddine Bencherchali (Nextron Systems), frack113
+# Date: 2024-05-27
+# Level: low
+# Description: Detects process access request to uncommon target images with a "PROCESS_ALL_ACCESS" access mask.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055.011
+
+GrantedAccess="0x1FFFFF" TargetImage IN ("*\\calc.exe", "*\\calculator.exe", "*\\mspaint.exe", "*\\notepad.exe", "*\\ping.exe", "*\\wordpad.exe", "*\\write.exe")

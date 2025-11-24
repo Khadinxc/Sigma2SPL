@@ -1,0 +1,11 @@
+# Title: Suspicious GUP Usage
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-02-06
+# Level: high
+# Description: Detects execution of the Notepad++ updater in a suspicious directory, which is often used in DLL side-loading attacks
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+# False Positives:
+#   - Execution of tools named GUP.exe and located in folders different than Notepad++\updater
+
+Image="*\\GUP.exe" NOT (Image IN ("*\\Program Files\\Notepad++\\updater\\GUP.exe", "*\\Program Files (x86)\\Notepad++\\updater\\GUP.exe") OR (Image="*\\Users\\*" Image IN ("*\\AppData\\Local\\Notepad++\\updater\\GUP.exe", "*\\AppData\\Roaming\\Notepad++\\updater\\GUP.exe")))

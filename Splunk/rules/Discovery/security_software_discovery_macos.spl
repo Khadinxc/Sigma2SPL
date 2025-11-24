@@ -1,0 +1,11 @@
+# Title: Security Software Discovery - MacOs
+# Author: Daniil Yugoslavskiy, oscd.community
+# Date: 2020-10-19
+# Level: medium
+# Description: Detects usage of system utilities (only grep for now) to discover security software discovery
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1518.001
+# False Positives:
+#   - Legitimate activities
+
+Image="/usr/bin/grep" CommandLine IN ("*nessusd*", "*santad*", "*CbDefense*", "*falcond*", "*td-agent*", "*packetbeat*", "*filebeat*", "*auditbeat*", "*osqueryd*", "*BlockBlock*", "*LuLu*") OR (CommandLine="*Little*" CommandLine="*Snitch*")

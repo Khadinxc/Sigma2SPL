@@ -1,0 +1,9 @@
+# Title: CreateRemoteThread API and LoadLibrary
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-08-11
+# Level: medium
+# Description: Detects potential use of CreateRemoteThread api and LoadLibrary function to inject DLL into a process
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055.001, detection.threat-hunting
+
+StartFunction="LoadLibraryA" StartModule="*\\kernel32.dll"

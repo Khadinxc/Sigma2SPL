@@ -1,0 +1,11 @@
+# Title: Suspicious Modification Of Scheduled Tasks
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-28
+# Level: high
+# Description: Detects when an attacker tries to modify an already existing scheduled tasks to run from a suspicious location
+# Attackers can create a simple looking task in order to avoid detection on creation as it's often the most focused on
+# Instead they modify the task after creation to include their malicious payload
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.t1053.005
+
+CommandLine="* /Change *" CommandLine="* /TN *" Image="*\\schtasks.exe" CommandLine IN ("*regsvr32*", "*rundll32*", "*cmd /c *", "*cmd /k *", "*cmd /r *", "*cmd.exe /c *", "*cmd.exe /k *", "*cmd.exe /r *", "*powershell*", "*mshta*", "*wscript*", "*cscript*", "*certutil*", "*bitsadmin*", "*bash.exe*", "*bash *", "*scrcons*", "*wmic *", "*wmic.exe*", "*forfiles*", "*scriptrunner*", "*hh.exe*", "*hh *") CommandLine IN ("*\\AppData\\Local\\Temp*", "*\\AppData\\Roaming\\*", "*\\Users\\Public\\*", "*\\WINDOWS\\Temp\\*", "*\\Desktop\\*", "*\\Downloads\\*", "*\\Temporary Internet*", "*C:\\ProgramData\\*", "*C:\\Perflogs\\*", "*%ProgramData%*", "*%appdata%*", "*%comspec%*", "*%localappdata%*")

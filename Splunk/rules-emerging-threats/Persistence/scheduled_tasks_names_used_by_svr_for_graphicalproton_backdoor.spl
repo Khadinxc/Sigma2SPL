@@ -1,0 +1,9 @@
+# Title: Scheduled Tasks Names Used By SVR For GraphicalProton Backdoor
+# Author: CISA
+# Date: 2023-12-18
+# Level: high
+# Description: Hunts for known SVR-specific scheduled task names
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, detection.emerging-threats
+
+EventID IN (4698, 4699, 4702) TaskName IN ("\\defender", "\\Microsoft\\DefenderService", "\\Microsoft\\Windows\\Application Experience\\StartupAppTaskCheck", "\\Microsoft\\Windows\\Application Experience\\StartupAppTaskCkeck", "\\Microsoft\\Windows\\ATPUpd", "\\Microsoft\\Windows\\Data Integrity Scan\\Data Integrity Update", "\\Microsoft\\Windows\\DefenderUPDService", "\\Microsoft\\Windows\\IISUpdateService", "\\Microsoft\\Windows\\Speech\\SpeechModelInstallTask", "\\Microsoft\\Windows\\WiMSDFS", "\\Microsoft\\Windows\\Windows Defender\\Defender Update Service", "\\Microsoft\\Windows\\Windows Defender\\Service Update", "\\Microsoft\\Windows\\Windows Error Reporting\\CheckReporting", "\\Microsoft\\Windows\\Windows Error Reporting\\SubmitReporting", "\\Microsoft\\Windows\\Windows Filtering Platform\\BfeOnServiceStart", "\\Microsoft\\Windows\\WindowsDefenderService", "\\Microsoft\\Windows\\WindowsDefenderService2", "\\Microsoft\\Windows\\WindowsUpdate\\Scheduled AutoCheck", "\\Microsoft\\Windows\\WindowsUpdate\\Scheduled Check", "\\WindowUpdate")

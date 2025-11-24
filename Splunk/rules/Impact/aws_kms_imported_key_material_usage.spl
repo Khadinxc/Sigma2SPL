@@ -1,0 +1,12 @@
+# Title: AWS KMS Imported Key Material Usage
+# Author: toopricey
+# Date: 2025-10-18
+# Level: high
+# Description: Detects the import or deletion of key material in AWS KMS, which can be used as part of ransomware attacks. This activity is uncommon and provides a high certainty signal.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1486, attack.resource-development, attack.t1608.003
+# False Positives:
+#   - Legitimate use cases for imported key material are rare, but may include, Organizations with hybrid cloud architectures that import external key material for compliance requirements.
+#   - Development or testing environments that simulate external key management scenarios. Even in these cases, such activity is typically infrequent and should not add significant noise.
+
+eventName IN ("ImportKeyMaterial", "DeleteImportedKeyMaterial") eventSource="kms.amazonaws.com"

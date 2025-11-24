@@ -1,0 +1,11 @@
+# Title: Potential ShellDispatch.DLL Functionality Abuse
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-06-20
+# Level: medium
+# Description: Detects potential "ShellDispatch.dll" functionality abuse to execute arbitrary binaries via "ShellExecute"
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.defense-evasion
+# False Positives:
+#   - Unlikely
+
+CommandLine="*RunDll_ShellExecuteW*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE"

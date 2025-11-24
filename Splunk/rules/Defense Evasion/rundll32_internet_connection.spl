@@ -1,0 +1,11 @@
+# Title: Rundll32 Internet Connection
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-11-04
+# Level: medium
+# Description: Detects a rundll32 that communicates with public IP addresses
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.011, attack.execution
+# False Positives:
+#   - Communication to other corporate systems that use IP addresses from public address spaces
+
+Image="*\\rundll32.exe" Initiated="true" NOT (CommandLine="*\\system32\\PcaSvc.dll,PcaPatchSdbTask" OR SourceHostname="*.internal.cloudapp.net" OR DestinationIp="127.0.0.0/8" OR DestinationIp="10.0.0.0/8" OR DestinationIp="172.16.0.0/12" OR DestinationIp="192.168.0.0/16" OR DestinationIp="169.254.0.0/16" OR DestinationIp="::1/128" OR DestinationIp="fe80::/10" OR DestinationIp="fc00::/7" OR DestinationIp="20.0.0.0/8" OR DestinationIp="51.103.0.0/16" OR DestinationIp="51.104.0.0/16" OR DestinationIp="51.105.0.0/16" OR (DestinationPort=443 ParentImage="C:\\Windows\\System32\\svchost.exe"))

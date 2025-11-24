@@ -1,0 +1,9 @@
+# Title: Filter Driver Unloaded Via Fltmc.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-02-13
+# Level: medium
+# Description: Detect filter driver unloading activity via fltmc.exe
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070, attack.t1562, attack.t1562.002
+
+CommandLine="*unload*" Image="*\\fltMC.exe" OR OriginalFileName="fltMC.exe" NOT ((CommandLine IN ("*unload rtp_filesystem_filter", "*unload rtp_filter") ParentImage IN ("*\\AppData\\Local\\Temp\\*", "*:\\Windows\\Temp\\*") ParentImage="*\\endpoint-protection-installer-x64.tmp") OR (CommandLine="*unload DFMFilter" ParentImage="C:\\Program Files (x86)\\ManageEngine\\uems_agent\\bin\\dcfaservice64.exe"))

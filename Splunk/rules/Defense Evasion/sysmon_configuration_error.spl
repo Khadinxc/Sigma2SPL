@@ -1,0 +1,11 @@
+# Title: Sysmon Configuration Error
+# Author: frack113
+# Date: 2021-06-04
+# Level: high
+# Description: Detects when an adversary is trying to hide it's action from Sysmon logging based on error messages
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564
+# False Positives:
+#   - Legitimate administrative action
+
+Description IN ("*Failed to open service configuration with error*", "*Failed to connect to the driver to update configuration*") NOT (Description IN ("*Failed to open service configuration with error 19*", "*Failed to open service configuration with error 93*") OR (Description="*Failed to open service configuration with error*" Description="*Last error: The media is write protected.*"))

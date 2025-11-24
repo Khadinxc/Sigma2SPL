@@ -1,0 +1,11 @@
+# Title: HackTool - BabyShark Agent Default URL Pattern
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-06-09
+# Level: critical
+# Description: Detects Baby Shark C2 Framework default communication patterns
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001
+# False Positives:
+#   - Unlikely
+
+"c-uri"="*momyshark?key=*"

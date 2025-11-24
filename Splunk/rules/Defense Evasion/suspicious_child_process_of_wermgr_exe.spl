@@ -1,0 +1,9 @@
+# Title: Suspicious Child Process Of Wermgr.EXE
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-10-14
+# Level: high
+# Description: Detects suspicious Windows Error Reporting manager (wermgr.exe) child process
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055, attack.t1036
+
+Image IN ("*\\cmd.exe", "*\\cscript.exe", "*\\ipconfig.exe", "*\\mshta.exe", "*\\net.exe", "*\\net1.exe", "*\\netstat.exe", "*\\nslookup.exe", "*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\systeminfo.exe", "*\\whoami.exe", "*\\wscript.exe") ParentImage="*\\wermgr.exe" NOT (CommandLine IN ("*-queuereporting*", "*-responsepester*") CommandLine="*C:\\Windows\\system32\\WerConCpl.dll*" CommandLine="*LaunchErcApp *" Image="*\\rundll32.exe")

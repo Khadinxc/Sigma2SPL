@@ -1,0 +1,11 @@
+# Title: Suspicious Invoke-Item From Mount-DiskImage
+# Author: frack113
+# Date: 2022-02-01
+# Level: medium
+# Description: Adversaries may abuse container files such as disk image (.iso, .vhd) file formats to deliver malicious payloads that may not be tagged with MOTW.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1553.005
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+ScriptBlockText="*Mount-DiskImage *" ScriptBlockText="*-ImagePath *" ScriptBlockText="*Get-Volume*" ScriptBlockText="*.DriveLetter*" ScriptBlockText="*invoke-item *" ScriptBlockText="*):\\*"

@@ -1,0 +1,11 @@
+# Title: Non-DLL Extension File Renamed With DLL Extension
+# Author: frack113
+# Date: 2022-02-19
+# Level: medium
+# Description: Detects rename operations of files with non-DLL extensions to files with a DLL extension. This is often performed by malware in order to avoid initial detections based on extensions.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036.008, detection.threat-hunting
+# False Positives:
+#   - Likely from installers and temporary locations
+
+TargetFilename="*.dll" NOT (SourceFilename="*.dll" OR SourceFilename="" OR Image IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*") OR SourceFilename="*.tmp" OR NOT SourceFilename=* OR (Image="*:\\Windows\\WinSxS\\*" Image="*\\TiWorker.exe") OR Image="*:\\Windows\\System32\\wuauclt.exe" OR TargetFilename="*:\\$WINDOWS.~BT\\Sources\\*") NOT SourceFilename="*\\SquirrelTemp\\temp*"

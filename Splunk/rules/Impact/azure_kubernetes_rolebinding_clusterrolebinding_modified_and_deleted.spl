@@ -1,0 +1,12 @@
+# Title: Azure Kubernetes RoleBinding/ClusterRoleBinding Modified and Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-07
+# Level: medium
+# Description: Detects the creation or patching of potential malicious RoleBinding/ClusterRoleBinding.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.credential-access, attack.t1485, attack.t1496, attack.t1489
+# False Positives:
+#   - RoleBinding/ClusterRoleBinding being modified and deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - RoleBinding/ClusterRoleBinding modification from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName IN ("MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLEBINDINGS/WRITE", "MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/CLUSTERROLEBINDINGS/DELETE", "MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLEBINDINGS/WRITE", "MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/RBAC.AUTHORIZATION.K8S.IO/ROLEBINDINGS/DELETE")

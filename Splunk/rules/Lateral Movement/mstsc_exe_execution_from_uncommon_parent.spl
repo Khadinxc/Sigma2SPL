@@ -1,0 +1,11 @@
+# Title: Mstsc.EXE Execution From Uncommon Parent
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-04-18
+# Level: high
+# Description: Detects potential RDP connection via Mstsc using a local ".rdp" file located in suspicious locations.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement
+# False Positives:
+#   - Unlikely
+
+Image="*\\mstsc.exe" OR OriginalFileName="mstsc.exe" ParentImage IN ("*\\brave.exe", "*\\CCleanerBrowser.exe", "*\\chrome.exe", "*\\chromium.exe", "*\\firefox.exe", "*\\iexplore.exe", "*\\microsoftedge.exe", "*\\msedge.exe", "*\\opera.exe", "*\\vivaldi.exe", "*\\whale.exe", "*\\outlook.exe")

@@ -1,0 +1,11 @@
+# Title: Get-ADUser Enumeration Using UserAccountControl Flags
+# Author: frack113
+# Date: 2022-03-17
+# Level: medium
+# Description: Detects AS-REP roasting is an attack that is often-overlooked. It is not very common as you have to explicitly set accounts that do not require pre-authentication.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1033
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+ScriptBlockText="*Get-ADUser*" ScriptBlockText="*-Filter*" ScriptBlockText="*useraccountcontrol*" ScriptBlockText="*-band*" ScriptBlockText="*4194304*"

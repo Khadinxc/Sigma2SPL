@@ -1,0 +1,11 @@
+# Title: Sysmon File Executable Creation Detected
+# Author: frack113
+# Date: 2023-07-20
+# Level: medium
+# Description: Triggers on any Sysmon "FileExecutableDetected" event, which triggers every time a PE that is monitored by the config is created.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Unlikely
+
+EventID=29

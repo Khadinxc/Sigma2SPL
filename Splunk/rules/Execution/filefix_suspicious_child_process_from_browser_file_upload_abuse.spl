@@ -1,0 +1,13 @@
+# Title: FileFix - Suspicious Child Process from Browser File Upload Abuse
+# Author: 0xFustang
+# Date: 2025-06-26
+# Level: high
+# Description: Detects potentially suspicious subprocesses such as LOLBINs spawned by web browsers. This activity could be associated with the "FileFix" social engineering technique,
+# where users are tricked into launching the file explorer via a browser-based phishing page and pasting malicious commands into the address bar.
+# The technique abuses clipboard manipulation and disguises command execution as benign file path access, resulting in covert execution of system utilities.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204.004
+# False Positives:
+#   - Legitimate use of PowerShell or other utilities launched from browser extensions or automation tools
+
+CommandLine="*#*" Image IN ("*\\bitsadmin.exe", "*\\certutil.exe", "*\\cmd.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe") ParentImage IN ("*\\brave.exe", "*\\chrome.exe", "*\\firefox.exe", "*\\msedge.exe")

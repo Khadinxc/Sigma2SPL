@@ -1,0 +1,9 @@
+# Title: Writing Of Malicious Files To The Fonts Folder
+# Author: Sreeman
+# Date: 2020-04-21
+# Level: medium
+# Description: Monitors for the hiding possible malicious files in the C:\Windows\Fonts\ location. This folder doesn't require admin privillege to be written and executed from.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.t1211, attack.t1059, attack.defense-evasion, attack.persistence, attack.execution
+
+CommandLine IN ("*echo*", "*copy*", "*type*", "*file createnew*", "*cacls*") CommandLine="*C:\\Windows\\Fonts\\*" CommandLine IN ("*.sh*", "*.exe*", "*.dll*", "*.bin*", "*.bat*", "*.cmd*", "*.js*", "*.msh*", "*.reg*", "*.scr*", "*.ps*", "*.vb*", "*.jar*", "*.pl*", "*.inf*", "*.cpl*", "*.hta*", "*.msi*", "*.vbs*")

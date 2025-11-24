@@ -1,0 +1,10 @@
+# Title: Windows Screen Capture with CopyFromScreen
+# Author: frack113
+# Date: 2021-12-28
+# Level: medium
+# Description: Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation.
+# Screen capturing functionality may be included as a feature of a remote access tool used in post-compromise operations
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1113
+
+ScriptBlockText="*.CopyFromScreen*"

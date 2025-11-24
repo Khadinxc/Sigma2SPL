@@ -1,0 +1,9 @@
+# Title: Gpresult Display Group Policy Information
+# Author: frack113
+# Date: 2022-05-01
+# Level: medium
+# Description: Detects cases in which a user uses the built-in Windows utility gpresult to display the Resultant Set of Policy (RSoP) information
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1615
+
+CommandLine IN ("*/z*", "*/v*") Image="*\\gpresult.exe"

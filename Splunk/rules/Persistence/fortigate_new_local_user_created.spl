@@ -1,0 +1,12 @@
+# Title: FortiGate - New Local User Created
+# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Date: 2025-11-01
+# Level: medium
+# Description: Detects the creation of a new local user on a Fortinet FortiGate Firewall.
+# The new local user could be used for VPN connections.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1136.001
+# False Positives:
+#   - A local user can be created for legitimate purposes. Investigate the user details to determine if it is authorized.
+
+action="Add" cfgpath="user.local"

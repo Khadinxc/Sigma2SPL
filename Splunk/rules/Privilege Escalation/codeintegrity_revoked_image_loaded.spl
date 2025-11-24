@@ -1,0 +1,11 @@
+# Title: CodeIntegrity - Revoked Image Loaded
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-06
+# Level: high
+# Description: Detects image load events with revoked certificates by code integrity.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# False Positives:
+#   - Unlikely
+
+EventID IN (3032, 3035)

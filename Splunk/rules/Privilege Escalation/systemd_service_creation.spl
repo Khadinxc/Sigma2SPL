@@ -1,0 +1,11 @@
+# Title: Systemd Service Creation
+# Author: Pawel Mazur
+# Date: 2022-02-03
+# Level: medium
+# Description: Detects a creation of systemd services which could be used by adversaries to execute malicious code.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1543.002
+# False Positives:
+#   - Admin work like legit service installs.
+
+nametype="CREATE" type="PATH" name IN ("/usr/lib/systemd/system/*", "/etc/systemd/system/*") OR name="*/.config/systemd/user/*"

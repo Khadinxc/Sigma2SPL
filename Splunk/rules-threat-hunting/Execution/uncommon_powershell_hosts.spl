@@ -1,0 +1,13 @@
+# Title: Uncommon PowerShell Hosts
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-08-11
+# Level: medium
+# Description: Detects alternate PowerShell hosts potentially bypassing detections looking for powershell.exe
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.threat-hunting
+# False Positives:
+#   - Programs using PowerShell directly without invocation of a dedicated interpreter
+#   - MSP Detection Searcher
+#   - Citrix ConfigSync.ps1
+
+Data="*HostApplication=*" NOT (Data IN ("*HostApplication=*:/Windows/System32/WindowsPowerShell/v1.0/powershell*", "*HostApplication=*:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell*", "*HostApplication=*:\\Windows\\System32\\sdiagnhost.exe*", "*HostApplication=*:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell*", "*HostApplication=*:\\Windows\\SysWOW64\\sdiagnhost.exe*", "*HostApplication=*:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell*", "*HostApplication=powershell*")) NOT (Data IN ("*Citrix\\ConfigSync\\ConfigSync.ps1*", "*HostApplication=C:\\Hexnode\\Hexnode Agent\\Current\\HexnodeAgent.exe*"))

@@ -1,0 +1,10 @@
+# Title: Activity Performed by Terminated User
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-23
+# Level: medium
+# Description: Detects when a Microsoft Cloud App Security reported for users whose account were terminated in Azure AD, but still perform activities in other platforms such as AWS or Salesforce.
+# This is especially relevant for users who use another account to manage resources, since these accounts are often not terminated when a user leaves the company.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+
+eventName="Activity performed by terminated user" eventSource="SecurityComplianceCenter" status="success"

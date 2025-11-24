@@ -1,0 +1,12 @@
+# Title: WinAPI Library Calls Via PowerShell Scripts
+# Author: Nikita Nazarov, oscd.community, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-07-21
+# Level: medium
+# Description: Detects calls to WinAPI libraries from PowerShell scripts. Attackers can often leverage these APIs to avoid detection based on typical PowerShell function calls. Use this rule as a basis to hunt for interesting scripts.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.t1106, detection.threat-hunting
+# False Positives:
+#   - Carbon PowerShell Module (https://github.com/webmd-health-services/Carbon)
+#   - Chocolatey scripts
+
+ScriptBlockText IN ("*Advapi32.dll*", "*kernel32.dll*", "*KernelBase.dll*", "*ntdll.dll*", "*secur32.dll*", "*user32.dll*")

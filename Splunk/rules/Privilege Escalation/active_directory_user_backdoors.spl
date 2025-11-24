@@ -1,0 +1,9 @@
+# Title: Active Directory User Backdoors
+# Author: @neu5ron
+# Date: 2017-04-13
+# Level: high
+# Description: Detects scenarios where one can control another users or computers account without having to use their credentials.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.t1098, attack.persistence
+
+(EventID=4738 NOT (AllowedToDelegateTo IN ("", "-") OR NOT AllowedToDelegateTo=*)) OR (AttributeLDAPDisplayName="msDS-AllowedToDelegateTo" EventID=5136) OR (AttributeLDAPDisplayName="servicePrincipalName" EventID=5136 ObjectClass="user") OR (AttributeLDAPDisplayName="msDS-AllowedToActOnBehalfOfOtherIdentity" EventID=5136)

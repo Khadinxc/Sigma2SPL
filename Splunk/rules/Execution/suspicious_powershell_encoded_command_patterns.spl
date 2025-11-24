@@ -1,0 +1,11 @@
+# Title: Suspicious PowerShell Encoded Command Patterns
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-05-24
+# Level: high
+# Description: Detects PowerShell command line patterns in combincation with encoded commands that often appear in malware infection chains
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Other tools that work with encoded scripts in the command line instead of script files
+
+CommandLine IN ("* JAB*", "* SUVYI*", "* SQBFAFgA*", "* aWV4I*", "* IAB*", "* PAA*", "* aQBlAHgA*") CommandLine IN ("* -e *", "* -en *", "* -enc *", "* -enco*") Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.Exe", "pwsh.dll") NOT (ParentImage IN ("*C:\\Packages\\Plugins\\Microsoft.GuestConfiguration.ConfigurationforWindows\\*", "*\\gc_worker.exe*"))

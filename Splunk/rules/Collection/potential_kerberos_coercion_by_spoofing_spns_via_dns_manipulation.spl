@@ -1,0 +1,14 @@
+# Title: Potential Kerberos Coercion by Spoofing SPNs via DNS Manipulation
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-06-20
+# Level: high
+# Description: Detects modifications to DNS records in Active Directory where the Distinguished Name (DN) contains a base64-encoded blob
+# matching the pattern "1UWhRCAAAAA...BAAAA". This pattern corresponds to a marshaled CREDENTIAL_TARGET_INFORMATION structure,
+# commonly used in Kerberos coercion attacks. Adversaries may exploit this to coerce victim systems into authenticating to
+# attacker-controlled hosts by spoofing SPNs via DNS. It is one of the strong indicators of a Kerberos coercion attack,.
+# where adversaries manipulate DNS records to spoof Service Principal Names (SPNs) and redirect authentication requests like CVE-2025-33073.
+# Please investigate the user account that made the changes, as it is likely a low-privileged account that has been compromised.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.credential-access, attack.t1557.003, attack.persistence, attack.privilege-escalation
+
+(AdditionalInfo="*UWhRCA*" AdditionalInfo="*BAAAA*" AdditionalInfo="*CN=MicrosoftDNS*" EventID=4662) OR (EventID IN (5136, 5137) ObjectClass="dnsNode" ObjectDN="*UWhRCA*" ObjectDN="*BAAAA*" ObjectDN="*CN=MicrosoftDNS*") | table SubjectUserName

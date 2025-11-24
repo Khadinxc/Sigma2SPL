@@ -1,0 +1,10 @@
+# Title: Kubernetes Events Deleted
+# Author: Leo Tsaousis (@laripping)
+# Date: 2024-03-26
+# Level: medium
+# Description: Detects when events are deleted in Kubernetes.
+# An adversary may delete Kubernetes events in an attempt to evade detection.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070
+
+objectRef.resource="events" verb="delete"

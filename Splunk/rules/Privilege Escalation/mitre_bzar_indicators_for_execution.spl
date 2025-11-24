@@ -1,0 +1,12 @@
+# Title: MITRE BZAR Indicators for Execution
+# Author: @neu5ron, SOC Prime
+# Date: 2020-03-19
+# Level: medium
+# Description: Windows DCE-RPC functions which indicate an execution techniques on the remote system. All credit for the Zeek mapping of the suspicious endpoint/operation field goes to MITRE
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.t1047, attack.t1053.002, attack.t1569.002
+# False Positives:
+#   - Windows administrator tasks or troubleshooting
+#   - Windows management scripts or software
+
+(endpoint="JobAdd" operation="atsvc") OR (endpoint="svcctl" operation="StartServiceW") OR (endpoint="ITaskSchedulerService" operation="SchRpcEnableTask") OR (endpoint="ITaskSchedulerService" operation="SchRpcRegisterTask") OR (endpoint="ITaskSchedulerService" operation="SchRpcRun") OR (endpoint="IWbemServices" operation="ExecMethod") OR (endpoint="IWbemServices" operation="ExecMethodAsync") OR (endpoint="svcctl" operation="CreateServiceA") OR (endpoint="svcctl" operation="CreateServiceW") OR (endpoint="svcctl" operation="StartServiceA")

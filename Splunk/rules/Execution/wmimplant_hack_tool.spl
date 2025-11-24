@@ -1,0 +1,11 @@
+# Title: WMImplant Hack Tool
+# Author: NVISO
+# Date: 2020-03-26
+# Level: high
+# Description: Detects parameters used by WMImplant
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1047, attack.t1059.001
+# False Positives:
+#   - Administrative scripts that use the same keywords.
+
+ScriptBlockText IN ("*WMImplant*", "* change_user *", "* gen_cli *", "* command_exec *", "* disable_wdigest *", "* disable_winrm *", "* enable_wdigest *", "* enable_winrm *", "* registry_mod *", "* remote_posh *", "* sched_job *", "* service_mod *", "* process_kill *", "* active_users *", "* basic_info *", "* power_off *", "* vacant_system *", "* logon_events *")

@@ -1,0 +1,11 @@
+# Title: SyncAppvPublishingServer Bypass Powershell Restriction - PS Module
+# Author: Ensar Şamil, @sblmsrsn, OSCD Community
+# Date: 2020-10-05
+# Level: medium
+# Description: Detects SyncAppvPublishingServer process execution which usually utilized by adversaries to bypass PowerShell execution restrictions.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+# False Positives:
+#   - App-V clients
+
+ContextInfo="*SyncAppvPublishingServer.exe*"

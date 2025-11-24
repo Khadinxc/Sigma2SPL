@@ -1,0 +1,11 @@
+# Title: Linux Keylogging with Pam.d
+# Author: Pawel Mazur
+# Date: 2021-05-24
+# Level: high
+# Description: Detect attempt to enable auditing of TTY input
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.credential-access, attack.t1003, attack.t1056.001
+# False Positives:
+#   - Administrative work
+
+(name IN ("/etc/pam.d/system-auth", "/etc/pam.d/password-auth") type="PATH") OR type IN ("TTY", "USER_TTY")

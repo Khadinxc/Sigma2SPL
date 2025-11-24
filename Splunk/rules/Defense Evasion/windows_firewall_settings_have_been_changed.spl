@@ -1,0 +1,9 @@
+# Title: Windows Firewall Settings Have Been Changed
+# Author: frack113, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-02-19
+# Level: low
+# Description: Detects activity when the settings of the Windows firewall have been changed
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004
+
+EventID IN (2002, 2083, 2003, 2082, 2008)

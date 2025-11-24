@@ -1,0 +1,13 @@
+# Title: Azure Domain Federation Settings Modified
+# Author: Austin Songer
+# Date: 2021-09-06
+# Level: medium
+# Description: Identifies when an user or application modified the federation settings on the domain.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+# False Positives:
+#   - Federation Settings being modified or deleted may be performed by a system administrator.
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Federation Settings modified from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+ActivityDisplayName="Set federation settings on domain"

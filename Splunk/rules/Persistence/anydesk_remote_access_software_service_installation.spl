@@ -1,0 +1,11 @@
+# Title: Anydesk Remote Access Software Service Installation
+# Author: Nasreddine Bencherchali (Nextron Systems), Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2022-08-11
+# Level: medium
+# Description: Detects the installation of the anydesk software service. Which could be an indication of anydesk abuse if you the software isn't already used.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence
+# False Positives:
+#   - Legitimate usage of the anydesk tool
+
+EventID=7045 Provider_Name="Service Control Manager" (ServiceName="*AnyDesk*" ServiceName="*Service*") OR ImagePath="*AnyDesk*"

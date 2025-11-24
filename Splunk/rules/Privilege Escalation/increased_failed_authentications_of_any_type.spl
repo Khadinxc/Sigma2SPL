@@ -1,0 +1,11 @@
+# Title: Increased Failed Authentications Of Any Type
+# Author: Mark Morowczynski '@markmorow', MikeDuddington, '@dudders1'
+# Date: 2022-08-11
+# Level: medium
+# Description: Detects when sign-ins increased by 10% or greater.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.defense-evasion, attack.t1078
+# False Positives:
+#   - Unlikely
+
+Count="<10%" Status="failure"

@@ -1,0 +1,9 @@
+# Title: Potential Persistence Via Excel Add-in - Registry
+# Author: frack113
+# Date: 2023-01-15
+# Level: high
+# Description: Detect potential persistence via the creation of an excel add-in (XLL) file to make it run automatically when Excel is started.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1137.006
+
+Details="*.xll" Details="/R *" TargetObject="*Software\\Microsoft\\Office\\*" TargetObject="*\\Excel\\Options"

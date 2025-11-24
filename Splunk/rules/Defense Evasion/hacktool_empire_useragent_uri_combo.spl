@@ -1,0 +1,11 @@
+# Title: HackTool - Empire UserAgent URI Combo
+# Author: Florian Roth (Nextron Systems)
+# Date: 2020-07-13
+# Level: high
+# Description: Detects user agent and URI paths used by empire agents
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.command-and-control, attack.t1071.001
+# False Positives:
+#   - Valid requests with this exact user agent to server scripts of the defined names
+
+"c-useragent"="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko" "cs-method"="POST" "cs-uri" IN ("/admin/get.php", "/news.php", "/login/process.php")

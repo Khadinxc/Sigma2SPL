@@ -1,0 +1,11 @@
+# Title: PowerShell Create Local User
+# Author: @ROxPinTeddy
+# Date: 2020-04-11
+# Level: medium
+# Description: Detects creation of a local user via PowerShell
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.persistence, attack.t1136.001
+# False Positives:
+#   - Legitimate user creation
+
+ScriptBlockText="*New-LocalUser*"

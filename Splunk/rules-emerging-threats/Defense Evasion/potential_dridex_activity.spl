@@ -1,0 +1,11 @@
+# Title: Potential Dridex Activity
+# Author: Florian Roth (Nextron Systems), oscd.community, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2019-01-10
+# Level: critical
+# Description: Detects potential Dridex acitvity via specific process patterns
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055, attack.discovery, attack.t1135, attack.t1033, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+(CommandLine="*C:\\Users\\*" CommandLine="*\\Desktop\\*" Image="*\\svchost.exe" NOT ParentImage="C:\\Windows\\System32\\*") OR (CommandLine IN ("* -s *", "*\\AppData\\Local\\Temp\\*") Image="*\\regsvr32.exe" ParentImage="*\\excel.exe" NOT CommandLine="*.dll*") OR (ParentImage="*\\svchost.exe" (CommandLine="* /all*" Image="*\\whoami.exe") OR (CommandLine="* view*" Image IN ("*\\net.exe", "*\\net1.exe")))

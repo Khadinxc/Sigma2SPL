@@ -1,0 +1,13 @@
+# Title: ServiceDll Hijack
+# Author: frack113
+# Date: 2022-02-04
+# Level: medium
+# Description: Detects changes to the "ServiceDLL" value related to a service in the registry.
+# This is often used as a method of persistence.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1543.003
+# False Positives:
+#   - Administrative scripts
+#   - Installation of a service
+
+TargetObject="*\\System\\*" TargetObject="*ControlSet*" TargetObject="*\\Services\\*" TargetObject="*\\Parameters\\ServiceDll" NOT ((Details="%%systemroot%%\\system32\\ntdsa.dll" Image="C:\\Windows\\system32\\lsass.exe" TargetObject="*\\Services\\NTDS\\Parameters\\ServiceDll") OR Image="C:\\Windows\\System32\\poqexec.exe" OR Details="C:\\Windows\\system32\\spool\\drivers\\x64\\3\\PrintConfig.dll") NOT (Details="C:\\Windows\\System32\\STAgent.dll" Image="*\\regsvr32.exe")

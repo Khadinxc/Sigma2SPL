@@ -1,0 +1,13 @@
+# Title: Potential Remote PowerShell Session Initiated
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-09-12
+# Level: high
+# Description: Detects a process that initiated a network connection over ports 5985 or 5986 from a non-network service account.
+# This could potentially indicates a remote PowerShell connection.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.lateral-movement, attack.t1021.006
+# False Positives:
+#   - Legitimate usage of remote PowerShell, e.g. remote administration and monitoring.
+#   - Network Service user name of a not-covered localization
+
+DestinationPort IN (5985, 5986) Initiated="true" SourceIsIpv6="false" NOT ((DestinationIp IN ("::1", "127.0.0.1") SourceIp IN ("::1", "127.0.0.1")) OR User IN ("*NETWORK SERVICE*", "*NETZWERKDIENST*", "*SERVICIO DE RED*", "*SERVIZIO DI RETE*") OR (User="*SERVICE R*" User="*SEAU*")) NOT (Image IN ("C:\\Program Files\\Avast Software\\Avast\\AvastSvc.exe", "C:\\Program Files (x86)\\Avast Software\\Avast\\AvastSvc.exe"))

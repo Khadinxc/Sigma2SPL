@@ -1,0 +1,9 @@
+# Title: HTTP Logging Disabled On IIS Server
+# Author: frack113
+# Date: 2024-10-06
+# Level: high
+# Description: Detects changes to of the IIS server configuration in order to disable HTTP logging for successful requests.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.t1562.002, attack.t1505.004
+
+Configuration="/system.webServer/httpLogging/@dontLog" EventID=29 NewValue="true"

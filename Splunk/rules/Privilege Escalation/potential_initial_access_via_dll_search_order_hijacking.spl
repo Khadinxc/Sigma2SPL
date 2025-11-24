@@ -1,0 +1,9 @@
+# Title: Potential Initial Access via DLL Search Order Hijacking
+# Author: Tim Rauch (rule), Elastic (idea)
+# Date: 2022-10-21
+# Level: medium
+# Description: Detects attempts to create a DLL file to a known desktop application dependencies folder such as Slack, Teams or OneDrive and by an unusual process. This may indicate an attempt to load a malicious module via DLL search order hijacking.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1566, attack.t1566.001, attack.initial-access, attack.t1574, attack.t1574.001, attack.defense-evasion
+
+Image IN ("*\\winword.exe", "*\\excel.exe", "*\\powerpnt.exe", "*\\MSACCESS.EXE", "*\\MSPUB.EXE", "*\\fltldr.exe", "*\\cmd.exe", "*\\certutil.exe", "*\\mshta.exe", "*\\cscript.exe", "*\\wscript.exe", "*\\curl.exe", "*\\powershell.exe", "*\\pwsh.exe") TargetFilename IN ("*\\Microsoft\\OneDrive\\*", "*\\Microsoft OneDrive\\*", "*\\Microsoft\\Teams\\*", "*\\Local\\slack\\app-*", "*\\Local\\Programs\\Microsoft VS Code\\*") TargetFilename="*\\Users\\*" TargetFilename="*\\AppData\\*" TargetFilename="*.dll" NOT (Image="*\\cmd.exe" TargetFilename="*\\Users\\*" TargetFilename="*\\AppData\\*" TargetFilename="*\\Microsoft\\OneDrive\\*" TargetFilename="*\\api-ms-win-core-*")

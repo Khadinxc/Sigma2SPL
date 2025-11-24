@@ -1,0 +1,9 @@
+# Title: Bitsadmin to Uncommon IP Server Address
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-06-10
+# Level: high
+# Description: Detects Bitsadmin connections to IP addresses instead of FQDN names
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001, attack.defense-evasion, attack.persistence, attack.t1197, attack.s0190
+
+"c-useragent"="Microsoft BITS/*" "cs-host" IN ("*1", "*2", "*3", "*4", "*5", "*6", "*7", "*8", "*9")

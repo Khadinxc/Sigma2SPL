@@ -1,0 +1,9 @@
+# Title: Potential APT FIN7 POWERHOLD Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-04
+# Level: high
+# Description: Detects execution of the POWERHOLD script seen used by FIN7 as reported by WithSecureLabs
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.g0046, detection.emerging-threats
+
+ScriptBlockText="*$env:APPDATA*" ScriptBlockText="*function MainPayload*" ScriptBlockText="*::WriteAllBytes*" ScriptBlockText="*wscript.exe*"

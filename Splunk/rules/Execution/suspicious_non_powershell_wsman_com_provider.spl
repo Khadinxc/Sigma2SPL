@@ -1,0 +1,12 @@
+# Title: Suspicious Non PowerShell WSMAN COM Provider
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-06-24
+# Level: medium
+# Description: Detects suspicious use of the WSMAN provider without PowerShell.exe as the host application.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.lateral-movement, attack.t1021.003
+
+
+| rex field=Data "(?<DataMatch>HostId=[a-zA-Z0-9-]{36}\\s+EngineVersion=)"
+| eval DataCondition=if(isnotnull(DataMatch), "true", "false")
+| search Data="*ProviderName=WSMan*" NOT (DataCondition="true" OR Data IN ("*HostApplication=powershell*", "*HostApplication=C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell*", "*HostApplication=C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell*", "*HostApplication=C:/Windows/System32/WindowsPowerShell/v1.0/powershell*", "*HostApplication=C:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell*")) NOT Data="*HostApplication=C:\\Hexnode\\Hexnode Agent\\Current\\HexnodeAgent.exe*"

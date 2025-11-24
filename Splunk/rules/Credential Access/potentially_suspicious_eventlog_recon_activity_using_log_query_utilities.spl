@@ -1,0 +1,12 @@
+# Title: Potentially Suspicious EventLog Recon Activity Using Log Query Utilities
+# Author: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
+# Date: 2022-09-09
+# Level: medium
+# Description: Detects execution of different log query utilities and commands to search and dump the content of specific event logs or look for specific event IDs.
+# This technique is used by threat actors in order to extract sensitive information from events logs such as usernames, IP addresses, hostnames, etc.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.discovery, attack.t1552
+# False Positives:
+#   - Legitimate usage of the utility by administrators to query the event log
+
+CommandLine IN ("*-InstanceId 462**", "*.eventid -eq 462**", "*EventCode=*462**", "*EventIdentifier=*462**", "*System[EventID=462*]*", "*-InstanceId 4778*", "*.eventid -eq 4778*", "*System[EventID=4778]*", "*EventCode=*4778**", "*EventIdentifier=*4778**", "*-InstanceId 25*", "*.eventid -eq 25*", "*System[EventID=25]*", "*EventCode=*25**", "*EventIdentifier=*25**") OR CommandLine IN ("*Microsoft-Windows-PowerShell*", "*Microsoft-Windows-Security-Auditing*", "*Microsoft-Windows-TerminalServices-LocalSessionManager*", "*Microsoft-Windows-TerminalServices-RemoteConnectionManager*", "*Microsoft-Windows-Windows Defender*", "*PowerShellCore*", "*Security*", "*Windows PowerShell*") (CommandLine="*Select*" CommandLine="*Win32_NTLogEvent*") OR (CommandLine IN ("* qe *", "* query-events *") Image="*\\wevtutil.exe" OR OriginalFileName="wevtutil.exe") OR (CommandLine="* ntevent*" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe") OR CommandLine IN ("*Get-WinEvent *", "*get-eventlog *")

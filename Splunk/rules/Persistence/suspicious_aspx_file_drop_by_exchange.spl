@@ -1,0 +1,9 @@
+# Title: Suspicious ASPX File Drop by Exchange
+# Author: Florian Roth (Nextron Systems), MSTI (query, idea)
+# Date: 2022-10-01
+# Level: high
+# Description: Detects suspicious file type dropped by an Exchange component in IIS into a suspicious folder
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+
+CommandLine="*MSExchange*" Image="*\\w3wp.exe" TargetFilename IN ("*FrontEnd\\HttpProxy\\*", "*\\inetpub\\wwwroot\\aspnet_client\\*") TargetFilename IN ("*.aspx", "*.asp", "*.ashx")

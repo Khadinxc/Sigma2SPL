@@ -1,0 +1,11 @@
+# Title: OpenCanary - GIT Clone Request
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where a GIT service on an OpenCanary node has had Git Clone request.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1213
+# False Positives:
+#   - Unlikely
+
+logtype=16001

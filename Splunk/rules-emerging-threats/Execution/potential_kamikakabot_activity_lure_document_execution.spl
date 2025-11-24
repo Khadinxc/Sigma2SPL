@@ -1,0 +1,10 @@
+# Title: Potential KamiKakaBot Activity - Lure Document Execution
+# Author: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
+# Date: 2024-03-22
+# Level: medium
+# Description: Detects the execution of a Word document via the WinWord Start Menu shortcut.
+# This behavior was observed being used by KamiKakaBot samples in order to initiate the 2nd stage of the infection.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059, detection.emerging-threats
+
+CommandLine="*/c *" CommandLine="*.lnk ~*" CommandLine="*Start Menu\\Programs\\Word*" CommandLine="*.doc" Image="*\\cmd.exe"

@@ -1,0 +1,11 @@
+# Title: MSSQL Server Failed Logon
+# Author: Nasreddine Bencherchali (Nextron Systems), j4son
+# Date: 2023-10-11
+# Level: low
+# Description: Detects failed logon attempts from clients to MSSQL server.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1110
+# False Positives:
+#   - This event could stem from users changing an account's password that's used to authenticate via a job or an automated process. Investigate the source of such events and mitigate them
+
+EventID=18456 Provider_Name="*MSSQL*"

@@ -1,0 +1,12 @@
+# Title: Suspicious Network Communication With IPFS
+# Author: Gavin Knapp
+# Date: 2023-03-16
+# Level: low
+# Description: Detects connections to interplanetary file system (IPFS) containing a user's email address which mirrors behaviours observed in recent phishing campaigns leveraging IPFS to host credential harvesting webpages.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.credential-access, attack.t1056
+# False Positives:
+#   - Legitimate use of IPFS being used in the organisation. However the cs-uri regex looking for a user email will likely negate this.
+
+*
+| regex cs-uri="(?i)(ipfs\\.io/|ipfs\\.io\\s).+\\..+@.+\\.[a-z]+"

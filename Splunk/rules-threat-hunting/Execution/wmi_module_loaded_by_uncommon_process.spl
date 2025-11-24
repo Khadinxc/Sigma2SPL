@@ -1,0 +1,9 @@
+# Title: WMI Module Loaded By Uncommon Process
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-08-10
+# Level: low
+# Description: Detects WMI modules being loaded by an uncommon process
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1047, detection.threat-hunting
+
+ImageLoaded IN ("*\\fastprox.dll", "*\\wbemcomn.dll", "*\\wbemprox.dll", "*\\wbemsvc.dll", "*\\WmiApRpl.dll", "*\\wmiclnt.dll", "*\\WMINet_Utils.dll", "*\\wmiprov.dll", "*\\wmiutils.dll") NOT (Image IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\explorer.exe*", "*:\\Windows\\Microsoft.NET\\Framework\\*", "*:\\Windows\\Microsoft.NET\\FrameworkArm\\*", "*:\\Windows\\Microsoft.NET\\FrameworkArm64\\*", "*:\\Windows\\Microsoft.NET\\Framework64\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*")) NOT (Image="*\\MsMpEng.exe" OR Image IN ("*\\WindowsAzureGuestAgent.exe", "*\\WaAppAgent.exe") OR Image IN ("*:\\Windows\\Sysmon.exe", "*:\\Windows\\Sysmon64.exe") OR Image IN ("*\\Microsoft\\Teams\\current\\Teams.exe*", "*\\Microsoft\\Teams\\Update.exe*") OR Image IN ("*\\thor.exe", "*\\thor64.exe"))

@@ -1,0 +1,11 @@
+# Title: HackTool - Koh Default Named Pipe
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-08
+# Level: critical
+# Description: Detects creation of default named pipes used by the Koh tool
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.credential-access, attack.t1528, attack.t1134.001
+# False Positives:
+#   - Unlikely
+
+PipeName IN ("*\\imposecost*", "*\\imposingcost*")

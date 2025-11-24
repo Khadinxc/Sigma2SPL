@@ -1,0 +1,11 @@
+# Title: MSSQL Disable Audit Settings
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-13
+# Level: high
+# Description: Detects when an attacker calls the "ALTER SERVER AUDIT" or "DROP SERVER AUDIT" transaction in order to delete or disable audit logs on the server
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - This event should only fire when an administrator is modifying the audit policy. Which should be a rare occurrence once it's set up
+
+Data IN ("*statement:ALTER SERVER AUDIT*", "*statement:DROP SERVER AUDIT*") EventID=33205 Provider_Name="*MSSQL*"

@@ -1,0 +1,11 @@
+# Title: Github High Risk Configuration Disabled
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2023-01-29
+# Level: high
+# Description: Detects when a user disables a critical security feature for an organization.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.defense-evasion, attack.persistence, attack.t1556
+# False Positives:
+#   - Approved administrator/owner activities.
+
+action IN ("business_advanced_security.disabled_for_new_repos", "business_advanced_security.disabled_for_new_user_namespace_repos", "business_advanced_security.disabled", "business_advanced_security.user_namespace_repos_disabled", "org.advanced_security_disabled_for_new_repos", "org.advanced_security_disabled_on_all_repos", "org.advanced_security_policy_selected_member_disabled", "org.disable_oauth_app_restrictions", "org.disable_two_factor_requirement", "repo.advanced_security_disabled")

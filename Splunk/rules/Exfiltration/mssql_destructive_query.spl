@@ -1,0 +1,11 @@
+# Title: MSSQL Destructive Query
+# Author: Daniel Degasperi '@d4ns4n_'
+# Date: 2025-06-04
+# Level: medium
+# Description: Detects the invocation of MS SQL transactions that are destructive towards table or database data, such as "DROP TABLE" or "DROP DATABASE".
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.impact, attack.t1485
+# False Positives:
+#   - Legitimate transaction from a sysadmin.
+
+Data IN ("*statement:TRUNCATE TABLE*", "*statement:DROP TABLE*", "*statement:DROP DATABASE*") EventID=33205 Provider_Name="MSSQLSERVER$AUDIT"

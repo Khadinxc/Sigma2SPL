@@ -1,0 +1,9 @@
+# Title: Active Directory Computers Enumeration With Get-AdComputer
+# Author: frack113
+# Date: 2022-03-17
+# Level: low
+# Description: Detects usage of the "Get-AdComputer" to enumerate Computers or properties within Active Directory.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1018, attack.t1087.002
+
+ScriptBlockText="*Get-AdComputer *" ScriptBlockText IN ("*-Filter *", "*-LDAPFilter *", "*-Properties *")

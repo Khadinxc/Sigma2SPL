@@ -1,0 +1,9 @@
+# Title: Suspicious Child Process of AspNetCompiler
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-08-14
+# Level: high
+# Description: Detects potentially suspicious child processes of "aspnet_compiler.exe".
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1127
+
+Image IN ("*\\calc.exe", "*\\notepad.exe") OR Image IN ("*\\Users\\Public\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Local\\Roaming\\*", "*:\\Temp\\*", "*:\\Windows\\Temp\\*", "*:\\Windows\\System32\\Tasks\\*", "*:\\Windows\\Tasks\\*") ParentImage="*\\aspnet_compiler.exe"

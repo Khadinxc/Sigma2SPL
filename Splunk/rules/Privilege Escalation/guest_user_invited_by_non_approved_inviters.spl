@@ -1,0 +1,11 @@
+# Title: Guest User Invited By Non Approved Inviters
+# Author: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'
+# Date: 2022-08-10
+# Level: medium
+# Description: Detects when a user that doesn't have permissions to invite a guest user attempts to invite one.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.initial-access, attack.persistence, attack.defense-evasion, attack.t1078.004
+# False Positives:
+#   - A non malicious user is unaware of the proper process
+
+Status="failure" properties.message="Invite external user"

@@ -1,0 +1,11 @@
+# Title: Process Memory Dump via RdrLeakDiag.EXE
+# Author: Cedric MAURUGEON, Florian Roth (Nextron Systems), Swachchhanda Shrawan Poudel, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2021-09-24
+# Level: high
+# Description: Detects the use of the Microsoft Windows Resource Leak Diagnostic tool "rdrleakdiag.exe" to dump process memory
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# False Positives:
+#   - Unlikely
+
+CommandLine="*-memdmp*" OR CommandLine="*/memdmp*" OR CommandLine="*–memdmp*" OR CommandLine="*—memdmp*" OR CommandLine="*―memdmp*" OR CommandLine="*fullmemdmp*" CommandLine="* -o *" OR CommandLine="* /o *" OR CommandLine="* –o *" OR CommandLine="* —o *" OR CommandLine="* ―o *" OR CommandLine="* -p *" OR CommandLine="* /p *" OR CommandLine="* –p *" OR CommandLine="* —p *" OR CommandLine="* ―p *" Image="*\\rdrleakdiag.exe" OR OriginalFileName="RdrLeakDiag.exe"

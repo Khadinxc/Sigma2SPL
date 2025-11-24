@@ -1,0 +1,10 @@
+# Title: Suspicious PowerShell WindowStyle Option
+# Author: frack113, Tim Shelton (fp AWS)
+# Date: 2021-10-20
+# Level: medium
+# Description: Adversaries may use hidden windows to conceal malicious activity from the plain sight of users.
+# In some cases, windows that would typically be displayed when an application carries out an operation can be hidden
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564.003
+
+ScriptBlockText="*powershell*" ScriptBlockText="*WindowStyle*" ScriptBlockText="*Hidden*" NOT (ScriptBlockText="*:\\Program Files\\Amazon\\WorkSpacesConfig\\Scripts\\*" ScriptBlockText="*$PSScriptRoot\\Module\\WorkspaceScriptModule\\WorkspaceScriptModule*")

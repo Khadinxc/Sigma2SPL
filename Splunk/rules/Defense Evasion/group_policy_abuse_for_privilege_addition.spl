@@ -1,0 +1,11 @@
+# Title: Group Policy Abuse for Privilege Addition
+# Author: Elastic, Josh Nickels, Marius Rothenbücher
+# Date: 2024-09-04
+# Level: medium
+# Description: Detects the first occurrence of a modification to Group Policy Object Attributes to add privileges to user accounts or use them to add users as local admins.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1484.001
+# False Positives:
+#   - Users allowed to perform these modifications (user found in field SubjectUserName)
+
+AttributeLDAPDisplayName="gPCMachineExtensionNames" AttributeValue IN ("*827D319E-6EAC-11D2-A4EA-00C04F79F83A*", "*803E14A0-B4FB-11D0-A0D0-00A0C90F574B*") EventID=5136

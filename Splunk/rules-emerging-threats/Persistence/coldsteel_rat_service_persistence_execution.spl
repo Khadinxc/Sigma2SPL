@@ -1,0 +1,11 @@
+# Title: COLDSTEEL RAT Service Persistence Execution
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-04-30
+# Level: critical
+# Description: Detects the creation of an "svchost" process with specific command line flags, that were seen present and used by ColdSteel RAT
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("* -k msupdate", "* -k msupdate2", "* -k alg") Image="*\\svchost.exe"

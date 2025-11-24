@@ -1,0 +1,11 @@
+# Title: Suspicious Browser Activity
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-03
+# Level: high
+# Description: Indicates anomalous behavior based on suspicious sign-in activity across multiple tenants from different countries in the same browser
+# MITRE Tactic: Persistence
+# Tags: attack.t1078, attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.initial-access
+# False Positives:
+#   - We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user.
+
+riskEventType="suspiciousBrowser"

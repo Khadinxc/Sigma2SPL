@@ -1,0 +1,9 @@
+# Title: Potential Ransomware Activity Using LegalNotice Message
+# Author: frack113
+# Date: 2022-12-11
+# Level: high
+# Description: Detect changes to the "LegalNoticeCaption" or "LegalNoticeText" registry values where the message set contains keywords often used in ransomware ransom messages
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1491.001
+
+Details IN ("*encrypted*", "*Unlock-Password*", "*paying*") TargetObject IN ("*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeCaption*", "*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeText*")

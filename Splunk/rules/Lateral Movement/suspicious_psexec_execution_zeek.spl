@@ -1,0 +1,9 @@
+# Title: Suspicious PsExec Execution - Zeek
+# Author: Samir Bousseaden, @neu5ron, Tim Shelton
+# Date: 2020-04-02
+# Level: high
+# Description: detects execution of psexec or paexec with renamed service name, this rule helps to filter out the noise if psexec is used for legit purposes or if attacker uses a different psexec client other than sysinternal one
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+
+name IN ("*-stdin", "*-stdout", "*-stderr") path="*\\*" path="*\\IPC$*" NOT name="PSEXESVC*"

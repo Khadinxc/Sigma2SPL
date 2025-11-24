@@ -1,0 +1,12 @@
+# Title: Potential Malicious Usage of CloudTrail System Manager
+# Author: jamesc-grafana
+# Date: 2024-07-11
+# Level: high
+# Description: Detect when System Manager successfully executes commands against an instance.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.initial-access, attack.t1566, attack.t1566.002
+# False Positives:
+#   - There are legitimate uses of SSM to send commands to EC2 instances
+#   - Legitimate users may have to use SSM to perform actions against machines in the Cloud to update or maintain them
+
+eventName="SendCommand" eventSource="ssm.amazonaws.com" responseElements.command.status="Success"

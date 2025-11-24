@@ -1,0 +1,12 @@
+# Title: Use of FSharp Interpreters
+# Author: Christopher Peacock @SecurePeacock, SCYTHE @scythe_io
+# Date: 2022-06-02
+# Level: medium
+# Description: Detects the execution of FSharp Interpreters "FsiAnyCpu.exe" and "FSi.exe"
+# Both can be used for AWL bypass and to execute F# code via scripts or inline.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# False Positives:
+#   - Legitimate use by a software developer.
+
+Image IN ("*\\fsi.exe", "*\\fsianycpu.exe") OR OriginalFileName IN ("fsi.exe", "fsianycpu.exe")

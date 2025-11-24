@@ -1,0 +1,11 @@
+# Title: PowerShell Web Access Feature Enabled Via DISM
+# Author: Michael Haag
+# Date: 2024-09-03
+# Level: high
+# Description: Detects the use of DISM to enable the PowerShell Web Access feature, which could be used for remote access and potential abuse
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.persistence, attack.t1548.002
+# False Positives:
+#   - Legitimate PowerShell Web Access installations by administrators
+
+CommandLine="*WindowsPowerShellWebAccess*" CommandLine="*/online*" CommandLine="*/enable-feature*" Image="*\\dism.exe" OR OriginalFileName="DISM.EXE"

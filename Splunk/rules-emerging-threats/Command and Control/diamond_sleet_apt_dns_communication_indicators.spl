@@ -1,0 +1,11 @@
+# Title: Diamond Sleet APT DNS Communication Indicators
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-10-24
+# Level: high
+# Description: Detects DNS queries related to Diamond Sleet APT activity
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, detection.emerging-threats
+# False Positives:
+#   - Might generate some false positive if triggered by a user during investigation for example.
+
+QueryName IN ("*3dkit.org*", "*dersmarketim.com*", "*galerielamy.com*", "*olidhealth.com*")

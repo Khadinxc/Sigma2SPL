@@ -1,0 +1,9 @@
+# Title: HackTool Service Registration or Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-21
+# Level: high
+# Description: Detects installation or execution of services
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002, attack.s0029
+
+EventID IN (7045, 7036) Provider_Name="Service Control Manager" ImagePath="*bypass*" OR ServiceName IN ("*cachedump*", "*DumpSvc*", "*gsecdump*", "*pwdump*", "*UACBypassedService*", "*WCE SERVICE*", "*WCESERVICE*", "*winexesvc*")

@@ -1,0 +1,9 @@
+# Title: Suspicious MsiExec Embedding Parent
+# Author: frack113
+# Date: 2022-04-16
+# Level: medium
+# Description: Adversaries may abuse msiexec.exe to proxy the execution of malicious payloads
+# MITRE Tactic: Defense Evasion
+# Tags: attack.t1218.007, attack.defense-evasion
+
+Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\cmd.exe") ParentCommandLine="*MsiExec.exe*" ParentCommandLine="*-Embedding *" NOT ((CommandLine="*C:\\Program Files\\SplunkUniversalForwarder\\bin\\*" Image="*:\\Windows\\System32\\cmd.exe") OR CommandLine="*\\DismFoDInstall.cmd*" OR (ParentCommandLine="*\\MsiExec.exe -Embedding *" ParentCommandLine="*Global\\MSI0000*"))

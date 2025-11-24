@@ -1,0 +1,11 @@
+# Title: Potential Compromised 3CXDesktopApp Beaconing Activity - Netcon
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-03-29
+# Level: high
+# Description: Detects potential beaconing activity to domains related to 3CX 3CXDesktopApp compromise
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+DestinationHostname IN ("*akamaicontainer.com*", "*akamaitechcloudservices.com*", "*azuredeploystore.com*", "*azureonlinecloud.com*", "*azureonlinestorage.com*", "*dunamistrd.com*", "*glcloudservice.com*", "*journalide.org*", "*msedgepackageinfo.com*", "*msstorageazure.com*", "*msstorageboxes.com*", "*officeaddons.com*", "*officestoragebox.com*", "*pbxcloudeservices.com*", "*pbxphonenetwork.com*", "*pbxsources.com*", "*qwepoi123098.com*", "*sbmsa.wiki*", "*sourceslabs.com*", "*visualstudiofactory.com*", "*zacharryblogs.com*") Image="*\\3CXDesktopApp.exe"

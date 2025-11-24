@@ -1,0 +1,11 @@
+# Title: DNS Server Discovery Via LDAP Query
+# Author: frack113
+# Date: 2022-08-20
+# Level: low
+# Description: Detects DNS server discovery via LDAP query requests from uncommon applications
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1482
+# False Positives:
+#   - Likely
+
+QueryName="_ldap.*" NOT ((Image="*:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*" Image="*\\MsMpEng.exe") OR Image IN ("*:\\Program Files\\*", "*:\\Program Files (x86)\\*", "*:\\Windows\\*") OR NOT Image=* OR Image="<unknown process>") NOT (Image="C:\\WindowsAzure\\GuestAgent*" OR Image IN ("*\\chrome.exe", "*\\firefox.exe", "*\\opera.exe"))

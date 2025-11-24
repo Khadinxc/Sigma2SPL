@@ -1,0 +1,9 @@
+# Title: Cscript/Wscript Uncommon Script Extension Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-15
+# Level: high
+# Description: Detects Wscript/Cscript executing a file with an uncommon (i.e. non-script) extension
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.005, attack.t1059.007
+
+CommandLine IN ("*.csv*", "*.dat*", "*.doc*", "*.gif*", "*.jpeg*", "*.jpg*", "*.png*", "*.ppt*", "*.txt*", "*.xls*", "*.xml*") OriginalFileName IN ("wscript.exe", "cscript.exe") OR Image IN ("*\\wscript.exe", "*\\cscript.exe")

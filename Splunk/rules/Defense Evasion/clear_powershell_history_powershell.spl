@@ -1,0 +1,11 @@
+# Title: Clear PowerShell History - PowerShell
+# Author: Ilyas Ochkov, Jonhnathan Ribeiro, Daniil Yugoslavskiy, oscd.community
+# Date: 2022-01-25
+# Level: medium
+# Description: Detects keywords that could indicate clearing PowerShell history
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.003
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+(ScriptBlockText="*Set-PSReadlineOption*" ScriptBlockText="*–HistorySaveStyle*" ScriptBlockText="*SaveNothing*") OR (ScriptBlockText="*Set-PSReadlineOption*" ScriptBlockText="*-HistorySaveStyle*" ScriptBlockText="*SaveNothing*") OR (ScriptBlockText IN ("*del*", "*Remove-Item*", "*rm*") ScriptBlockText="*(Get-PSReadlineOption).HistorySavePath*")

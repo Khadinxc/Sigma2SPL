@@ -1,0 +1,11 @@
+# Title: DPRK Threat Actor - C2 Communication DNS Indicators
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-02-20
+# Level: high
+# Description: Detects DNS queries for C2 domains used by DPRK Threat actors.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+QueryName IN ("connection.lockscreen.kro.kr", "updating.dothome.co.kr")

@@ -1,0 +1,9 @@
+# Title: Symlink Etc Passwd
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-04-05
+# Level: high
+# Description: Detects suspicious command lines that look as if they would create symbolic links to /etc/passwd
+# MITRE Tactic: Execution
+# Tags: attack.t1204.001, attack.execution
+
+"ln -s -f /etc/passwd" OR "ln -s /etc/passwd"

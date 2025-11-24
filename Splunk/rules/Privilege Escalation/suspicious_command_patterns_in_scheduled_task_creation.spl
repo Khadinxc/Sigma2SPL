@@ -1,0 +1,11 @@
+# Title: Suspicious Command Patterns In Scheduled Task Creation
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-02-23
+# Level: high
+# Description: Detects scheduled task creation using "schtasks" that contain potentially suspicious or uncommon commands
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.t1053.005
+# False Positives:
+#   - Software installers that run from temporary folders and also install scheduled tasks are expected to generate some false positives
+
+CommandLine="*/Create *" Image="*\\schtasks.exe" (CommandLine IN ("*/sc minute *", "*/ru system *") CommandLine IN ("*cmd /c*", "*cmd /k*", "*cmd /r*", "*cmd.exe /c *", "*cmd.exe /k *", "*cmd.exe /r *")) OR CommandLine IN ("* -decode *", "* -enc *", "* -w hidden *", "* bypass *", "* IEX*", "*.DownloadData*", "*.DownloadFile*", "*.DownloadString*", "*/c start /min *", "*FromBase64String*", "*mshta http*", "*mshta.exe http*") OR (CommandLine IN ("*:\\ProgramData\\*", "*:\\Temp\\*", "*:\\Tmp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\*", "*%AppData%*", "*%Temp%*", "*%tmp%*") CommandLine IN ("*cscript*", "*curl*", "*wscript*"))

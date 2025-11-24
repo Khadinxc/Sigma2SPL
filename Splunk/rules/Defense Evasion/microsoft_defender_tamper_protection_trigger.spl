@@ -1,0 +1,11 @@
+# Title: Microsoft Defender Tamper Protection Trigger
+# Author: Bhabesh Raj, Nasreddine Bencherchali
+# Date: 2021-07-05
+# Level: high
+# Description: Detects blocked attempts to change any of Defender's settings such as "Real Time Monitoring" and "Behavior Monitoring"
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Administrator might try to disable defender features during testing (must be investigated)
+
+EventID=5013 Value IN ("*\\Windows Defender\\DisableAntiSpyware", "*\\Windows Defender\\DisableAntiVirus", "*\\Windows Defender\\Scan\\DisableArchiveScanning", "*\\Windows Defender\\Scan\\DisableScanningNetworkFiles", "*\\Real-Time Protection\\DisableRealtimeMonitoring", "*\\Real-Time Protection\\DisableBehaviorMonitoring", "*\\Real-Time Protection\\DisableIOAVProtection", "*\\Real-Time Protection\\DisableScriptScanning")

@@ -1,0 +1,11 @@
+# Title: Uncommon GrantedAccess Flags On LSASS
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-13
+# Level: medium
+# Description: Detects process access to LSASS memory with uncommon access flags 0x410 and 0x01410
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001, attack.s0002, detection.threat-hunting
+# False Positives:
+#   - Legitimate software accessing LSASS process for legitimate reason
+
+GrantedAccess="*10" TargetImage="*\\lsass.exe" NOT (SourceImage IN ("C:\\Program Files\\Common Files\\McAfee\\MMSSHost\\MMSSHOST.exe", "C:\\Program Files\\Malwarebytes\\Anti-Malware\\MBAMService.exe", "C:\\Program Files\\Windows Defender\\MsMpEng.exe", "C:\\PROGRAMDATA\\MALWAREBYTES\\MBAMSERVICE\\ctlrupdate\\mbupdatr.exe", "C:\\Windows\\System32\\lsass.exe", "C:\\Windows\\System32\\msiexec.exe", "C:\\WINDOWS\\System32\\perfmon.exe", "C:\\WINDOWS\\system32\\taskhostw.exe", "C:\\WINDOWS\\system32\\taskmgr.exe", "C:\\WINDOWS\\system32\\wbem\\wmiprvse.exe", "C:\\Windows\\SysWOW64\\msiexec.exe", "C:\\Windows\\sysWOW64\\wbem\\wmiprvse.exe") OR (SourceImage="*\\MsMpEng.exe" SourceImage="C:\\ProgramData\\Microsoft\\Windows Defender\\*") OR (SourceImage="*\\GamingServices.exe" SourceImage="C:\\Program Files\\WindowsApps\\*") OR SourceImage IN ("*\\PROCEXP64.EXE", "*\\PROCEXP.EXE") OR (SourceImage="*\\vmtoolsd.exe" SourceImage="C:\\ProgramData\\VMware\\VMware Tools\\*") OR (SourceImage="*Antivirus*" SourceImage IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*")) OR (GrantedAccess IN ("0x410", "0x10") SourceImage="*\\SteamLibrary\\steamapps\\*") OR SourceImage IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*", "C:\\WINDOWS\\system32\\*") OR (SourceImage="*C:\\Users\\*" SourceImage="*\\AppData\\Local\\*" SourceImage IN ("*\\Microsoft VS Code\\Code.exe", "*\\software_reporter_tool.exe", "*\\DropboxUpdate.exe", "*\\MBAMInstallerService.exe", "*\\WebEx\\WebexHost.exe", "*\\Programs\\Microsoft VS Code\\Code.exe", "*\\JetBrains\\Toolbox\\bin\\jetbrains-toolbox.exe")) OR (GrantedAccess="0x1410" SourceImage="*\\AppData\\Local\\Temp\\*" SourceImage="*\\vs_bootstrapper_*") OR SourceImage IN ("*\\thor64.exe", "*\\thor.exe", "*\\aurora-agent-64.exe", "*\\aurora-agent.exe") OR SourceCommandLine="C:\\WINDOWS\\system32\\wermgr.exe -upload" OR (GrantedAccess="0x410" SourceImage="*\\xampp-control.exe"))

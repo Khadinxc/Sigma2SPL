@@ -1,0 +1,11 @@
+# Title: Potential Edputil.DLL Sideloading
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-06-09
+# Level: high
+# Description: Detects potential DLL sideloading of "edputil.dll"
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.001
+# False Positives:
+#   - Unlikely
+
+ImageLoaded="*\\edputil.dll" NOT (ImageLoaded IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C\\Windows\\WinSxS\\*"))

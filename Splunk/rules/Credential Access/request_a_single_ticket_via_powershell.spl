@@ -1,0 +1,11 @@
+# Title: Request A Single Ticket via PowerShell
+# Author: frack113
+# Date: 2021-12-28
+# Level: high
+# Description: utilize native PowerShell Identity modules to query the domain to extract the Service Principal Names for a single computer.
+# This behavior is typically used during a kerberos or silver ticket attack.
+# A successful execution will output the SPNs for the endpoint in question.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558.003
+
+ScriptBlockText="*System.IdentityModel.Tokens.KerberosRequestorSecurityToken*"

@@ -1,0 +1,9 @@
+# Title: Kapeka Backdoor Scheduled Task Creation
+# Author: Swachchhanda Shrawan Poudel
+# Date: 2024-07-03
+# Level: high
+# Description: Detects Kapeka backdoor scheduled task creation based on attributes such as paths, commands line flags, etc.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.privilege-escalation, attack.persistence, attack.t1053.005, detection.emerging-threats
+
+TaskContent="*rundll32*" TaskContent="*.wll*" TaskContent="*#1*" EventID=4698 TaskContent IN ("*:\\ProgramData\\*", "*\\AppData\\Local\\*") TaskContent IN ("*OneDrive*", "*Sens Api*")

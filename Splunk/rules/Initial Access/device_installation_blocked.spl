@@ -1,0 +1,9 @@
+# Title: Device Installation Blocked
+# Author: frack113
+# Date: 2022-10-14
+# Level: medium
+# Description: Detects an installation of a device that is forbidden by the system policy
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1200
+
+EventID=6423

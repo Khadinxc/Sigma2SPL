@@ -1,0 +1,11 @@
+# Title: Potential DLL Sideloading Of DBGHELP.DLL
+# Author: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)
+# Date: 2022-10-25
+# Level: medium
+# Description: Detects potential DLL sideloading of "dbghelp.dll"
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001
+# False Positives:
+#   - Legitimate applications loading their own versions of the DLL mentioned in this rule
+
+ImageLoaded="*\\dbghelp.dll" NOT (ImageLoaded IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*", "C:\\Windows\\SoftwareDistribution\\*", "C:\\Windows\\System32\\*", "C:\\Windows\\SystemTemp\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*")) NOT (ImageLoaded IN ("*\\Anaconda3\\Lib\\site-packages\\vtrace\\platforms\\windll\\amd64\\dbghelp.dll", "*\\Anaconda3\\Lib\\site-packages\\vtrace\\platforms\\windll\\i386\\dbghelp.dll") OR ImageLoaded IN ("*\\Epic Games\\Launcher\\Engine\\Binaries\\ThirdParty\\DbgHelp\\dbghelp.dll", "*\\Epic Games\\MagicLegends\\x86\\dbghelp.dll") OR (ImageLoaded="*opera\\Opera Installer Temp\\opera_package*" ImageLoaded="*\\assistant\\dbghelp.dll"))

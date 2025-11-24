@@ -1,0 +1,11 @@
+# Title: Potential COM Object Hijacking Via TreatAs Subkey - Registry
+# Author: Kutepov Anton, oscd.community
+# Date: 2019-10-23
+# Level: medium
+# Description: Detects COM object hijacking via TreatAs subkey
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.015
+# False Positives:
+#   - Maybe some system utilities in rare cases use linking keys for backward compatibility
+
+EventType="CreateKey" TargetObject="*HKU\\*" TargetObject="*Classes\\CLSID\\*" TargetObject="*\\TreatAs*" NOT Image="C:\\WINDOWS\\system32\\svchost.exe"

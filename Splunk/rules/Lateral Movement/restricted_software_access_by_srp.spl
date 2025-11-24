@@ -1,0 +1,9 @@
+# Title: Restricted Software Access By SRP
+# Author: frack113
+# Date: 2023-01-12
+# Level: high
+# Description: Detects restricted access to applications by the Software Restriction Policies (SRP) policy
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.execution, attack.defense-evasion, attack.t1072
+
+EventID IN (865, 866, 867, 868, 882) Provider_Name="Microsoft-Windows-SoftwareRestrictionPolicies"

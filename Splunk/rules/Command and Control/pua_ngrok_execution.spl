@@ -1,0 +1,13 @@
+# Title: PUA - Ngrok Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-05-14
+# Level: high
+# Description: Detects the use of Ngrok, a utility used for port forwarding and tunneling, often used by threat actors to make local protected services publicly available.
+# Involved domains are bin.equinox.io for download and *.ngrok.io for connections.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1572
+# False Positives:
+#   - Another tool that uses the command line switches of Ngrok
+#   - Ngrok http 3978 (https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0)
+
+CommandLine IN ("* tcp 139*", "* tcp 445*", "* tcp 3389*", "* tcp 5985*", "* tcp 5986*") OR (CommandLine="* start *" CommandLine="*--all*" CommandLine="*--config*" CommandLine="*.yml*") OR (CommandLine IN ("* tcp *", "* http *", "* authtoken *") Image="*ngrok.exe") OR CommandLine IN ("*.exe authtoken *", "*.exe start --all*")

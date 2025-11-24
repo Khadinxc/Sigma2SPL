@@ -1,0 +1,9 @@
+# Title: Successful Exchange ProxyShell Attack
+# Author: Florian Roth (Nextron Systems), Rich Warren
+# Date: 2021-08-09
+# Level: critical
+# Description: Detects URP patterns and status codes that indicate a successful ProxyShell exploitation attack against Exchange servers
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, detection.emerging-threats
+
+"cs-uri-query"="*/autodiscover.json*" "cs-uri-query" IN ("*/powershell*", "*/mapi/nspi*", "*/EWS*", "*X-Rps-CAT*") "sc-status" IN (200, 301)

@@ -1,0 +1,13 @@
+# Title: PUA - NimScan Execution
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-02-05
+# Level: medium
+# Description: Detects usage of NimScan, a portscanner utility.
+# In early 2025, adversaries were observed using this utility to scan for open ports on remote hosts in a compromised environment.
+# This rule identifies the execution of NimScan based on the process image name and specific hash values associated with different versions of the tool.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1046
+# False Positives:
+#   - Legitimate administrator activity
+
+Image="*\\NimScan.exe" OR Hashes IN ("*IMPHASH=41BB1C7571B3A724EB83A1D2B96DBB8C*", "*IMPHASH=B1B6ADACB172795480179EFD18A29549*", "*IMPHASH=0D1F896DC7642AD8384F9042F30279C2*")

@@ -1,0 +1,9 @@
+# Title: Suspicious Powercfg Execution To Change Lock Screen Timeout
+# Author: frack113
+# Date: 2022-11-18
+# Level: medium
+# Description: Detects suspicious execution of 'Powercfg.exe' to change lock screen timeout
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+Image="*\\powercfg.exe" OR OriginalFileName="PowerCfg.exe" (CommandLine="*/setacvalueindex *" CommandLine="*SCHEME_CURRENT*" CommandLine="*SUB_VIDEO*" CommandLine="*VIDEOCONLOCK*") OR (CommandLine="*-change *" CommandLine="*-standby-timeout-*")

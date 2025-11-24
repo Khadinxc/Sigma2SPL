@@ -1,0 +1,10 @@
+# Title: Execution of Suspicious File Type Extension
+# Author: Max Altgelt (Nextron Systems)
+# Date: 2021-12-09
+# Level: medium
+# Description: Detects whether the image specified in a process creation event doesn't refer to an ".exe" (or other known executable extension) file. This can be caused by process ghosting or other unorthodox methods to start a process.
+# This rule might require some initial baselining to align with some third party tooling in the user environment.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+NOT (Image IN ("*.bin", "*.cgi", "*.com", "*.exe", "*.scr", "*.tmp")) NOT (Image="*:\\$Extend\\$Deleted\\*" OR Image="*:\\Windows\\System32\\DriverStore\\FileRepository\\*" OR Image IN ("-", "") OR Image IN ("System", "Registry", "MemCompression", "vmmem") OR Image="*:\\Windows\\Installer\\MSI*" OR (Image="*:\\Config.Msi\\*" Image IN ("*.rbf", "*.rbs")) OR NOT Image=* OR ParentImage="*:\\Windows\\Temp\\*" OR Image="*:\\Windows\\Temp\\*") NOT (ParentImage="*:\\ProgramData\\Avira\\*" OR (Image="*com.docker.service" ParentImage="C:\\Windows\\System32\\services.exe") OR Image="*:\\Program Files\\Mozilla Firefox\\*" OR Image="*\\LZMA_EXE" OR Image IN ("*:\\Program Files (x86)\\MyQ\\Server\\pcltool.dll", "*:\\Program Files\\MyQ\\Server\\pcltool.dll") OR (Image="*NVIDIA\\NvBackend\\*" Image="*.dat") OR (Image IN ("*:\\Program Files (x86)\\WINPAKPRO\\*", "*:\\Program Files\\WINPAKPRO\\*") Image="*.ngn") OR (Image="*\\AppData\\Local\\Packages\\*" Image="*\\LocalState\\rootfs\\*"))

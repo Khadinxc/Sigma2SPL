@@ -1,0 +1,11 @@
+# Title: Wannacry Killswitch Domain
+# Author: Mike Wade
+# Date: 2020-09-16
+# Level: high
+# Description: Detects wannacry killswitch domain dns queries
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001
+# False Positives:
+#   - Analyst testing
+
+query IN ("ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.testing", "ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.test", "ifferfsodp9ifjaposdfjhgosurijfaewrwergwea.com", "ayylmaotjhsstasdfasdfasdfasdfasdfasdfasdf.com", "iuqssfsodp9ifjaposdfjhgosurijfaewrwergwea.com")

@@ -1,0 +1,12 @@
+# Title: PUA - AWS TruffleHog Execution
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-10-21
+# Level: medium
+# Description: Detects the execution of TruffleHog, a popular open-source tool used for scanning repositories for secrets and sensitive information, within an AWS environment.
+# It has been reported to be used by threat actors for credential harvesting. All detections should be investigated to determine if the usage is authorized by security teams or potentially malicious.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1555, attack.t1003
+# False Positives:
+#   - Legitimate use of TruffleHog by security teams for credential scanning.
+
+userAgent="TruffleHog"

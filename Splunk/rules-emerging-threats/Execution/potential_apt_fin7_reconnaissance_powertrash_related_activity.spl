@@ -1,0 +1,11 @@
+# Title: Potential APT FIN7 Reconnaissance/POWERTRASH Related Activity
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-04
+# Level: high
+# Description: Detects specific command line execution used by FIN7 as reported by WithSecureLabs for reconnaissance and POWERTRASH execution
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.g0046, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+(CommandLine="*-noni -nop -exe bypass -f \\\\*" CommandLine="*ADMIN$*") OR (CommandLine="*-ex bypass -noprof -nolog -nonint -f*" CommandLine="*C:\\Windows\\Temp\\*")

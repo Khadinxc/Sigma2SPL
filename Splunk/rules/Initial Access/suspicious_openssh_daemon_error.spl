@@ -1,0 +1,9 @@
+# Title: Suspicious OpenSSH Daemon Error
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-06-30
+# Level: medium
+# Description: Detects suspicious SSH / SSHD error messages that indicate a fatal or suspicious error that could be caused by exploiting attempts
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190
+
+"unexpected internal error" OR "unknown or unsupported key type" OR "invalid certificate signing key" OR "invalid elliptic curve value" OR "incorrect signature" OR "error in libcrypto" OR "unexpected bytes remain after decoding" OR "fatal: buffer_get_string: bad string" OR "Local: crc32 compensation attack" OR "bad client public DH value" OR "Corrupted MAC on input"

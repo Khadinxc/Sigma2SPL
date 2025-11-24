@@ -1,0 +1,12 @@
+# Title: Potential Hello-World Scraper Botnet Activity
+# Author: Joseph A. M.
+# Date: 2025-08-02
+# Level: medium
+# Description: Detects network traffic potentially associated with a scraper botnet variant that uses the "Hello-World/1.0" user-agent string.
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.t1595
+# False Positives:
+#   - Legitimate network monitoring or vulnerability scanning tools that may use this generic user agent.
+#   - Internal development or testing scripts. Consider filtering by source IP if this is expected from certain systems.
+
+"c-useragent"="Hello-World/1.0" "cs-method"="GET"

@@ -1,0 +1,11 @@
+# Title: Potential Suspicious Mofcomp Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-12
+# Level: high
+# Description: Detects execution of the "mofcomp" utility as a child of a suspicious shell or script running utility or by having a suspicious path in the commandline.
+# The "mofcomp" utility parses a file containing MOF statements and adds the classes and class instances defined in the file to the WMI repository.
+# Attackers abuse this utility to install malicious MOF scripts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+
+ParentImage IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wsl.exe", "*\\wscript.exe", "*\\cscript.exe") OR CommandLine IN ("*\\AppData\\Local\\Temp*", "*\\Users\\Public\\*", "*\\WINDOWS\\Temp\\*", "*%temp%*", "*%tmp%*", "*%appdata%*") Image="*\\mofcomp.exe" OR OriginalFileName="mofcomp.exe" NOT (CommandLine="*C:\\Windows\\TEMP\\*" CommandLine="*.mof" ParentImage="C:\\Windows\\System32\\wbem\\WmiPrvSE.exe") NOT (CommandLine="*C:\\Windows\\TEMP\\*" CommandLine="*.mof")

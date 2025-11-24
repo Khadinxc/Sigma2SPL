@@ -1,0 +1,11 @@
+# Title: OpenCanary - SIP Request
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where an SIP service on an OpenCanary node has had a SIP request.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1123
+# False Positives:
+#   - Unlikely
+
+logtype=15001

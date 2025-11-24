@@ -1,0 +1,12 @@
+# Title: Suspicious Processes Spawned by Java.EXE
+# Author: Andreas Hunkeler (@Karneades), Florian Roth
+# Date: 2021-12-17
+# Level: high
+# Description: Detects suspicious processes spawned from a Java host process which could indicate a sign of exploitation (e.g. log4j)
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - Legitimate calls to system binaries
+#   - Company specific internal usage
+
+Image IN ("*\\AppVLP.exe", "*\\bitsadmin.exe", "*\\certutil.exe", "*\\cscript.exe", "*\\curl.exe", "*\\forfiles.exe", "*\\hh.exe", "*\\mftrace.exe", "*\\mshta.exe", "*\\net.exe", "*\\net1.exe", "*\\query.exe", "*\\reg.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\schtasks.exe", "*\\scrcons.exe", "*\\scriptrunner.exe", "*\\sh.exe", "*\\systeminfo.exe", "*\\whoami.exe", "*\\wmic.exe", "*\\wscript.exe") ParentImage="*\\java.exe"

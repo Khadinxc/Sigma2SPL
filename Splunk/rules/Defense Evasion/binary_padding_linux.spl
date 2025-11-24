@@ -1,0 +1,10 @@
+# Title: Binary Padding - Linux
+# Author: Igor Fits, oscd.community
+# Date: 2020-10-13
+# Level: high
+# Description: Adversaries may use binary padding to add junk data and change the on-disk representation of malware.
+# This rule detect using dd and truncate to add a junk data to file.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027.001
+
+type="EXECVE" ("truncate" "-s") OR ("dd" "if=" NOT "of=")

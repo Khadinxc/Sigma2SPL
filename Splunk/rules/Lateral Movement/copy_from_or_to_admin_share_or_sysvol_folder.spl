@@ -1,0 +1,11 @@
+# Title: Copy From Or To Admin Share Or Sysvol Folder
+# Author: Florian Roth (Nextron Systems), oscd.community, Teymur Kheirkhabarov @HeirhabarovT, Zach Stanford @svch0st, Nasreddine Bencherchali
+# Date: 2019-12-30
+# Level: medium
+# Description: Detects a copy command or a copy utility execution to or from an Admin share or remote
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.collection, attack.exfiltration, attack.t1039, attack.t1048, attack.t1021.002
+# False Positives:
+#   - Administrative scripts
+
+CommandLine IN ("*\\\\*\\*$*", "*\\Sysvol\\*") Image IN ("*\\robocopy.exe", "*\\xcopy.exe") OR OriginalFileName IN ("robocopy.exe", "XCOPY.EXE") OR (CommandLine="*copy*" Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe") OR (CommandLine IN ("*copy-item*", "*copy *", "*cpi *", "* cp *", "*move *", "* move-item*", "* mi *", "* mv *") Image IN ("*\\powershell_ise.exe*", "*\\powershell.exe*", "*\\pwsh.exe*") OR OriginalFileName IN ("powershell_ise.exe", "PowerShell.EXE", "pwsh.dll"))

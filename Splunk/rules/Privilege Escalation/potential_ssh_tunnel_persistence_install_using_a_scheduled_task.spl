@@ -1,0 +1,9 @@
+# Title: Potential SSH Tunnel Persistence Install Using A Scheduled Task
+# Author: Rory Duncan
+# Date: 2025-07-14
+# Level: high
+# Description: Detects the creation of new scheduled tasks via commandline, using Schtasks.exe. This rule detects tasks creating that call OpenSSH, which may indicate the creation of reverse SSH tunnel to the attacker's server.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.t1053.005, attack.command-and-control
+
+Image="*\\schtasks.exe" OR OriginalFileName="schtasks.exe" (CommandLine="* /create *" CommandLine="*ssh.exe*" CommandLine="*-i*") OR (CommandLine="* /create *" CommandLine="*sshd.exe*" CommandLine="*-f*")

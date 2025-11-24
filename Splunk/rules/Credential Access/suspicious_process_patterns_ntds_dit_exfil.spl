@@ -1,0 +1,9 @@
+# Title: Suspicious Process Patterns NTDS.DIT Exfil
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-11
+# Level: high
+# Description: Detects suspicious process patterns used in NTDS.DIT exfiltration
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.003
+
+(CommandLine="*ac i ntds*" CommandLine="*create full*") OR (CommandLine="*/c copy *" CommandLine="*\\windows\\ntds\\ntds.dit*") OR (CommandLine="*activate instance ntds*" CommandLine="*create full*") OR (CommandLine="*powershell*" CommandLine="*ntds.dit*") OR Image IN ("*\\NTDSDump.exe", "*\\NTDSDumpEx.exe") OR (CommandLine="*ntds.dit*" CommandLine="*system.hiv*") OR CommandLine="*NTDSgrab.ps1*" OR (ParentImage IN ("*\\apache*", "*\\tomcat*", "*\\AppData\\*", "*\\Temp\\*", "*\\Public\\*", "*\\PerfLogs\\*") OR Image IN ("*\\apache*", "*\\tomcat*", "*\\AppData\\*", "*\\Temp\\*", "*\\Public\\*", "*\\PerfLogs\\*") CommandLine="*ntds.dit*")

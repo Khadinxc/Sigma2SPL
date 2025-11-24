@@ -1,0 +1,9 @@
+# Title: Silence.EDA Detection
+# Author: Alina Stepchenkova, Group-IB, oscd.community
+# Date: 2019-11-01
+# Level: critical
+# Description: Detects Silence EmpireDNSAgent as described in the Group-IP report
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.command-and-control, attack.t1071.004, attack.t1572, attack.impact, attack.t1529, attack.g0091, attack.s0363
+
+ScriptBlockText="*System.Diagnostics.Process*" ScriptBlockText="*Stop-Computer*" ScriptBlockText="*Restart-Computer*" ScriptBlockText="*Exception in execution*" ScriptBlockText="*$cmdargs*" ScriptBlockText="*Close-Dnscat2Tunnel*" ScriptBlockText="*set type=$LookupType`nserver*" ScriptBlockText="*$Command | nslookup 2>&1 | Out-String*" ScriptBlockText="*New-RandomDNSField*" ScriptBlockText="*[Convert]::ToString($SYNOptions, 16)*" ScriptBlockText="*$Session.Dead = $True*" ScriptBlockText="*$Session[\"Driver\"] -eq*"

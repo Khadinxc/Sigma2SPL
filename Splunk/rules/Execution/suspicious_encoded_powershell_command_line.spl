@@ -1,0 +1,9 @@
+# Title: Suspicious Encoded PowerShell Command Line
+# Author: Florian Roth (Nextron Systems), Markus Neis, Jonhnathan Ribeiro, Daniil Yugoslavskiy, Anton Kutepov, oscd.community
+# Date: 2018-09-03
+# Level: high
+# Description: Detects suspicious powershell process starts with base64 encoded commands (e.g. Emotet)
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") (CommandLine IN ("* JAB*", "* SUVYI*", "* SQBFAFgA*", "* aQBlAHgA*", "* aWV4I*", "* IAA*", "* IAB*", "* UwB*", "* cwB*") CommandLine="* -e*") OR CommandLine IN ("*.exe -ENCOD *", "* BA^J e-*") NOT CommandLine="* -ExecutionPolicy remotesigned *"

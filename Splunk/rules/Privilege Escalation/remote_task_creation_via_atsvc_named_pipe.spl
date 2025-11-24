@@ -1,0 +1,9 @@
+# Title: Remote Task Creation via ATSVC Named Pipe
+# Author: Samir Bousseaden
+# Date: 2019-04-03
+# Level: medium
+# Description: Detects remote task creation via at.exe or API interacting with ATSVC namedpipe
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.lateral-movement, attack.persistence, car.2013-05-004, car.2015-04-001, attack.t1053.002
+
+AccessList="*WriteData*" EventID=5145 RelativeTargetName="atsvc" ShareName="\\\\\*\\IPC$"

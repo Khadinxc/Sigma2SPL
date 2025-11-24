@@ -1,0 +1,11 @@
+# Title: Remote Server Service Abuse
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to possibly abuse remote encryption service via MS-SRVS
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement
+# False Positives:
+#   - Legitimate remote share creation
+
+EventID=3 EventLog="RPCFW" InterfaceUuid="4b324fc8-1670-01d3-1278-5a47bf6ee188"

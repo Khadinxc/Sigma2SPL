@@ -1,0 +1,9 @@
+# Title: Potential Raspberry Robin Aclui Dll SideLoading
+# Author: Swachchhanda Shrawan Poudel
+# Date: 2024-07-31
+# Level: high
+# Description: Detects potential sideloading of malicious "aclui.dll" by OleView.This behavior was observed in Raspberry-Robin variants reported by chekpoint research on Feburary 2024.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.001, detection.emerging-threats
+
+ImageLoaded="*\\aclui.dll" Image="*\\OleView.exe" NOT (Signed="true" OR Image IN ("C:\\Program Files (x86)\\Windows Kits\\*", "C:\\Program Files\\Microsoft SDKs\\*")) NOT Image="*\\Windows Resource Kit\\*"

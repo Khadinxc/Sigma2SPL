@@ -1,0 +1,12 @@
+# Title: Modify System Firewall
+# Author: IAI
+# Date: 2023-03-06
+# Level: medium
+# Description: Detects the removal of system firewall rules. Adversaries may only delete or modify a specific system firewall rule to bypass controls limiting network usage or access.
+# Detection rules that match only on the disabling of firewalls will miss this.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.t1562.004, attack.defense-evasion
+# False Positives:
+#   - Legitimate admin activity
+
+(a0="iptables" a1="*DROP*" type="EXECVE") OR (a0="firewall-cmd" a1="*remove*" type="EXECVE") OR (a0="ufw" a1="*delete*" type="EXECVE") OR (a0="nft" a1 IN ("*delete*", "*flush*") type="EXECVE")

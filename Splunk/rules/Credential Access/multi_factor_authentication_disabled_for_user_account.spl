@@ -1,0 +1,12 @@
+# Title: Multi Factor Authentication Disabled For User Account
+# Author: Harjot Singh (@cyb3rjy0t)
+# Date: 2024-08-21
+# Level: medium
+# Description: Detects changes to the "StrongAuthenticationRequirement" value, where the state is set to "0" or "Disabled".
+# Threat actors were seen disabling multi factor authentication for users in order to maintain or achieve access to the account. Also see in SIM Swap attacks.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.persistence
+# False Positives:
+#   - Legitimate authorized activity.
+
+Category="UserManagement" LoggedByService="Core Directory" OperationName="Update user" TargetResources.ModifiedProperties.DisplayName="StrongAuthenticationRequirement" TargetResources.ModifiedProperties.NewValue="*State\":0*"

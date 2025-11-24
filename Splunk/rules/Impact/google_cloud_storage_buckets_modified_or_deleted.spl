@@ -1,0 +1,12 @@
+# Title: Google Cloud Storage Buckets Modified or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-14
+# Level: medium
+# Description: Detects when storage bucket is modified or deleted in Google Cloud.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - Storage Buckets being modified or deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Storage Buckets modified or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+gcp.audit.method_name IN ("storage.buckets.delete", "storage.buckets.insert", "storage.buckets.update", "storage.buckets.patch")

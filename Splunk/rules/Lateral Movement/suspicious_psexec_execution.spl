@@ -1,0 +1,9 @@
+# Title: Suspicious PsExec Execution
+# Author: Samir Bousseaden
+# Date: 2019-04-03
+# Level: high
+# Description: detects execution of psexec or paexec with renamed service name, this rule helps to filter out the noise if psexec is used for legit purposes or if attacker uses a different psexec client other than sysinternal one
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+
+EventID=5145 RelativeTargetName IN ("*-stdin", "*-stdout", "*-stderr") ShareName="\\\\\*\\IPC$" NOT RelativeTargetName="PSEXESVC*"

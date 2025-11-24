@@ -1,0 +1,11 @@
+# Title: Change PowerShell Policies to an Insecure Level - PowerShell
+# Author: frack113
+# Date: 2021-10-20
+# Level: medium
+# Description: Detects changing the PowerShell script execution policy to a potentially insecure level using the "Set-ExecutionPolicy" cmdlet.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Administrator script
+
+ScriptBlockText="*Set-ExecutionPolicy*" ScriptBlockText IN ("*Unrestricted*", "*bypass*") NOT (ScriptBlockText IN ("*(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')*", "*(New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')*"))

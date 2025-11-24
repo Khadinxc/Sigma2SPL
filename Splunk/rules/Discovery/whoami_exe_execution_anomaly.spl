@@ -1,0 +1,13 @@
+# Title: Whoami.EXE Execution Anomaly
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-08-12
+# Level: medium
+# Description: Detects the execution of whoami.exe with suspicious parent processes.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1033, car.2016-03-001
+# False Positives:
+#   - Admin activity
+#   - Scripts and administrative tools used in the monitored environment
+#   - Monitoring activity
+
+Image="*\\whoami.exe" OR OriginalFileName="whoami.exe" NOT (ParentImage IN ("*\\cmd.exe", "*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe") OR ParentImage IN ("", "-") OR NOT ParentImage=*) NOT ParentImage="*:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe"

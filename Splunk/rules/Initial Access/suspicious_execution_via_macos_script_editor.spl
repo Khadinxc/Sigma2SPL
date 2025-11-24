@@ -1,0 +1,9 @@
+# Title: Suspicious Execution via macOS Script Editor
+# Author: Tim Rauch (rule), Elastic (idea)
+# Date: 2022-10-21
+# Level: medium
+# Description: Detects when the macOS Script Editor utility spawns an unusual child process.
+# MITRE Tactic: Initial Access
+# Tags: attack.t1566, attack.t1566.002, attack.initial-access, attack.t1059, attack.t1059.002, attack.t1204, attack.t1204.001, attack.execution, attack.persistence, attack.t1553, attack.defense-evasion
+
+Image IN ("*/curl", "*/bash", "*/sh", "*/zsh", "*/dash", "*/fish", "*/osascript", "*/mktemp", "*/chmod", "*/php", "*/nohup", "*/openssl", "*/plutil", "*/PlistBuddy", "*/xattr", "*/sqlite", "*/funzip", "*/popen") OR Image IN ("*python*", "*perl*") ParentImage="*/Script Editor"

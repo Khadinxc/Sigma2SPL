@@ -1,0 +1,15 @@
+# Title: Access To Crypto Currency Wallets By Uncommon Applications
+# Author: X__Junior (Nextron Systems)
+# Date: 2024-07-29
+# Level: medium
+# Description: Detects file access requests to crypto currency files by uncommon processes.
+# Could indicate potential attempt of crypto currency wallet stealing.
+# MITRE Tactic: Credential Access
+# Tags: attack.t1003, attack.credential-access
+# False Positives:
+#   - Antivirus, Anti-Spyware, Anti-Malware Software
+#   - Backup software
+#   - Legitimate software installed on partitions other than "C:\"
+#   - Searching software such as "everything.exe"
+
+FileName IN ("*\\AppData\\Roaming\\Ethereum\\keystore\\*", "*\\AppData\\Roaming\\EthereumClassic\\keystore\\*", "*\\AppData\\Roaming\\monero\\wallets\\*") OR FileName IN ("*\\AppData\\Roaming\\Bitcoin\\wallet.dat", "*\\AppData\\Roaming\\BitcoinABC\\wallet.dat", "*\\AppData\\Roaming\\BitcoinSV\\wallet.dat", "*\\AppData\\Roaming\\DashCore\\wallet.dat", "*\\AppData\\Roaming\\DogeCoin\\wallet.dat", "*\\AppData\\Roaming\\Litecoin\\wallet.dat", "*\\AppData\\Roaming\\Ripple\\wallet.dat", "*\\AppData\\Roaming\\Zcash\\wallet.dat") NOT (Image IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*", "C:\\Windows\\system32\\*", "C:\\Windows\\SysWOW64\\*") OR Image="System") NOT (Image IN ("*\\MpCopyAccelerator.exe", "*\\MsMpEng.exe") Image="C:\\ProgramData\\Microsoft\\Windows Defender\\*")

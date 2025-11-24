@@ -1,0 +1,12 @@
+# Title: New Firewall Rule Added Via Netsh.EXE
+# Author: Markus Neis, Sander Wiebing
+# Date: 2019-01-29
+# Level: medium
+# Description: Detects the addition of a new rule to the Windows firewall via netsh
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004, attack.s0246
+# False Positives:
+#   - Legitimate administration activity
+#   - Software installations
+
+CommandLine="* firewall *" CommandLine="* add *" Image="*\\netsh.exe" OR OriginalFileName="netsh.exe" NOT (CommandLine IN ("*advfirewall firewall add rule name=Dropbox dir=in action=allow \"program=*:\\Program Files (x86)\\Dropbox\\Client\\Dropbox.exe\" enable=yes profile=Any*", "*advfirewall firewall add rule name=Dropbox dir=in action=allow \"program=*:\\Program Files\\Dropbox\\Client\\Dropbox.exe\" enable=yes profile=Any*"))

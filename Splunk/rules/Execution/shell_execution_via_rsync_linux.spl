@@ -1,0 +1,11 @@
+# Title: Shell Execution via Rsync - Linux
+# Author: Li Ling, Andy Parkidomo, Robert Rakowski, Blake Hartstein (Bloomberg L.P.), Florian Roth
+# Date: 2024-09-02
+# Level: high
+# Description: Detects the use of the "rsync" utility to execute a shell. Such behavior may be associated with privilege escalation, unauthorized command execution, or to break out from restricted environments.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# False Positives:
+#   - Legitimate cases in which "rsync" is used to execute a shell
+
+CommandLine IN ("*/ash *", "*/bash *", "*/dash *", "*/csh *", "*/sh *", "*/zsh *", "*/tcsh *", "*/ksh *", "*'ash *", "*'bash *", "*'dash *", "*'csh *", "*'sh *", "*'zsh *", "*'tcsh *", "*'ksh *") CommandLine="* -e *" Image IN ("*/rsync", "*/rsyncd")

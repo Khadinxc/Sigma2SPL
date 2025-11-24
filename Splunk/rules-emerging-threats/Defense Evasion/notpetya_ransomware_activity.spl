@@ -1,0 +1,9 @@
+# Title: NotPetya Ransomware Activity
+# Author: Florian Roth (Nextron Systems), Tom Ueltschi
+# Date: 2019-01-16
+# Level: critical
+# Description: Detects NotPetya ransomware activity in which the extracted passwords are passed back to the main module via named pipe, the file system journal of drive C is deleted and Windows eventlogs are cleared using wevtutil
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.011, attack.t1070.001, attack.credential-access, attack.t1003.001, car.2016-04-002, detection.emerging-threats
+
+"\\perfc.dat" OR (CommandLine IN ("*.dat,#1", "*.dat #1", "*.zip.dll\",#1") Image="*\\rundll32.exe") OR CommandLine IN ("*wevtutil cl Application & fsutil usn deletejournal /D C:*", "*dllhost.dat %WINDIR%\\ransoms*")

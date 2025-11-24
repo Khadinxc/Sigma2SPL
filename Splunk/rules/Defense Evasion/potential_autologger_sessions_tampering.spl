@@ -1,0 +1,9 @@
+# Title: Potential AutoLogger Sessions Tampering
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-01
+# Level: high
+# Description: Detects tampering with autologger trace sessions which is a technique used by attackers to disable logging
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+TargetObject="*\\System\\CurrentControlSet\\Control\\WMI\\Autologger\\*" Details="DWORD (0x00000000)" TargetObject IN ("*\\EventLog-*", "*\\Defender*") TargetObject IN ("*\\Enable", "*\\Start") NOT ((Image="*\\MsMpEng.exe" Image IN ("C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*", "C:\\Program Files\\Windows Defender\\*", "C:\\Program Files (x86)\\Windows Defender\\*") TargetObject IN ("*\\DefenderApiLogger\\*", "*\\DefenderAuditLogger\\*")) OR Image="C:\\Windows\\system32\\wevtutil.exe")

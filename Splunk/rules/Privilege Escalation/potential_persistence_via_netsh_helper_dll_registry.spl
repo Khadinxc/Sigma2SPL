@@ -1,0 +1,11 @@
+# Title: Potential Persistence Via Netsh Helper DLL - Registry
+# Author: Anish Bogati
+# Date: 2023-11-28
+# Level: medium
+# Description: Detects changes to the Netsh registry key to add a new DLL value. This change might be an indication of a potential persistence attempt by adding a malicious Netsh helper
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.007
+# False Positives:
+#   - Legitimate helper added by different programs and the OS
+
+Details="*.dll*" TargetObject="*\\SOFTWARE\\Microsoft\\NetSh*" NOT (Details IN ("ipmontr.dll", "iasmontr.dll", "ippromon.dll") Image="C:\\Windows\\System32\\poqexec.exe")

@@ -1,0 +1,9 @@
+# Title: Windows Firewall Profile Disabled
+# Author: Austin Songer @austinsonger
+# Date: 2021-10-12
+# Level: medium
+# Description: Detects when a user disables the Windows Firewall via a Profile to help evade defense.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004
+
+ScriptBlockText="*Set-NetFirewallProfile *" ScriptBlockText="* -Enabled *" ScriptBlockText="* False*" ScriptBlockText IN ("* -All *", "*Public*", "*Domain*", "*Private*")

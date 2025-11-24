@@ -1,0 +1,9 @@
+# Title: Active Directory Structure Export Via Ldifde.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-03-14
+# Level: medium
+# Description: Detects the execution of "ldifde.exe" in order to export organizational Active Directory structure.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration
+
+CommandLine="*-f*" Image="*\\ldifde.exe" OR OriginalFileName="ldifde.exe" NOT CommandLine="* -i*"

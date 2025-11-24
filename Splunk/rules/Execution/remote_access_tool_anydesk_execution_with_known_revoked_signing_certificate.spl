@@ -1,0 +1,14 @@
+# Title: Remote Access Tool - AnyDesk Execution With Known Revoked Signing Certificate
+# Author: Sai Prashanth Pulisetti, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-02-08
+# Level: medium
+# Description: Detects the execution of an AnyDesk binary with a version prior to 8.0.8.
+# Prior to version 8.0.8, the Anydesk application used a signing certificate that got compromised by threat actors.
+# Use this rule to detect instances of older versions of Anydesk using the compromised certificate
+# This is recommended in order to avoid attackers leveraging the certificate and signing their binaries to bypass detections.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.initial-access
+# False Positives:
+#   - Unlikely
+
+Image="*\\AnyDesk.exe" OR Description="AnyDesk" OR Product="AnyDesk" OR Company="AnyDesk Software GmbH" FileVersion IN ("7.0.*", "7.1.*", "8.0.1*", "8.0.2*", "8.0.3*", "8.0.4*", "8.0.5*", "8.0.6*", "8.0.7*") NOT (CommandLine IN ("* --remove*", "* --uninstall*"))

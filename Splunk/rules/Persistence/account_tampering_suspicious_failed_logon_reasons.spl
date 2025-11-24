@@ -1,0 +1,11 @@
+# Title: Account Tampering - Suspicious Failed Logon Reasons
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-02-19
+# Level: medium
+# Description: This method uses uncommon error codes on failed logons to determine suspicious activity and tampering with accounts that have been disabled or somehow restricted.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.initial-access, attack.t1078
+# False Positives:
+#   - User using a disabled account
+
+EventID IN (4625, 4776) Status IN ("0xC0000072", "0xC000006F", "0xC0000070", "0xC0000413", "0xC000018C", "0xC000015B") OR SubStatus IN ("0xC0000072", "0xC000006F", "0xC0000070", "0xC0000413", "0xC000018C", "0xC000015B") NOT SubjectUserSid="S-1-0-0"

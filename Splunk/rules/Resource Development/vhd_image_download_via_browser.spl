@@ -1,0 +1,12 @@
+# Title: VHD Image Download Via Browser
+# Author: frack113, Christopher Peacock '@securepeacock', SCYTHE '@scythe_io'
+# Date: 2021-10-25
+# Level: medium
+# Description: Detects creation of ".vhd"/".vhdx" files by browser processes.
+# Malware can use mountable Virtual Hard Disk ".vhd" files to encapsulate payloads and evade security controls.
+# MITRE Tactic: Resource Development
+# Tags: attack.resource-development, attack.t1587.001
+# False Positives:
+#   - Legitimate downloads of ".vhd" files would also trigger this
+
+Image IN ("*\\brave.exe", "*\\chrome.exe", "*\\firefox.exe", "*\\iexplore.exe", "*\\maxthon.exe", "*\\MicrosoftEdge.exe", "*\\msedge.exe", "*\\msedgewebview2.exe", "*\\opera.exe", "*\\safari.exe", "*\\seamonkey.exe", "*\\vivaldi.exe", "*\\whale.exe") TargetFilename="*.vhd*"

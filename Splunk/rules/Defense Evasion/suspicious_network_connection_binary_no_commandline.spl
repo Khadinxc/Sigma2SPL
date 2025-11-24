@@ -1,0 +1,9 @@
+# Title: Suspicious Network Connection Binary No CommandLine
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-07-03
+# Level: high
+# Description: Detects suspicious network connections made by a well-known Windows binary run with no command line parameters
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+CommandLine IN ("*\\regsvr32.exe", "*\\rundll32.exe", "*\\dllhost.exe") Image IN ("*\\regsvr32.exe", "*\\rundll32.exe", "*\\dllhost.exe") Initiated="true" NOT (CommandLine="" OR NOT CommandLine=*)

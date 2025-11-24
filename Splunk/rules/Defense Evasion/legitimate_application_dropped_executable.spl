@@ -1,0 +1,9 @@
+# Title: Legitimate Application Dropped Executable
+# Author: frack113, Florian Roth (Nextron Systems)
+# Date: 2022-08-21
+# Level: high
+# Description: Detects programs on a Windows system that should not write executables to disk
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+
+Image IN ("*\\eqnedt32.exe", "*\\wordpad.exe", "*\\wordview.exe", "*\\certutil.exe", "*\\certoc.exe", "*\\CertReq.exe", "*\\Desktopimgdownldr.exe", "*\\esentutl.exe", "*\\mshta.exe", "*\\AcroRd32.exe", "*\\RdrCEF.exe", "*\\hh.exe", "*\\finger.exe") TargetFilename IN ("*.exe", "*.dll", "*.ocx")

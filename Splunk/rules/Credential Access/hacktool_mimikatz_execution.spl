@@ -1,0 +1,11 @@
+# Title: HackTool - Mimikatz Execution
+# Author: Teymur Kheirkhabarov, oscd.community, David ANDRE (additional keywords), Tim Shelton
+# Date: 2019-10-22
+# Level: high
+# Description: Detection well-known mimikatz command line arguments
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001, attack.t1003.002, attack.t1003.004, attack.t1003.005, attack.t1003.006
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*::aadcookie*", "*::detours*", "*::memssp*", "*::mflt*", "*::ncroutemon*", "*::ngcsign*", "*::printnightmare*", "*::skeleton*", "*::preshutdown*", "*::mstsc*", "*::multirdp*") OR CommandLine IN ("*rpc::*", "*token::*", "*crypto::*", "*dpapi::*", "*sekurlsa::*", "*kerberos::*", "*lsadump::*", "*privilege::*", "*process::*", "*vault::*") OR CommandLine IN ("*DumpCreds*", "*mimikatz*")

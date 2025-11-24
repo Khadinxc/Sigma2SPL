@@ -1,0 +1,11 @@
+# Title: Sysmon Configuration Change
+# Author: frack113
+# Date: 2022-01-12
+# Level: medium
+# Description: Detects a Sysmon configuration change, which could be the result of a legitimate reconfiguration or someone trying manipulate the configuration
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Legitimate administrative action
+
+EventID=16

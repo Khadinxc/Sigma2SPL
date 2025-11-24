@@ -1,0 +1,12 @@
+# Title: Data Exfiltration with Wget
+# Author: Pawel Mazur
+# Date: 2021-11-18
+# Level: medium
+# Description: Detects attempts to post the file with the usage of wget utility.
+# The adversary can bypass the permission restriction with the misconfigured sudo permission for wget utility which could allow them to read files like /etc/shadow.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1048.003
+# False Positives:
+#   - Legitimate usage of wget utility to post a file
+
+a0="wget" a1="--post-file=*" type="EXECVE"

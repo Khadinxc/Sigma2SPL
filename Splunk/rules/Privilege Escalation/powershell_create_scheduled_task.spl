@@ -1,0 +1,9 @@
+# Title: Powershell Create Scheduled Task
+# Author: frack113
+# Date: 2021-12-28
+# Level: medium
+# Description: Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.005
+
+(ScriptBlockText="*Invoke-CimMethod*" ScriptBlockText="*-ClassName*" ScriptBlockText="*PS_ScheduledTask*" ScriptBlockText="*-NameSpace*" ScriptBlockText="*Root\\Microsoft\\Windows\\TaskScheduler*") OR ScriptBlockText IN ("*New-ScheduledTaskAction*", "*New-ScheduledTaskTrigger*", "*New-ScheduledTaskPrincipal*", "*New-ScheduledTaskSettingsSet*", "*New-ScheduledTask*", "*Register-ScheduledTask*") NOT (ScriptBlockText="*Microsoft.PowerShell.Core\\Export-ModuleMember*" ScriptBlockText="*Microsoft.Management.Infrastructure.CimInstance*" ScriptBlockText="*__cmdletization_methodParameter*")

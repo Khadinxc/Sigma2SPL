@@ -1,0 +1,11 @@
+# Title: Anomalous User Activity
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-03
+# Level: high
+# Description: Indicates that there are anomalous patterns of behavior like suspicious changes to the directory.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.t1098, attack.persistence
+# False Positives:
+#   - We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user.
+
+riskEventType="anomalousUserActivity"

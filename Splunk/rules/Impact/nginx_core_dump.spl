@@ -1,0 +1,11 @@
+# Title: Nginx Core Dump
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-05-31
+# Level: high
+# Description: Detects a core dump of a crashing Nginx worker process, which could be a signal of a serious problem or exploitation attempts.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1499.004
+# False Positives:
+#   - Serious issues with a configuration or plugin
+
+"exited on signal 6 (core dumped)"

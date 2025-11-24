@@ -1,0 +1,11 @@
+# Title: Potential CommandLine Path Traversal Via Cmd.EXE
+# Author: xknow @xknow_infosec, Tim Shelton
+# Date: 2020-06-11
+# Level: high
+# Description: Detects potential path traversal attempt via cmd.exe. Could indicate possible command/argument confusion/hijacking
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.003
+# False Positives:
+#   - Java tools are known to produce false-positive when loading libraries
+
+ParentCommandLine IN ("*/c*", "*/k*", "*/r*") OR CommandLine IN ("*/c*", "*/k*", "*/r*") ParentImage="*\\cmd.exe" OR Image="*\\cmd.exe" OR OriginalFileName="cmd.exe" ParentCommandLine="/../../" OR CommandLine="*/../../*" NOT CommandLine="*\\Tasktop\\keycloak\\bin\\/../../jre\\bin\\java*"

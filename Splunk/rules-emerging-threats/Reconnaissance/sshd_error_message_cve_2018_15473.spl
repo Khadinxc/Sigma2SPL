@@ -1,0 +1,9 @@
+# Title: SSHD Error Message CVE-2018-15473
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-08-24
+# Level: medium
+# Description: Detects exploitation attempt using public exploit code for CVE-2018-15473
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.t1589, cve.2018-15473, detection.emerging-threats
+
+"error: buffer_get_ret: trying to get more bytes 1907 than in buffer 308 [preauth]"

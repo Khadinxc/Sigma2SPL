@@ -1,0 +1,9 @@
+# Title: Citrix Netscaler Attack CVE-2019-19781
+# Author: Arnim Rupp, Florian Roth
+# Date: 2020-01-02
+# Level: critical
+# Description: Detects CVE-2019-19781 exploitation attempt against Citrix Netscaler, Application Delivery Controller and Citrix Gateway Attack
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190, cve.2019-19781, detection.emerging-threats
+
+"cs-uri-query" IN ("*/../vpns/*", "*/vpns/cfg/smb.conf") OR ("cs-uri-query"="*/vpns/portal/scripts/*" "cs-uri-query"="*.pl*") | table client_ip,vhost,url,response

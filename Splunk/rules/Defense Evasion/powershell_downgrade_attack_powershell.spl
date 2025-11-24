@@ -1,0 +1,9 @@
+# Title: PowerShell Downgrade Attack - PowerShell
+# Author: Florian Roth (Nextron Systems), Lee Holmes (idea), Harish Segar (improvements)
+# Date: 2017-03-22
+# Level: medium
+# Description: Detects PowerShell downgrade attack by comparing the host versions with the actually used engine version 2.0
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.t1059.001
+
+Data="*EngineVersion=2.*" NOT Data="*HostVersion=2.*"

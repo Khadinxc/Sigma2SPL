@@ -1,0 +1,12 @@
+# Title: AWS Glue Development Endpoint Activity
+# Author: Austin Songer @austinsonger
+# Date: 2021-10-03
+# Level: low
+# Description: Detects possible suspicious glue development endpoint activity.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# False Positives:
+#   - Glue Development Endpoint Activity may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - If known behavior is causing false positives, it can be exempted from the rule.
+
+eventName IN ("CreateDevEndpoint", "DeleteDevEndpoint", "UpdateDevEndpoint") eventSource="glue.amazonaws.com"

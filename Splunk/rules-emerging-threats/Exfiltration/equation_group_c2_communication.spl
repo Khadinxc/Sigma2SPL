@@ -1,0 +1,9 @@
+# Title: Equation Group C2 Communication
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-04-15
+# Level: high
+# Description: Detects communication to C2 servers mentioned in the operational notes of the ShadowBroker leak of EquationGroup C2 tools
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.command-and-control, attack.g0020, attack.t1041, detection.emerging-threats
+
+dst_ip IN ("69.42.98.86", "89.185.234.145") OR src_ip IN ("69.42.98.86", "89.185.234.145")

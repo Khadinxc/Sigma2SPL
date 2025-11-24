@@ -1,0 +1,12 @@
+# Title: Suspicious Curl Change User Agents - Linux
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-09-15
+# Level: medium
+# Description: Detects a suspicious curl process start on linux with set useragent options
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001
+# False Positives:
+#   - Scripts created by developers and admins
+#   - Administrative activity
+
+CommandLine IN ("* -A *", "* --user-agent *") Image="*/curl"

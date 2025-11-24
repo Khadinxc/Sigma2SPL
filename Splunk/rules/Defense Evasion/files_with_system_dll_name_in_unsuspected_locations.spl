@@ -1,0 +1,12 @@
+# Title: Files With System DLL Name In Unsuspected Locations
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-06-24
+# Level: medium
+# Description: Detects the creation of a file with the ".dll" extension that has the name of a System DLL in uncommon or unsuspected locations. (Outisde of "System32", "SysWOW64", etc.).
+# It is highly recommended to perform an initial baseline before using this rule in production.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036.005
+# False Positives:
+#   - Third party software might bundle specific versions of system DLLs.
+
+TargetFilename IN ("*\\secur32.dll", "*\\tdh.dll") NOT (TargetFilename IN ("*C:\\$WINDOWS.~BT\\*", "*C:\\$WinREAgent\\*", "*C:\\Windows\\SoftwareDistribution\\*", "*C:\\Windows\\System32\\*", "*C:\\Windows\\SysWOW64\\*", "*C:\\Windows\\WinSxS\\*", "*C:\\Windows\\uus\\*"))

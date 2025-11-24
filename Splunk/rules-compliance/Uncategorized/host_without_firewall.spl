@@ -1,0 +1,9 @@
+# Title: Host Without Firewall
+# Author: Alexandr Yampolskyi, SOC Prime
+# Date: 2019-03-19
+# Level: low
+# Description: Host Without Firewall. Alert means not complied. Sigma for Qualys vulnerability scanner. Scan type - Vulnerability Management.
+# MITRE Tactic: Uncategorized
+# Tags: 
+
+event.category="Security Policy" host.scan.vuln_name="*Firewall Product Not Detected*"

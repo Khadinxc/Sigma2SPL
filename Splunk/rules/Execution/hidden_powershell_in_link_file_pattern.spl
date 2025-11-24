@@ -1,0 +1,11 @@
+# Title: Hidden Powershell in Link File Pattern
+# Author: frack113
+# Date: 2022-02-06
+# Level: medium
+# Description: Detects events that appear when a user click on a link file with a powershell command in it
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Legitimate commands in .lnk files
+
+CommandLine="*powershell*" CommandLine="*.lnk*" Image="C:\\Windows\\System32\\cmd.exe" ParentImage="C:\\Windows\\explorer.exe"

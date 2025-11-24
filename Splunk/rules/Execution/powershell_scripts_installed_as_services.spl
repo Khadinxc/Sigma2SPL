@@ -1,0 +1,9 @@
+# Title: PowerShell Scripts Installed as Services
+# Author: oscd.community, Natalia Shornikova
+# Date: 2020-10-06
+# Level: high
+# Description: Detects powershell script installed as a Service
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002
+
+EventID=7045 ImagePath IN ("*powershell*", "*pwsh*") Provider_Name="Service Control Manager"

@@ -1,0 +1,14 @@
+# Title: File and Directory Discovery - Linux
+# Author: Daniil Yugoslavskiy, oscd.community, CheraghiMilad
+# Date: 2020-10-19
+# Level: informational
+# Description: Detects usage of system utilities such as "find", "tree", "findmnt", etc, to discover files, directories and network shares.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1083
+# False Positives:
+#   - Legitimate activities
+
+
+| rex field=CommandLine "(?<CommandLineMatch>(.){200,})"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search (CommandLineCondition="true" Image="*/file") OR Image="*/find" OR Image="*/findmnt" OR Image="*/mlocate" OR (CommandLine="*-R*" Image="*/ls") OR Image="*/tree"

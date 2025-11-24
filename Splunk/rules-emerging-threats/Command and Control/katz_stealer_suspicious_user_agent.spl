@@ -1,0 +1,11 @@
+# Title: Katz Stealer Suspicious User-Agent
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-05-22
+# Level: high
+# Description: Detects network connections with a suspicious user-agent string containing "katz-ontop", which may indicate Katz Stealer activity.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+user_agent="*katz-ontop*"

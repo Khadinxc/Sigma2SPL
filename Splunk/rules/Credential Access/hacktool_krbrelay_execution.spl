@@ -1,0 +1,11 @@
+# Title: HackTool - KrbRelay Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-04-27
+# Level: high
+# Description: Detects the use of KrbRelay, a Kerberos relaying tool
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558.003
+# False Positives:
+#   - Unlikely
+
+(CommandLine="* -spn *" CommandLine="* -clsid *" CommandLine="* -rbcd *") OR (CommandLine="*shadowcred*" CommandLine="*clsid*" CommandLine="*spn*") OR (CommandLine="*spn *" CommandLine="*session *" CommandLine="*clsid *") OR Image="*\\KrbRelay.exe" OR OriginalFileName="KrbRelay.exe"

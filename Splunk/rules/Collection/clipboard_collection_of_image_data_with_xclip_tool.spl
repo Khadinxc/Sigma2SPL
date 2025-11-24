@@ -1,0 +1,13 @@
+# Title: Clipboard Collection of Image Data with Xclip Tool
+# Author: Pawel Mazur
+# Date: 2021-10-01
+# Level: low
+# Description: Detects attempts to collect image data stored in the clipboard from users with the usage of xclip tool.
+# Xclip has to be installed.
+# Highly recommended using rule on servers, due to high usage of clipboard utilities on user workstations.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1115
+# False Positives:
+#   - Legitimate usage of xclip tools
+
+a0="xclip" a1 IN ("-selection", "-sel") a2 IN ("clipboard", "clip") a3="-t" a4="image/*" a5="-o" type="EXECVE"

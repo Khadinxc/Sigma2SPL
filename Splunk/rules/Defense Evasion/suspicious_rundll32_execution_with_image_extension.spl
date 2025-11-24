@@ -1,0 +1,9 @@
+# Title: Suspicious Rundll32 Execution With Image Extension
+# Author: Hieu Tran
+# Date: 2023-03-13
+# Level: high
+# Description: Detects the execution of Rundll32.exe with DLL files masquerading as image files
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.011
+
+CommandLine IN ("*.bmp*", "*.cr2*", "*.eps*", "*.gif*", "*.ico*", "*.jpeg*", "*.jpg*", "*.nef*", "*.orf*", "*.png*", "*.raw*", "*.sr2*", "*.tif*", "*.tiff*") Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.exe"

@@ -1,0 +1,11 @@
+# Title: LOLBIN Execution From Abnormal Drive
+# Author: Christopher Peacock '@securepeacock', SCYTHE '@scythe_io', Angelo Violetti - SEC Consult '@angelo_violetti', Aaron Herman
+# Date: 2022-01-25
+# Level: medium
+# Description: Detects LOLBINs executing from an abnormal or uncommon drive such as a mounted ISO.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Rare false positives could occur on servers with multiple drives.
+
+Image IN ("*\\calc.exe", "*\\certutil.exe", "*\\cmstp.exe", "*\\cscript.exe", "*\\installutil.exe", "*\\mshta.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe") OR OriginalFileName IN ("CALC.EXE", "CertUtil.exe", "CMSTP.EXE", "cscript.exe", "installutil.exe", "MSHTA.EXE", "REGSVR32.EXE", "RUNDLL32.EXE", "wscript.exe") NOT (CurrentDirectory="*C:\\*" OR CurrentDirectory="" OR NOT CurrentDirectory=*)

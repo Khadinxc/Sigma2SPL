@@ -1,0 +1,11 @@
+# Title: Windows Network Access Suspicious desktop.ini Action
+# Author: Tim Shelton (HAWK.IO)
+# Date: 2021-12-06
+# Level: medium
+# Description: Detects unusual processes accessing desktop.ini remotely over network share, which can be leveraged to alter how Explorer displays a folder's content (i.e. renaming files) without changing them on disk.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1547.009
+# False Positives:
+#   - Read only access list authority
+
+AccessList IN ("*WriteData*", "*DELETE*", "*WriteDAC*", "*AppendData*", "*AddSubdirectory*") EventID=5145 ObjectType="File" RelativeTargetName="*\\desktop.ini"

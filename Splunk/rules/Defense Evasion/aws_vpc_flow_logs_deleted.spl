@@ -1,0 +1,12 @@
+# Title: AWS VPC Flow Logs Deleted
+# Author: Ivan Saakov
+# Date: 2025-10-19
+# Level: high
+# Description: Detects the deletion of one or more VPC Flow Logs in AWS Elastic Compute Cloud (EC2) through the DeleteFlowLogs API call.
+# Adversaries may delete flow logs to evade detection or remove evidence of network activity, hindering forensic investigations and visibility into malicious operations.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - During maintenance operations or testing, authorized administrators may delete VPC Flow Logs as part of routine network management or cleanup activities.
+
+eventName="DeleteFlowLogs" NOT errorCode=* OR errorCode="Success"

@@ -1,0 +1,9 @@
+# Title: Potential Privilege Escalation via Service Permissions Weakness
+# Author: Teymur Kheirkhabarov
+# Date: 2019-10-26
+# Level: high
+# Description: Detect modification of services configuration (ImagePath, FailureCommand and ServiceDLL) in registry by processes with Medium integrity level
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.011
+
+CommandLine IN ("*\\ImagePath*", "*\\FailureCommand*", "*\\ServiceDll*") CommandLine="*ControlSet*" CommandLine="*services*" IntegrityLevel IN ("Medium", "S-1-16-8192")

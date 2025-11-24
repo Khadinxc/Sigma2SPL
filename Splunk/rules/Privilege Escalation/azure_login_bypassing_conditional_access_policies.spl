@@ -1,0 +1,9 @@
+# Title: Azure Login Bypassing Conditional Access Policies
+# Author: Josh Nickels, Marius Rothenbücher
+# Date: 2025-01-08
+# Level: high
+# Description: Detects a successful login to the Microsoft Intune Company Portal which could allow bypassing Conditional Access Policies and InTune device trust using a tool like TokenSmith.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.defense-evasion, attack.t1078
+
+ApplicationId="9ba1a5c7-f17a-4de9-a1f1-6178c8d51223" Operation="UserLoggedIn" RequestType="Cmsi:Cmsi" ResultStatus="Success" NOT ObjectId="0000000a-0000-0000-c000-000000000000"

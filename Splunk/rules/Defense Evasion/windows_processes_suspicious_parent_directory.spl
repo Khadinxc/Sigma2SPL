@@ -1,0 +1,11 @@
+# Title: Windows Processes Suspicious Parent Directory
+# Author: vburov
+# Date: 2019-02-23
+# Level: low
+# Description: Detect suspicious parent processes of well-known Windows processes
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036.003, attack.t1036.005
+# False Positives:
+#   - Some security products seem to spawn these
+
+Image IN ("*\\svchost.exe", "*\\taskhost.exe", "*\\lsm.exe", "*\\lsass.exe", "*\\services.exe", "*\\lsaiso.exe", "*\\csrss.exe", "*\\wininit.exe", "*\\winlogon.exe") NOT ((ParentImage IN ("*\\Windows Defender\\*", "*\\Microsoft Security Client\\*") ParentImage="*\\MsMpEng.exe") OR NOT ParentImage=* OR ParentImage IN ("", "-") OR ParentImage IN ("*\\SavService.exe", "*\\ngen.exe") OR ParentImage IN ("*\\System32\\*", "*\\SysWOW64\\*"))

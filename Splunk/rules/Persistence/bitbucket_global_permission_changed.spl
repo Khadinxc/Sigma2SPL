@@ -1,0 +1,11 @@
+# Title: Bitbucket Global Permission Changed
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-02-25
+# Level: medium
+# Description: Detects global permissions change activity.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1098
+# False Positives:
+#   - Legitimate user activity.
+
+auditType.action IN ("Global permission remove request", "Global permission removed", "Global permission granted", "Global permission requested") auditType.category="Permissions"

@@ -1,0 +1,11 @@
+# Title: Okta Unauthorized Access to App
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-12
+# Level: medium
+# Description: Detects when unauthorized access to app occurs.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - User might of believe that they had access.
+
+displaymessage="User attempted unauthorized access to app"

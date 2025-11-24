@@ -1,0 +1,12 @@
+# Title: New CA Policy by Non-approved Actor
+# Author: Corissa Koopmans, '@corissalea'
+# Date: 2022-07-18
+# Level: medium
+# Description: Monitor and alert on conditional access changes.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1548
+# False Positives:
+#   - Misconfigured role permissions
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+
+properties.message="Add conditional access policy"

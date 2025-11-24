@@ -1,0 +1,11 @@
+# Title: Suspicious Key Manager Access
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-04-21
+# Level: high
+# Description: Detects the invocation of the Stored User Names and Passwords dialogue (Key Manager)
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1555.004
+# False Positives:
+#   - Administrative activity
+
+CommandLine="*keymgr*" CommandLine="*KRShowKeyMgr*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE"

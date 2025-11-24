@@ -1,0 +1,11 @@
+# Title: Potential File Extension Spoofing Using Right-to-Left Override
+# Author: Jonathan Peters (Nextron Systems), Florian Roth (Nextron Systems), Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2024-11-17
+# Level: high
+# Description: Detects suspicious filenames that contain a right-to-left override character and a potentially spoofed file extensions.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.defense-evasion, attack.t1036.002
+# False Positives:
+#   - Filenames that contains scriptures such as arabic or hebrew might make use of this character
+
+TargetFilename IN ("*3pm.*", "*4pm.*", "*cod.*", "*fdp.*", "*ftr.*", "*gepj.*", "*gnp.*", "*gpj.*", "*ism.*", "*lmth.*", "*nls.*", "*piz.*", "*slx.*", "*tdo.*", "*vsc.*", "*vwm.*", "*xcod.*", "*xslx.*", "*xtpp.*") TargetFilename IN ("*\\u202e*", "*[U+202E]*")

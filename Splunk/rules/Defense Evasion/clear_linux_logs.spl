@@ -1,0 +1,11 @@
+# Title: Clear Linux Logs
+# Author: Ömer Günal, oscd.community
+# Date: 2020-10-07
+# Level: medium
+# Description: Detects attempts to clear logs on the system. Adversaries may clear system logs to hide evidence of an intrusion
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.002
+# False Positives:
+#   - Legitimate administration activities
+
+CommandLine IN ("*/var/log*", "*/var/spool/mail*") Image IN ("*/rm", "*/shred", "*/unlink")

@@ -1,0 +1,11 @@
+# Title: Multifactor Authentication Denied
+# Author: AlertIQ
+# Date: 2022-03-24
+# Level: medium
+# Description: User has indicated they haven't instigated the MFA prompt and could indicate an attacker has the password for the account.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.credential-access, attack.t1078.004, attack.t1110, attack.t1621
+# False Positives:
+#   - Users actually login but miss-click into the Deny button when MFA prompt.
+
+AuthenticationRequirement="multiFactorAuthentication" Status="*MFA Denied*"

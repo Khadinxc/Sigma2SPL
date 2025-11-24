@@ -1,0 +1,9 @@
+# Title: Renamed CURL.EXE Execution
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-09-11
+# Level: medium
+# Description: Detects the execution of a renamed "CURL.exe" binary based on the PE metadata fields
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059, attack.defense-evasion, attack.t1202
+
+OriginalFileName="curl.exe" OR Description="The curl executable" NOT Image="*\\curl*"

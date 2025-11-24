@@ -1,0 +1,11 @@
+# Title: Suspicious Download from Office Domain
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2021-12-27
+# Level: high
+# Description: Detects suspicious ways to download files from Microsoft domains that are used to store attachments in Emails or OneNote documents
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.resource-development, attack.t1105, attack.t1608
+# False Positives:
+#   - Scripts or tools that download attachments from these domains (OneNote, Outlook 365)
+
+CommandLine IN ("*https://attachment.outlook.live.net/owa/*", "*https://onenoteonlinesync.onenote.com/onenoteonlinesync/*") Image IN ("*\\curl.exe", "*\\wget.exe") OR CommandLine IN ("*Invoke-WebRequest*", "*iwr *", "*curl *", "*wget *", "*Start-BitsTransfer*", "*.DownloadFile(*", "*.DownloadString(*")

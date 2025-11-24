@@ -1,0 +1,13 @@
+# Title: Potentially Suspicious Azure Front Door Connection
+# Author: Isaac Dunham
+# Date: 2024-11-07
+# Level: medium
+# Description: Detects connections with Azure Front Door (known legitimate service that can be leveraged for C2)
+# that fall outside of known benign behavioral baseline (not using common apps or common azurefd.net endpoints)
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1102.002, attack.t1090.004, detection.threat-hunting
+# False Positives:
+#   - Results are not inherently suspicious, but should be investigated during threat hunting for potential cloud C2.
+#   - Organization-specific Azure Front Door endpoints
+
+DestinationHostname="*azurefd.net*" NOT (Image="*searchapp.exe" OR DestinationHostname IN ("*afdxtest.z01.azurefd.net*", "*fp-afd.azurefd.net*", "*fp-afdx-bpdee4gtg6frejfd.z01.azurefd.net*", "*roxy.azurefd.net*", "*powershellinfraartifacts-gkhedzdeaghdezhr.z01.azurefd.net*", "*storage-explorer-publishing-feapcgfgbzc2cjek.b01.azurefd.net*", "*graph.azurefd.net*") OR Image IN ("*brave.exe", "*chrome.exe", "*chromium.exe", "*firefox.exe", "*msedge.exe", "*msedgewebview2.exe", "*opera.exe", "*vivaldi.exe"))

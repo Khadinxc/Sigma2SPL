@@ -1,0 +1,13 @@
+# Title: Azure Suppression Rule Created
+# Author: Austin Songer
+# Date: 2021-08-16
+# Level: medium
+# Description: Identifies when a suppression rule is created in Azure. Adversary's could attempt this to evade detection.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - Suppression Rule being created may be performed by a system administrator.
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Suppression Rule created from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName="MICROSOFT.SECURITY/ALERTSSUPPRESSIONRULES/WRITE"

@@ -1,0 +1,12 @@
+# Title: TeamViewer Domain Query By Non-TeamViewer Application
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-01-30
+# Level: medium
+# Description: Detects DNS queries to a TeamViewer domain only resolved by a TeamViewer client by an image that isn't named TeamViewer (sometimes used by threat actors for obfuscation)
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1219.002
+# False Positives:
+#   - Unknown binary names of TeamViewer
+#   - Depending on the environment the rule might require some initial tuning before usage to avoid FP with third party applications
+
+QueryName IN ("taf.teamviewer.com", "udp.ping.teamviewer.com") NOT Image="*TeamViewer*"

@@ -1,0 +1,11 @@
+# Title: IIS Native-Code Module Command Line Installation
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-12-11
+# Level: medium
+# Description: Detects suspicious IIS native-code module installations via command line
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+# False Positives:
+#   - Unknown as it may vary from organisation to organisation how admins use to install IIS modules
+
+CommandLine="*install*" CommandLine="*module*" CommandLine="*-name:*" OR CommandLine="*/name:*" OR CommandLine="*–name:*" OR CommandLine="*—name:*" OR CommandLine="*―name:*" Image="*\\appcmd.exe" OR OriginalFileName="appcmd.exe" NOT ParentImage="C:\\Windows\\System32\\inetsrv\\iissetup.exe"

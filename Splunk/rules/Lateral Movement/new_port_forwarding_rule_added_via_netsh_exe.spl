@@ -1,0 +1,12 @@
+# Title: New Port Forwarding Rule Added Via Netsh.EXE
+# Author: Florian Roth (Nextron Systems), omkar72, oscd.community, Swachchhanda Shrawan Poudel
+# Date: 2019-01-29
+# Level: medium
+# Description: Detects the execution of netsh commands that configure a new port forwarding (PortProxy) rule
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.defense-evasion, attack.command-and-control, attack.t1090
+# False Positives:
+#   - Legitimate administration activity
+#   - WSL2 network bridge PowerShell script used for WSL/Kubernetes/Docker (e.g. https://github.com/microsoft/WSL/issues/4150#issuecomment-504209723)
+
+Image="*\\netsh.exe" OR OriginalFileName="netsh.exe" (CommandLine="*interface*" CommandLine="*portproxy*" CommandLine="*add*" CommandLine="*v4tov4*") OR (CommandLine="*i *" CommandLine="*p *" CommandLine="*a *" CommandLine="*v *") OR (CommandLine="*connectp*" CommandLine="*listena*" CommandLine="*c=*")

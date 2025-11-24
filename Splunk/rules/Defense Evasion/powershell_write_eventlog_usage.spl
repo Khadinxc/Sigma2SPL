@@ -1,0 +1,11 @@
+# Title: PowerShell Write-EventLog Usage
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-16
+# Level: medium
+# Description: Detects usage of the "Write-EventLog" cmdlet with 'RawData' flag. The cmdlet can be levreage to write malicious payloads to the EventLog and then retrieve them later for later use
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Legitimate applications writing events via this cmdlet. Investigate alerts to determine if the action is benign
+
+ScriptBlockText="*Write-EventLog*" ScriptBlockText="*-RawData *"

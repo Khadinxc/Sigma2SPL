@@ -1,0 +1,9 @@
+# Title: Protected Storage Service Access
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-08-10
+# Level: high
+# Description: Detects access to a protected_storage service over the network. Potential abuse of DPAPI to extract domain backup keys from Domain Controllers
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+
+EventID=5145 RelativeTargetName="protected_storage" ShareName="*IPC*"

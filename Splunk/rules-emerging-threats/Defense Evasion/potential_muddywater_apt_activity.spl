@@ -1,0 +1,11 @@
+# Title: Potential MuddyWater APT Activity
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-03-10
+# Level: high
+# Description: Detects potential Muddywater APT activity
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.g0069, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+(CommandLine="*vbscript:Close(Execute(\"CreateObject(*" CommandLine="*powershell*" CommandLine="*-w 1 -exec Bypass*" CommandLine="*\\ProgramData\\*") OR (CommandLine="*[Convert]::ToBase64String*" CommandLine="*[System.Text.Encoding]::UTF8.GetString]*" CommandLine="*GetResponse().GetResponseStream()*" CommandLine="*[System.Net.HttpWebRequest]::Create(*" CommandLine="*-bxor *") OR (CommandLine="*Win32_OperatingSystem*" CommandLine="*Win32_NetworkAdapterConfiguration*" CommandLine="*root\\SecurityCenter2*" CommandLine="*[System.Net.DNS]*")

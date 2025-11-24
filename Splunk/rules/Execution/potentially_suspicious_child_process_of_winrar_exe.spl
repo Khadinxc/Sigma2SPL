@@ -1,0 +1,9 @@
+# Title: Potentially Suspicious Child Process Of WinRAR.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-08-31
+# Level: medium
+# Description: Detects potentially suspicious child processes of WinRAR.exe.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1203
+
+Image IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe") OR OriginalFileName IN ("Cmd.Exe", "cscript.exe", "mshta.exe", "PowerShell.EXE", "pwsh.dll", "regsvr32.exe", "RUNDLL32.EXE", "wscript.exe") ParentImage="*\\WinRAR.exe"

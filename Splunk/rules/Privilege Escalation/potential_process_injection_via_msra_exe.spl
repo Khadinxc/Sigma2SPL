@@ -1,0 +1,11 @@
+# Title: Potential Process Injection Via Msra.EXE
+# Author: Alexander McDonald
+# Date: 2022-06-24
+# Level: high
+# Description: Detects potential process injection via Microsoft Remote Asssistance (Msra.exe) by looking at suspicious child processes spawned from the aforementioned process. It has been a target used by many threat actors and used for discovery and persistence tactics
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1055
+# False Positives:
+#   - Legitimate use of Msra.exe
+
+Image IN ("*\\arp.exe", "*\\cmd.exe", "*\\net.exe", "*\\netstat.exe", "*\\nslookup.exe", "*\\route.exe", "*\\schtasks.exe", "*\\whoami.exe") ParentCommandLine="*msra.exe" ParentImage="*\\msra.exe"

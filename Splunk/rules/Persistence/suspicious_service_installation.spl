@@ -1,0 +1,9 @@
+# Title: Suspicious Service Installation
+# Author: pH-T (Nextron Systems), Florian Roth (Nextron Systems)
+# Date: 2022-03-18
+# Level: high
+# Description: Detects suspicious service installation commands
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, car.2013-09-005, attack.t1543.003
+
+EventID=7045 ImagePath IN ("* -nop *", "* -sta *", "* -w hidden *", "*:\\Temp\\*", "*.downloadfile(*", "*.downloadstring(*", "*\\ADMIN$\\*", "*\\Perflogs\\*", "*&&*") Provider_Name="Service Control Manager"

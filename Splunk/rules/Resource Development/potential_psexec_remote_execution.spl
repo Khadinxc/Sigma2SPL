@@ -1,0 +1,9 @@
+# Title: Potential PsExec Remote Execution
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-02-28
+# Level: high
+# Description: Detects potential psexec command that initiate execution on a remote systems via common commandline flags used by the utility
+# MITRE Tactic: Resource Development
+# Tags: attack.resource-development, attack.t1587.001
+
+CommandLine="*accepteula*" CommandLine="* -u *" CommandLine="* -p *" CommandLine="* \\\\*" NOT (CommandLine IN ("*\\\\localhost*", "*\\\\127.*"))

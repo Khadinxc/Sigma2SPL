@@ -1,0 +1,11 @@
+# Title: Disable Windows Event Logging Via Registry
+# Author: frack113, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-04
+# Level: high
+# Description: Detects tampering with the "Enabled" registry key in order to disable Windows logging of a Windows event channel
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.002
+# False Positives:
+#   - Rare falsepositives may occur from legitimate administrators disabling specific event log for troubleshooting
+
+Details="DWORD (0x00000000)" TargetObject="*\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\*" TargetObject="*\\Enabled" NOT ((Image="*\\TiWorker.exe" Image="C:\\Windows\\winsxs\\*") OR (Image="C:\\Windows\\System32\\svchost.exe" TargetObject IN ("*\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-FileInfoMinifilter*", "*\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-ASN1\\*", "*\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-Kernel-AppCompat\\*", "*\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-Runtime\\Error\\*", "*\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-CAPI2/Operational\\*")) OR (Image="C:\\Windows\\servicing\\TrustedInstaller.exe" TargetObject="*\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Channels\\Microsoft-Windows-Compat-Appraiser*") OR Image="C:\\Windows\\system32\\wevtutil.exe") NOT (Image="" OR NOT Image=*)

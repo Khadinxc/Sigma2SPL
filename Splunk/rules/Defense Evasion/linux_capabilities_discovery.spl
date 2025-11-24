@@ -1,0 +1,9 @@
+# Title: Linux Capabilities Discovery
+# Author: Pawel Mazur
+# Date: 2021-11-28
+# Level: low
+# Description: Detects attempts to discover the files with setuid/setgid capability on them. That would allow adversary to escalate their privileges.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.collection, attack.privilege-escalation, attack.t1123, attack.t1548
+
+a0="getcap" a1="-r" a2="/" type="EXECVE"

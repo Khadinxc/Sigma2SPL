@@ -1,0 +1,11 @@
+# Title: Potential RDP Session Hijacking Activity
+# Author: @juju4
+# Date: 2022-12-27
+# Level: medium
+# Description: Detects potential RDP Session Hijacking activity on Windows systems
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - Administrative activity
+
+Image="*\\tscon.exe" OR OriginalFileName="tscon.exe" IntegrityLevel IN ("System", "S-1-16-16384")

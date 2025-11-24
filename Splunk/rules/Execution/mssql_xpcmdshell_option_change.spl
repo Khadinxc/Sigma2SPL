@@ -1,0 +1,12 @@
+# Title: MSSQL XPCmdshell Option Change
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-12
+# Level: high
+# Description: Detects when the MSSQL "xp_cmdshell" stored procedure setting is changed.
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# False Positives:
+#   - Legitimate enable/disable of the setting
+#   - Note that since the event contain the change for both values. This means that this will trigger on both enable and disable
+
+Data="*xp_cmdshell*" EventID=15457 Provider_Name="*MSSQL*"

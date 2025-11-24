@@ -1,0 +1,9 @@
+# Title: UNC2452 Process Creation Patterns
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-01-22
+# Level: high
+# Description: Detects a specific process creation patterns as seen used by UNC2452 and provided by Microsoft as Microsoft Defender ATP queries
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.emerging-threats
+
+(CommandLine IN ("*7z.exe a -v500m -mx9 -r0 -p*", "*7z.exe a -mx9 -r0 -p*") CommandLine="*.zip*" CommandLine="*.txt*") OR (CommandLine IN ("*7z.exe a -v500m -mx9 -r0 -p*", "*7z.exe a -mx9 -r0 -p*") CommandLine="*.zip*" CommandLine="*.log*") OR (CommandLine="*rundll32.exe*" CommandLine="*C:\\Windows*" CommandLine="*.dll,Tk_*" ParentCommandLine="*wscript.exe*" ParentCommandLine="*.vbs*") OR (CommandLine="*cmd.exe /C *" ParentCommandLine="*C:\\Windows*" ParentCommandLine="*.dll*" ParentImage="*\\rundll32.exe") OR (CommandLine="" Image="*\\dllhost.exe" ParentImage="*\\rundll32.exe")

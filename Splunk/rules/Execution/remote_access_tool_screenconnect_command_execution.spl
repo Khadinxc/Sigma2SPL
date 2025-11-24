@@ -1,0 +1,11 @@
+# Title: Remote Access Tool - ScreenConnect Command Execution
+# Author: Ali Alwashali
+# Date: 2023-10-10
+# Level: low
+# Description: Detects command execution via ScreenConnect RMM
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.003
+# False Positives:
+#   - Legitimate use of ScreenConnect
+
+Data="*Executed command of length*" EventID=200 Provider_Name="ScreenConnect"

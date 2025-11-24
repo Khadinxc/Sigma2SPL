@@ -1,0 +1,11 @@
+# Title: Suspicious Serv-U Process Pattern
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-07-14
+# Level: high
+# Description: Detects a suspicious process pattern which could be a sign of an exploited Serv-U service
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1555, cve.2021-35211
+# False Positives:
+#   - Legitimate uses in which users or programs use the SSH service of Serv-U for remote command execution
+
+Image IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\sh.exe", "*\\bash.exe", "*\\schtasks.exe", "*\\regsvr32.exe", "*\\wmic.exe", "*\\mshta.exe", "*\\rundll32.exe", "*\\msiexec.exe", "*\\forfiles.exe", "*\\scriptrunner.exe") ParentImage="*\\Serv-U.exe"

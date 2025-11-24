@@ -1,0 +1,11 @@
+# Title: Startup/Logon Script Added to Group Policy Object
+# Author: Elastic, Josh Nickels, Marius Rothenbücher
+# Date: 2024-09-06
+# Level: medium
+# Description: Detects the modification of Group Policy Objects (GPO) to add a startup/logon script to users or computer objects.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1484.001, attack.t1547
+# False Positives:
+#   - Legitimate execution by system administrators.
+
+EventID IN (5136, 5145) (AttributeLDAPDisplayName IN ("gPCMachineExtensionNames", "gPCUserExtensionNames") AttributeValue="*42B5FAAE-6536-11D2-AE5A-0000F87571E3*" AttributeValue IN ("*40B6664F-4972-11D1-A7CA-0000F87571E3*", "*40B66650-4972-11D1-A7CA-0000F87571E3*")) OR (AccessList="*%%4417*" RelativeTargetName IN ("*\\scripts.ini", "*\\psscripts.ini") ShareName="*\\SYSVOL")

@@ -1,0 +1,11 @@
+# Title: PowerShell Web Access Installation - PsScript
+# Author: Michael Haag
+# Date: 2024-09-03
+# Level: high
+# Description: Detects the installation and configuration of PowerShell Web Access, which could be used for remote access and potential abuse
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.execution, attack.t1059.001
+# False Positives:
+#   - Legitimate PowerShell Web Access installations by administrators
+
+(ScriptBlockText="*Add-PswaAuthorizationRule*" ScriptBlockText="*-UserName *" ScriptBlockText="*-ComputerName *") OR ScriptBlockText="*Install-PswaWebApplication*" OR ScriptBlockText="*Install-WindowsFeature WindowsPowerShellWebAccess*"

@@ -1,0 +1,9 @@
+# Title: Group Membership Reconnaissance Via Whoami.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-02-28
+# Level: medium
+# Description: Detects the execution of whoami.exe with the /group command line flag to show group membership for the current user, account type, security identifiers (SID), and attributes.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1033
+
+CommandLine IN ("* /groups*", "* -groups*") Image="*\\whoami.exe" OR OriginalFileName="whoami.exe"

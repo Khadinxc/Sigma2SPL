@@ -1,0 +1,9 @@
+# Title: Enable Microsoft Dynamic Data Exchange
+# Author: frack113
+# Date: 2022-02-26
+# Level: medium
+# Description: Enable Dynamic Data Exchange protocol (DDE) in all supported editions of Microsoft Word or Excel.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1559.002
+
+(Details="DWORD (0x00000000)" TargetObject IN ("*\\Excel\\Security\\DisableDDEServerLaunch", "*\\Excel\\Security\\DisableDDEServerLookup")) OR (Details IN ("DWORD (0x00000001)", "DWORD (0x00000002)") TargetObject="*\\Word\\Security\\AllowDDE")

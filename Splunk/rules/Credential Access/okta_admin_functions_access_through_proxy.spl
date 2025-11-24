@@ -1,0 +1,11 @@
+# Title: Okta Admin Functions Access Through Proxy
+# Author: Muhammad Faisal @faisalusuf
+# Date: 2023-10-25
+# Level: medium
+# Description: Detects access to Okta admin functions through proxy.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access
+# False Positives:
+#   - False positives are expected if administrators access these function through proxy legitimatly. Apply additional filters if necessary
+
+debugContext.debugData.requestUri="*admin*" securityContext.isProxy="true"

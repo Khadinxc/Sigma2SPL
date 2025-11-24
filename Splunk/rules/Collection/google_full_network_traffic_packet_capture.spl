@@ -1,0 +1,12 @@
+# Title: Google Full Network Traffic Packet Capture
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-13
+# Level: medium
+# Description: Identifies potential full network packet capture in gcp. This feature can potentially be abused to read sensitive data from unencrypted internal traffic.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1074
+# False Positives:
+#   - Full Network Packet Capture may be done by a system or network administrator.
+#   - If known behavior is causing false positives, it can be exempted from the rule.
+
+gcp.audit.method_name IN ("v*.Compute.PacketMirrorings.Get", "v*.Compute.PacketMirrorings.Delete", "v*.Compute.PacketMirrorings.Insert", "v*.Compute.PacketMirrorings.Patch", "v*.Compute.PacketMirrorings.List", "v*.Compute.PacketMirrorings.aggregatedList")

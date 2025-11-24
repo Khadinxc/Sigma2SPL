@@ -1,0 +1,10 @@
+# Title: Powershell Local Email Collection
+# Author: frack113
+# Date: 2021-07-21
+# Level: medium
+# Description: Adversaries may target user email on local systems to collect sensitive information.
+# Files containing email data can be acquired from a users local system, such as Outlook storage or cache files.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1114.001
+
+ScriptBlockText IN ("*Get-Inbox.ps1*", "*Microsoft.Office.Interop.Outlook*", "*Microsoft.Office.Interop.Outlook.olDefaultFolders*", "*-comobject outlook.application*")

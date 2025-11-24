@@ -1,0 +1,9 @@
+# Title: HackTool - SharpUp PrivEsc Tool Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-08-20
+# Level: critical
+# Description: Detects the use of SharpUp, a tool for local privilege escalation
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.discovery, attack.execution, attack.t1615, attack.t1569.002, attack.t1574.005
+
+Image="*\\SharpUp.exe" OR Description="SharpUp" OR CommandLine IN ("*HijackablePaths*", "*UnquotedServicePath*", "*ProcessDLLHijack*", "*ModifiableServiceBinaries*", "*ModifiableScheduledTask*", "*DomainGPPPassword*", "*CachedGPPPassword*")

@@ -1,0 +1,11 @@
+# Title: HackTool - KrbRelayUp Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-04-26
+# Level: high
+# Description: Detects KrbRelayUp used to perform a universal no-fix local privilege escalation in Windows domain environments where LDAP signing is not enforced
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.credential-access, attack.t1558.003, attack.lateral-movement, attack.t1550.003
+# False Positives:
+#   - Unlikely
+
+(CommandLine="* relay *" CommandLine="* -Domain *" CommandLine="* -ComputerName *") OR (CommandLine="* krbscm *" CommandLine="* -sc *") OR (CommandLine="* spawn *" CommandLine="* -d *" CommandLine="* -cn *" CommandLine="* -cp *") OR Image="*\\KrbRelayUp.exe" OR OriginalFileName="KrbRelayUp.exe"

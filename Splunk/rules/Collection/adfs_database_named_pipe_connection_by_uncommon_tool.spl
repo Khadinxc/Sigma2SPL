@@ -1,0 +1,10 @@
+# Title: ADFS Database Named Pipe Connection By Uncommon Tool
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2021-10-08
+# Level: medium
+# Description: Detects suspicious local connections via a named pipe to the AD FS configuration database (Windows Internal Database).
+# Used to access information such as the AD FS configuration settings which contains sensitive information used to sign SAML tokens.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1005
+
+PipeName="\\MICROSOFT##WID\\tsql\\query" NOT (Image IN ("*:\\Windows\\System32\\mmc.exe", "*:\\Windows\\system32\\svchost.exe", "*:\\Windows\\System32\\wsmprovhost.exe", "*:\\Windows\\SysWOW64\\mmc.exe", "*:\\Windows\\SysWOW64\\wsmprovhost.exe", "*:\\Windows\\WID\\Binn\\sqlwriter.exe", "*\\AzureADConnect.exe", "*\\Microsoft.Identity.Health.Adfs.PshSurrogate.exe", "*\\Microsoft.IdentityServer.ServiceHost.exe", "*\\Microsoft.Tri.Sensor.exe", "*\\sqlservr.exe", "*\\tssdis.exe"))

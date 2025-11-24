@@ -1,0 +1,9 @@
+# Title: HackTool - SysmonEnte Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-09-07
+# Level: high
+# Description: Detects the use of SysmonEnte, a tool to attack the integrity of Sysmon
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.002
+
+(GrantedAccess="0x1400" TargetImage IN ("*:\\Windows\\Sysmon.exe*", "*:\\Windows\\Sysmon64.exe*") NOT (SourceImage IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*") OR (SourceImage="*:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*" SourceImage="*\\MsMpEng.exe"))) OR CallTrace="Ente"

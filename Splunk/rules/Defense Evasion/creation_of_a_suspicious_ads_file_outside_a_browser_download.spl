@@ -1,0 +1,12 @@
+# Title: Creation Of a Suspicious ADS File Outside a Browser Download
+# Author: frack113
+# Date: 2022-10-22
+# Level: medium
+# Description: Detects the creation of a suspicious ADS (Alternate Data Stream) file by software other than browsers
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Other legitimate browsers not currently included in the filter (please add them)
+#   - Legitimate downloads via scripting or command-line tools (Investigate to determine if it's legitimate)
+
+Contents="[ZoneTransfer]  ZoneId=3*" TargetFilename IN ("*.exe*", "*.scr*", "*.bat*", "*.cmd*", "*.docx*", "*.hta*", "*.jse*", "*.lnk*", "*.pptx*", "*.ps*", "*.reg*", "*.sct*", "*.vb*", "*.wsc*", "*.wsf*", "*.xlsx*") TargetFilename="*:Zone.Identifier" NOT (Image="*\\brave.exe" OR Image IN ("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe") OR Image="C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\*" OR Image="*\\WindowsApps\\MicrosoftEdge.exe" OR Image IN ("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe") OR (Image IN ("*\\msedge.exe", "*\\msedgewebview2.exe") Image IN ("C:\\Program Files (x86)\\Microsoft\\EdgeCore\\*", "C:\\Program Files\\Microsoft\\EdgeCore\\*")) OR Image IN ("C:\\Program Files\\Mozilla Firefox\\firefox.exe", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe") OR Image IN ("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe", "C:\\Program Files\\Internet Explorer\\iexplore.exe") OR Image="*\\maxthon.exe" OR Image="*\\opera.exe" OR Image="*\\safari.exe" OR Image="*\\seamonkey.exe" OR (Image="*\\SnippingTool\\SnippingTool.exe" Image="C:\\Program Files\\WindowsApps\\Microsoft.ScreenSketch_*" TargetFilename="*\\AppData\\Local\\Packages\\Microsoft.ScreenSketch_*" TargetFilename="*\\TempState\\Screenshot *" TargetFilename="*.png:Zone.Identifier" TargetFilename="C:\\Users\\*") OR Image="*\\vivaldi.exe" OR Image="*\\whale.exe")

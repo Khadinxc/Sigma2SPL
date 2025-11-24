@@ -1,0 +1,11 @@
+# Title: Arbitrary DLL or Csproj Code Execution Via Dotnet.EXE
+# Author: Beyu Denis, oscd.community
+# Date: 2020-10-18
+# Level: medium
+# Description: Detects execution of arbitrary DLLs or unsigned code via a ".csproj" files via Dotnet.EXE.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+# False Positives:
+#   - Legitimate administrator usage
+
+CommandLine IN ("*.csproj", "*.csproj\"", "*.dll", "*.dll\"", "*.csproj'", "*.dll'") Image="*\\dotnet.exe" OR OriginalFileName=".NET Host" NOT (CommandLine="*C:\\ProgramData\\CSScriptNpp\\*" CommandLine="*-cscs_path:*" CommandLine="*\\cs-script\\cscs.dll*" ParentImage IN ("C:\\Program Files (x86)\\Notepad++\\notepad++.exe", "C:\\Program Files\\Notepad++\\notepad++.exe"))

@@ -1,0 +1,13 @@
+# Title: Security Software Discovery Via Powershell Script
+# Author: frack113, Anish Bogati, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2021-12-16
+# Level: medium
+# Description: Detects calls to "get-process" where the output is piped to a "where-object" filter to search for security solution processes.
+# Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment. This may include things such as firewall rules and anti-virus
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1518.001
+# False Positives:
+#   - False positives might occur due to the nature of the ScriptBlock being ingested as a big blob. Initial tuning is required.
+#   - As the "selection_cmdlet" is common in scripts the matching engine might slow down the search. Change into regex or a more accurate string to avoid heavy resource consumption if experienced
+
+ScriptBlockText IN ("*get-process | ?*", "*get-process | where*", "*gps | ?*", "*gps | where*") ScriptBlockText IN ("*Company -like*", "*Description -like*", "*Name -like*", "*Path -like*", "*Product -like*") ScriptBlockText IN ("*\*avira\**", "*\*carbonblack\**", "*\*cylance\**", "*\*defender\**", "*\*kaspersky\**", "*\*malware\**", "*\*sentinel\**", "*\*symantec\**", "*\*virus\**")

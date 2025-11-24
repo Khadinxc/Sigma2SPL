@@ -1,0 +1,9 @@
+# Title: Remote Access Tool Services Have Been Installed - System
+# Author: Connor Martin, Nasreddine Bencherchali
+# Date: 2022-12-23
+# Level: medium
+# Description: Detects service installation of different remote access tools software. These software are often abused by threat actors to perform
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.t1543.003, attack.t1569.002
+
+EventID IN (7045, 7036) Provider_Name="Service Control Manager" ServiceName IN ("*AmmyyAdmin*", "*Atera*", "*BASupportExpressSrvcUpdater*", "*BASupportExpressStandaloneService*", "*chromoting*", "*GoToAssist*", "*GoToMyPC*", "*jumpcloud*", "*LMIGuardianSvc*", "*LogMeIn*", "*monblanking*", "*Parsec*", "*RManService*", "*RPCPerformanceService*", "*RPCService*", "*SplashtopRemoteService*", "*SSUService*", "*TeamViewer*", "*TightVNC*", "*vncserver*", "*Zoho*")

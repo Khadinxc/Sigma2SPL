@@ -1,0 +1,11 @@
+# Title: RDP Port Forwarding Rule Added Via Netsh.EXE
+# Author: Florian Roth (Nextron Systems), oscd.community
+# Date: 2019-01-29
+# Level: high
+# Description: Detects the execution of netsh to configure a port forwarding of port 3389 (RDP) rule
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.defense-evasion, attack.command-and-control, attack.t1090
+# False Positives:
+#   - Legitimate administration activity
+
+CommandLine="* i*" CommandLine="* p*" CommandLine="*=3389*" CommandLine="* c*" Image="*\\netsh.exe" OR OriginalFileName="netsh.exe"

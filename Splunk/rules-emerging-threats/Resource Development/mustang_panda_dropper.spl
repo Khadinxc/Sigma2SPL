@@ -1,0 +1,11 @@
+# Title: Mustang Panda Dropper
+# Author: Florian Roth (Nextron Systems), oscd.community
+# Date: 2019-10-30
+# Level: high
+# Description: Detects specific process parameters as used by Mustang Panda droppers
+# MITRE Tactic: Resource Development
+# Tags: attack.t1587.001, attack.resource-development, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*Temp\\wtask.exe /create*", "*%windir:~-3,1%%PUBLIC:~-9,1%*", "*/tn \"Security Script *", "*%windir:~-1,1%*") OR (CommandLine="*/E:vbscript*" CommandLine="*C:\\Users\\*" CommandLine="*.txt*" CommandLine="*/F*") OR Image="*Temp\\winwsh.exe"

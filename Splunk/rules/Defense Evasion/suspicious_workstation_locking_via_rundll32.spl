@@ -1,0 +1,11 @@
+# Title: Suspicious Workstation Locking via Rundll32
+# Author: frack113
+# Date: 2022-06-04
+# Level: medium
+# Description: Detects a suspicious call to the user32.dll function that locks the user workstation
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Scripts or links on the user desktop used to lock the workstation instead of Windows+L or the menu option
+
+CommandLine="*user32.dll,*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE" ParentImage="*\\cmd.exe" CommandLine="*LockWorkStation*" | table Image,ParentImage

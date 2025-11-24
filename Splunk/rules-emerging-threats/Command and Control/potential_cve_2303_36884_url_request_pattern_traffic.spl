@@ -1,0 +1,10 @@
+# Title: Potential CVE-2303-36884 URL Request Pattern Traffic
+# Author: X__Junior
+# Date: 2023-07-12
+# Level: high
+# Description: Detects a specific URL pattern containing a specific extension and parameters pointing to an IP address. This pattern was seen being used by RomCOM potentially exploiting CVE-2023-36884
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, cve.2023-36884, detection.emerging-threats
+
+"cs-method"="GET"
+| regex c-uri="\\.(zip|asp|htm|url|xml|chm|mht|vbs|search-ms)\\?d=[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"

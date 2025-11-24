@@ -1,0 +1,11 @@
+# Title: Suspicious PowerShell Parent Process
+# Author: Teymur Kheirkhabarov, Harish Segar
+# Date: 2020-03-20
+# Level: high
+# Description: Detects a suspicious or uncommon parent processes of PowerShell
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Other scripts
+
+ParentImage="*tomcat*" OR ParentImage IN ("*\\amigo.exe", "*\\browser.exe", "*\\chrome.exe", "*\\firefox.exe", "*\\httpd.exe", "*\\iexplore.exe", "*\\jbosssvc.exe", "*\\microsoftedge.exe", "*\\microsoftedgecp.exe", "*\\MicrosoftEdgeSH.exe", "*\\mshta.exe", "*\\nginx.exe", "*\\outlook.exe", "*\\php-cgi.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\safari.exe", "*\\services.exe", "*\\sqlagent.exe", "*\\sqlserver.exe", "*\\sqlservr.exe", "*\\vivaldi.exe", "*\\w3wp.exe") Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR CommandLine IN ("*/c powershell*", "*/c pwsh*") OR Description="Windows PowerShell" OR Product="PowerShell Core 6" OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll")

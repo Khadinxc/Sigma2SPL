@@ -1,0 +1,11 @@
+# Title: NetNTLM Downgrade Attack - Registry
+# Author: Florian Roth (Nextron Systems), wagga, Nasreddine Bencherchali (Splunk STRT)
+# Date: 2018-03-20
+# Level: high
+# Description: Detects NetNTLM downgrade attack
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1562.001, attack.t1112
+# False Positives:
+#   - Services or tools that set the values to more restrictive values
+
+TargetObject="*SYSTEM\\*" TargetObject="*ControlSet*" TargetObject="*\\Control\\Lsa*" (Details IN ("DWORD (0x00000000)", "DWORD (0x00000001)", "DWORD (0x00000002)") TargetObject="*\\lmcompatibilitylevel") OR (Details IN ("DWORD (0x00000000)", "DWORD (0x00000010)", "DWORD (0x00000020)", "DWORD (0x00000030)") TargetObject="*\\NtlmMinClientSec") OR TargetObject="*\\RestrictSendingNTLMTraffic"

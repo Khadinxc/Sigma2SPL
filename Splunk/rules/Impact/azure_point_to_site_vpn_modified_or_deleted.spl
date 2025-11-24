@@ -1,0 +1,12 @@
+# Title: Azure Point-to-site VPN Modified or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-08
+# Level: medium
+# Description: Identifies when a Point-to-site VPN is Modified or Deleted.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - Point-to-site VPN being modified or deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Point-to-site VPN modified or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName IN ("MICROSOFT.NETWORK/P2SVPNGATEWAYS/WRITE", "MICROSOFT.NETWORK/P2SVPNGATEWAYS/DELETE", "MICROSOFT.NETWORK/P2SVPNGATEWAYS/RESET/ACTION", "MICROSOFT.NETWORK/P2SVPNGATEWAYS/GENERATEVPNPROFILE/ACTION", "MICROSOFT.NETWORK/P2SVPNGATEWAYS/DISCONNECTP2SVPNCONNECTIONS/ACTION", "MICROSOFT.NETWORK/P2SVPNGATEWAYS/PROVIDERS/MICROSOFT.INSIGHTS/DIAGNOSTICSETTINGS/WRITE")

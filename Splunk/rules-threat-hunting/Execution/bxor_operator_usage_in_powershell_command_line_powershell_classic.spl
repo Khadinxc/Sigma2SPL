@@ -1,0 +1,11 @@
+# Title: bXOR Operator Usage In PowerShell Command Line - PowerShell Classic
+# Author: Teymur Kheirkhabarov, Harish Segar
+# Date: 2020-06-29
+# Level: low
+# Description: Detects powershell execution with that make use of to the bxor (Bitwise XOR).
+# Attackers might use as an alternative obfuscation method to Base64 encoded commands.
+# Investigate the CommandLine and process tree to determine if the activity is malicious.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.threat-hunting
+
+Data="*HostName=ConsoleHost*" Data="* -bxor *"

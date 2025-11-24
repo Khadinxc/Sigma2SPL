@@ -1,0 +1,9 @@
+# Title: Execution Of Script Located In Potentially Suspicious Directory
+# Author: Joseliyo Sanchez, @Joseliyo_Jstnk
+# Date: 2023-06-02
+# Level: medium
+# Description: Detects executions of scripts located in potentially suspicious locations such as "/tmp" via a shell such as "bash", "sh", etc.
+# MITRE Tactic: Execution
+# Tags: attack.execution
+
+CommandLine="* -c *" Image IN ("*/bash", "*/csh", "*/dash", "*/fish", "*/ksh", "*/sh", "*/zsh") CommandLine="*/tmp/*"

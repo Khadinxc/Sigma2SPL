@@ -1,0 +1,11 @@
+# Title: Macos Remote System Discovery
+# Author: Alejandro Ortuno, oscd.community
+# Date: 2020-10-22
+# Level: informational
+# Description: Detects the enumeration of other remote systems.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1018
+# False Positives:
+#   - Legitimate administration activities
+
+(CommandLine="*-a*" Image="*/arp") OR (CommandLine IN ("* 10.*", "* 192.168.*", "* 172.16.*", "* 172.17.*", "* 172.18.*", "* 172.19.*", "* 172.20.*", "* 172.21.*", "* 172.22.*", "* 172.23.*", "* 172.24.*", "* 172.25.*", "* 172.26.*", "* 172.27.*", "* 172.28.*", "* 172.29.*", "* 172.30.*", "* 172.31.*", "* 127.*", "* 169.254.*") Image="*/ping")

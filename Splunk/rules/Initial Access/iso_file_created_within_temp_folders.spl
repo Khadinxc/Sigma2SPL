@@ -1,0 +1,11 @@
+# Title: ISO File Created Within Temp Folders
+# Author: @sam0x90
+# Date: 2022-07-30
+# Level: high
+# Description: Detects the creation of a ISO file in the Outlook temp folder or in the Appdata temp folder. Typical of Qakbot TTP from end-July 2022.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1566.001
+# False Positives:
+#   - Potential FP by sysadmin opening a zip file containing a legitimate ISO file
+
+(TargetFilename="*\\AppData\\Local\\Temp\\*" TargetFilename="*.zip\\*" TargetFilename="*.iso") OR (TargetFilename="*\\AppData\\Local\\Microsoft\\Windows\\INetCache\\Content.Outlook\\*" TargetFilename="*.iso") | table Image,ComputerName,TargetFileName

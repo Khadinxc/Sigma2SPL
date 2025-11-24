@@ -1,0 +1,12 @@
+# Title: Successful Account Login Via WMI
+# Author: Thomas Patzke
+# Date: 2019-12-04
+# Level: low
+# Description: Detects successful logon attempts performed with WMI
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1047
+# False Positives:
+#   - Monitoring tools
+#   - Legitimate system administration
+
+EventID=4624 ProcessName="*\\WmiPrvSE.exe"

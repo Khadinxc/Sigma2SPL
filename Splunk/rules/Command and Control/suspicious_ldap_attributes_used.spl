@@ -1,0 +1,11 @@
+# Title: Suspicious LDAP-Attributes Used
+# Author: xknow @xknow_infosec
+# Date: 2019-03-24
+# Level: high
+# Description: Detects the usage of particular AttributeLDAPDisplayNames, which are known for data exchange via LDAP by the tool LDAPFragger and are additionally not commonly used in companies.
+# MITRE Tactic: Command and Control
+# Tags: attack.t1001.003, attack.command-and-control
+# False Positives:
+#   - Companies, who may use these default LDAP-Attributes for personal information
+
+AttributeLDAPDisplayName IN ("primaryInternationalISDNNumber", "otherFacsimileTelephoneNumber", "primaryTelexNumber") AttributeValue="*" EventID=5136

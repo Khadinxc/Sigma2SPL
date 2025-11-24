@@ -1,0 +1,11 @@
+# Title: Volume Shadow Copy Mount
+# Author: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR)
+# Date: 2020-10-20
+# Level: low
+# Description: Detects volume shadow copy mount via Windows event log
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.002
+# False Positives:
+#   - Legitimate use of volume shadow copy mounts (backups maybe).
+
+DeviceName="*HarddiskVolumeShadowCopy*" EventID=98 Provider_Name="Microsoft-Windows-Ntfs"

@@ -1,0 +1,9 @@
+# Title: Remote Thread Created In KeePass.EXE
+# Author: Timon Hackenjos
+# Date: 2022-04-22
+# Level: high
+# Description: Detects remote thread creation in "KeePass.exe" which could indicates potential password dumping activity
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1555.005
+
+TargetImage="*\\KeePass.exe"

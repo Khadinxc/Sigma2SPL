@@ -1,0 +1,9 @@
+# Title: Potential Base64 Encoded User-Agent
+# Author: Florian Roth (Nextron Systems), Brian Ingram (update)
+# Date: 2022-07-08
+# Level: medium
+# Description: Detects User Agent strings that end with an equal sign, which can be a sign of base64 encoding.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001
+
+"c-useragent"="*="

@@ -1,0 +1,11 @@
+# Title: Potential Access Token Abuse
+# Author: Michaela Adams, Zach Mathis
+# Date: 2022-11-06
+# Level: medium
+# Description: Detects potential token impersonation and theft. Example, when using "DuplicateToken(Ex)" and "ImpersonateLoggedOnUser" with the "LOGON32_LOGON_NEW_CREDENTIALS flag".
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1134.001, stp.4u
+# False Positives:
+#   - Anti-Virus
+
+AuthenticationPackageName="Negotiate" EventID=4624 ImpersonationLevel="%%1833" LogonProcessName="Advapi" LogonType=9

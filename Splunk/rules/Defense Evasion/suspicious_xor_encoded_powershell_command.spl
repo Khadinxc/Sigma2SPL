@@ -1,0 +1,9 @@
+# Title: Suspicious XOR Encoded PowerShell Command
+# Author: Sami Ruohonen, Harish Segar, Tim Shelton, Teymur Kheirkhabarov, Vasiliy Burov, oscd.community, Nasreddine Bencherchali
+# Date: 2018-09-05
+# Level: medium
+# Description: Detects presence of a potentially xor encoded powershell command
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.t1059.001, attack.t1140, attack.t1027
+
+CommandLine IN ("*ForEach*", "*for(*", "*for *", "*-join *", "*-join'*", "*-join\"*", "*-join`*", "*::Join*", "*[char]*") CommandLine="*bxor*" Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") OR Description="Windows PowerShell" OR Product="PowerShell Core 6"

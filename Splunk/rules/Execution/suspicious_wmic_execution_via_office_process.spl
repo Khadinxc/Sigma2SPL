@@ -1,0 +1,9 @@
+# Title: Suspicious WMIC Execution Via Office Process
+# Author: Vadim Khrykov, Cyb3rEng
+# Date: 2021-08-23
+# Level: high
+# Description: Office application called wmic to proxye execution through a LOLBIN process. This is often used to break suspicious parent-child chain (Office app spawns LOLBin).
+# MITRE Tactic: Execution
+# Tags: attack.t1204.002, attack.t1047, attack.t1218.010, attack.execution, attack.defense-evasion
+
+ParentImage IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.exe", "*\\MSPUB.exe", "*\\VISIO.exe", "*\\MSACCESS.EXE", "*\\EQNEDT32.EXE", "*\\ONENOTE.EXE", "*\\wordpad.exe", "*\\wordview.exe") CommandLine IN ("*regsvr32*", "*rundll32*", "*msiexec*", "*mshta*", "*verclsid*", "*wscript*", "*cscript*") CommandLine="*process*" CommandLine="*create*" CommandLine="*call*" Image="*\\wbem\\WMIC.exe" OR OriginalFileName="wmic.exe"

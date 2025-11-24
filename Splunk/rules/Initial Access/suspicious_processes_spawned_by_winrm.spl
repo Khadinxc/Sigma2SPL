@@ -1,0 +1,11 @@
+# Title: Suspicious Processes Spawned by WinRM
+# Author: Andreas Hunkeler (@Karneades), Markus Neis
+# Date: 2021-05-20
+# Level: high
+# Description: Detects suspicious processes including shells spawnd from WinRM host process
+# MITRE Tactic: Initial Access
+# Tags: attack.t1190, attack.initial-access, attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - Legitimate WinRM usage
+
+Image IN ("*\\cmd.exe", "*\\sh.exe", "*\\bash.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wsl.exe", "*\\schtasks.exe", "*\\certutil.exe", "*\\whoami.exe", "*\\bitsadmin.exe") ParentImage="*\\wsmprovhost.exe"

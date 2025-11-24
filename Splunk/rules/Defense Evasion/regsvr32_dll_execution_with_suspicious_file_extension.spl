@@ -1,0 +1,11 @@
+# Title: Regsvr32 DLL Execution With Suspicious File Extension
+# Author: Florian Roth (Nextron Systems), frack113
+# Date: 2021-11-29
+# Level: high
+# Description: Detects the execution of REGSVR32.exe with DLL files masquerading as other files
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.010
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*.bin", "*.bmp", "*.cr2", "*.dat", "*.eps", "*.gif", "*.ico", "*.jpeg", "*.jpg", "*.log", "*.nef", "*.orf", "*.png", "*.raw", "*.rtf", "*.sr2", "*.temp", "*.tif", "*.tiff", "*.tmp", "*.txt") Image="*\\regsvr32.exe" OR OriginalFileName="REGSVR32.EXE"

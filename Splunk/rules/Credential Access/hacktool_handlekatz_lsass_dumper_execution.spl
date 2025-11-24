@@ -1,0 +1,9 @@
+# Title: HackTool - HandleKatz LSASS Dumper Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-08-18
+# Level: high
+# Description: Detects the use of HandleKatz, a tool that demonstrates the usage of cloned handles to Lsass in order to create an obfuscated memory dump of the same
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+
+(CommandLine IN ("*.dmp*", "*lsass*", "*.obf*", "*dump*") CommandLine="*--pid:*" CommandLine="*--outfile:*") OR (CommandLine="*--pid:*" Image="*\\loader.exe") OR Hashes IN ("*IMPHASH=38D9E015591BBFD4929E0D0F47FA0055*", "*IMPHASH=0E2216679CA6E1094D63322E3412D650*")

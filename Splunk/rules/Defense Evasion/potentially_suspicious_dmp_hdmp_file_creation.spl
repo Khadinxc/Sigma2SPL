@@ -1,0 +1,11 @@
+# Title: Potentially Suspicious DMP/HDMP File Creation
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-09-07
+# Level: medium
+# Description: Detects the creation of a file with the ".dmp"/".hdmp" extension by a shell or scripting application such as "cmd", "powershell", etc. Often created by software during a crash. Memory dumps can sometimes contain sensitive information such as credentials. It's best to determine the source of the crash.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Some administrative PowerShell or VB scripts might have the ability to collect dumps and move them to other folders which might trigger a false positive.
+
+Image IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe") TargetFilename IN ("*.dmp", "*.dump", "*.hdmp")

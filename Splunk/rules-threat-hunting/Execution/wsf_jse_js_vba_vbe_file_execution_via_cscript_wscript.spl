@@ -1,0 +1,11 @@
+# Title: WSF/JSE/JS/VBA/VBE File Execution Via Cscript/Wscript
+# Author: Michael Haag
+# Date: 2019-01-16
+# Level: medium
+# Description: Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.005, attack.t1059.007, detection.threat-hunting
+# False Positives:
+#   - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy.
+
+CommandLine IN ("*.js*", "*.jse*", "*.vba*", "*.vbe*", "*.vbs*", "*.wsf*") OriginalFileName IN ("wscript.exe", "cscript.exe") OR Image IN ("*\\wscript.exe", "*\\cscript.exe")

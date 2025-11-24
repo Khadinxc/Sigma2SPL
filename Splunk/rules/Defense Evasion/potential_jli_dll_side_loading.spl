@@ -1,0 +1,11 @@
+# Title: Potential JLI.dll Side-Loading
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-07-25
+# Level: high
+# Description: Detects potential DLL side-loading of jli.dll.
+# JLI.dll has been observed being side-loaded by Java processes by various threat actors, including APT41, XWorm,
+# and others in order to load malicious payloads in context of legitimate Java processes.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001
+
+ImageLoaded="*\\jli.dll" NOT (Description="OpenJDK Platform binary" ImageLoaded IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*") OriginalFileName="jli.dll" Product="OpenJDK Platform*" Signed="true") NOT ImageLoaded="C:\\eclipse\\plugins\\*"

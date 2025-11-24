@@ -1,0 +1,9 @@
+# Title: CobaltStrike Service Installations - Security
+# Author: Florian Roth (Nextron Systems), Wojciech Lesicki
+# Date: 2021-05-26
+# Level: high
+# Description: Detects known malicious service installs that appear in cases in which a Cobalt Strike beacon elevates privileges or lateral movement
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.execution, attack.privilege-escalation, attack.lateral-movement, attack.t1021.002, attack.t1543.003, attack.t1569.002
+
+EventID=4697 (ServiceFileName="*ADMIN$*" ServiceFileName="*.exe*") OR (ServiceFileName="*%COMSPEC%*" ServiceFileName="*start*" ServiceFileName="*powershell*") OR ServiceFileName="*powershell -nop -w hidden -encodedcommand*" OR ServiceFileName="*SUVYIChOZXctT2JqZWN0IE5ldC5XZWJjbGllbnQpLkRvd25sb2FkU3RyaW5nKCdodHRwOi8vMTI3LjAuMC4xO*" OR ServiceFileName="*lFWCAoTmV3LU9iamVjdCBOZXQuV2ViY2xpZW50KS5Eb3dubG9hZFN0cmluZygnaHR0cDovLzEyNy4wLjAuMT*" OR ServiceFileName="*JRVggKE5ldy1PYmplY3QgTmV0LldlYmNsaWVudCkuRG93bmxvYWRTdHJpbmcoJ2h0dHA6Ly8xMjcuMC4wLjE6*"

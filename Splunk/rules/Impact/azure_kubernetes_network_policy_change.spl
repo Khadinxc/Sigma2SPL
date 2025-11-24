@@ -1,0 +1,12 @@
+# Title: Azure Kubernetes Network Policy Change
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-07
+# Level: medium
+# Description: Identifies when a Azure Kubernetes network policy is modified or deleted.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.credential-access, attack.t1485, attack.t1496, attack.t1489
+# False Positives:
+#   - Network Policy being modified and deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Network Policy being modified and deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName IN ("MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/NETWORKING.K8S.IO/NETWORKPOLICIES/WRITE", "MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/NETWORKING.K8S.IO/NETWORKPOLICIES/DELETE", "MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/EXTENSIONS/NETWORKPOLICIES/WRITE", "MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS/EXTENSIONS/NETWORKPOLICIES/DELETE")

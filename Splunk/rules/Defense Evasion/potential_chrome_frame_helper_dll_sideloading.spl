@@ -1,0 +1,9 @@
+# Title: Potential Chrome Frame Helper DLL Sideloading
+# Author: Nasreddine Bencherchali (Nextron Systems), Wietze Beukema (project and research)
+# Date: 2022-08-17
+# Level: medium
+# Description: Detects potential DLL sideloading of "chrome_frame_helper.dll"
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001
+
+ImageLoaded="*\\chrome_frame_helper.dll" NOT (ImageLoaded IN ("C:\\Program Files\\Google\\Chrome\\Application\\*", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\*")) NOT ImageLoaded="*\\AppData\\local\\Google\\Chrome\\Application\\*"

@@ -1,0 +1,11 @@
+# Title: OpenSSH Server Listening On Socket
+# Author: mdecrevoisier
+# Date: 2022-10-25
+# Level: medium
+# Description: Detects scenarios where an attacker enables the OpenSSH server and server starts to listening on SSH socket.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.004
+# False Positives:
+#   - Legitimate administrator activity
+
+EventID=4 payload="Server listening on *" process="sshd"

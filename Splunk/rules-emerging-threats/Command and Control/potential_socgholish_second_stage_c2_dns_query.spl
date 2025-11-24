@@ -1,0 +1,12 @@
+# Title: Potential SocGholish Second Stage C2 DNS Query
+# Author: Dusty Miller
+# Date: 2023-02-23
+# Level: high
+# Description: Detects a DNS query initiated from a "wscript" process for domains matching a specific pattern that was seen being used by SocGholish for its Command and Control traffic
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1219.002, detection.emerging-threats
+# False Positives:
+#   - Legitimate domain names matching the regex pattern by chance (e.g. domain controllers dc01.company.co.uk)
+
+Image="*\\wscript.exe"
+| regex QueryName="[a-f0-9]{4,8}\\.(?:[a-z0-9\\-]+\\.){2}[a-z0-9\\-]+"

@@ -1,0 +1,11 @@
+# Title: ADSI-Cache File Creation By Uncommon Tool
+# Author: xknow @xknow_infosec, Tim Shelton
+# Date: 2019-03-24
+# Level: medium
+# Description: Detects the creation of an "Active Directory Schema Cache File" (.sch) file by an uncommon tool.
+# MITRE Tactic: Command and Control
+# Tags: attack.t1001.003, attack.command-and-control
+# False Positives:
+#   - Other legimate tools, which do ADSI (LDAP) operations, e.g. any remoting activity by MMC, Powershell, Windows etc.
+
+TargetFilename="*\\Local\\Microsoft\\Windows\\SchCache\\*" TargetFilename="*.sch" NOT (Image IN ("*:\\Program Files\\Cylance\\Desktop\\CylanceSvc.exe", "*:\\Windows\\CCM\\CcmExec.exe", "*:\\windows\\system32\\dllhost.exe", "*:\\Windows\\system32\\dsac.exe", "*:\\Windows\\system32\\efsui.exe", "*:\\windows\\system32\\mmc.exe", "*:\\windows\\system32\\svchost.exe", "*:\\Windows\\System32\\wbem\\WmiPrvSE.exe", "*:\\windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe") OR Image IN ("*:\\Windows\\ccmsetup\\autoupgrade\\ccmsetup*", "*:\\Program Files\\SentinelOne\\Sentinel Agent*") OR (Image="*:\\Program Files\\*" Image="*\\Microsoft Office*" Image="*\\OUTLOOK.EXE")) NOT (Image IN ("*:\\Program Files\\Citrix\\Receiver StoreFront\\Services\\DefaultDomainServices\\Citrix.DeliveryServices.DomainServices.ServiceHost.exe", "*\\LANDesk\\LDCLient\\ldapwhoami.exe"))

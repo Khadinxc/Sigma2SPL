@@ -1,0 +1,9 @@
+# Title: Suspicious Program Location Whitelisted In Firewall Via Netsh.EXE
+# Author: Sander Wiebing, Jonhnathan Ribeiro, Daniil Yugoslavskiy, oscd.community
+# Date: 2020-05-25
+# Level: high
+# Description: Detects Netsh command execution that whitelists a program located in a suspicious location in the Windows Firewall
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.004
+
+(CommandLine="*firewall*" CommandLine="*add*" CommandLine="*allowedprogram*") OR (CommandLine="*advfirewall*" CommandLine="*firewall*" CommandLine="*add*" CommandLine="*rule*" CommandLine="*action=allow*" CommandLine="*program=*") Image="*\\netsh.exe" OR OriginalFileName="netsh.exe" CommandLine IN ("*:\\$Recycle.bin\\*", "*:\\RECYCLER.BIN\\*", "*:\\RECYCLERS.BIN\\*", "*:\\SystemVolumeInformation\\*", "*:\\Temp\\*", "*:\\Users\\Default\\*", "*:\\Users\\Desktop\\*", "*:\\Users\\Public\\*", "*:\\Windows\\addins\\*", "*:\\Windows\\cursors\\*", "*:\\Windows\\debug\\*", "*:\\Windows\\drivers\\*", "*:\\Windows\\fonts\\*", "*:\\Windows\\help\\*", "*:\\Windows\\system32\\tasks\\*", "*:\\Windows\\Tasks\\*", "*:\\Windows\\Temp\\*", "*\\Downloads\\*", "*\\Local Settings\\Temporary Internet Files\\*", "*\\Temporary Internet Files\\Content.Outlook\\*", "*%Public%\\*", "*%TEMP%*", "*%TMP%*")

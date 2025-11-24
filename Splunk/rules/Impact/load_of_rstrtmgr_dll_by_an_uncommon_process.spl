@@ -1,0 +1,14 @@
+# Title: Load Of RstrtMgr.DLL By An Uncommon Process
+# Author: Luc Génaux
+# Date: 2023-11-28
+# Level: low
+# Description: Detects the load of RstrtMgr DLL (Restart Manager) by an uncommon process.
+# This library has been used during ransomware campaigns to kill processes that would prevent file encryption by locking them (e.g. Conti ransomware, Cactus ransomware). It has also recently been seen used by the BiBi wiper for Windows.
+# It could also be used for anti-analysis purposes by shut downing specific processes.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.defense-evasion, attack.t1486, attack.t1562.001
+# False Positives:
+#   - Other legitimate Windows processes not currently listed
+#   - Processes related to software installation
+
+ImageLoaded="*\\RstrtMgr.dll" OR OriginalFileName="RstrtMgr.dll" NOT (Image="*:\\Windows\\Temp\\*" OR Image IN ("*:\\$WINDOWS.~BT\\*", "*:\\$WinREAgent\\*", "*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\ProgramData\\*", "*:\\Windows\\explorer.exe*", "*:\\Windows\\SoftwareDistribution\\*", "*:\\Windows\\SysNative\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*", "*:\\Windows\\WinSxS\\*", "*:\\WUDownloadCache\\*") OR (Image="*:\\Users\\*" Image="*\\AppData\\Local\\Temp\\is-*" Image="*.tmp\\*" Image="*.tmp"))

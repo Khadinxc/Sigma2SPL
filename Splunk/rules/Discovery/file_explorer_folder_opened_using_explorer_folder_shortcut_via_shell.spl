@@ -1,0 +1,9 @@
+# Title: File Explorer Folder Opened Using Explorer Folder Shortcut Via Shell
+# Author: @Kostastsale
+# Date: 2022-12-22
+# Level: high
+# Description: Detects the initial execution of "cmd.exe" which spawns "explorer.exe" with the appropriate command line arguments for opening the "My Computer" folder.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1135
+
+CommandLine="*shell:mycomputerfolder*" Image="*\\explorer.exe" ParentImage IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe")

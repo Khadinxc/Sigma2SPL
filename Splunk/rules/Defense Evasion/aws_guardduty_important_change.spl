@@ -1,0 +1,11 @@
+# Title: AWS GuardDuty Important Change
+# Author: faloker
+# Date: 2020-02-11
+# Level: high
+# Description: Detects updates of the GuardDuty list of trusted IPs, perhaps to disable security alerts against malicious IPs.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Valid change in the GuardDuty (e.g. to ignore internal scanners)
+
+eventName="CreateIPSet" eventSource="guardduty.amazonaws.com"

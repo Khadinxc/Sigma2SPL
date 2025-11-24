@@ -1,0 +1,11 @@
+# Title: Qakbot Rundll32 Fake DLL Extension Execution
+# Author: X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-24
+# Level: critical
+# Description: Detects specific process tree behavior of a "rundll32" execution where the DLL doesn't have the ".dll" extension. This is often linked with potential Qakbot activity.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*:\\ProgramData\\*", "*:\\Users\\Public\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Roaming\\*") Image="*\\rundll32.exe" ParentImage IN ("*\\cmd.exe", "*\\cscript.exe", "*\\curl.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe") NOT CommandLine="*.dll*"

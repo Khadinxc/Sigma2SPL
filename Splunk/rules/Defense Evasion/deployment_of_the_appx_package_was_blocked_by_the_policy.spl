@@ -1,0 +1,9 @@
+# Title: Deployment Of The AppX Package Was Blocked By The Policy
+# Author: frack113
+# Date: 2023-01-11
+# Level: medium
+# Description: Detects an appx package deployment that was blocked by the local computer policy
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+EventID IN (441, 442, 453, 454)

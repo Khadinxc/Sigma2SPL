@@ -1,0 +1,9 @@
+# Title: Suspicious WSMAN Provider Image Loads
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-06-24
+# Level: medium
+# Description: Detects signs of potential use of the WSMAN provider from uncommon processes locally and remote execution.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.lateral-movement, attack.t1021.003
+
+ImageLoaded IN ("*\\WsmSvc.dll", "*\\WsmAuto.dll", "*\\Microsoft.WSMan.Management.ni.dll") OR OriginalFileName IN ("WsmSvc.dll", "WSMANAUTOMATION.DLL", "Microsoft.WSMan.Management.dll") OR (Image="*\\svchost.exe" OriginalFileName="WsmWmiPl.dll") NOT (Image="C:\\Program Files\\Citrix\\*" OR Image IN ("C:\\Program Files (x86)\\PowerShell\\6\\pwsh.exe", "C:\\Program Files (x86)\\PowerShell\\7\\pwsh.exe", "C:\\Program Files\\PowerShell\\6\\pwsh.exe", "C:\\Program Files\\PowerShell\\7\\pwsh.exe", "C:\\Windows\\System32\\sdiagnhost.exe", "C:\\Windows\\System32\\services.exe", "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell_ise.exe", "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe") OR Image="*\\mmc.exe" OR (Image="*\\mscorsvw.exe" Image IN ("C:\\Windows\\Microsoft.NET\\Framework64\\v*", "C:\\Windows\\Microsoft.NET\\Framework\\v*", "C:\\Windows\\Microsoft.NET\\FrameworkArm\\v*", "C:\\Windows\\Microsoft.NET\\FrameworkArm64\\v*")) OR Image="C:\\Windows\\Temp\\asgard2-agent\\*" OR CommandLine IN ("*svchost.exe -k netsvcs -p -s BITS*", "*svchost.exe -k GraphicsPerfSvcGroup -s GraphicsPerfSvc*", "*svchost.exe -k NetworkService -p -s Wecsvc*", "*svchost.exe -k netsvcs*") OR Image IN ("C:\\Windows\\System32\\Configure-SMRemoting.exe", "C:\\Windows\\System32\\ServerManager.exe") OR Image="C:\\$WINDOWS.~BT\\Sources\\*") NOT (Image="*\\svchost.exe" NOT CommandLine=*)

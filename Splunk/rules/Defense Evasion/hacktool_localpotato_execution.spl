@@ -1,0 +1,11 @@
+# Title: HackTool - LocalPotato Execution
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-02-14
+# Level: high
+# Description: Detects the execution of the LocalPotato POC based on basic PE metadata information and default CLI examples
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, cve.2023-21746
+# False Positives:
+#   - Unlikely
+
+(CommandLine="*.exe -i C:\\*" CommandLine="*-o Windows\\*") OR Hashes IN ("*IMPHASH=E1742EE971D6549E8D4D81115F88F1FC*", "*IMPHASH=DD82066EFBA94D7556EF582F247C8BB5*") OR Image="*\\LocalPotato.exe"

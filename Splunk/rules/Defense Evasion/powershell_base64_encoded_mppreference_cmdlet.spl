@@ -1,0 +1,9 @@
+# Title: Powershell Base64 Encoded MpPreference Cmdlet
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-04
+# Level: high
+# Description: Detects base64 encoded "MpPreference" PowerShell cmdlet code that tries to modifies or tamper with Windows Defender AV
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+
+CommandLine="*QWRkLU1wUHJlZmVyZW5jZS*" OR CommandLine="*FkZC1NcFByZWZlcmVuY2Ug*" OR CommandLine="*BZGQtTXBQcmVmZXJlbmNlI*" OR CommandLine="*U2V0LU1wUHJlZmVyZW5jZS*" OR CommandLine="*NldC1NcFByZWZlcmVuY2Ug*" OR CommandLine="*TZXQtTXBQcmVmZXJlbmNlI*" OR CommandLine="*YWRkLW1wcHJlZmVyZW5jZS*" OR CommandLine="*FkZC1tcHByZWZlcmVuY2Ug*" OR CommandLine="*hZGQtbXBwcmVmZXJlbmNlI*" OR CommandLine="*c2V0LW1wcHJlZmVyZW5jZS*" OR CommandLine="*NldC1tcHByZWZlcmVuY2Ug*" OR CommandLine="*zZXQtbXBwcmVmZXJlbmNlI*" OR CommandLine IN ("*QQBkAGQALQBNAHAAUAByAGUAZgBlAHIAZQBuAGMAZQAgA*", "*EAZABkAC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIA*", "*BAGQAZAAtAE0AcABQAHIAZQBmAGUAcgBlAG4AYwBlACAA*", "*UwBlAHQALQBNAHAAUAByAGUAZgBlAHIAZQBuAGMAZQAgA*", "*MAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIA*", "*TAGUAdAAtAE0AcABQAHIAZQBmAGUAcgBlAG4AYwBlACAA*", "*YQBkAGQALQBtAHAAcAByAGUAZgBlAHIAZQBuAGMAZQAgA*", "*EAZABkAC0AbQBwAHAAcgBlAGYAZQByAGUAbgBjAGUAIA*", "*hAGQAZAAtAG0AcABwAHIAZQBmAGUAcgBlAG4AYwBlACAA*", "*cwBlAHQALQBtAHAAcAByAGUAZgBlAHIAZQBuAGMAZQAgA*", "*MAZQB0AC0AbQBwAHAAcgBlAGYAZQByAGUAbgBjAGUAIA*", "*zAGUAdAAtAG0AcABwAHIAZQBmAGUAcgBlAG4AYwBlACAA*")

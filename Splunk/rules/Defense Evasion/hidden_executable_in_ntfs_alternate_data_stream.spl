@@ -1,0 +1,11 @@
+# Title: Hidden Executable In NTFS Alternate Data Stream
+# Author: Florian Roth (Nextron Systems), @0xrawsec
+# Date: 2018-06-03
+# Level: medium
+# Description: Detects the creation of an ADS (Alternate Data Stream) that contains an executable by looking at a non-empty Imphash
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.s0139, attack.t1564.004
+# False Positives:
+#   - This rule isn't looking for any particular binary characteristics. As legitimate installers and programs were seen embedding hidden binaries in their ADS. Some false positives are expected from browser processes and similar.
+
+Hash="*IMPHASH=*" NOT Hash="*IMPHASH=00000000000000000000000000000000*"

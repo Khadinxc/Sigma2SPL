@@ -1,0 +1,12 @@
+# Title: Bitbucket User Login Failure Via SSH
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-02-25
+# Level: medium
+# Description: Detects SSH user login access failures.
+# Please note that this rule can be noisy and is recommended to use with correlation based on "author.name" field.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.credential-access, attack.t1021.004, attack.t1110
+# False Positives:
+#   - Legitimate user wrong password attempts.
+
+auditType.action="User login failed(SSH)" auditType.category="Authentication"

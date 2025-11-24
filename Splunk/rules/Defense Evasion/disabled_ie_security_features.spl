@@ -1,0 +1,9 @@
+# Title: Disabled IE Security Features
+# Author: Florian Roth (Nextron Systems)
+# Date: 2020-06-19
+# Level: high
+# Description: Detects command lines that indicate unwanted modifications to registry keys that disable important Internet Explorer security features
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+
+(CommandLine="* -name IEHarden *" CommandLine="* -value 0 *") OR (CommandLine="* -name DEPOff *" CommandLine="* -value 1 *") OR (CommandLine="* -name DisableFirstRunCustomize *" CommandLine="* -value 2 *")

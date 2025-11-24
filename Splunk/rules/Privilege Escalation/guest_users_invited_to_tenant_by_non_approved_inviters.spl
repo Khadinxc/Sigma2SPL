@@ -1,0 +1,11 @@
+# Title: Guest Users Invited To Tenant By Non Approved Inviters
+# Author: MikeDuddington, '@dudders1'
+# Date: 2022-07-28
+# Level: medium
+# Description: Detects guest users being invited to tenant by non-approved inviters
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+# False Positives:
+#   - If this was approved by System Administrator.
+
+Category="UserManagement" OperationName="Invite external user" NOT InitiatedBy="*<approved guest inviter use OR for multiple>*"

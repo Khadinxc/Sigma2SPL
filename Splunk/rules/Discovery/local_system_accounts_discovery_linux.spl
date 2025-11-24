@@ -1,0 +1,11 @@
+# Title: Local System Accounts Discovery - Linux
+# Author: Alejandro Ortuno, oscd.community, CheraghiMilad
+# Date: 2020-10-08
+# Level: low
+# Description: Detects enumeration of local systeam accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1087.001
+# False Positives:
+#   - Legitimate administration activities
+
+Image="*/lastlog" OR CommandLine="*'x:0:'*" OR (CommandLine IN ("*/etc/passwd*", "*/etc/shadow*", "*/etc/sudoers*", "*/etc/spwd.db*", "*/etc/pwd.db*", "*/etc/master.passwd*") Image IN ("*/cat", "*/ed", "*/head", "*/more", "*/nano", "*/tail", "*/vi", "*/vim", "*/less", "*/emacs", "*/sqlite3", "*/makemap")) OR Image="*/id" OR (CommandLine="*-u*" Image="*/lsof")

@@ -1,0 +1,9 @@
+# Title: HackTool - Impersonate Execution
+# Author: Sai Prashanth Pulisetti @pulisettis
+# Date: 2022-12-21
+# Level: medium
+# Description: Detects execution of the Impersonate tool. Which can be used to manipulate tokens on a Windows computers remotely (PsExec/WmiExec) or interactively
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1134.001, attack.t1134.003
+
+(CommandLine="*impersonate.exe*" CommandLine IN ("* list *", "* exec *", "* adduser *")) OR Hashes IN ("*MD5=9520714AB576B0ED01D1513691377D01*", "*SHA256=E81CC96E2118DC4FBFE5BAD1604E0AC7681960143E2101E1A024D52264BB0A8A*", "*IMPHASH=0A358FFC1697B7A07D0E817AC740DF62*")

@@ -1,0 +1,11 @@
+# Title: User Added To Privilege Role
+# Author: Mark Morowczynski '@markmorow', Yochana Henderson, '@Yochana-H'
+# Date: 2022-08-06
+# Level: high
+# Description: Detects when a user is added to a privileged role.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.initial-access, attack.privilege-escalation, attack.defense-evasion, attack.t1078.004
+# False Positives:
+#   - Legtimate administrator actions of adding members from a role
+
+properties.message IN ("Add eligible member (permanent)", "Add eligible member (eligible)")

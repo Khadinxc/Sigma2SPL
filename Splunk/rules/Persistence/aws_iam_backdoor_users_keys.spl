@@ -1,0 +1,14 @@
+# Title: AWS IAM Backdoor Users Keys
+# Author: faloker
+# Date: 2020-02-12
+# Level: medium
+# Description: Detects AWS API key creation for a user by another user.
+# Backdoored users can be used to obtain persistence in the AWS environment.
+# Also with this alert, you can detect a flow of AWS keys in your org.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1098
+# False Positives:
+#   - Adding user keys to their own accounts (the filter cannot cover all possible variants of user naming)
+#   - AWS API keys legitimate exchange workflows
+
+eventName="CreateAccessKey" eventSource="iam.amazonaws.com" NOT userIdentity.arn="*responseElements.accessKey.userName*" | table userIdentity.arn,responseElements.accessKey.userName,errorCode,errorMessage

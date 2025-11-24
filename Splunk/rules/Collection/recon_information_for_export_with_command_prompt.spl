@@ -1,0 +1,9 @@
+# Title: Recon Information for Export with Command Prompt
+# Author: frack113
+# Date: 2021-07-30
+# Level: medium
+# Description: Once established within a system or network, an adversary may use automated techniques for collecting internal data.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1119
+
+Image IN ("*\\tree.com", "*\\WMIC.exe", "*\\doskey.exe", "*\\sc.exe") OR OriginalFileName IN ("wmic.exe", "DOSKEY.EXE", "sc.exe") ParentCommandLine IN ("* > %TEMP%\\*", "* > %TMP%\\*")

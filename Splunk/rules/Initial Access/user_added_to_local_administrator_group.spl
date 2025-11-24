@@ -1,0 +1,11 @@
+# Title: User Added to Local Administrator Group
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-14
+# Level: medium
+# Description: Detects the addition of a new member to the local administrator group, which could be legitimate activity or a sign of privilege escalation activity
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.privilege-escalation, attack.t1078, attack.persistence, attack.t1098
+# False Positives:
+#   - Legitimate administrative activity
+
+EventID=4732 TargetUserName="Administr*" OR TargetSid="S-1-5-32-544" NOT SubjectUserName="*$"

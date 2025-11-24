@@ -1,0 +1,13 @@
+# Title: DNS Query To Katz Stealer Domains - Network
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-05-22
+# Level: high
+# Description: Detects DNS queries to domains associated with Katz Stealer malware.
+# Katz Stealer is a malware variant that is known to be used for stealing sensitive information from compromised systems.
+# In Enterprise environments, DNS queries to these domains may indicate potential malicious activity or compromise.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.004, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+query IN ("*katz-panel.com*", "*katz-stealer.com*", "*katzstealer.com*", "*twist2katz.com*")

@@ -1,0 +1,9 @@
+# Title: LSASS Access From Potentially White-Listed Processes
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-02-10
+# Level: high
+# Description: Detects a possible process memory dump that uses a white-listed filename like TrolleyExpress.exe as a way to dump the LSASS process memory without Microsoft Defender interference
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001, attack.s0002
+
+GrantedAccess IN ("*10", "*30", "*50", "*70", "*90", "*B0", "*D0", "*F0", "*18", "*38", "*58", "*78", "*98", "*B8", "*D8", "*F8", "*1A", "*3A", "*5A", "*7A", "*9A", "*BA", "*DA", "*FA", "*0x14C2", "*FF") SourceImage IN ("*\\TrolleyExpress.exe", "*\\ProcessDump.exe", "*\\dump64.exe") TargetImage="*\\lsass.exe"

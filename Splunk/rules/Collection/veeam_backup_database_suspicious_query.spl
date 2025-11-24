@@ -1,0 +1,9 @@
+# Title: Veeam Backup Database Suspicious Query
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-04
+# Level: medium
+# Description: Detects potentially suspicious SQL queries using SQLCmd targeting the Veeam backup databases in order to steal information.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1005
+
+CommandLine IN ("*BackupRepositories*", "*Backups*", "*Credentials*", "*HostCreds*", "*SmbFileShares*", "*Ssh_creds*", "*VSphereInfo*") CommandLine="*VeeamBackup*" CommandLine="*From *" Image="*\\sqlcmd.exe"

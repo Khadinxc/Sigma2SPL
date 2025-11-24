@@ -1,0 +1,11 @@
+# Title: Raspberry Robin Initial Execution From External Drive
+# Author: @kostastsale
+# Date: 2022-05-06
+# Level: high
+# Description: Detects the initial execution of the Raspberry Robin malware from an external drive using "Cmd.EXE".
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+CommandLine IN ("*http:*", "*https:*") CommandLine="*-q*" OR CommandLine="*/q*" OR CommandLine="*–q*" OR CommandLine="*—q*" OR CommandLine="*―q*" Image="*\\msiexec.exe" ParentCommandLine="*/r*" ParentCommandLine IN ("*.bin", "*.ico", "*.lnk", "*.lo", "*.sv", "*.usb") ParentImage="*\\cmd.exe"

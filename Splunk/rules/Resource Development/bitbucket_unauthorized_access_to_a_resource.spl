@@ -1,0 +1,11 @@
+# Title: Bitbucket Unauthorized Access To A Resource
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-02-25
+# Level: critical
+# Description: Detects unauthorized access attempts to a resource.
+# MITRE Tactic: Resource Development
+# Tags: attack.resource-development, attack.t1586
+# False Positives:
+#   - Access attempts to non-existent repositories or due to outdated plugins. Usually "Anonymous" user is reported in the "author.name" field in most cases.
+
+auditType.action="Unauthorized access to a resource" auditType.category="Security"

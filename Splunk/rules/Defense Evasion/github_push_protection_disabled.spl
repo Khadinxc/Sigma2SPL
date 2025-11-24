@@ -1,0 +1,11 @@
+# Title: Github Push Protection Disabled
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-03-07
+# Level: high
+# Description: Detects if the push protection feature is disabled for an organization, enterprise, repositories or custom pattern rules.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Allowed administrative activities.
+
+action IN ("business_secret_scanning_custom_pattern_push_protection.disabled", "business_secret_scanning_push_protection.disable", "business_secret_scanning_push_protection.disabled_for_new_repos", "org.secret_scanning_custom_pattern_push_protection_disabled", "org.secret_scanning_push_protection_disable", "org.secret_scanning_push_protection_new_repos_disable", "repository_secret_scanning_custom_pattern_push_protection.disabled")

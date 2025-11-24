@@ -1,0 +1,11 @@
+# Title: Disabling Multi Factor Authentication
+# Author: Splunk Threat Research Team (original rule), Harjot Singh @cyb3rjy0t (sigma rule)
+# Date: 2023-09-18
+# Level: high
+# Description: Detects disabling of Multi Factor Authentication.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.credential-access, attack.t1556.006
+# False Positives:
+#   - Unlikely
+
+Operation="*Disable Strong Authentication.*"

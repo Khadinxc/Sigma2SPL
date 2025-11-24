@@ -1,0 +1,10 @@
+# Title: Suspicious Screensaver Binary File Creation
+# Author: frack113
+# Date: 2021-12-29
+# Level: medium
+# Description: Adversaries may establish persistence by executing malicious content triggered by user inactivity.
+# Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.002
+
+TargetFilename="*.scr" NOT (Image IN ("*\\Kindle.exe", "*\\Bin\\ccSvcHst.exe") OR (Image="*\\TiWorker.exe" TargetFilename="*\\uwfservicingscr.scr"))

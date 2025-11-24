@@ -1,0 +1,11 @@
+# Title: APT40 Dropbox Tool User Agent
+# Author: Thomas Patzke
+# Date: 2019-11-12
+# Level: high
+# Description: Detects suspicious user agent string of APT40 Dropbox tool
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001, attack.exfiltration, attack.t1567.002, detection.emerging-threats
+# False Positives:
+#   - Old browsers
+
+"c-useragent"="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36" "cs-host"="api.dropbox.com"

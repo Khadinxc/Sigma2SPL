@@ -1,0 +1,11 @@
+# Title: Scanner PoC for CVE-2019-0708 RDP RCE Vuln
+# Author: Florian Roth (Nextron Systems), Adam Bradbury (idea)
+# Date: 2019-06-02
+# Level: high
+# Description: Detects the use of a scanner by zerosum0x0 that discovers targets vulnerable to  CVE-2019-0708 RDP RCE aka BlueKeep
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1210, car.2013-07-002, detection.emerging-threats, cve.2019-0708
+# False Positives:
+#   - Unlikely
+
+EventID=4625 TargetUserName="AAAAAAA"

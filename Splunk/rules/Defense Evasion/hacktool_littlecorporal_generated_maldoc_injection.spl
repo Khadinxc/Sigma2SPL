@@ -1,0 +1,9 @@
+# Title: HackTool - LittleCorporal Generated Maldoc Injection
+# Author: Christian Burkard (Nextron Systems)
+# Date: 2021-08-09
+# Level: high
+# Description: Detects the process injection of a LittleCorporal generated Maldoc.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.privilege-escalation, attack.t1204.002, attack.t1055.003
+
+CallTrace="*:\\Windows\\Microsoft.NET\\Framework64\\v2.*" CallTrace="*UNKNOWN*" SourceImage="*\\winword.exe"

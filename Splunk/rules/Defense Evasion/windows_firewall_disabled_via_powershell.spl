@@ -1,0 +1,9 @@
+# Title: Windows Firewall Disabled via PowerShell
+# Author: Tim Rauch, Elastic (idea)
+# Date: 2022-09-14
+# Level: medium
+# Description: Detects attempts to disable the Windows Firewall using PowerShell
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562
+
+CommandLine="*Set-NetFirewallProfile *" CommandLine="* -Enabled *" CommandLine="* False*" Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\powershell_ise.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") CommandLine IN ("* -All *", "*Public*", "*Domain*", "*Private*")

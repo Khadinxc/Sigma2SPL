@@ -1,0 +1,11 @@
+# Title: DNS Query To Put.io - DNS Client
+# Author: Omar Khaled (@beacon_exe)
+# Date: 2024-08-23
+# Level: medium
+# Description: Detects DNS queries for subdomains related to "Put.io" sharing website.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control
+# False Positives:
+#   - Legitimate DNS queries and usage of Put.io
+
+EventID=3008 QueryName IN ("*api.put.io*", "*upload.put.io*")

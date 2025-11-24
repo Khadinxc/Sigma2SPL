@@ -1,0 +1,12 @@
+# Title: Console CodePage Lookup Via CHCP
+# Author: _pete_0, TheDFIRReport
+# Date: 2022-02-21
+# Level: medium
+# Description: Detects use of chcp to look up the system locale value as part of host discovery
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1614.001
+# False Positives:
+#   - During Anaconda update the 'conda.exe' process will eventually execution the 'chcp' command.
+#   - Discord was seen using chcp to look up code pages
+
+CommandLine IN ("*chcp", "*chcp ", "*chcp  ") Image="*\\chcp.com" ParentCommandLine="* -c *" OR ParentCommandLine="* /c *" OR ParentCommandLine="* –c *" OR ParentCommandLine="* —c *" OR ParentCommandLine="* ―c *" OR ParentCommandLine="* -r *" OR ParentCommandLine="* /r *" OR ParentCommandLine="* –r *" OR ParentCommandLine="* —r *" OR ParentCommandLine="* ―r *" OR ParentCommandLine="* -k *" OR ParentCommandLine="* /k *" OR ParentCommandLine="* –k *" OR ParentCommandLine="* —k *" OR ParentCommandLine="* ―k *" ParentImage="*\\cmd.exe"

@@ -1,0 +1,11 @@
+# Title: Lace Tempest PowerShell Evidence Eraser
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-11-09
+# Level: high
+# Description: Detects a PowerShell script used by Lace Tempest APT to erase evidence from victim servers by exploiting CVE-2023-47246 as reported by SysAid Team
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+ScriptBlockText="*cleanLL*" ScriptBlockText="*usersfiles.war*" ScriptBlockText="*Remove-Item -Path \"$tomcat_dir*" ScriptBlockText="*SysAidServer*" ScriptBlockText="*sleep *" ScriptBlockText="*while(1)*"

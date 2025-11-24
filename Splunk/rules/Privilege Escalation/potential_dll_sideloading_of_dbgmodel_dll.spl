@@ -1,0 +1,11 @@
+# Title: Potential DLL Sideloading Of DbgModel.DLL
+# Author: Gary Lobermier
+# Date: 2024-07-11
+# Level: medium
+# Description: Detects potential DLL sideloading of "DbgModel.dll"
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+# False Positives:
+#   - Legitimate applications loading their own versions of the DLL mentioned in this rule
+
+ImageLoaded="*\\dbgmodel.dll" NOT (ImageLoaded IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*")) NOT (ImageLoaded="C:\\Program Files\\WindowsApps\\Microsoft.WinDbg_*" OR ImageLoaded IN ("C:\\Program Files (x86)\\Windows Kits\\*", "C:\\Program Files\\Windows Kits\\*"))

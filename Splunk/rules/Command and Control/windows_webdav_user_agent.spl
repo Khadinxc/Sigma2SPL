@@ -1,0 +1,13 @@
+# Title: Windows WebDAV User Agent
+# Author: Florian Roth (Nextron Systems)
+# Date: 2018-04-06
+# Level: high
+# Description: Detects WebDav DownloadCradle
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001
+# False Positives:
+#   - Administrative scripts that download files from the Internet
+#   - Administrative scripts that retrieve certain website contents
+#   - Legitimate WebDAV administration
+
+"c-useragent"="Microsoft-WebDAV-MiniRedir/*" "cs-method"="GET"

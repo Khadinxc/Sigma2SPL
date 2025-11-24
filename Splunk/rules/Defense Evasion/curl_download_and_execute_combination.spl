@@ -1,0 +1,9 @@
+# Title: Curl Download And Execute Combination
+# Author: Sreeman, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2020-01-13
+# Level: high
+# Description: Adversaries can use curl to download payloads remotely and execute them. Curl is included by default in Windows 10 build 17063 and later.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218, attack.command-and-control, attack.t1105
+
+CommandLine="*curl *" CommandLine="*http*" CommandLine="*-o*" CommandLine="*&*" CommandLine="* -c *" OR CommandLine="* /c *" OR CommandLine="* –c *" OR CommandLine="* —c *" OR CommandLine="* ―c *"

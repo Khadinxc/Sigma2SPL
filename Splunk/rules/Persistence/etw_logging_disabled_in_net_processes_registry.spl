@@ -1,0 +1,9 @@
+# Title: ETW Logging Disabled In .NET Processes - Registry
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-06-05
+# Level: high
+# Description: Potential adversaries stopping ETW providers recording loaded .NET assemblies.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1112, attack.t1562
+
+(EventID=4657 NewValue=0 ObjectName="*\\Environment*" ObjectValueName IN ("COMPlus_ETWEnabled", "COMPlus_ETWFlags")) OR (EventID=4657 NewValue=0 ObjectName="*\\SOFTWARE\\Microsoft\\.NETFramework" ObjectValueName="ETWEnabled")

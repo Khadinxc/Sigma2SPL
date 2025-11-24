@@ -1,0 +1,9 @@
+# Title: Suspicious Sysmon as Execution Parent
+# Author: Florian Roth (Nextron Systems), Tim Shelton (fp werfault)
+# Date: 2022-11-10
+# Level: high
+# Description: Detects suspicious process executions in which Sysmon itself is the parent of a process, which could be a sign of exploitation (e.g. CVE-2022-41120)
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.t1068, cve.2022-41120, detection.emerging-threats
+
+ParentImage IN ("*\\Sysmon.exe", "*\\Sysmon64.exe") NOT (Image IN ("*:\\Windows\\Sysmon.exe*", "*:\\Windows\\Sysmon64.exe*", "*:\\Windows\\System32\\conhost.exe*", "*:\\Windows\\System32\\WerFault.exe*", "*:\\Windows\\System32\\WerFaultSecure.exe*", "*:\\Windows\\System32\\wevtutil.exe*", "*:\\Windows\\SysWOW64\\wevtutil.exe*") OR NOT Image=* OR (Image="*\\AppData\\Local\\Temp\\*" Image IN ("*\\Sysmon.exe", "*\\Sysmon64.exe") Image="C:\\Users\\*"))

@@ -1,0 +1,11 @@
+# Title: WebDAV Temporary Local File Creation
+# Author: Micah Babinski
+# Date: 2023-08-21
+# Level: medium
+# Description: Detects the creation of WebDAV temporary files with potentially suspicious extensions
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.resource-development, attack.t1584, attack.t1566, detection.threat-hunting
+# False Positives:
+#   - Legitimate use of WebDAV in an environment
+
+TargetFilename="*\\AppData\\Local\\Temp\\TfsStore\\Tfs_DAV\\*" TargetFilename IN ("*.7z", "*.bat", "*.dat", "*.ico", "*.js", "*.lnk", "*.ps1", "*.rar", "*.vbe", "*.vbs", "*.zip")

@@ -1,0 +1,11 @@
+# Title: DNS Query for Anonfiles.com Domain - DNS Client
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-16
+# Level: high
+# Description: Detects DNS queries for anonfiles.com, which is an anonymous file upload platform often used for malicious purposes
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1567.002
+# False Positives:
+#   - Rare legitimate access to anonfiles.com
+
+EventID=3008 QueryName="*.anonfiles.com*"

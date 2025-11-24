@@ -1,0 +1,11 @@
+# Title: Suspicious Binaries and Scripts in Public Folder
+# Author: The DFIR Report
+# Date: 2025-01-23
+# Level: high
+# Description: Detects the creation of a file with a suspicious extension in the public folder, which could indicate potential malicious activity.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204
+# False Positives:
+#   - Administrators deploying legitimate binaries to public folders.
+
+TargetFilename="*:\\Users\\Public\\*" TargetFilename IN ("*.bat", "*.dll", "*.exe", "*.hta", "*.js", "*.ps1", "*.vbe", "*.vbs")

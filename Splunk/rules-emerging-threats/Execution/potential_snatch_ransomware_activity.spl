@@ -1,0 +1,16 @@
+# Title: Potential Snatch Ransomware Activity
+# Author: Florian Roth (Nextron Systems)
+# Date: 2020-08-26
+# Level: high
+# Description: Detects specific process characteristics of Snatch ransomware word document droppers
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204, detection.emerging-threats
+# False Positives:
+#   - Scripts that shutdown the system immediately and reboot them in safe mode are unlikely
+
+
+| rex field=CommandLine "(?<CommandLineMatch>shutdown\\s+/r /f /t 00)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch2>net\\s+stop SuperBackupMan)"
+| eval CommandLineCondition2=if(isnotnull(CommandLineMatch2), "true", "false")
+| search CommandLineCondition="true" OR CommandLineCondition2="true"

@@ -1,0 +1,9 @@
+# Title: TrustedPath UAC Bypass Pattern
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-08-27
+# Level: critical
+# Description: Detects indicators of a UAC bypass method by mocking directories
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1548.002
+
+Image IN ("*C:\\Windows \\System32\\*", "*C:\\Windows \\SysWOW64\\*")

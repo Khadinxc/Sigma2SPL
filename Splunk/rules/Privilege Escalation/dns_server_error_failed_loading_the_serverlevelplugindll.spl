@@ -1,0 +1,9 @@
+# Title: DNS Server Error Failed Loading the ServerLevelPluginDLL
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-05-08
+# Level: high
+# Description: Detects a DNS server error in which a specified plugin DLL (in registry) could not be loaded
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+
+EventID IN (150, 770, 771)

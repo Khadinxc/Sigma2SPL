@@ -1,0 +1,9 @@
+# Title: Lsass Memory Dump via Comsvcs DLL
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-10-20
+# Level: high
+# Description: Detects adversaries leveraging the MiniDump export function from comsvcs.dll via rundll32 to perform a memory dump from lsass.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+
+CallTrace="*comsvcs.dll*" SourceImage="*\\rundll32.exe" TargetImage="*\\lsass.exe"

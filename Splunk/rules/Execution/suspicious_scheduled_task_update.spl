@@ -1,0 +1,9 @@
+# Title: Suspicious Scheduled Task Update
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-12-05
+# Level: high
+# Description: Detects update to a scheduled task event that contain suspicious keywords.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.privilege-escalation, attack.persistence, attack.t1053.005
+
+TaskContentNew IN ("*regsvr32*", "*rundll32*", "*cmd.exe</Command>*", "*cmd</Command>*", "*<Arguments>/c *", "*<Arguments>/k *", "*<Arguments>/r *", "*powershell*", "*pwsh*", "*mshta*", "*wscript*", "*cscript*", "*certutil*", "*bitsadmin*", "*bash.exe*", "*bash *", "*scrcons*", "*wmic *", "*wmic.exe*", "*forfiles*", "*scriptrunner*", "*hh.exe*") EventID=4702 TaskContentNew IN ("*\\AppData\\Local\\Temp\\*", "*\\AppData\\Roaming\\*", "*\\Users\\Public\\*", "*\\WINDOWS\\Temp\\*", "*C:\\Temp\\*", "*\\Desktop\\*", "*\\Downloads\\*", "*\\Temporary Internet*", "*C:\\ProgramData\\*", "*C:\\Perflogs\\*")

@@ -1,0 +1,10 @@
+# Title: Potentially Suspicious Wuauclt Network Connection
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-10-12
+# Level: medium
+# Description: Detects the use of the Windows Update Client binary (wuauclt.exe) to proxy execute code and making network connections.
+# One could easily make the DLL spawn a new process and inject to it to proxy the network connection and bypass this rule.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+
+CommandLine="* /RunHandlerComServer*" Image="*wuauclt*" NOT (CommandLine="" OR NOT CommandLine=* OR DestinationIp="127.0.0.0/8" OR DestinationIp="10.0.0.0/8" OR DestinationIp="169.254.0.0/16" OR DestinationIp="172.16.0.0/12" OR DestinationIp="192.168.0.0/16" OR DestinationIp="::1/128" OR DestinationIp="fe80::/10" OR DestinationIp="fc00::/7" OR DestinationIp="20.184.0.0/13" OR DestinationIp="20.192.0.0/10" OR DestinationIp="23.79.0.0/16" OR DestinationIp="51.10.0.0/15" OR DestinationIp="51.103.0.0/16" OR DestinationIp="51.104.0.0/15" OR DestinationIp="52.224.0.0/11" OR CommandLine IN ("*:\\Windows\\UUS\\Packages\\Preview\\amd64\\updatedeploy.dll /ClassId*", "*:\\Windows\\UUS\\amd64\\UpdateDeploy.dll /ClassId*") OR (CommandLine="*:\\Windows\\WinSxS\\*" CommandLine="*\\UpdateDeploy.dll /ClassId *"))

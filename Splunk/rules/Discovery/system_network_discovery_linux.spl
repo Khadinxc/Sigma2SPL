@@ -1,0 +1,11 @@
+# Title: System Network Discovery - Linux
+# Author: Ömer Günal and remotephone, oscd.community
+# Date: 2020-10-06
+# Level: informational
+# Description: Detects enumeration of local network configuration
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1016
+# False Positives:
+#   - Legitimate administration activities
+
+CommandLine="*/etc/resolv.conf*" OR Image IN ("*/firewall-cmd", "*/ufw", "*/iptables", "*/netstat", "*/ss", "*/ip", "*/ifconfig", "*/systemd-resolve", "*/route")

@@ -1,0 +1,12 @@
+# Title: Cisco Duo Successful MFA Authentication Via Bypass Code
+# Author: Nikita Khalimonenkov
+# Date: 2024-04-17
+# Level: medium
+# Description: Detects when a successful MFA authentication occurs due to the use of a bypass code.
+# A bypass code is a temporary passcode created by an administrator for a specific user to access a Duo-protected application. These are generally used as "backup codes," so that enrolled users who are having problems with their mobile devices (e.g., mobile service is disrupted, the device is lost or stolen, etc.) or who temporarily can't use their enrolled devices (on a plane without mobile data services) can still access their Duo-protected systems.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.defense-evasion, attack.initial-access
+# False Positives:
+#   - Legitimate user that was assigned on purpose to a bypass group
+
+event_type="authentication" reason="bypass_user"

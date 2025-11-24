@@ -1,0 +1,9 @@
+# Title: Windows Defender Grace Period Expired
+# Author: Ján Trenčanský, frack113
+# Date: 2020-07-28
+# Level: high
+# Description: Detects the expiration of the grace period of Windows Defender. This means protection against viruses, spyware, and other potentially unwanted software is disabled.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+
+EventID=5101

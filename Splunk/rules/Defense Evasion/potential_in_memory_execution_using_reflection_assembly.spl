@@ -1,0 +1,11 @@
+# Title: Potential In-Memory Execution Using Reflection.Assembly
+# Author: frack113
+# Date: 2022-12-25
+# Level: medium
+# Description: Detects usage of "Reflection.Assembly" load functions to dynamically load assemblies in memory
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1620
+# False Positives:
+#   - Legitimate use of the library
+
+ScriptBlockText="*[Reflection.Assembly]::load*"

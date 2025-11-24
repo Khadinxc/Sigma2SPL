@@ -1,0 +1,11 @@
+# Title: Potentially Suspicious Call To Win32_NTEventlogFile Class - PSScript
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-07-13
+# Level: medium
+# Description: Detects usage of the WMI class "Win32_NTEventlogFile" in a potentially suspicious way (delete, backup, change permissions, etc.) from a PowerShell script
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Legitimate administration and backup scripts
+
+ScriptBlockText="*Win32_NTEventlogFile*" ScriptBlockText IN ("*.BackupEventlog(*", "*.ChangeSecurityPermissions(*", "*.ChangeSecurityPermissionsEx(*", "*.ClearEventLog(*", "*.Delete(*", "*.DeleteEx(*", "*.Rename(*", "*.TakeOwnerShip(*", "*.TakeOwnerShipEx(*")

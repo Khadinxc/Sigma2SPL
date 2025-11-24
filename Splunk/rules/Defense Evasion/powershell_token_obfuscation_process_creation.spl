@@ -1,0 +1,16 @@
+# Title: Powershell Token Obfuscation - Process Creation
+# Author: frack113
+# Date: 2022-12-27
+# Level: high
+# Description: Detects TOKEN OBFUSCATION technique from Invoke-Obfuscation
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027.009
+
+
+| rex field=CommandLine "(?<CommandLineMatch>\\w+`(\\w+|-|.)`[\\w+|\\s])"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch2>\"(\\{\\d\\})+\"\\s*-f)"
+| eval CommandLineCondition2=if(isnotnull(CommandLineMatch2), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch3>(?i)\\$\\{`?e`?n`?v`?:`?p`?a`?t`?h`?\\})"
+| eval CommandLineCondition3=if(isnotnull(CommandLineMatch3), "true", "false")
+| search CommandLineCondition="true" OR CommandLineCondition2="true" OR CommandLineCondition3="true" NOT CommandLine="*${env:path}*"

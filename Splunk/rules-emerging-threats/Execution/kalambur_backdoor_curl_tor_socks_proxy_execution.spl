@@ -1,0 +1,11 @@
+# Title: Kalambur Backdoor Curl TOR SOCKS Proxy Execution
+# Author: Arda Buyukkaya (EclecticIQ)
+# Date: 2025-02-11
+# Level: high
+# Description: Detects the execution of the "curl.exe" command, referencing "SOCKS" and ".onion" domains, which could be indicative of Kalambur backdoor activity.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.command-and-control, attack.t1090, attack.t1573, attack.t1071.001, attack.t1059.001, attack.s0183, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+Image="*\\curl.exe" CommandLine="*.onion*" CommandLine IN ("*socks5h://*", "*socks5://*", "*socks4a://*")

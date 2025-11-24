@@ -1,0 +1,11 @@
+# Title: Standard User In High Privileged Group
+# Author: frack113
+# Date: 2023-01-13
+# Level: medium
+# Description: Detect standard users login that are part of high privileged groups such as the Administrator group
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.privilege-escalation
+# False Positives:
+#   - Standard domain users who are part of the administrator group. These users shouldn't have these right. But in the case where it's necessary. They should be filtered out using the "TargetUserName" field
+
+EventID=300 SidList IN ("*S-1-5-32-544*", "*-500}*", "*-518}*", "*-519}*") TargetUserSid="S-1-5-21-*" NOT (TargetUserSid IN ("*-500", "*-518", "*-519"))

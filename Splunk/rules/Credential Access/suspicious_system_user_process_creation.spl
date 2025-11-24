@@ -1,0 +1,16 @@
+# Title: Suspicious SYSTEM User Process Creation
+# Author: Florian Roth (Nextron Systems), David ANDRE (additional keywords)
+# Date: 2021-12-20
+# Level: high
+# Description: Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter)
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.defense-evasion, attack.privilege-escalation, attack.t1134, attack.t1003, attack.t1027
+# False Positives:
+#   - Administrative activity
+#   - Scripts and administrative tools used in the monitored environment
+#   - Monitoring activity
+
+
+| rex field=CommandLine "(?<CommandLineMatch>net\\s+user\\s+)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search IntegrityLevel IN ("System", "S-1-16-16384") User IN ("*AUTHORI*", "*AUTORI*") Image IN ("*\\calc.exe", "*\\cscript.exe", "*\\forfiles.exe", "*\\hh.exe", "*\\mshta.exe", "*\\ping.exe", "*\\wscript.exe") OR CommandLineCondition="true" OR CommandLine IN ("* -NoP *", "* -W Hidden *", "* -decode *", "* /decode *", "* /urlcache *", "* -urlcache *", "* -e* JAB*", "* -e* SUVYI*", "* -e* SQBFAFgA*", "* -e* aWV4I*", "* -e* IAB*", "* -e* PAA*", "* -e* aQBlAHgA*", "*vssadmin delete shadows*", "*reg SAVE HKLM*", "* -ma *", "*Microsoft\\Windows\\CurrentVersion\\Run*", "*.downloadstring(*", "*.downloadfile(*", "* /ticket:*", "*dpapi::*", "*event::clear*", "*event::drop*", "*id::modify*", "*kerberos::*", "*lsadump::*", "*misc::*", "*privilege::*", "*rpc::*", "*sekurlsa::*", "*sid::*", "*token::*", "*vault::cred*", "*vault::list*", "* p::d *", "*;iex(*", "*MiniDump*") NOT (ParentImage="*:\\Packages\\Plugins\\Microsoft.GuestConfiguration.ConfigurationforWindows\\*" OR (CommandLine="* -ma *" Image IN ("*:\\Program Files (x86)\\Java\\*", "*:\\Program Files\\Java\\*") Image="*\\bin\\jp2launcher.exe" ParentImage IN ("*:\\Program Files (x86)\\Java\\*", "*:\\Program Files\\Java\\*") ParentImage="*\\bin\\javaws.exe") OR (CommandLine="*ping*" CommandLine="*127.0.0.1*" CommandLine="* -n *") OR (Image="*\\PING.EXE" ParentCommandLine="*\\DismFoDInstall.cmd*"))

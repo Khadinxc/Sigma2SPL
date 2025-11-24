@@ -1,0 +1,11 @@
+# Title: Pulse Connect Secure RCE Attack CVE-2021-22893
+# Author: Sittikorn S
+# Date: 2021-06-29
+# Level: high
+# Description: This rule detects exploitation attempts using Pulse Connect Secure(PCS) vulnerability (CVE-2021-22893)
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190, cve.2021-22893, detection.emerging-threats
+# False Positives:
+#   - Vulnerability Scanning
+
+"cs-uri-query" IN ("*/dana-na/auth/*", "*/dana-ws/*", "*/dana-cached/*") "cs-uri-query" IN ("**id=*", "**token=*", "*Secid_canceltoken.cgi*", "*CGI::param*", "*meeting*", "*smb*", "*namedusers*", "*metric*")

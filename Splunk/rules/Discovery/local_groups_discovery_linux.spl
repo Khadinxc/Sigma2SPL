@@ -1,0 +1,11 @@
+# Title: Local Groups Discovery - Linux
+# Author: Ömer Günal, Alejandro Ortuno, oscd.community
+# Date: 2020-10-11
+# Level: low
+# Description: Detects enumeration of local system groups. Adversaries may attempt to find local system groups and permission settings
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1069.001
+# False Positives:
+#   - Legitimate administration activities
+
+Image="*/groups" OR (CommandLine="*/etc/group*" Image IN ("*/cat", "*/ed", "*/head", "*/less", "*/more", "*/nano", "*/tail", "*/vi", "*/vim"))

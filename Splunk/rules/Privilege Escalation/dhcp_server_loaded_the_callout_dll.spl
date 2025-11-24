@@ -1,0 +1,9 @@
+# Title: DHCP Server Loaded the CallOut DLL
+# Author: Dimitrios Slamaris
+# Date: 2017-05-15
+# Level: high
+# Description: This rule detects a DHCP server in which a specified Callout DLL (in registry) was loaded
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+
+EventID=1033 Provider_Name="Microsoft-Windows-DHCP-Server"

@@ -1,0 +1,16 @@
+# Title: Dynamic .NET Compilation Via Csc.EXE
+# Author: Florian Roth (Nextron Systems), X__Junior (Nextron Systems)
+# Date: 2019-08-24
+# Level: medium
+# Description: Detects execution of "csc.exe" to compile .NET code. Attackers often leverage this to compile code on the fly and use it in other stages.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027.004
+# False Positives:
+#   - Legitimate software from program files - https://twitter.com/gN3mes1s/status/1206874118282448897
+#   - Legitimate Microsoft software - https://twitter.com/gabriele_pippi/status/1206907900268072962
+#   - Ansible
+
+
+| rex field=CommandLine "(?<CommandLineMatch>([Pp]rogram[Dd]ata|%([Ll]ocal)?[Aa]pp[Dd]ata%|\\\\[Aa]pp[Dd]ata\\\\([Ll]ocal([Ll]ow)?|[Rr]oaming))\\\\[^\\\\]{1,256}$)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search Image="*\\csc.exe" CommandLine IN ("*:\\Perflogs\\*", "*:\\Users\\Public\\*", "*\\AppData\\Local\\Temp\\*", "*\\Temporary Internet*", "*\\Windows\\Temp\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favorites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favourites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Contacts\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Pictures\\*") OR CommandLineCondition="true" NOT (ParentImage IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*") OR ParentImage="C:\\Windows\\System32\\sdiagnhost.exe" OR ParentImage="C:\\Windows\\System32\\inetsrv\\w3wp.exe") NOT (ParentCommandLine IN ("*JwB7ACIAZgBhAGkAbABlAGQAIgA6AHQAcgB1AGUALAAiAG0AcwBnACIAOgAiAEEAbgBzAGkAYgBsAGUAIAByAGUAcQB1AGkAcgBlAHMAIABQAG8AdwBlAHIAUwBoAGUAbABsACAAdgAzAC4AMAAgAG8AcgAgAG4AZQB3AGUAcgAiAH0AJw*", "*cAewAiAGYAYQBpAGwAZQBkACIAOgB0AHIAdQBlACwAIgBtAHMAZwAiADoAIgBBAG4AcwBpAGIAbABlACAAcgBlAHEAdQBpAHIAZQBzACAAUABvAHcAZQByAFMAaABlAGwAbAAgAHYAMwAuADAAIABvAHIAIABuAGUAdwBlAHIAIgB9ACcA*", "*nAHsAIgBmAGEAaQBsAGUAZAAiADoAdAByAHUAZQAsACIAbQBzAGcAIgA6ACIAQQBuAHMAaQBiAGwAZQAgAHIAZQBxAHUAaQByAGUAcwAgAFAAbwB3AGUAcgBTAGgAZQBsAGwAIAB2ADMALgAwACAAbwByACAAbgBlAHcAZQByACIAfQAnA*") OR ParentImage IN ("C:\\ProgramData\\chocolatey\\choco.exe", "C:\\ProgramData\\chocolatey\\tools\\shimgen.exe") OR ParentCommandLine="*\\ProgramData\\Microsoft\\Windows Defender Advanced Threat Protection*")

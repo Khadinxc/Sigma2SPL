@@ -1,0 +1,11 @@
+# Title: Suspicious DNS Query for IP Lookup Service APIs
+# Author: Brandon George (blog post), Thomas Patzke
+# Date: 2021-07-08
+# Level: medium
+# Description: Detects DNS queries for IP lookup services such as "api.ipify.org" originating from a non browser process.
+# MITRE Tactic: Reconnaissance
+# Tags: attack.reconnaissance, attack.t1590
+# False Positives:
+#   - Legitimate usage of IP lookup services such as ipify API
+
+QueryName IN ("www.ip.cn", "l2.io") OR QueryName IN ("*api.2ip.ua*", "*api.bigdatacloud.net*", "*api.ipify.org*", "*bot.whatismyipaddress.com*", "*canireachthe.net*", "*checkip.amazonaws.com*", "*checkip.dyndns.org*", "*curlmyip.com*", "*db-ip.com*", "*edns.ip-api.com*", "*eth0.me*", "*freegeoip.app*", "*geoipy.com*", "*getip.pro*", "*icanhazip.com*", "*ident.me*", "*ifconfig.io*", "*ifconfig.me*", "*ip-api.com*", "*ip.360.cn*", "*ip.anysrc.net*", "*ip.taobao.com*", "*ip.tyk.nu*", "*ipaddressworld.com*", "*ipapi.co*", "*ipconfig.io*", "*ipecho.net*", "*ipinfo.io*", "*ipip.net*", "*ipof.in*", "*ipv4.icanhazip.com*", "*ipv4bot.whatismyipaddress.com*", "*ipv6-test.com*", "*ipwho.is*", "*jsonip.com*", "*myexternalip.com*", "*seeip.org*", "*wgetip.com*", "*whatismyip.akamai.com*", "*whois.pconline.com.cn*", "*wtfismyip.com*") NOT (Image="*\\brave.exe" OR Image IN ("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe") OR Image="C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\*" OR Image="*\\WindowsApps\\MicrosoftEdge.exe" OR Image IN ("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe") OR (Image IN ("*\\msedge.exe", "*\\msedgewebview2.exe") Image IN ("C:\\Program Files (x86)\\Microsoft\\EdgeCore\\*", "C:\\Program Files\\Microsoft\\EdgeCore\\*")) OR Image IN ("C:\\Program Files\\Mozilla Firefox\\firefox.exe", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe") OR Image IN ("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe", "C:\\Program Files\\Internet Explorer\\iexplore.exe") OR Image="*\\maxthon.exe" OR Image="*\\opera.exe" OR Image="*\\safari.exe" OR Image="*\\seamonkey.exe" OR Image="*\\vivaldi.exe" OR Image="*\\whale.exe")

@@ -1,0 +1,12 @@
+# Title: Windows Webshell Strings
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2017-02-19
+# Level: high
+# Description: Detects common commands used in Windows webshells
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+# False Positives:
+#   - Web sites like wikis with articles on os commands and pages that include the os commands in the URLs
+#   - User searches in search boxes of the respective website
+
+"=whoami" OR "=net%20user" OR "=net+user" OR "=net%2Buser" OR "=cmd%20/c%" OR "=cmd+/c+" OR "=cmd%2B/c%" OR "=cmd%20/r%" OR "=cmd+/r+" OR "=cmd%2B/r%" OR "=cmd%20/k%" OR "=cmd+/k+" OR "=cmd%2B/k%" OR "=powershell%" OR "=powershell+" OR "=tasklist%" OR "=tasklist+" OR "=wmic%" OR "=wmic+" OR "=ssh%" OR "=ssh+" OR "=python%" OR "=python+" OR "=python3%" OR "=python3+" OR "=ipconfig" OR "=wget%" OR "=wget+" OR "=curl%" OR "=curl+" OR "=certutil" OR "=copy%20%5C%5C" OR "=dsquery%" OR "=dsquery+" OR "=nltest%" OR "=nltest+" "cs-method"="GET" | table client_ip,vhost,url,response

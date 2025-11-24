@@ -1,0 +1,12 @@
+# Title: Suspicious PowerShell Invocation From Script Engines
+# Author: Florian Roth (Nextron Systems)
+# Date: 2019-01-16
+# Level: medium
+# Description: Detects suspicious powershell invocations from interpreters or unusual programs
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Microsoft Operations Manager (MOM)
+#   - Other scripts
+
+Image IN ("*\\powershell.exe", "*\\pwsh.exe") ParentImage IN ("*\\wscript.exe", "*\\cscript.exe") NOT CurrentDirectory="*\\Health Service State\\*"

@@ -1,0 +1,9 @@
+# Title: Potential Suspicious PowerShell Keywords
+# Author: Florian Roth (Nextron Systems), Perez Diego (@darkquassar), Tuan Le (NCSGroup)
+# Date: 2019-02-11
+# Level: medium
+# Description: Detects potentially suspicious keywords that could indicate the use of a PowerShell exploitation framework
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+ScriptBlockText IN ("*System.Reflection.Assembly.Load($*", "*[System.Reflection.Assembly]::Load($*", "*[Reflection.Assembly]::Load($*", "*System.Reflection.AssemblyName*", "*Reflection.Emit.AssemblyBuilderAccess*", "*Reflection.Emit.CustomAttributeBuilder*", "*Runtime.InteropServices.UnmanagedType*", "*Runtime.InteropServices.DllImportAttribute*", "*SuspendThread*", "*rundll32*")

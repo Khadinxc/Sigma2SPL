@@ -1,0 +1,13 @@
+# Title: LoadBalancer Security Group Modification
+# Author: jamesc-grafana
+# Date: 2024-07-11
+# Level: medium
+# Description: Detects changes to the security groups associated with an Elastic Load Balancer (ELB) or Application Load Balancer (ALB).
+# This can indicate that a misconfiguration allowing more traffic into the system than required, or could indicate that an attacker is attempting to enable new connections into a VPC or subnet controlled by the account.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190
+# False Positives:
+#   - Repurposing of an ELB or ALB to serve a different or additional application
+#   - Changes to security groups to allow for new services to be deployed
+
+eventName IN ("ApplySecurityGroupsToLoadBalancer", "SetSecurityGroups") eventSource="elasticloadbalancing.amazonaws.com"

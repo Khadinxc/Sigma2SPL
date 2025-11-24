@@ -1,0 +1,11 @@
+# Title: Potential SAM Database Dump
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-02-11
+# Level: high
+# Description: Detects the creation of files that look like exports of the local SAM (Security Account Manager)
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.002
+# False Positives:
+#   - Rare cases of administrative activity
+
+TargetFilename IN ("*\\Temp\\sam", "*\\sam.sav", "*\\Intel\\sam", "*\\sam.hive", "*\\Perflogs\\sam", "*\\ProgramData\\sam", "*\\Users\\Public\\sam", "*\\AppData\\Local\\sam", "*\\AppData\\Roaming\\sam", "*_ShadowSteal.zip", "*\\Documents\\SAM.export", "*:\\sam") OR TargetFilename IN ("*\\hive_sam_*", "*\\sam.save*", "*\\sam.export*", "*\\~reg_sam.save*", "*\\sam_backup*", "*\\sam.bck*", "*\\sam.backup*")

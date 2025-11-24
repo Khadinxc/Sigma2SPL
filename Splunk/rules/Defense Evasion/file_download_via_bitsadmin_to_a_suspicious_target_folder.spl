@@ -1,0 +1,9 @@
+# Title: File Download Via Bitsadmin To A Suspicious Target Folder
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-28
+# Level: high
+# Description: Detects usage of bitsadmin downloading a file to a suspicious target folder
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.t1197, attack.s0190, attack.t1036.003
+
+CommandLine IN ("* /transfer *", "* /create *", "* /addfile *") CommandLine IN ("*:\\Perflogs*", "*:\\ProgramData\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Roaming\\*", "*\\Desktop\\*", "*%ProgramData%*", "*%public%*") Image="*\\bitsadmin.exe" OR OriginalFileName="bitsadmin.exe"

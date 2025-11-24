@@ -1,0 +1,11 @@
+# Title: Disable Powershell Command History
+# Author: Ali Alwashali
+# Date: 2022-08-21
+# Level: high
+# Description: Detects scripts or commands that disabled the Powershell command history by removing psreadline module
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.003
+# False Positives:
+#   - Legitimate script that disables the command history
+
+ScriptBlockText="*Remove-Module*" ScriptBlockText="*psreadline*"

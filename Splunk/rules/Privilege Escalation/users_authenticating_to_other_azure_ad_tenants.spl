@@ -1,0 +1,11 @@
+# Title: Users Authenticating To Other Azure AD Tenants
+# Author: MikeDuddington, '@dudders1'
+# Date: 2022-06-30
+# Level: medium
+# Description: Detect when users in your Azure AD tenant are authenticating to other Azure AD Tenants.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078.004
+# False Positives:
+#   - If this was approved by System Administrator.
+
+HomeTenantId="HomeTenantID" Status="Success" NOT ResourceTenantId="*HomeTenantID*"

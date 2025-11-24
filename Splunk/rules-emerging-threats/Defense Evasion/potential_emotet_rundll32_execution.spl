@@ -1,0 +1,9 @@
+# Title: Potential Emotet Rundll32 Execution
+# Author: FPT.EagleEye
+# Date: 2020-12-25
+# Level: critical
+# Description: Detecting Emotet DLL loading by looking for rundll32.exe processes with command lines ending in ,RunDLL or ,Control_RunDLL
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.011, detection.emerging-threats
+
+CommandLine IN ("*,RunDLL", "*,Control_RunDLL") Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE" NOT (ParentImage="*\\tracker.exe" OR CommandLine IN ("*.dll,Control_RunDLL", "*.dll\",Control_RunDLL", "*.dll',Control_RunDLL"))

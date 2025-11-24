@@ -1,0 +1,20 @@
+# Title: Mint Sandstorm - AsperaFaspex Suspicious Process Execution
+# Author: Nasreddine Bencherchali (Nextron Systems), MSTIC (idea)
+# Date: 2023-04-20
+# Level: critical
+# Description: Detects suspicious execution from AsperaFaspex as seen used by Mint Sandstorm
+# MITRE Tactic: Execution
+# Tags: attack.execution, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+
+| rex field=CommandLine "(?<CommandLineMatch>[-/–][Ee^]{1,2}[ncodema^]*\\s[A-Za-z0-9+/=]{15,})"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch2>net\\s+user)"
+| eval CommandLineCondition2=if(isnotnull(CommandLineMatch2), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch3>net\\s+group)"
+| eval CommandLineCondition3=if(isnotnull(CommandLineMatch3), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch4>query\\s+session)"
+| eval CommandLineCondition4=if(isnotnull(CommandLineMatch4), "true", "false")
+| search ParentImage="*aspera*" ParentImage="*\\ruby*" (CommandLine IN ("* echo *", "*-dumpmode*", "*-ssh*", "*.dmp*", "*add-MpPreference*", "*adscredentials*", "*bitsadmin*", "*certutil*", "*csvhost.exe*", "*DownloadFile*", "*DownloadString*", "*dsquery*", "*ekern.exe*", "*FromBase64String*", "*iex *", "*iex(*", "*Invoke-Expression*", "*Invoke-WebRequest*", "*localgroup administrators*", "*o365accountconfiguration*", "*samaccountname=*", "*set-MpPreference*", "*svhost.exe*", "*System.IO.Compression*", "*System.IO.MemoryStream*", "*usoprivate*", "*usoshared*", "*whoami*") OR CommandLineCondition="true" OR CommandLineCondition2="true" OR CommandLineCondition3="true" OR CommandLineCondition4="true" Image IN ("*\\powershell.exe", "*\\powershell_ise.exe")) OR (CommandLine="*lsass*" CommandLine IN ("*procdump*", "*tasklist*", "*findstr*")) OR (CommandLine="*http*" Image="*\\curl.exe") OR (CommandLine="*localgroup Administrators*" CommandLine="*/add*") OR (CommandLine="*net*" CommandLine="*user*" CommandLine="*/add*") OR (CommandLine="*reg add*" CommandLine="*DisableAntiSpyware*" CommandLine="*\\Microsoft\\Windows Defender*") OR (CommandLine="*reg add*" CommandLine="*DisableRestrictedAdmin*" CommandLine="*CurrentControlSet\\Control\\Lsa*") OR CommandLine IN ("*E:jscript*", "*e:vbscript*") OR (CommandLine="*vssadmin*" CommandLine="*delete*" CommandLine="*shadows*") OR (CommandLine="*wbadmin*" CommandLine="*delete*" CommandLine="*catalog*") OR (CommandLine="*http*" Image="*\\wget.exe") OR (CommandLine="*wmic*" CommandLine="*process call create*") OR (CommandLine="*wmic*" CommandLine="*delete*" CommandLine="*shadowcopy*")

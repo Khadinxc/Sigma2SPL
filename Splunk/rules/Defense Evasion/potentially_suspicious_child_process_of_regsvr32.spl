@@ -1,0 +1,11 @@
+# Title: Potentially Suspicious Child Process Of Regsvr32
+# Author: elhoim, Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-05-05
+# Level: high
+# Description: Detects potentially suspicious child processes of "regsvr32.exe".
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.010
+# False Positives:
+#   - Unlikely, but can rarely occur. Apply additional filters accordingly.
+
+Image IN ("*\\calc.exe", "*\\cscript.exe", "*\\explorer.exe", "*\\mshta.exe", "*\\net.exe", "*\\net1.exe", "*\\nltest.exe", "*\\notepad.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\reg.exe", "*\\schtasks.exe", "*\\werfault.exe", "*\\wscript.exe") ParentImage="*\\regsvr32.exe" NOT (CommandLine="* -u -p *" Image="*\\werfault.exe")

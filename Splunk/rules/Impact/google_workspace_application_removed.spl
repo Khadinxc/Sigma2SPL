@@ -1,0 +1,11 @@
+# Title: Google Workspace Application Removed
+# Author: Austin Songer
+# Date: 2021-08-26
+# Level: medium
+# Description: Detects when an an application is removed from Google Workspace.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - Application being removed may be performed by a System Administrator.
+
+eventName IN ("REMOVE_APPLICATION", "REMOVE_APPLICATION_FROM_WHITELIST") eventService="admin.googleapis.com"

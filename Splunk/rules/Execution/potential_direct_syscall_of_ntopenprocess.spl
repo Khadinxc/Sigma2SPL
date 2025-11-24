@@ -1,0 +1,9 @@
+# Title: Potential Direct Syscall of NtOpenProcess
+# Author: Christian Burkard (Nextron Systems), Tim Shelton (FP)
+# Date: 2021-07-28
+# Level: medium
+# Description: Detects potential calls to NtOpenProcess directly from NTDLL.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1106
+
+CallTrace="UNKNOWN*" NOT ((SourceImage IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*", "*:\\Windows\\WinSxS\\*") TargetImage IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*", "*:\\Windows\\WinSxS\\*")) OR Provider_Name="Microsoft-Windows-Kernel-Audit-API-Calls" OR (SourceImage="*vcredist_x64.exe" TargetImage="*vcredist_x64.exe")) NOT ((SourceImage="*:\\Program Files\\Adobe\\Acrobat DC\\Acrobat\\*" SourceImage="*\\AcroCEF.exe" TargetImage="*:\\Program Files\\Adobe\\Acrobat DC\\Acrobat\\*" TargetImage="*\\AcroCEF.exe") OR (SourceImage="*AmazonSSMAgentSetup.exe" TargetImage="*AmazonSSMAgentSetup.exe") OR (SourceImage="*:\\Windows\\Explorer.EXE" TargetImage="*:\\Program Files\\Cylance\\Desktop\\CylanceUI.exe") OR (TargetImage="*\\AppData\\Local\\Discord\\*" TargetImage="*\\Discord.exe") OR TargetImage="*\\Evernote\\Evernote.exe" OR (SourceImage="*\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe" TargetImage="*\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe") OR (SourceImage="*setup64.exe" TargetImage="*:\\Windows\\system32\\systeminfo.exe") OR (SourceImage="*\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe" TargetImage="*\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe") OR (GrantedAccess="0x1000" SourceImage="*\\AppData\\Local\\yammerdesktop\\app-*" SourceImage="*\\Yammer.exe" TargetImage="*\\AppData\\Local\\yammerdesktop\\app-*" TargetImage="*\\Yammer.exe"))

@@ -1,0 +1,9 @@
+# Title: Automated Collection Command PowerShell
+# Author: frack113
+# Date: 2021-07-28
+# Level: medium
+# Description: Once established within a system or network, an adversary may use automated techniques for collecting internal data.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1119
+
+ScriptBlockText="*Get-ChildItem*" ScriptBlockText="* -Recurse *" ScriptBlockText="* -Include *" ScriptBlockText IN ("*.doc*", "*.docx*", "*.xls*", "*.xlsx*", "*.ppt*", "*.pptx*", "*.rtf*", "*.pdf*", "*.txt*")

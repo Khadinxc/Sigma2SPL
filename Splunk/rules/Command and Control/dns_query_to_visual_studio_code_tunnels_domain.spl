@@ -1,0 +1,11 @@
+# Title: DNS Query To Visual Studio Code Tunnels Domain
+# Author: citron_ninja
+# Date: 2023-10-25
+# Level: medium
+# Description: Detects DNS query requests to Visual Studio Code tunnel domains. Attackers can abuse that feature to establish a reverse shell or persistence on a machine.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001
+# False Positives:
+#   - Legitimate use of Visual Studio Code tunnel will also trigger this.
+
+QueryName="*.tunnels.api.visualstudio.com"

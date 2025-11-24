@@ -1,0 +1,11 @@
+# Title: Potential Defense Evasion Via Raw Disk Access By Uncommon Tools
+# Author: Teymur Kheirkhabarov, oscd.community
+# Date: 2019-10-22
+# Level: low
+# Description: Detects raw disk access using uncommon tools or tools that are located in suspicious locations (heavy filtering is required), which could indicate possible defense evasion attempts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1006
+# False Positives:
+#   - Likely
+
+NOT (Device="*floppy*" OR Image IN ("*:\\$WINDOWS.~BT\\*", "*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\CCM\\*", "*:\\Windows\\explorer.exe*", "*:\\Windows\\servicing\\*", "*:\\Windows\\SoftwareDistribution\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*", "*:\\Windows\\SystemApps\\*", "*:\\Windows\\uus\\*", "*:\\Windows\\WinSxS\\*") OR (Image="*:\\Users\\*" Image="*\\AppData\\*" Image="*\\Microsoft\\*") OR NOT Image=* OR (Image="*:\\Windows\\Temp\\*" Image IN ("*\\Executables\\SSDUpdate.exe", "*\\HostMetadata\\NVMEHostmetadata.exe")) OR Image IN ("Registry", "System") OR Image="*:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe" OR (Image="*:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*" Image IN ("*\\MsMpEng.exe", "*\\MpDefenderCoreService.exe"))) NOT (Image="*\\AppData\\Local\\Keybase\\upd.exe*" OR (Image="*\\AppData\\Local\\GitHubDesktop\\app-*" Image="*\\resources\\app\\git\\mingw64\\bin\\git.exe") OR (Image="*:\\Windows\\Temp\\asgard2-agent\\*" Image="*\\thor.exe"))

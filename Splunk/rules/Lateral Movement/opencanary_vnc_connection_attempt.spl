@@ -1,0 +1,11 @@
+# Title: OpenCanary - VNC Connection Attempt
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where a VNC service on an OpenCanary node has had a connection attempt.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021
+# False Positives:
+#   - Unlikely
+
+logtype=12001

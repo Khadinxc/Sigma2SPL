@@ -1,0 +1,11 @@
+# Title: Potentially Suspicious Windows App Activity
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-12
+# Level: medium
+# Description: Detects potentially suspicious child process of applications launched from inside the WindowsApps directory. This could be a sign of a rogue ".appx" package installation/execution
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Legitimate packages that make use of external binaries such as Windows Terminal
+
+ParentImage="*C:\\Program Files\\WindowsApps\\*" CommandLine IN ("*cmd /c*", "*Invoke-*", "*Base64*") OR Image IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\powershell_ise.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe") NOT ((Image="*\\cmd.exe" ParentImage="C:\\Program Files\\WindowsApps\\Microsoft.SysinternalsSuite*") OR (Image IN ("*\\powershell.exe", "*\\cmd.exe", "*\\pwsh.exe") ParentImage="*:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal*" ParentImage="*\\WindowsTerminal.exe"))

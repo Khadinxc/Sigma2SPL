@@ -1,0 +1,11 @@
+# Title: AWS ElastiCache Security Group Created
+# Author: Austin Songer @austinsonger
+# Date: 2021-07-24
+# Level: low
+# Description: Detects when an ElastiCache security group has been created.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1136, attack.t1136.003
+# False Positives:
+#   - A ElastiCache security group may be created by a system or network administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. Security group creations from unfamiliar users or hosts should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+eventName="CreateCacheSecurityGroup" eventSource="elasticache.amazonaws.com"

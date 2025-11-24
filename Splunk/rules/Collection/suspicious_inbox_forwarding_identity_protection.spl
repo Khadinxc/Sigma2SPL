@@ -1,0 +1,11 @@
+# Title: Suspicious Inbox Forwarding Identity Protection
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-03
+# Level: high
+# Description: Indicates suspicious rules such as an inbox rule that forwards a copy of all emails to an external address
+# MITRE Tactic: Collection
+# Tags: attack.t1114.003, attack.collection
+# False Positives:
+#   - A legitimate forwarding rule.
+
+riskEventType="suspiciousInboxForwarding"

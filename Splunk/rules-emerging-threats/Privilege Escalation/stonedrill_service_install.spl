@@ -1,0 +1,11 @@
+# Title: StoneDrill Service Install
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-07
+# Level: high
+# Description: This method detects a service install of the malicious Microsoft Network Realtime Inspection Service service described in StoneDrill report by Kaspersky
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.g0064, attack.t1543.003, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+EventID=7045 ImagePath="* LocalService" Provider_Name="Service Control Manager" ServiceName="NtsSrv"

@@ -1,0 +1,12 @@
+# Title: Suspicious Use of PsLogList
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2021-12-18
+# Level: medium
+# Description: Detects usage of the PsLogList utility to dump event log in order to extract admin accounts and perform account discovery or delete events logs
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1087, attack.t1087.001, attack.t1087.002
+# False Positives:
+#   - Another tool that uses the command line switches of PsLogList
+#   - Legitimate use of PsLogList by an administrator
+
+CommandLine IN ("* security*", "* application*", "* system*") CommandLine="* -d*" OR CommandLine="* /d*" OR CommandLine="* –d*" OR CommandLine="* —d*" OR CommandLine="* ―d*" OR CommandLine="* -x*" OR CommandLine="* /x*" OR CommandLine="* –x*" OR CommandLine="* —x*" OR CommandLine="* ―x*" OR CommandLine="* -s*" OR CommandLine="* /s*" OR CommandLine="* –s*" OR CommandLine="* —s*" OR CommandLine="* ―s*" OR CommandLine="* -c*" OR CommandLine="* /c*" OR CommandLine="* –c*" OR CommandLine="* —c*" OR CommandLine="* ―c*" OR CommandLine="* -g*" OR CommandLine="* /g*" OR CommandLine="* –g*" OR CommandLine="* —g*" OR CommandLine="* ―g*" OriginalFileName="psloglist.exe" OR Image IN ("*\\psloglist.exe", "*\\psloglist64.exe")

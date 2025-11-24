@@ -1,0 +1,11 @@
+# Title: Cisco Sniffing
+# Author: Austin Clark
+# Date: 2019-08-11
+# Level: medium
+# Description: Show when a monitor or a span/rspan is setup or modified
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.discovery, attack.t1040
+# False Positives:
+#   - Admins may setup new or modify old spans, or use a monitor for troubleshooting
+
+"monitor capture point" OR "set span" OR "set rspan" | table CmdSet

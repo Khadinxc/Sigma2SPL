@@ -1,0 +1,9 @@
+# Title: SQLite Chromium Profile Data DB Access
+# Author: TropChaud
+# Date: 2022-12-19
+# Level: high
+# Description: Detect usage of the "sqlite" binary to query databases in Chromium-based browsers for potential data stealing.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1539, attack.t1555.003, attack.collection, attack.t1005
+
+CommandLine IN ("*\\User Data\\*", "*\\Opera Software\\*", "*\\ChromiumViewer\\*") CommandLine IN ("*Login Data*", "*Cookies*", "*Web Data*", "*History*", "*Bookmarks*") Product="SQLite" OR Image IN ("*\\sqlite.exe", "*\\sqlite3.exe")

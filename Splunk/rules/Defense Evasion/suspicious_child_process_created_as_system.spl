@@ -1,0 +1,9 @@
+# Title: Suspicious Child Process Created as System
+# Author: Teymur Kheirkhabarov, Roberto Rodriguez (@Cyb3rWard0g), Open Threat Research (OTR)
+# Date: 2019-10-26
+# Level: high
+# Description: Detection of child processes spawned with SYSTEM privileges by parents with LOCAL SERVICE or NETWORK SERVICE accounts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1134.002
+
+IntegrityLevel IN ("System", "S-1-16-16384") ParentUser IN ("*AUTHORI*", "*AUTORI*") ParentUser IN ("*\\NETWORK SERVICE", "*\\LOCAL SERVICE") User IN ("*AUTHORI*", "*AUTORI*") User IN ("*\\SYSTEM", "*\\Système", "*\\СИСТЕМА") NOT (CommandLine="*DavSetCookie*" Image="*\\rundll32.exe")

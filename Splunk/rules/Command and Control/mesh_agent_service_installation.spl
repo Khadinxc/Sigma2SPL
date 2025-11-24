@@ -1,0 +1,11 @@
+# Title: Mesh Agent Service Installation
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-11-28
+# Level: medium
+# Description: Detects a Mesh Agent service installation. Mesh Agent is used to remotely manage computers
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1219.002
+# False Positives:
+#   - Legitimate use of the tool
+
+EventID=7045 Provider_Name="Service Control Manager" ImagePath="*MeshAgent.exe*" OR ServiceName="*Mesh Agent*"

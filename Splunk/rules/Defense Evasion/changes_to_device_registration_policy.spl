@@ -1,0 +1,9 @@
+# Title: Changes to Device Registration Policy
+# Author: Michael Epping, '@mepples21'
+# Date: 2022-06-28
+# Level: high
+# Description: Monitor and alert for changes to the device registration policy.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1484
+
+ActivityDisplayName="Set device registration policies" Category="Policy"

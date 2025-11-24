@@ -1,0 +1,11 @@
+# Title: Remote LSASS Process Access Through Windows Remote Management
+# Author: Patryk Prauze - ING Tech
+# Date: 2019-05-20
+# Level: high
+# Description: Detects remote access to the LSASS process via WinRM. This could be a sign of credential dumping from tools like mimikatz.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.execution, attack.t1003.001, attack.t1059.001, attack.lateral-movement, attack.t1021.006, attack.s0002
+# False Positives:
+#   - Unlikely
+
+SourceImage="*:\\Windows\\system32\\wsmprovhost.exe" TargetImage="*\\lsass.exe" NOT GrantedAccess="0x80000000"

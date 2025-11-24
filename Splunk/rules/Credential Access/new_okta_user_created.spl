@@ -1,0 +1,11 @@
+# Title: New Okta User Created
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-10-25
+# Level: informational
+# Description: Detects new user account creation
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access
+# False Positives:
+#   - Legitimate and authorized user creation
+
+eventtype="user.lifecycle.create"

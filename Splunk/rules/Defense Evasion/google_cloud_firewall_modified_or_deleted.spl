@@ -1,0 +1,12 @@
+# Title: Google Cloud Firewall Modified or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-13
+# Level: medium
+# Description: Detects  when a firewall rule is modified or deleted in Google Cloud Platform (GCP).
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562
+# False Positives:
+#   - Firewall rules being modified or deleted may be performed by a system administrator. Verify that the firewall configuration change was expected.
+#   - Exceptions can be added to this rule to filter expected behavior.
+
+gcp.audit.method_name IN ("v*.Compute.Firewalls.Delete", "v*.Compute.Firewalls.Patch", "v*.Compute.Firewalls.Update", "v*.Compute.Firewalls.Insert")

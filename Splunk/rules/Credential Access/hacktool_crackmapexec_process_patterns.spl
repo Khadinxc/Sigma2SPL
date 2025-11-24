@@ -1,0 +1,9 @@
+# Title: HackTool - CrackMapExec Process Patterns
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-12
+# Level: high
+# Description: Detects suspicious process patterns found in logs when CrackMapExec is used
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+
+(CommandLine IN ("*cmd.exe /c *", "*cmd.exe /r *", "*cmd.exe /k *", "*cmd /c *", "*cmd /r *", "*cmd /k *") CommandLine="*tasklist /fi *" CommandLine="*Imagename eq lsass.exe*" User IN ("*AUTHORI*", "*AUTORI*")) OR (CommandLine="*do rundll32.exe C:\\windows\\System32\\comsvcs.dll, MiniDump*" CommandLine="*\\Windows\\Temp\\*" CommandLine="* full*" CommandLine="*%%B*") OR (CommandLine="*tasklist /v /fo csv*" CommandLine="*findstr /i \"lsass\"*")

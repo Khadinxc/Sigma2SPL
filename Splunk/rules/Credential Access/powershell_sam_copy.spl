@@ -1,0 +1,12 @@
+# Title: PowerShell SAM Copy
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-07-29
+# Level: high
+# Description: Detects suspicious PowerShell scripts accessing SAM hives
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.002
+# False Positives:
+#   - Some rare backup scenarios
+#   - PowerShell scripts fixing HiveNightmare / SeriousSAM ACLs
+
+CommandLine="*\\HarddiskVolumeShadowCopy*" CommandLine="*System32\\config\\sam*" CommandLine IN ("*Copy-Item*", "*cp $_.*", "*cpi $_.*", "*copy $_.*", "*.File]::Copy(*")

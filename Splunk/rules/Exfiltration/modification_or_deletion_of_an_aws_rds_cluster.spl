@@ -1,0 +1,12 @@
+# Title: Modification or Deletion of an AWS RDS Cluster
+# Author: Ivan Saakov
+# Date: 2024-12-06
+# Level: high
+# Description: Detects modifications to an RDS cluster or its deletion, which may indicate potential data exfiltration attempts, unauthorized access, or exposure of sensitive information.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1020
+# False Positives:
+#   - Verify if the modification or deletion was performed by an authorized administrator.
+#   - Confirm if the modification or deletion was part of a planned change or maintenance activity.
+
+eventName IN ("ModifyDBCluster", "DeleteDBCluster") eventSource="rds.amazonaws.com"

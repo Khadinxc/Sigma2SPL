@@ -1,0 +1,12 @@
+# Title: Windows Defender Real-time Protection Disabled
+# Author: Ján Trenčanský, frack113
+# Date: 2020-07-28
+# Level: high
+# Description: Detects disabling of Windows Defender Real-time Protection. As this event doesn't contain a lot of information on who initiated this action you might want to reduce it to a "medium" level if this occurs too many times in your environment
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Administrator actions (should be investigated)
+#   - Seen being triggered occasionally during Windows 8 Defender Updates
+
+EventID=5001

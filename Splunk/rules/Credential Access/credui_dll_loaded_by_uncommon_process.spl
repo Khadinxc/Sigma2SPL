@@ -1,0 +1,11 @@
+# Title: CredUI.DLL Loaded By Uncommon Process
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-10-20
+# Level: medium
+# Description: Detects loading of "credui.dll" and related DLLs by an uncommon process. Attackers might leverage this DLL for potential use of "CredUIPromptForCredentials" or "CredUnPackAuthenticationBufferW".
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.collection, attack.t1056.002
+# False Positives:
+#   - Other legitimate processes loading those DLLs in your environment.
+
+ImageLoaded IN ("*\\credui.dll", "*\\wincredui.dll") OR OriginalFileName IN ("credui.dll", "wincredui.dll") NOT (Image IN ("C:\\Windows\\explorer.exe", "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe", "C:\\Windows\\regedit.exe") OR Image IN ("C:\\Program Files (x86)\\*", "C:\\Program Files\\*", "C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*")) NOT ((Image="*\\AppData\\Local\\Microsoft\\OneDrive\\*" Image="C:\\Users\\*") OR Image="*\\opera_autoupdate.exe" OR Image IN ("*\\procexp64.exe", "*\\procexp.exe") OR (Image="*\\AppData\\Local\\Microsoft\\Teams\\*" Image="*\\Teams.exe" Image="C:\\Users\\*"))

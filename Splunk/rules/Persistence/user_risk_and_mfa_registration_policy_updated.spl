@@ -1,0 +1,12 @@
+# Title: User Risk and MFA Registration Policy Updated
+# Author: Harjot Singh (@cyb3rjy0t)
+# Date: 2024-08-13
+# Level: high
+# Description: Detects changes and updates to the user risk and MFA registration policy.
+# Attackers can modified the policies to Bypass MFA, weaken security thresholds, facilitate further attacks, maintain persistence.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence
+# False Positives:
+#   - Known updates by administrators.
+
+Category="Policy" LoggedByService="AAD Management UX" OperationName="Update User Risk and MFA Registration Policy"

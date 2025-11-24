@@ -1,0 +1,11 @@
+# Title: Cisco Crypto Commands
+# Author: Austin Clark
+# Date: 2019-08-12
+# Level: high
+# Description: Show when private keys are being exported from the device, or when new certificates are installed
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.defense-evasion, attack.t1553.004, attack.t1552.004
+# False Positives:
+#   - Not commonly run by administrators. Also whitelist your known good certificates
+
+"crypto pki export" OR "crypto pki import" OR "crypto pki trustpoint"

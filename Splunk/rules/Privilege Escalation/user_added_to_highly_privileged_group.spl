@@ -1,0 +1,11 @@
+# Title: User Added To Highly Privileged Group
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-02-23
+# Level: high
+# Description: Detects addition of users to highly privileged groups via "Net" or "Add-LocalGroupMember".
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1098
+# False Positives:
+#   - Administrative activity that must be investigated
+
+CommandLine IN ("*Group Policy Creator Owners*", "*Schema Admins*") (CommandLine="*localgroup *" CommandLine="* /add*") OR (CommandLine="*Add-LocalGroupMember *" CommandLine="* -Group *")

@@ -1,0 +1,13 @@
+# Title: Azure Subscription Permission Elevation Via ActivityLogs
+# Author: Austin Songer @austinsonger
+# Date: 2021-11-26
+# Level: high
+# Description: Detects when a user has been elevated to manage all Azure Subscriptions.
+# This change should be investigated immediately if it isn't planned.
+# This setting could allow an attacker access to Azure subscriptions in your environment.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078.004
+# False Positives:
+#   - If this was approved by System Administrator.
+
+operationName="MICROSOFT.AUTHORIZATION/ELEVATEACCESS/ACTION"

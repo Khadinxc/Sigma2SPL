@@ -1,0 +1,11 @@
+# Title: Potential Mpclient.DLL Sideloading
+# Author: Bhabesh Raj
+# Date: 2022-08-02
+# Level: high
+# Description: Detects potential sideloading of "mpclient.dll" by Windows Defender processes ("MpCmdRun" and "NisSrv") from their non-default directory.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+# False Positives:
+#   - Unlikely
+
+ImageLoaded="*\\mpclient.dll" Image IN ("*\\MpCmdRun.exe", "*\\NisSrv.exe") NOT (Image IN ("C:\\Program Files (x86)\\Windows Defender\\*", "C:\\Program Files\\Microsoft Security Client\\*", "C:\\Program Files\\Windows Defender\\*", "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*", "C:\\Windows\\WinSxS\\*"))

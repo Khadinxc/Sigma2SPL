@@ -1,0 +1,9 @@
+# Title: Potential SquiblyTwo Technique Execution
+# Author: Markus Neis, Florian Roth
+# Date: 2019-01-16
+# Level: medium
+# Description: Detects potential SquiblyTwo attack technique with possible renamed WMIC via Imphash and OriginalFileName fields
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1047, attack.t1220, attack.execution, attack.t1059.005, attack.t1059.007
+
+CommandLine="*format:*" CommandLine="*http*" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe" OR Hashes IN ("*IMPHASH=1B1A3F43BF37B5BFE60751F2EE2F326E*", "*IMPHASH=37777A96245A3C74EB217308F3546F4C*", "*IMPHASH=9D87C9D67CE724033C0B40CC4CA1B206*")

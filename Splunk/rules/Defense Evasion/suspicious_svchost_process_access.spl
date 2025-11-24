@@ -1,0 +1,9 @@
+# Title: Suspicious Svchost Process Access
+# Author: Tim Burrell
+# Date: 2020-01-02
+# Level: high
+# Description: Detects suspicious access to the "svchost" process such as that used by Invoke-Phantom to kill the thread of the Windows event logging service.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.002
+
+CallTrace="*UNKNOWN*" GrantedAccess="0x1F3FFF" TargetImage="*:\\Windows\\System32\\svchost.exe" NOT (CallTrace IN ("*Microsoft.Build.ni.dll*", "*System.ni.dll*") SourceImage="*:\\Program Files\\Microsoft Visual Studio\\*" SourceImage="*\\MSBuild\\Current\\Bin\\MSBuild.exe")

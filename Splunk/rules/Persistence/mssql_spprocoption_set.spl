@@ -1,0 +1,11 @@
+# Title: MSSQL SPProcoption Set
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-07-13
+# Level: high
+# Description: Detects when the a stored procedure is set or cleared for automatic execution in MSSQL. A stored procedure that is set to automatic execution runs every time an instance of SQL Server is started
+# MITRE Tactic: Persistence
+# Tags: attack.persistence
+# False Positives:
+#   - Legitimate use of the feature by administrators (rare)
+
+Data="*object_name:sp_procoption*" Data="*statement:EXEC*" EventID=33205 Provider_Name="*MSSQL*"

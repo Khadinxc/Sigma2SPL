@@ -1,0 +1,12 @@
+# Title: Potential Remote WMI ActiveScriptEventConsumers Activity
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-09-02
+# Level: medium
+# Description: Detect potential adversaries leveraging WMI ActiveScriptEventConsumers remotely to move laterally in a network.
+# This event is best correlated and used as an enrichment to determine the potential lateral movement activity.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.privilege-escalation, detection.threat-hunting, attack.persistence, attack.t1546.003
+# False Positives:
+#   - SCCM
+
+EventID=4624 LogonType=3 ProcessName="*scrcons.exe" NOT TargetLogonId="0x3e7"

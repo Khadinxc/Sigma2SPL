@@ -1,0 +1,9 @@
+# Title: PowerShell Download Pattern
+# Author: Florian Roth (Nextron Systems), oscd.community, Jonhnathan Ribeiro
+# Date: 2019-01-16
+# Level: medium
+# Description: Detects a Powershell process that contains download commands in its command line string
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+
+CommandLine IN ("*string(*", "*file(*") CommandLine="*new-object*" CommandLine="*net.webclient).*" CommandLine="*download*" Image IN ("*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell_ISE.EXE", "PowerShell.EXE", "pwsh.dll")

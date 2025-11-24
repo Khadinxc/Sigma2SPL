@@ -1,0 +1,11 @@
+# Title: Okta Identity Provider Created
+# Author: kelnage
+# Date: 2023-09-07
+# Level: medium
+# Description: Detects when a new identity provider is created for Okta.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1098.001
+# False Positives:
+#   - When an admin creates a new, authorised identity provider.
+
+eventtype="system.idp.lifecycle.create"

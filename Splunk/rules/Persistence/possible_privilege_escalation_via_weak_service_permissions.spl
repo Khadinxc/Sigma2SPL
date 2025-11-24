@@ -1,0 +1,9 @@
+# Title: Possible Privilege Escalation via Weak Service Permissions
+# Author: Teymur Kheirkhabarov
+# Date: 2019-10-26
+# Level: high
+# Description: Detection of sc.exe utility spawning by user with Medium integrity level to change service ImagePath or FailureCommand
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.011
+
+Image="*\\sc.exe" IntegrityLevel IN ("Medium", "S-1-16-8192") (CommandLine="*config*" CommandLine="*binPath*") OR (CommandLine="*failure*" CommandLine="*command*")

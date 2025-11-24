@@ -1,0 +1,9 @@
+# Title: PowerShell Script With File Upload Capabilities
+# Author: frack113
+# Date: 2022-01-07
+# Level: low
+# Description: Detects PowerShell scripts leveraging the "Invoke-WebRequest" cmdlet to send data via either "PUT" or "POST" method.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1020
+
+ScriptBlockText IN ("*Invoke-RestMethod*", "*Invoke-WebRequest*", "*irm *", "*iwr *") ScriptBlockText IN ("*-Method \"POST\"*", "*-Method \"PUT\"*", "*-Method POST*", "*-Method PUT*", "*-Method 'POST'*", "*-Method 'PUT'*")

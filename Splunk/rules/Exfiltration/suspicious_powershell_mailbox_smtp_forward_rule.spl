@@ -1,0 +1,11 @@
+# Title: Suspicious PowerShell Mailbox SMTP Forward Rule
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-10-26
+# Level: medium
+# Description: Detects usage of the powerShell Set-Mailbox Cmdlet to set-up an SMTP forwarding rule.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration
+# False Positives:
+#   - Legitimate usage of the cmdlet to forward emails
+
+ScriptBlockText="*Set-Mailbox *" ScriptBlockText="* -DeliverToMailboxAndForward *" ScriptBlockText="* -ForwardingSmtpAddress *"

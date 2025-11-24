@@ -1,0 +1,13 @@
+# Title: Suspicious File Download From IP Via Wget.EXE - Paths
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-02-23
+# Level: high
+# Description: Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe
+# MITRE Tactic: Execution
+# Tags: attack.execution
+
+
+| rex field=CommandLine "(?<CommandLineMatch>\\s-O\\s)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search CommandLineCondition="true" OR CommandLine="*--output-document*" CommandLine="*http*" Image="*\\wget.exe" OR OriginalFileName="wget.exe" CommandLine IN ("*:\\PerfLogs\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Help\\*", "*:\\Windows\\Temp\\*", "*\\Temporary Internet*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favorites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favourites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Contacts\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Pictures\\*")
+| regex CommandLine="://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"

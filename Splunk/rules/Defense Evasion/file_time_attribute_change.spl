@@ -1,0 +1,9 @@
+# Title: File Time Attribute Change
+# Author: Igor Fits, Mikhail Larin, oscd.community
+# Date: 2020-10-19
+# Level: medium
+# Description: Detect file time attribute change to hide new or changes to existing files
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070.006
+
+CommandLine IN ("*-t*", "*-acmr*", "*-d*", "*-r*") Image="*/touch"

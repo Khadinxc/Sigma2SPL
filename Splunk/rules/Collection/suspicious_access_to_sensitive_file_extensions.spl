@@ -1,0 +1,12 @@
+# Title: Suspicious Access to Sensitive File Extensions
+# Author: Samir Bousseaden
+# Date: 2019-04-03
+# Level: medium
+# Description: Detects known sensitive file extensions accessed on a network share
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1039
+# False Positives:
+#   - Help Desk operator doing backup or re-imaging end user machine or backup software
+#   - Users working with these data types or exchanging message files
+
+EventID=5145 RelativeTargetName IN ("*.bak", "*.dmp", "*.edb", "*.kirbi", "*.msg", "*.nsf", "*.nst", "*.oab", "*.ost", "*.pst", "*.rdp")

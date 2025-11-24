@@ -1,0 +1,13 @@
+# Title: Azure Key Vault Modified or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-16
+# Level: medium
+# Description: Identifies when a key vault is modified or deleted.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.credential-access, attack.t1552, attack.t1552.001
+# False Positives:
+#   - Key Vault being modified or deleted may be performed by a system administrator.
+#   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Key Vault modified or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName IN ("MICROSOFT.KEYVAULT/VAULTS/WRITE", "MICROSOFT.KEYVAULT/VAULTS/DELETE", "MICROSOFT.KEYVAULT/VAULTS/DEPLOY/ACTION", "MICROSOFT.KEYVAULT/VAULTS/ACCESSPOLICIES/WRITE")

@@ -1,0 +1,14 @@
+# Title: Dbghelp/Dbgcore DLL Loaded By Uncommon/Suspicious Process
+# Author: Perez Diego (@darkquassar), oscd.community, Ecco
+# Date: 2019-10-27
+# Level: medium
+# Description: Detects the load of dbghelp/dbgcore DLL by a potentially uncommon or potentially suspicious process.
+# The Dbghelp and Dbgcore DLLs export functions that allow for the dump of process memory. Tools like ProcessHacker, Task Manager and some attacker tradecraft use the MiniDumpWriteDump API found in dbghelp.dll or dbgcore.dll.
+# As an example, SilentTrynity C2 Framework has a module that leverages this API to dump the contents of Lsass.exe and transfer it over the network back to the attacker's machine.
+# Keep in mind that many legitimate Windows processes and services might load the aforementioned DLLs for debugging or other related purposes. Investigate the CommandLine and the Image location of the process loading the DLL.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001, detection.threat-hunting
+# False Positives:
+#   - Debugging scripts might leverage this DLL in order to dump process memory for further analysis.
+
+ImageLoaded IN ("*\\dbghelp.dll", "*\\dbgcore.dll") Image IN ("*\\bash.exe", "*\\cmd.exe", "*\\cscript.exe", "*\\dnx.exe", "*\\excel.exe", "*\\monitoringhost.exe", "*\\msbuild.exe", "*\\mshta.exe", "*\\outlook.exe", "*\\powerpnt.exe", "*\\regsvcs.exe", "*\\rundll32.exe", "*\\sc.exe", "*\\scriptrunner.exe", "*\\winword.exe", "*\\wmic.exe", "*\\wscript.exe") NOT ((CommandLine IN ("*-k LocalServiceNetworkRestricted", "*-k WerSvcGroup") Image="*\\svchost.exe") OR (CommandLine IN ("*/d srrstr.dll,ExecuteScheduledSPPCreation*", "*aepdu.dll,AePduRunUpdate*", "*shell32.dll,OpenAs_RunDL*", "*Windows.Storage.ApplicationData.dll,CleanupTemporaryState*") Image="*\\rundll32.exe") OR (CommandLine="*\\TiWorker.exe -Embedding" CommandLine="C:\\WINDOWS\\WinSxS\\*"))

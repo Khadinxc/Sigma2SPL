@@ -1,0 +1,9 @@
+# Title: GatherNetworkInfo.VBS Reconnaissance Script Output
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-02-08
+# Level: medium
+# Description: Detects creation of files which are the results of executing the built-in reconnaissance script "C:\Windows\System32\gatherNetworkInfo.vbs".
+# MITRE Tactic: Discovery
+# Tags: attack.discovery
+
+TargetFilename IN ("*\\Hotfixinfo.txt", "*\\netiostate.txt", "*\\sysportslog.txt", "*\\VmSwitchLog.evtx") TargetFilename="C:\\Windows\\System32\\config*"

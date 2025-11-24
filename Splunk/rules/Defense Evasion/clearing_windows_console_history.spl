@@ -1,0 +1,9 @@
+# Title: Clearing Windows Console History
+# Author: Austin Songer @austinsonger
+# Date: 2021-11-25
+# Level: high
+# Description: Identifies when a user attempts to clear console history. An adversary may clear the command history of a compromised account to conceal the actions undertaken during an intrusion.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070, attack.t1070.003
+
+ScriptBlockText="*Clear-History*" OR (ScriptBlockText IN ("*Remove-Item*", "*rm*") ScriptBlockText IN ("*ConsoleHost_history.txt*", "*(Get-PSReadlineOption).HistorySavePath*"))

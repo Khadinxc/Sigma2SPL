@@ -1,0 +1,13 @@
+# Title: Bad Opsec Powershell Code Artifacts
+# Author: ok @securonix invrep_de, oscd.community
+# Date: 2020-10-09
+# Level: critical
+# Description: focuses on trivial artifacts observed in variants of prevalent offensive ps1 payloads, including
+# Cobalt Strike Beacon, PoshC2, Powerview, Letmein, Empire, Powersploit, and other attack payloads
+# that often undergo minimal changes by attackers due to bad opsec.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - Moderate-to-low; Despite the shorter length/lower entropy for some of these, because of high specificity, fp appears to be fairly limited in many environments.
+
+Payload IN ("*$DoIt*", "*harmj0y*", "*mattifestation*", "*_RastaMouse*", "*tifkin_*", "*0xdeadbeef*")

@@ -1,0 +1,11 @@
+# Title: Remote PowerShell Session (PS Classic)
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-08-10
+# Level: low
+# Description: Detects remote PowerShell sessions
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.lateral-movement, attack.t1021.006
+# False Positives:
+#   - Legitimate use remote PowerShell sessions
+
+Data="*HostName=ServerRemoteHost*" Data="*wsmprovhost.exe*"

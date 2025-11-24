@@ -1,0 +1,9 @@
+# Title: Kapeka Backdoor Execution Via RunDLL32.EXE
+# Author: Swachchhanda Shrawan Poudel, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2024-07-03
+# Level: high
+# Description: Detects Kapeka backdoor process execution pattern, where the dropper launch the backdoor binary by calling rundll32 and passing the backdoor's first export ordinal (#1) with a "-d" argument.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.011, detection.emerging-threats
+
+Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE" CommandLine IN ("*:\\ProgramData*", "*\\AppData\\Local*") (CommandLine="*.wll*" CommandLine="*#1*" CommandLine="* -d*") OR (CommandLine="*.wll*" CommandLine="*#1")

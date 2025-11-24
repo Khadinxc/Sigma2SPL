@@ -1,0 +1,9 @@
+# Title: DumpMinitool Execution
+# Author: Nasreddine Bencherchali (Nextron Systems), Florian Roth (Nextron Systems)
+# Date: 2022-04-06
+# Level: medium
+# Description: Detects the use of "DumpMinitool.exe" a tool that allows the dump of process memory via the use of the "MiniDumpWriteDump"
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1036, attack.t1003.001, attack.credential-access
+
+CommandLine IN ("* Full*", "* Mini*", "* WithHeap*") Image IN ("*\\DumpMinitool.exe", "*\\DumpMinitool.x86.exe", "*\\DumpMinitool.arm64.exe") OR OriginalFileName IN ("DumpMinitool.exe", "DumpMinitool.x86.exe", "DumpMinitool.arm64.exe")

@@ -1,0 +1,12 @@
+# Title: Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe)
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-09-14
+# Level: medium
+# Description: Detects execution of ntdsutil.exe to perform different actions such as restoring snapshots...etc.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.003
+# False Positives:
+#   - Legitimate usage to restore snapshots
+#   - Legitimate admin activity
+
+(CommandLine="*snapshot*" CommandLine="*mount *") OR (CommandLine="*ac*" CommandLine="* i*" CommandLine="* ntds*") Image="*\\ntdsutil.exe" OR OriginalFileName="ntdsutil.exe"

@@ -1,0 +1,12 @@
+# Title: Msiexec Quiet Installation
+# Author: frack113
+# Date: 2022-01-16
+# Level: medium
+# Description: Adversaries may abuse msiexec.exe to proxy execution of malicious payloads.
+# Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi)
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218.007
+# False Positives:
+#   - WindowsApps installing updates via the quiet flag
+
+CommandLine="*-i*" OR CommandLine="*/i*" OR CommandLine="*–i*" OR CommandLine="*—i*" OR CommandLine="*―i*" OR CommandLine="*-package*" OR CommandLine="*/package*" OR CommandLine="*–package*" OR CommandLine="*—package*" OR CommandLine="*―package*" OR CommandLine="*-a*" OR CommandLine="*/a*" OR CommandLine="*–a*" OR CommandLine="*—a*" OR CommandLine="*―a*" OR CommandLine="*-j*" OR CommandLine="*/j*" OR CommandLine="*–j*" OR CommandLine="*—j*" OR CommandLine="*―j*" Image="*\\msiexec.exe" OR OriginalFileName="msiexec.exe" CommandLine="*-q*" OR CommandLine="*/q*" OR CommandLine="*–q*" OR CommandLine="*—q*" OR CommandLine="*―q*" NOT ((IntegrityLevel IN ("System", "S-1-16-16384") ParentImage="C:\\Windows\\CCM\\Ccm32BitLauncher.exe") OR ParentImage="C:\\Windows\\Temp\\*" OR (ParentImage="*\\AppData\\Local\\Temp\\*" ParentImage="C:\\Users\\*"))

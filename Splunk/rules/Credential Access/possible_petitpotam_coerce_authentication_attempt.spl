@@ -1,0 +1,11 @@
+# Title: Possible PetitPotam Coerce Authentication Attempt
+# Author: Mauricio Velazco, Michael Haag
+# Date: 2021-09-02
+# Level: high
+# Description: Detect PetitPotam coerced authentication activity.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1187
+# False Positives:
+#   - Unknown. Feedback welcomed.
+
+EventID=5145 RelativeTargetName="lsarpc" ShareName="*\\IPC$" ShareName="\\\\*" SubjectUserName="ANONYMOUS LOGON"

@@ -1,0 +1,11 @@
+# Title: COM Hijacking via TreatAs
+# Author: frack113
+# Date: 2022-08-28
+# Level: medium
+# Description: Detect modification of TreatAs key to enable "rundll32.exe -sta" command
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.015
+# False Positives:
+#   - Legitimate use
+
+TargetObject="*TreatAs\\(Default)" NOT (Image IN ("C:\\Windows\\system32\\msiexec.exe", "C:\\Windows\\SysWOW64\\msiexec.exe") OR (Image="*\\OfficeClickToRun.exe" Image="C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\*") OR Image IN ("C:\\Program Files\\Microsoft Office\\root\\integration\\integrator.exe", "C:\\Program Files (x86)\\Microsoft Office\\root\\integration\\integrator.exe") OR Image="C:\\Windows\\system32\\svchost.exe")

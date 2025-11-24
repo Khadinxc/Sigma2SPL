@@ -1,0 +1,13 @@
+# Title: Always Install Elevated Windows Installer
+# Author: Teymur Kheirkhabarov (idea), Mangatas Tondang (rule), oscd.community
+# Date: 2020-10-13
+# Level: medium
+# Description: Detects Windows Installer service (msiexec.exe) trying to install MSI packages with SYSTEM privilege
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1548.002
+# False Positives:
+#   - System administrator usage
+#   - Anti virus products
+#   - WindowsApps located in "C:\Program Files\WindowsApps\"
+
+(Image="*\\Windows\\Installer\\*" Image="*msi*" Image="*tmp") OR (Image="*\\msiexec.exe" IntegrityLevel IN ("System", "S-1-16-16384")) User IN ("*AUTHORI*", "*AUTORI*") NOT (ParentImage IN ("C:\\Program Files\\Avast Software\\*", "C:\\Program Files (x86)\\Avast Software\\*") OR ParentImage="C:\\ProgramData\\Avira\\*" OR ParentImage IN ("C:\\Program Files\\Google\\Update\\*", "C:\\Program Files (x86)\\Google\\Update\\*") OR ParentImage="C:\\Windows\\System32\\services.exe" OR CommandLine="*\\system32\\msiexec.exe /V" OR ParentCommandLine="*\\system32\\msiexec.exe /V" OR ParentImage="C:\\ProgramData\\Sophos\\*")

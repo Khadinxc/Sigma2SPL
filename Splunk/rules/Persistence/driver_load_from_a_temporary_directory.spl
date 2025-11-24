@@ -1,0 +1,11 @@
+# Title: Driver Load From A Temporary Directory
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-02-12
+# Level: high
+# Description: Detects a driver load from a temporary directory
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1543.003
+# False Positives:
+#   - There is a relevant set of false positives depending on applications in the environment
+
+ImageLoaded="*\\Temp\\*"

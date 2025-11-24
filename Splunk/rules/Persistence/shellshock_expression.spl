@@ -1,0 +1,9 @@
+# Title: Shellshock Expression
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-14
+# Level: high
+# Description: Detects shellshock expressions in log files
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+
+"(){:;};" OR "() {:;};" OR "() { :;};" OR "() { :; };"

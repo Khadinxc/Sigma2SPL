@@ -1,0 +1,11 @@
+# Title: GitHub Repository Pages Site Changed to Public
+# Author: Ivan Saakov
+# Date: 2025-10-18
+# Level: low
+# Description: Detects when a GitHub Pages site of a repository is made public. This usually is part of a publishing process but could indicate or lead to potential unauthorized exposure of sensitive information or code.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.exfiltration, attack.t1567.001
+# False Positives:
+#   - Legitimate publishing of repository pages by authorized users
+
+action="repo.pages_public"

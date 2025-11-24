@@ -1,0 +1,9 @@
+# Title: Potential SolidPDFCreator.DLL Sideloading
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-05-07
+# Level: medium
+# Description: Detects potential DLL sideloading of "SolidPDFCreator.dll"
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.t1574.001
+
+ImageLoaded="*\\SolidPDFCreator.dll" NOT (ImageLoaded IN ("C:\\Program Files (x86)\\SolidDocuments\\SolidPDFCreator\\*", "C:\\Program Files\\SolidDocuments\\SolidPDFCreator\\*") Image="*\\SolidPDFCreator.exe")

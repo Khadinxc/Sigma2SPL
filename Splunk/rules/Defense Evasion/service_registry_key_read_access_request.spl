@@ -1,0 +1,13 @@
+# Title: Service Registry Key Read Access Request
+# Author: Center for Threat Informed Defense (CTID) Summiting the Pyramid Team
+# Date: 2023-09-28
+# Level: low
+# Description: Detects "read access" requests on the services registry key.
+# Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
+# Adversaries may use flaws in the permissions for Registry keys related to services to redirect from the originally specified executable to one that they control, in order to launch their own code when a service starts.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.011
+# False Positives:
+#   - Likely from legitimate applications reading their key. Requires heavy tuning
+
+AccessList="*%%1538*" EventID=4663 ObjectName="*\\SYSTEM\\*" ObjectName="*ControlSet\\Services\\*"

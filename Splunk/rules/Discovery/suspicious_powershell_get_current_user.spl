@@ -1,0 +1,11 @@
+# Title: Suspicious PowerShell Get Current User
+# Author: frack113
+# Date: 2022-04-04
+# Level: low
+# Description: Detects the use of PowerShell to identify the current logged user.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1033
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+ScriptBlockText IN ("*[System.Environment]::UserName*", "*$env:UserName*", "*[System.Security.Principal.WindowsIdentity]::GetCurrent()*")

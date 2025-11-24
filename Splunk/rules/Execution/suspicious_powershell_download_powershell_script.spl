@@ -1,0 +1,11 @@
+# Title: Suspicious PowerShell Download - Powershell Script
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-05
+# Level: medium
+# Description: Detects suspicious PowerShell download command
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# False Positives:
+#   - PowerShell scripts that download content from the Internet
+
+ScriptBlockText="*System.Net.WebClient*" ScriptBlockText IN ("*.DownloadFile(*", "*.DownloadFileAsync(*", "*.DownloadString(*", "*.DownloadStringAsync(*")

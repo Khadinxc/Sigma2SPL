@@ -1,0 +1,9 @@
+# Title: Suspicious Cobalt Strike DNS Beaconing - DNS Client
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-16
+# Level: critical
+# Description: Detects a program that invoked suspicious DNS queries known from Cobalt Strike beacons
+# MITRE Tactic: Command and Control
+# Tags: attack.t1071.004, attack.command-and-control
+
+EventID=3008 QueryName IN ("aaa.stage.*", "post.1*") OR QueryName="*.stage.123456.*"

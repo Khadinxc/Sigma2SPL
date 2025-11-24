@@ -1,0 +1,9 @@
+# Title: DNS Query to External Service Interaction Domains
+# Author: Florian Roth (Nextron Systems), Matt Kelly (list of domains)
+# Date: 2022-06-07
+# Level: high
+# Description: Detects suspicious DNS queries to external service interaction domains often used for out-of-band interactions after successful RCE
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190, attack.reconnaissance, attack.t1595.002
+
+query IN ("*.interact.sh*", "*.oast.pro*", "*.oast.live*", "*.oast.site*", "*.oast.online*", "*.oast.fun*", "*.oast.me*", "*.burpcollaborator.net*", "*.oastify.com*", "*.canarytokens.com*", "*.requestbin.net*", "*.dnslog.cn*")

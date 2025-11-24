@@ -1,0 +1,9 @@
+# Title: Python Spawning Pretty TTY on Windows
+# Author: Nextron Systems
+# Date: 2022-06-03
+# Level: high
+# Description: Detects python spawning a pretty tty
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+
+Image IN ("*python.exe", "*python3.exe", "*python2.exe") (CommandLine="*import pty*" CommandLine="*.spawn(*") OR CommandLine="*from pty import spawn*"

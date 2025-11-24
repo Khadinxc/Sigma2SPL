@@ -1,0 +1,9 @@
+# Title: LSASS Process Memory Dump Files
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-11-15
+# Level: high
+# Description: Detects creation of files with names used by different memory dumping tools to create a memory dump of the LSASS process memory, which contains user credentials.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+
+TargetFilename IN ("*\\Andrew.dmp", "*\\Coredump.dmp", "*\\lsass.dmp", "*\\lsass.rar", "*\\lsass.zip", "*\\NotLSASS.zip", "*\\PPLBlade.dmp", "*\\rustive.dmp") OR TargetFilename IN ("*\\lsass_2*", "*\\lsassdmp*", "*\\lsassdump*") OR (TargetFilename="*\\lsass*" TargetFilename="*.dmp*") OR (TargetFilename="*SQLDmpr*" TargetFilename="*.mdmp") OR (TargetFilename IN ("*\\nanodump*", "*\\proc_*") TargetFilename="*.dmp")

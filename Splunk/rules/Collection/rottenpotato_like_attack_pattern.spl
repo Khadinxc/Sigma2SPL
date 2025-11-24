@@ -1,0 +1,9 @@
+# Title: RottenPotato Like Attack Pattern
+# Author: @SBousseaden, Florian Roth
+# Date: 2019-11-15
+# Level: high
+# Description: Detects logon events that have characteristics of events generated during an attack with RottenPotato and the like
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.privilege-escalation, attack.credential-access, attack.t1557.001
+
+EventID=4624 IpAddress IN ("127.0.0.1", "::1") LogonType=3 TargetUserName="ANONYMOUS LOGON" WorkstationName="-"

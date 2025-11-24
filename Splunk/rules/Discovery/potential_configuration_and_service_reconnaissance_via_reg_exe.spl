@@ -1,0 +1,11 @@
+# Title: Potential Configuration And Service Reconnaissance Via Reg.EXE
+# Author: Timur Zinniatullin, oscd.community
+# Date: 2019-10-21
+# Level: medium
+# Description: Detects the usage of "reg.exe" in order to query reconnaissance information from the registry. Adversaries may interact with the Windows registry to gather information about credentials, the system, configuration, and installed software.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1012, attack.t1007
+# False Positives:
+#   - Discord
+
+CommandLine="*query*" Image="*\\reg.exe" OR OriginalFileName="reg.exe" CommandLine IN ("*currentVersion\\windows*", "*winlogon\\*", "*currentVersion\\shellServiceObjectDelayLoad*", "*currentVersion\\run*", "*currentVersion\\policies\\explorer\\run*", "*currentcontrolset\\services*")

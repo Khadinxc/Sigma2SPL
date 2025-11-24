@@ -1,0 +1,9 @@
+# Title: Invoke-Obfuscation CLIP+ Launcher - System
+# Author: Jonathan Cheong, oscd.community
+# Date: 2020-10-13
+# Level: high
+# Description: Detects Obfuscated use of Clip.exe to execute PowerShell
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+
+EventID=7045 ImagePath="*cmd*" ImagePath="*&&*" ImagePath="*clipboard]::*" Provider_Name="Service Control Manager"

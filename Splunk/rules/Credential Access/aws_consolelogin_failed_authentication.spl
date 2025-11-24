@@ -1,0 +1,11 @@
+# Title: AWS ConsoleLogin Failed Authentication
+# Author: Ivan Saakov, Nasreddine Bencherchali
+# Date: 2025-10-19
+# Level: medium
+# Description: Detects failed AWS console login attempts due to authentication failures. Monitoring these events is crucial for identifying potential brute-force attacks or unauthorized access attempts to AWS accounts.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1110
+# False Positives:
+#   - Legitimate failed login attempts by authorized users. Investigate the source of repeated failed login attempts.
+
+errorMessage="Failed authentication" eventName="ConsoleLogin"

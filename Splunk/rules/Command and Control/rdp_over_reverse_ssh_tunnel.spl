@@ -1,0 +1,9 @@
+# Title: RDP Over Reverse SSH Tunnel
+# Author: Samir Bousseaden
+# Date: 2019-02-16
+# Level: high
+# Description: Detects svchost hosting RDP termsvcs communicating with the loopback address and on TCP port 3389
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1572, attack.lateral-movement, attack.t1021.001, car.2013-07-002
+
+DestinationIp="127.0.0.0/8" OR DestinationIp="::1/128" Image="*\\svchost.exe" Initiated="true" SourcePort=3389

@@ -1,0 +1,12 @@
+# Title: Potential Cookies Session Hijacking
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-07-27
+# Level: medium
+# Description: Detects execution of "curl.exe" with the "-c" flag in order to save cookie data.
+# MITRE Tactic: Execution
+# Tags: attack.execution
+
+
+| rex field=CommandLine "(?<CommandLineMatch>\\s-c\\s)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search CommandLineCondition="true" OR CommandLine="*--cookie-jar*" Image="*\\curl.exe" OR OriginalFileName="curl.exe"

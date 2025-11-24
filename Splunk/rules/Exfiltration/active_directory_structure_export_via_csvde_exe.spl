@@ -1,0 +1,9 @@
+# Title: Active Directory Structure Export Via Csvde.EXE
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-03-14
+# Level: medium
+# Description: Detects the execution of "csvde.exe" in order to export organizational Active Directory structure.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.discovery, attack.t1087.002
+
+Image="*\\csvde.exe" OR OriginalFileName="csvde.exe" CommandLine="* -f*" NOT CommandLine="* -i*"

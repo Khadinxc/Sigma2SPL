@@ -1,0 +1,13 @@
+# Title: Antivirus Web Shell Detection
+# Author: Florian Roth (Nextron Systems), Arnim Rupp
+# Date: 2018-09-09
+# Level: high
+# Description: Detects a highly relevant Antivirus alert that reports a web shell.
+# It's highly recommended to tune this rule to the specific strings used by your anti virus solution by downloading a big WebShell repository from e.g. github and checking the matches.
+# This event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+# False Positives:
+#   - Unlikely
+
+Signature IN ("ASP.*", "IIS/BackDoor*", "JAVA/Backdoor*", "JSP.*", "Perl.*", "PHP.*", "Troj/ASP*", "Troj/JSP*", "Troj/PHP*", "VBS/Uxor*") OR Signature IN ("*ASP_*", "*ASP:*", "*ASP.Agent*", "*ASP/*", "*Aspdoor*", "*ASPXSpy*", "*Backdoor.ASP*", "*Backdoor.Java*", "*Backdoor.JSP*", "*Backdoor.PHP*", "*Backdoor.VBS*", "*Backdoor/ASP*", "*Backdoor/Java*", "*Backdoor/JSP*", "*Backdoor/PHP*", "*Backdoor/VBS*", "*C99shell*", "*Chopper*", "*filebrowser*", "*JSP_*", "*JSP:*", "*JSP.Agent*", "*JSP/*", "*Perl:*", "*Perl/*", "*PHP_*", "*PHP:*", "*PHP.Agent*", "*PHP/*", "*PHPShell*", "*PShlSpy*", "*SinoChoper*", "*Trojan.ASP*", "*Trojan.JSP*", "*Trojan.PHP*", "*Trojan.VBS*", "*VBS.Agent*", "*VBS/Agent*", "*Webshell*")

@@ -1,0 +1,11 @@
+# Title: EventLog Query Requests By Builtin Utilities
+# Author: Ali Alwashali, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-11-20
+# Level: medium
+# Description: Detect attempts to query the contents of the event log using command line utilities. Attackers use this technique in order to look for sensitive information in the logs such as passwords, usernames, IPs, etc.
+# MITRE Tactic: Credential Access
+# Tags: attack.t1552, attack.credential-access, detection.threat-hunting
+# False Positives:
+#   - Legitimate log access by administrators or troubleshooting tools
+
+(CommandLine="*Select*" CommandLine="*Win32_NTLogEvent*") OR (CommandLine IN ("* qe *", "* query-events *") Image="*\\wevtutil.exe" OR OriginalFileName="wevtutil.exe") OR (CommandLine="* ntevent*" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe") OR CommandLine IN ("*Get-WinEvent *", "*get-eventlog *")

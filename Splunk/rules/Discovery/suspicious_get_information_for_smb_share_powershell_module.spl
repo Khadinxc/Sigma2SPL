@@ -1,0 +1,13 @@
+# Title: Suspicious Get Information for SMB Share - PowerShell Module
+# Author: frack113
+# Date: 2021-12-15
+# Level: low
+# Description: Adversaries may look for folders and drives shared on remote systems as a means of identifying sources of information to gather as a precursor for Collection and
+# to identify potential systems of interest for Lateral Movement.
+# Networks often contain shared network drives and folders that enable users to access file directories on various systems across a network.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1069.001
+# False Positives:
+#   - Administrator script
+
+Payload="*get-smbshare*" OR ContextInfo="*get-smbshare*"

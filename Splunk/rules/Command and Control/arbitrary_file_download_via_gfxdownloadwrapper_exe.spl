@@ -1,0 +1,9 @@
+# Title: Arbitrary File Download Via GfxDownloadWrapper.EXE
+# Author: Victor Sergeev, oscd.community
+# Date: 2020-10-09
+# Level: medium
+# Description: Detects execution of GfxDownloadWrapper.exe with a URL as an argument to download file.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1105
+
+CommandLine IN ("*http://*", "*https://*") Image="*\\GfxDownloadWrapper.exe" NOT CommandLine="*https://gameplayapi.intel.com/*"

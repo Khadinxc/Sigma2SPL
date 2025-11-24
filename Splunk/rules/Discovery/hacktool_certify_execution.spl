@@ -1,0 +1,9 @@
+# Title: HackTool - Certify Execution
+# Author: pH-T (Nextron Systems)
+# Date: 2023-04-17
+# Level: high
+# Description: Detects Certify a tool for Active Directory certificate abuse based on PE metadata characteristics and common command line arguments.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.credential-access, attack.t1649
+
+Image="*\\Certify.exe" OR OriginalFileName="Certify.exe" OR Description="*Certify*" OR (CommandLine IN ("*.exe cas *", "*.exe find *", "*.exe pkiobjects *", "*.exe request *", "*.exe download *") CommandLine IN ("* /vulnerable*", "* /template:*", "* /altname:*", "* /domain:*", "* /path:*", "* /ca:*"))

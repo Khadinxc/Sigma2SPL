@@ -1,0 +1,10 @@
+# Title: .Class Extension URI Ending Request
+# Author: Andreas Hunkeler (@Karneades)
+# Date: 2021-12-21
+# Level: medium
+# Description: Detects requests to URI ending with the ".class" extension in proxy logs.
+# This could rules can be used to hunt for potential downloads of Java classes as seen for example in Log4shell exploitation attacks against Log4j.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, detection.threat-hunting
+
+"c-uri"="*.class"

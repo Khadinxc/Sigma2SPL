@@ -1,0 +1,10 @@
+# Title: Powershell Install a DLL in System Directory
+# Author: frack113, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2021-12-27
+# Level: high
+# Description: Uses PowerShell to install/copy a file into a system directory such as "System32" or "SysWOW64"
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.credential-access, attack.t1556.002
+
+*
+| regex ScriptBlockText="(Copy-Item|cpi) .{2,128} -Destination .{1,32}\\\\Windows\\\\(System32|SysWOW64)"

@@ -1,0 +1,11 @@
+# Title: AADInternals PowerShell Cmdlets Execution - ProccessCreation
+# Author: Austin Songer (@austinsonger), Nasreddine Bencherchali (Nextron Systems), Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2022-12-23
+# Level: high
+# Description: Detects ADDInternals Cmdlet execution. A tool for administering Azure AD and Office 365. Which can be abused by threat actors to attack Azure AD or Office 365.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.reconnaissance, attack.discovery, attack.credential-access, attack.impact
+# False Positives:
+#   - Legitimate use of the library for administrative activity
+
+CommandLine IN ("*Add-AADInt*", "*ConvertTo-AADInt*", "*Disable-AADInt*", "*Enable-AADInt*", "*Export-AADInt*", "*Find-AADInt*", "*Get-AADInt*", "*Grant-AADInt*", "*Initialize-AADInt*", "*Install-AADInt*", "*Invoke-AADInt*", "*Join-AADInt*", "*New-AADInt*", "*Open-AADInt*", "*Read-AADInt*", "*Register-AADInt*", "*Remove-AADInt*", "*Reset-AADInt*", "*Resolve-AADInt*", "*Restore-AADInt*", "*Save-AADInt*", "*Search-AADInt*", "*Send-AADInt*", "*Set-AADInt*", "*Start-AADInt*", "*Unprotect-AADInt*", "*Update-AADInt*") Image IN ("*\\powershell.exe", "*\\powershell_ise.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.Exe", "pwsh.dll")

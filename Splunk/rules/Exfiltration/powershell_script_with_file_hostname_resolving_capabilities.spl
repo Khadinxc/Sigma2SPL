@@ -1,0 +1,11 @@
+# Title: PowerShell Script With File Hostname Resolving Capabilities
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-05
+# Level: medium
+# Description: Detects PowerShell scripts that have capabilities to read files, loop through them and resolve DNS host entries.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1020
+# False Positives:
+#   - The same functionality can be implemented by admin scripts, correlate with name and creator
+
+ScriptBlockText="*Get-content *" ScriptBlockText="*foreach*" ScriptBlockText="*[System.Net.Dns]::GetHostEntry*" ScriptBlockText="*Out-File*"

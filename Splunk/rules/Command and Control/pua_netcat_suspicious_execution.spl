@@ -1,0 +1,11 @@
+# Title: PUA - Netcat Suspicious Execution
+# Author: frack113, Florian Roth (Nextron Systems)
+# Date: 2021-07-21
+# Level: high
+# Description: Detects execution of Netcat. Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1095
+# False Positives:
+#   - Legitimate ncat use
+
+CommandLine IN ("* -lvp *", "* -lvnp*", "* -l -v -p *", "* -lv -p *", "* -l --proxy-type http *", "* -vnl --exec *", "* -vnl -e *", "* --lua-exec *", "* --sh-exec *") OR Image IN ("*\\nc.exe", "*\\ncat.exe", "*\\netcat.exe")

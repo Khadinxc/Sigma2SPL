@@ -1,0 +1,9 @@
+# Title: Registry Persistence via Service in Safe Mode
+# Author: frack113
+# Date: 2022-04-04
+# Level: high
+# Description: Detects the modification of the registry to allow a driver or service to persist in Safe Mode.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564.001
+
+Details="Service" TargetObject IN ("*\\Control\\SafeBoot\\Minimal\\*", "*\\Control\\SafeBoot\\Network\\*") TargetObject="*\\(Default)" NOT ((Details="Service" Image="C:\\Hexnode\\Hexnode Agent\\Current\\HexnodeAgent.exe" TargetObject IN ("*\\Control\\SafeBoot\\Minimal\\Hexnode Updater\\(Default)", "*\\Control\\SafeBoot\\Network\\Hexnode Updater\\(Default)", "*\\Control\\SafeBoot\\Minimal\\Hexnode Agent\\(Default)", "*\\Control\\SafeBoot\\Network\\Hexnode Agent\\(Default)")) OR (Details="Service" Image="*\\MBAMInstallerService.exe" TargetObject="*\\MBAMService\\(Default)") OR (Image="C:\\WINDOWS\\system32\\msiexec.exe" TargetObject IN ("*\\Control\\SafeBoot\\Minimal\\SAVService\\(Default)", "*\\Control\\SafeBoot\\Network\\SAVService\\(Default)")))

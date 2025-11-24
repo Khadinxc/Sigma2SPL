@@ -1,0 +1,11 @@
+# Title: Potentially Suspicious Cabinet File Expansion
+# Author: Bhabesh Raj, X__Junior (Nextron Systems)
+# Date: 2021-07-30
+# Level: medium
+# Description: Detects the expansion or decompression of cabinet files from potentially suspicious or uncommon locations, e.g. seen in Iranian MeteorExpress related attacks
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+# False Positives:
+#   - System administrator Usage
+
+CommandLine="*-F:*" OR CommandLine="*/F:*" OR CommandLine="*–F:*" OR CommandLine="*—F:*" OR CommandLine="*―F:*" Image="*\\expand.exe" CommandLine IN ("*:\\Perflogs\\*", "*:\\ProgramData*", "*:\\Users\\Public\\*", "*:\\Windows\\Temp\\*", "*\\Admin$\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Roaming\\*", "*\\C$\\*", "*\\Temporary Internet*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favorites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favourites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Contacts\\*") NOT (CommandLine="*C:\\ProgramData\\Dell\\UpdateService\\Temp\\*" ParentImage="C:\\Program Files (x86)\\Dell\\UpdateService\\ServiceShell.exe")

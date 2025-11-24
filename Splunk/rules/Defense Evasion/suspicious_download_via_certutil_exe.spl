@@ -1,0 +1,9 @@
+# Title: Suspicious Download Via Certutil.EXE
+# Author: Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-02-15
+# Level: medium
+# Description: Detects the execution of certutil with certain flags that allow the utility to download files.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027
+
+CommandLine IN ("*urlcache *", "*verifyctl *") CommandLine="*http*" Image="*\\certutil.exe" OR OriginalFileName="CertUtil.exe"

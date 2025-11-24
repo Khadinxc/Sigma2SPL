@@ -1,0 +1,11 @@
+# Title: System Information Discovery - Auditd
+# Author: Pawel Mazur
+# Date: 2021-09-03
+# Level: low
+# Description: Detects System Information Discovery commands
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1082
+# False Positives:
+#   - Likely
+
+(name IN ("/etc/lsb-release", "/etc/redhat-release", "/etc/issue") type="PATH") OR (a0 IN ("uname", "uptime", "lsmod", "hostname", "env") type="EXECVE") OR (a0="grep" a1 IN ("*vbox*", "*vm*", "*xen*", "*virtio*", "*hv*") type="EXECVE") OR (a0="kmod" a1="list" type="EXECVE")

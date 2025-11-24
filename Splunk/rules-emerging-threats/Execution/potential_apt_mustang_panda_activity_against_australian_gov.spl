@@ -1,0 +1,11 @@
+# Title: Potential APT Mustang Panda Activity Against Australian Gov
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-05-15
+# Level: high
+# Description: Detects specific command line execution used by Mustang Panda in a targeted attack against the Australian government as reported by Lab52
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.g0129, detection.emerging-threats
+# False Positives:
+#   - Unlikely
+
+(CommandLine="*copy SolidPDFCreator.dll*" CommandLine="*C:\\Users\\Public\\Libraries\\PhotoTvRHD\\SolidPDFCreator.dll*") OR (CommandLine="*reg *" CommandLine="*\\Windows\\CurrentVersion\\Run*" CommandLine="*SolidPDF*" CommandLine="*C:\\Users\\Public\\Libraries\\PhotoTvRHD\\*")

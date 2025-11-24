@@ -1,0 +1,15 @@
+# Title: Uncommon Svchost Command Line Parameter
+# Author: Liran Ravich
+# Date: 2025-11-14
+# Level: high
+# Description: Detects instances of svchost.exe running with an unusual or uncommon command line parameter by excluding known legitimate or common patterns.
+# This could point at a file masquerading as svchost, a process injection, or hollowing of a legitimate svchost instance.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1036.005, attack.t1055, attack.t1055.012
+# False Positives:
+#   - Unlikely
+
+
+| rex field=CommandLine "(?<CommandLineMatch>-k\\s\\w{1,64}(\\s?(-p|-s))?)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search Image="*\\svchost.exe" NOT (CommandLine="" OR CommandLineCondition="true" OR NOT CommandLine=*) NOT ((CommandLine="*svchost.exe*" ParentImage="*\\MsMpEng.exe") OR (CommandLine="svchost.exe" ParentImage="*\\MRT.exe"))

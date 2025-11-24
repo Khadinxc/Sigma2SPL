@@ -1,0 +1,12 @@
+# Title: Azure Container Registry Created or Deleted
+# Author: Austin Songer @austinsonger
+# Date: 2021-08-07
+# Level: low
+# Description: Detects when a Container Registry is created or deleted.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1485, attack.t1496, attack.t1489
+# False Positives:
+#   - Container Registry being created or deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
+#   - Container Registry created or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
+
+operationName IN ("MICROSOFT.CONTAINERREGISTRY/REGISTRIES/WRITE", "MICROSOFT.CONTAINERREGISTRY/REGISTRIES/DELETE")

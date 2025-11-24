@@ -1,0 +1,9 @@
+# Title: Potential DLL File Download Via PowerShell Invoke-WebRequest
+# Author: Florian Roth (Nextron Systems), Hieu Tran
+# Date: 2023-03-13
+# Level: medium
+# Description: Detects potential DLL files being downloaded using the PowerShell Invoke-WebRequest or Invoke-RestMethod cmdlets.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.execution, attack.t1059.001, attack.t1105
+
+CommandLine IN ("*Invoke-RestMethod *", "*Invoke-WebRequest *", "*IRM *", "*IWR *") CommandLine="*http*" CommandLine="*OutFile*" CommandLine="*.dll*"

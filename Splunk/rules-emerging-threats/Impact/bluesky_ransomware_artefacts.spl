@@ -1,0 +1,9 @@
+# Title: BlueSky Ransomware Artefacts
+# Author: j4son
+# Date: 2023-05-23
+# Level: high
+# Description: Detect access to files and shares with names and extensions used by BlueSky ransomware which could indicate a current or previous encryption attempt.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1486, detection.emerging-threats
+
+(ObjectName IN ("*.bluesky", "*DECRYPT FILES BLUESKY*") EventID IN (4663, 4656)) OR (RelativeTargetName IN ("*.bluesky", "*DECRYPT FILES BLUESKY*") EventID=5145)

@@ -1,0 +1,11 @@
+# Title: History File Deletion
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-06-20
+# Level: high
+# Description: Detects events in which a history file gets deleted, e.g. the ~/bash_history to remove traces of malicious activity
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1565.001
+# False Positives:
+#   - Legitimate administration activities
+
+Image IN ("*/rm", "*/unlink", "*/shred") CommandLine IN ("*/.bash_history*", "*/.zsh_history*") OR CommandLine IN ("*_history", "*.history", "*zhistory")

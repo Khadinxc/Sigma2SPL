@@ -1,0 +1,11 @@
+# Title: Scheduled Task Executing Encoded Payload from Registry
+# Author: pH-T (Nextron Systems), @Kostastsale, TheDFIRReport, X__Junior (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-02-12
+# Level: high
+# Description: Detects the creation of a schtask that potentially executes a base64 encoded payload stored in the Windows Registry using PowerShell.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.005, attack.t1059.001
+# False Positives:
+#   - Unlikely
+
+CommandLine="*/Create*" CommandLine IN ("*FromBase64String*", "*encodedcommand*") CommandLine IN ("*Get-ItemProperty*", "* gp *") CommandLine IN ("*HKCU:*", "*HKLM:*", "*registry::*", "*HKEY_*") Image="*\\schtasks.exe" OR OriginalFileName="schtasks.exe"

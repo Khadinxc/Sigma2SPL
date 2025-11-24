@@ -1,0 +1,11 @@
+# Title: PrinterNightmare Mimikatz Driver Name
+# Author: Markus Neis, @markus_neis, Florian Roth
+# Date: 2021-07-04
+# Level: critical
+# Description: Detects static QMS 810 and mimikatz driver name used by Mimikatz as exploited in CVE-2021-1675 and CVE-2021-34527
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204, cve.2021-1675, cve.2021-34527, detection.emerging-threats
+# False Positives:
+#   - Legitimate installation of printer driver QMS 810, Texas Instruments microLaser printer (unlikely)
+
+TargetObject IN ("*\\Control\\Print\\Environments\\Windows x64\\Drivers\\Version-3\\QMS 810\\*", "*\\Control\\Print\\Environments\\Windows x64\\Drivers\\Version-3\\mimikatz*") OR (TargetObject="*legitprinter*" TargetObject="*\\Control\\Print\\Environments\\Windows*") OR (TargetObject IN ("*\\Control\\Print\\Environments*", "*\\CurrentVersion\\Print\\Printers*") TargetObject IN ("*Gentil Kiwi*", "*mimikatz printer*", "*Kiwi Legit Printer*"))

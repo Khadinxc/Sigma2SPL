@@ -1,0 +1,11 @@
+# Title: Webshell Hacking Activity Patterns
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-03-17
+# Level: high
+# Description: Detects certain parent child patterns found in cases in which a web shell is used to perform certain credential dumping or exfiltration activities on a compromised system
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.discovery, attack.t1505.003, attack.t1018, attack.t1033, attack.t1087
+# False Positives:
+#   - Unlikely
+
+(ParentImage IN ("*-tomcat-*", "*\\tomcat*") ParentImage IN ("*\\java.exe", "*\\javaw.exe")) OR (CommandLine IN ("*catalina.jar*", "*CATALINA_HOME*") ParentImage IN ("*\\java.exe", "*\\javaw.exe")) OR ParentImage IN ("*\\caddy.exe", "*\\httpd.exe", "*\\nginx.exe", "*\\php-cgi.exe", "*\\w3wp.exe", "*\\ws_tomcatservice.exe") (CommandLine="*rundll32*" CommandLine="*comsvcs*") OR (CommandLine="* -hp*" CommandLine="* a *" CommandLine="* -m*") OR (CommandLine="*net*" CommandLine="* user *" CommandLine="* /add*") OR (CommandLine="*net*" CommandLine="* localgroup *" CommandLine="* administrators *" CommandLine="*/add*") OR Image IN ("*\\ntdsutil.exe", "*\\ldifde.exe", "*\\adfind.exe", "*\\procdump.exe", "*\\Nanodump.exe", "*\\vssadmin.exe", "*\\fsutil.exe") OR CommandLine IN ("* -decode *", "* -NoP *", "* -W Hidden *", "* /decode *", "* /ticket:*", "* sekurlsa*", "*.dmp full*", "*.downloadfile(*", "*.downloadstring(*", "*FromBase64String*", "*process call create*", "*reg save *", "*whoami /priv*")

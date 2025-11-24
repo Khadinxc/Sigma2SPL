@@ -1,0 +1,10 @@
+# Title: Code Executed Via Office Add-in XLL File
+# Author: frack113
+# Date: 2021-12-28
+# Level: high
+# Description: Adversaries may abuse Microsoft Office add-ins to obtain persistence on a compromised system.
+# Office add-ins can be used to add functionality to Office programs
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1137.006
+
+ScriptBlockText="*new-object *" ScriptBlockText="*-ComObject *" ScriptBlockText="*.application*" ScriptBlockText="*.RegisterXLL*"

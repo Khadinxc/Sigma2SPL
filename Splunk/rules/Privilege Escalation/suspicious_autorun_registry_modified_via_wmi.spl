@@ -1,0 +1,11 @@
+# Title: Suspicious Autorun Registry Modified via WMI
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-02-17
+# Level: high
+# Description: Detects suspicious activity where the WMIC process is used to create an autorun registry entry via reg.exe, which is often indicative of persistence mechanisms employed by malware.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1547.001, attack.t1047
+# False Positives:
+#   - Legitimate administrative activity or software installations
+
+CommandLine IN ("*\\Software\\Microsoft\\Windows\\CurrentVersion\\Run*", "*\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run*", "*\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\Run*") CommandLine="*reg*" CommandLine="* add *" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe" OR ParentImage="*\\wmiprvse.exe" CommandLine IN ("*:\\Perflogs*", "*:\\ProgramData'*", "*:\\Windows\\Temp*", "*:\\Temp*", "*\\AppData\\Local\\Temp*", "*\\AppData\\Roaming*", "*:\\$Recycle.bin*", "*:\\Users\\Default*", "*:\\Users\\public*", "*%temp%*", "*%tmp%*", "*%Public%*", "*%AppData%*") OR (CommandLine="*:\\Users\\*" CommandLine IN ("*\\Favorites*", "*\\Favourites*", "*\\Contacts*", "*\\Music*", "*\\Pictures*", "*\\Documents*", "*\\Photos*"))

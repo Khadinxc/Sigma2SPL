@@ -1,0 +1,9 @@
+# Title: Successful IIS Shortname Fuzzing Scan
+# Author: frack113
+# Date: 2021-10-06
+# Level: medium
+# Description: When IIS uses an old .Net Framework it's possible to enumerate folders with the symbol "~"
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1190
+
+"cs-method" IN ("GET", "OPTIONS") "cs-uri-query"="*~1*" "cs-uri-query"="*a.aspx" "sc-status" IN (200, 301)

@@ -1,0 +1,11 @@
+# Title: First Time Seen Remote Named Pipe
+# Author: Samir Bousseaden
+# Date: 2019-04-03
+# Level: high
+# Description: This detection excludes known namped pipes accessible remotely and notify on newly observed ones, may help to detect lateral movement and remote exec using named pipes
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+# False Positives:
+#   - Update the excluded named pipe to filter out any newly observed legit named pipe
+
+EventID=5145 ShareName="\\\\\*\\IPC$" NOT (RelativeTargetName IN ("atsvc", "samr", "lsarpc", "lsass", "winreg", "netlogon", "srvsvc", "protected_storage", "wkssvc", "browser", "netdfs", "svcctl", "spoolss", "ntsvcs", "LSM_API_service", "HydraLsPipe", "TermSrv_API_service", "MsFteWds", "sql\\query", "eventlog"))

@@ -1,0 +1,12 @@
+# Title: File or Folder Permissions Modifications
+# Author: Jakob Weinzettl, oscd.community, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2019-10-23
+# Level: medium
+# Description: Detects a file or folder's permissions being modified or tampered with.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1222.001, detection.threat-hunting
+# False Positives:
+#   - Users interacting with the files on their own (unlikely unless privileged users).
+#   - Dynatrace app
+
+(CommandLine IN ("*/grant*", "*/setowner*", "*/inheritance:r*") Image IN ("*\\cacls.exe", "*\\icacls.exe", "*\\net.exe", "*\\net1.exe")) OR (CommandLine="*-r*" Image="*\\attrib.exe") OR Image="*\\takeown.exe" NOT (CommandLine IN ("*:\\Program Files (x86)\\Avira*", "*:\\Program Files\\Avira*") OR CommandLine="*ICACLS C:\\ProgramData\\dynatrace\\gateway\\config\\connectivity.history /reset" OR (CommandLine="*ICACLS C:\\ProgramData\\dynatrace\\gateway\\config\\config.properties /grant :r *" CommandLine="*S-1-5-19:F*") OR CommandLine IN ("*\\AppData\\Local\\Programs\\Microsoft VS Code*", "*:\\Program Files\\Microsoft VS Code*"))

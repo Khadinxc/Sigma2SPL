@@ -1,0 +1,11 @@
+# Title: OpenCanary - TFTP Request
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where a TFTP service on an OpenCanary node has had a request.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1041
+# False Positives:
+#   - Unlikely
+
+logtype=10001

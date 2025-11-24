@@ -1,0 +1,11 @@
+# Title: Cisco Stage Data
+# Author: Austin Clark
+# Date: 2019-08-12
+# Level: low
+# Description: Various protocols maybe used to put data on the device for exfil or infil
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.lateral-movement, attack.command-and-control, attack.exfiltration, attack.t1074, attack.t1105, attack.t1560.001
+# False Positives:
+#   - Generally used to copy configs or IOS images
+
+"tftp" OR "rcp" OR "puts" OR "copy" OR "configure replace" OR "archive tar" | table CmdSet

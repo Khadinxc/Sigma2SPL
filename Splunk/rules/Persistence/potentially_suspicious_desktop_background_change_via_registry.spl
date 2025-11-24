@@ -1,0 +1,12 @@
+# Title: Potentially Suspicious Desktop Background Change Via Registry
+# Author: Nasreddine Bencherchali (Nextron Systems), Stephen Lincoln @slincoln-aiq (AttackIQ)
+# Date: 2023-12-21
+# Level: medium
+# Description: Detects registry value settings that would replace the user's desktop background.
+# This is a common technique used by malware to change the desktop background to a ransom note or other image.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.impact, attack.t1112, attack.t1491.001
+# False Positives:
+#   - Administrative scripts that change the desktop background to a company logo or other image.
+
+TargetObject IN ("*Control Panel\\Desktop*", "*CurrentVersion\\Policies\\ActiveDesktop*", "*CurrentVersion\\Policies\\System*") (Details="DWORD (0x00000001)" TargetObject="*NoChangingWallpaper") OR TargetObject="*\\Wallpaper" OR (Details="2" TargetObject="*\\WallpaperStyle") NOT ((Details="(Empty)" TargetObject="*\\Control Panel\\Desktop\\Wallpaper") OR Image="*C:\\Windows\\Explorer.EXE" OR Image="*\\svchost.exe") NOT (Image IN ("C:\\Program Files\\Amazon\\EC2Launch\\EC2Launch.exe", "C:\\Program Files (x86)\\Amazon\\EC2Launch\\EC2Launch.exe") TargetObject="*\\Control Panel\\Desktop\\Wallpaper")

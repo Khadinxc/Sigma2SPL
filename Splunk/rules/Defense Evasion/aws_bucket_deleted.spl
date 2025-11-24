@@ -1,0 +1,12 @@
+# Title: AWS Bucket Deleted
+# Author: Ivan Saakov, Nasreddine Bencherchali
+# Date: 2025-10-19
+# Level: medium
+# Description: Detects the deletion of S3 buckets in AWS CloudTrail logs.
+# Monitoring the deletion of S3 buckets is critical for security and data integrity, as it may indicate potential data loss or unauthorized access attempts.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - During maintenance operations or testing, authorized administrators may delete S3 buckets as part of routine data management or cleanup activities.
+
+eventName="DeleteBucket" NOT errorCode=* OR errorCode="Success"

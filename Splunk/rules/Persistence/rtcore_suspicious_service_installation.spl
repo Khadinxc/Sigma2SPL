@@ -1,0 +1,9 @@
+# Title: RTCore Suspicious Service Installation
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-30
+# Level: high
+# Description: Detects the installation of RTCore service. Which could be an indication of Micro-Star MSI Afterburner vulnerable driver abuse
+# MITRE Tactic: Persistence
+# Tags: attack.persistence
+
+EventID=7045 Provider_Name="Service Control Manager" ServiceName="RTCore64"

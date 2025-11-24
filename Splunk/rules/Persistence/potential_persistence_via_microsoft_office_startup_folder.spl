@@ -1,0 +1,12 @@
+# Title: Potential Persistence Via Microsoft Office Startup Folder
+# Author: Max Altgelt (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-02
+# Level: high
+# Description: Detects creation of Microsoft Office files inside of one of the default startup folders in order to achieve persistence.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1137
+# False Positives:
+#   - Loading a user environment from a backup or a domain controller
+#   - Synchronization of templates
+
+(TargetFilename IN ("*.doc", "*.docm", "*.docx", "*.dot", "*.dotm", "*.rtf") TargetFilename="*\\Microsoft\\Word\\STARTUP*" OR (TargetFilename="*\\Office*" TargetFilename="*\\Program Files*" TargetFilename="*\\STARTUP*")) OR (TargetFilename IN ("*.xls", "*.xlsm", "*.xlsx", "*.xlt", "*.xltm") TargetFilename="*\\Microsoft\\Excel\\XLSTART*" OR (TargetFilename="*\\Office*" TargetFilename="*\\Program Files*" TargetFilename="*\\XLSTART*")) NOT (Image IN ("*\\WINWORD.exe", "*\\EXCEL.exe"))

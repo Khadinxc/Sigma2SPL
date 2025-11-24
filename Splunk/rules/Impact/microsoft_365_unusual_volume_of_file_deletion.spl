@@ -1,0 +1,9 @@
+# Title: Microsoft 365 - Unusual Volume of File Deletion
+# Author: austinsonger
+# Date: 2021-08-19
+# Level: medium
+# Description: Detects when a Microsoft Cloud App Security reported a user has deleted a unusual a large volume of files.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1485
+
+eventName="Unusual volume of file deletion" eventSource="SecurityComplianceCenter" status="success"

@@ -1,0 +1,9 @@
+# Title: End User Consent
+# Author: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'
+# Date: 2022-07-28
+# Level: low
+# Description: Detects when an end user consents to an application
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1528
+
+ConsentContext.IsAdminConsent="false"

@@ -1,0 +1,11 @@
+# Title: Potential Recon Activity Via Nltest.EXE
+# Author: Craig Young, oscd.community, Georg Lauenstein
+# Date: 2021-07-24
+# Level: medium
+# Description: Detects nltest commands that can be used for information discovery
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1016, attack.t1482
+# False Positives:
+#   - Legitimate administration use but user and host must be investigated
+
+Image="*\\nltest.exe" OR OriginalFileName="nltestrk.exe" (CommandLine="*server*" CommandLine="*query*") OR CommandLine IN ("*/user*", "*all_trusts*", "*dclist:*", "*dnsgetdc:*", "*domain_trusts*", "*dsgetdc:*", "*parentdomain*", "*trusted_domains*")

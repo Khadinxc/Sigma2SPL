@@ -1,0 +1,9 @@
+# Title: Suspicious Shells Spawn by Java Utility Keytool
+# Author: Andreas Hunkeler (@Karneades)
+# Date: 2021-12-22
+# Level: high
+# Description: Detects suspicious shell spawn from Java utility keytool process (e.g. adselfservice plus exploitation)
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation
+
+Image IN ("*\\cmd.exe", "*\\sh.exe", "*\\bash.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\schtasks.exe", "*\\certutil.exe", "*\\whoami.exe", "*\\bitsadmin.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\scrcons.exe", "*\\regsvr32.exe", "*\\hh.exe", "*\\wmic.exe", "*\\mshta.exe", "*\\rundll32.exe", "*\\forfiles.exe", "*\\scriptrunner.exe", "*\\mftrace.exe", "*\\AppVLP.exe", "*\\systeminfo.exe", "*\\reg.exe", "*\\query.exe") ParentImage="*\\keytool.exe"

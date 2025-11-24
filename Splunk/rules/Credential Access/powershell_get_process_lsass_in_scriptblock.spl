@@ -1,0 +1,11 @@
+# Title: PowerShell Get-Process LSASS in ScriptBlock
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-04-23
+# Level: high
+# Description: Detects a Get-Process command on lsass process, which is in almost all cases a sign of malicious activity
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# False Positives:
+#   - Legitimate certificate exports invoked by administrators or users (depends on processes in the environment - filter if unusable)
+
+ScriptBlockText="*Get-Process lsass*"

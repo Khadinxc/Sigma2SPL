@@ -1,0 +1,10 @@
+# Title: Potential Data Exfiltration Over SMTP Via Send-MailMessage Cmdlet
+# Author: frack113
+# Date: 2022-09-26
+# Level: medium
+# Description: Detects the execution of a PowerShell script with a call to the "Send-MailMessage" cmdlet along with the "-Attachments" flag. This could be a potential sign of data exfiltration via Email.
+# Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1048.003, detection.threat-hunting
+
+ScriptBlockText="*Send-MailMessage*-Attachments*"

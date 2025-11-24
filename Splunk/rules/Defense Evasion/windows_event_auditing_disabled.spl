@@ -1,0 +1,12 @@
+# Title: Windows Event Auditing Disabled
+# Author: @neu5ron, Nasreddine Bencherchali (Nextron Systems)
+# Date: 2017-11-19
+# Level: low
+# Description: Detects scenarios where system auditing (i.e.: Windows event log auditing) is disabled.
+# This may be used in a scenario where an entity would want to bypass local logging to evade detection when Windows event logging is enabled and reviewed.
+# Also, it is recommended to turn off "Local Group Policy Object Processing" via GPO, which will make sure that Active Directory GPOs take precedence over local/edited computer policies via something such as "gpedit.msc".
+# Please note, that disabling "Local Group Policy Object Processing" may cause an issue in scenarios of one off specific GPO modifications - however, it is recommended to perform these modifications in Active Directory anyways.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.002
+
+AuditPolicyChanges IN ("*%%8448*", "*%%8450*") EventID=4719 NOT (SubcategoryGuid IN ("{0CCE9210-69AE-11D9-BED3-505054503030}", "{0CCE9211-69AE-11D9-BED3-505054503030}", "{0CCE9212-69AE-11D9-BED3-505054503030}", "{0CCE9215-69AE-11D9-BED3-505054503030}", "{0CCE9217-69AE-11D9-BED3-505054503030}", "{0CCE921B-69AE-11D9-BED3-505054503030}", "{0CCE922B-69AE-11D9-BED3-505054503030}", "{0CCE922F-69AE-11D9-BED3-505054503030}", "{0CCE9230-69AE-11D9-BED3-505054503030}", "{0CCE9235-69AE-11D9-BED3-505054503030}", "{0CCE9236-69AE-11D9-BED3-505054503030}", "{0CCE9237-69AE-11D9-BED3-505054503030}", "{0CCE923F-69AE-11D9-BED3-505054503030}", "{0CCE9240-69AE-11D9-BED3-505054503030}", "{0CCE9242-69AE-11D9-BED3-505054503030}"))

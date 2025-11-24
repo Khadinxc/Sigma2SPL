@@ -1,0 +1,11 @@
+# Title: Certificate Private Key Acquired
+# Author: Zach Mathis
+# Date: 2023-05-13
+# Level: medium
+# Description: Detects when an application acquires a certificate private key
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1649
+# False Positives:
+#   - Legitimate application requesting certificate exports will trigger this. Apply additional filters as needed
+
+EventID=70

@@ -1,0 +1,12 @@
+# Title: Renamed Powershell Under Powershell Channel
+# Author: Harish Segar, frack113
+# Date: 2020-06-29
+# Level: low
+# Description: Detects a renamed Powershell execution, which is a common technique used to circumvent security controls and bypass detection logic that's dependent on process names and process paths.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.defense-evasion, attack.t1059.001, attack.t1036.003
+
+
+| rex field=Data "(?<DataMatch>HostId=[a-zA-Z0-9-]{36}\\s+EngineVersion=)"
+| eval DataCondition=if(isnotnull(DataMatch), "true", "false")
+| search Data="*HostName=ConsoleHost*" NOT (DataCondition="true" OR Data IN ("*HostApplication=powershell*", "*HostApplication=C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell*", "*HostApplication=C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell*", "*HostApplication=C:/Windows/System32/WindowsPowerShell/v1.0/powershell*", "*HostApplication=C:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell*", "*HostApplication=C:\\\\WINDOWS\\\\system32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe*", "*HostApplication=C:\\\\WINDOWS\\\\SysWOW64\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe*"))

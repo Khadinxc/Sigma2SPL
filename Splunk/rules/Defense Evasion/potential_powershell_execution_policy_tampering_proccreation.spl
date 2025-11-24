@@ -1,0 +1,9 @@
+# Title: Potential PowerShell Execution Policy Tampering - ProcCreation
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-11
+# Level: high
+# Description: Detects changes to the PowerShell execution policy registry key in order to bypass signing requirements for script execution from the CommandLine
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+
+CommandLine IN ("*\\ShellIds\\Microsoft.PowerShell\\ExecutionPolicy*", "*\\Policies\\Microsoft\\Windows\\PowerShell\\ExecutionPolicy*") CommandLine IN ("*Bypass*", "*RemoteSigned*", "*Unrestricted*")

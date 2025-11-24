@@ -1,0 +1,11 @@
+# Title: HackTool - SysmonEOP Execution
+# Author: Florian Roth (Nextron Systems)
+# Date: 2022-12-04
+# Level: critical
+# Description: Detects the execution of the PoC that can be used to exploit Sysmon CVE-2022-41120
+# MITRE Tactic: Privilege Escalation
+# Tags: cve.2022-41120, attack.t1068, attack.privilege-escalation
+# False Positives:
+#   - Unlikely
+
+Hashes IN ("*IMPHASH=22F4089EB8ABA31E1BB162C6D9BF72E5*", "*IMPHASH=5123FA4C4384D431CD0D893EEB49BBEC*") OR Image="*\\SysmonEOP.exe"

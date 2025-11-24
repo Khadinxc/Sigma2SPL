@@ -1,0 +1,11 @@
+# Title: Delete Defender Scan ShellEx Context Menu Registry Key
+# Author: Matt Anderson (Huntress)
+# Date: 2025-07-11
+# Level: medium
+# Description: Detects deletion of registry key that adds 'Scan with Defender' option in context menu. Attackers may use this to make it harder for users to scan files that are suspicious.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Unlikely as this weakens defenses and normally would not be done even if using another AV.
+
+TargetObject="*shellex\\ContextMenuHandlers\\EPP*" NOT (Image="*\\MsMpEng.exe" Image IN ("C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*", "C:\\Program Files\\Windows Defender\\*", "C:\\Program Files (x86)\\Windows Defender\\*"))

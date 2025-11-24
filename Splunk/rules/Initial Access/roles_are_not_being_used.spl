@@ -1,0 +1,11 @@
+# Title: Roles Are Not Being Used
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-14
+# Level: high
+# Description: Identifies when a user has been assigned a privilege role and are not using that role.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# False Positives:
+#   - Investigate if potential generic account that cannot be removed.
+
+riskEventType="redundantAssignmentAlertIncident"

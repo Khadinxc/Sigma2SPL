@@ -1,0 +1,11 @@
+# Title: Azure Device No Longer Managed or Compliant
+# Author: Austin Songer @austinsonger
+# Date: 2021-09-03
+# Level: medium
+# Description: Identifies when a device in azure is no longer managed or compliant
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# False Positives:
+#   - Administrator may have forgotten to review the device.
+
+properties.message IN ("Device no longer compliant", "Device no longer managed")
