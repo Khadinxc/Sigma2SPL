@@ -6,4 +6,4 @@
 # MITRE Tactic: Persistence
 # Tags: attack.persistence, attack.defense-evasion, attack.t1562.002, attack.t1112, car.2022-03-001
 
-(EventType="CreateKey" TargetObject="HKLM\\SYSTEM\\CurrentControlSet\\Control\\MiniNt") OR NewName="HKLM\\SYSTEM\\CurrentControlSet\\Control\\MiniNt" | table EventID,Image,TargetObject,NewName
+(EventType="CreateKey" TargetObject="HKLM\\SYSTEM\\CurrentControlSet\\Control\\MiniNt") OR NewName="HKLM\\SYSTEM\\CurrentControlSet\\Control\\MiniNt"

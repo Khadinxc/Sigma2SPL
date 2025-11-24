@@ -8,4 +8,4 @@
 # False Positives:
 #   - Will be used sometimes by admins to clean up local flash space
 
-"erase" OR "delete" OR "format" | table CmdSet
+"erase" OR "delete" OR "format"

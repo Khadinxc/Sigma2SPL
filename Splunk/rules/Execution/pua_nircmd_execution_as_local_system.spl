@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate use by administrators
 
-CommandLine="* runassystem *" | table CommandLine,ParentCommandLine
+CommandLine="* runassystem *"

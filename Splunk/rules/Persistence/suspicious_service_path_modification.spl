@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely
 
-CommandLine IN ("*powershell*", "*cmd *", "*mshta*", "*wscript*", "*cscript*", "*rundll32*", "*svchost*", "*dllhost*", "*cmd.exe /c*", "*cmd.exe /k*", "*cmd.exe /r*", "*cmd /c*", "*cmd /k*", "*cmd /r*", "*C:\\Users\\Public*", "*\\Downloads\\*", "*\\Desktop\\*", "*\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\*", "*C:\\Windows\\TEMP\\*", "*\\AppData\\Local\\Temp*") CommandLine="*config*" CommandLine="*binPath*" Image="*\\sc.exe" | table CommandLine,ParentCommandLine
+CommandLine IN ("*powershell*", "*cmd *", "*mshta*", "*wscript*", "*cscript*", "*rundll32*", "*svchost*", "*dllhost*", "*cmd.exe /c*", "*cmd.exe /k*", "*cmd.exe /r*", "*cmd /c*", "*cmd /k*", "*cmd /r*", "*C:\\Users\\Public*", "*\\Downloads\\*", "*\\Desktop\\*", "*\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\*", "*C:\\Windows\\TEMP\\*", "*\\AppData\\Local\\Temp*") CommandLine="*config*" CommandLine="*binPath*" Image="*\\sc.exe"

@@ -6,4 +6,4 @@
 # MITRE Tactic: Exfiltration
 # Tags: attack.exfiltration
 
-ScriptBlockText="*New-MailboxExportRequest*" ScriptBlockText="* -Mailbox *" ScriptBlockText="* -FilePath \\\\*" | table CommandLine,ParentCommandLine
+ScriptBlockText="*New-MailboxExportRequest*" ScriptBlockText="* -Mailbox *" ScriptBlockText="* -FilePath \\\\*"

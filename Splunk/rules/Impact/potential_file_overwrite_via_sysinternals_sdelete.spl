@@ -6,4 +6,4 @@
 # MITRE Tactic: Impact
 # Tags: attack.impact, attack.t1485
 
-OriginalFileName="sdelete.exe" NOT (CommandLine IN ("* -h*", "* -c*", "* -z*", "* /?*")) | table ComputerName,User,CommandLine,ParentCommandLine
+OriginalFileName="sdelete.exe" NOT (CommandLine IN ("* -h*", "* -c*", "* -z*", "* /?*"))

@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely
 
-CommandLine IN ("*-f C:\\Users\\Public*", "*-f \"C:\\Users\\Public*", "*-f %Public%*", "*-fi C:\\Users\\Public*", "*-fi \"C:\\Users\\Public*", "*-fi %Public%*", "*-fil C:\\Users\\Public*", "*-fil \"C:\\Users\\Public*", "*-fil %Public%*", "*-file C:\\Users\\Public*", "*-file \"C:\\Users\\Public*", "*-file %Public%*") Image IN ("*\\powershell.exe", "*\\pwsh.exe") | table CommandLine
+CommandLine IN ("*-f C:\\Users\\Public*", "*-f \"C:\\Users\\Public*", "*-f %Public%*", "*-fi C:\\Users\\Public*", "*-fi \"C:\\Users\\Public*", "*-fi %Public%*", "*-fil C:\\Users\\Public*", "*-fil \"C:\\Users\\Public*", "*-fil %Public%*", "*-file C:\\Users\\Public*", "*-file \"C:\\Users\\Public*", "*-file %Public%*") Image IN ("*\\powershell.exe", "*\\pwsh.exe")

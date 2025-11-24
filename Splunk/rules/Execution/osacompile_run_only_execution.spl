@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.t1059.002, attack.execution
 
-CommandLine="*osacompile*" CommandLine="* -x *" CommandLine="* -e *" | table CommandLine
+CommandLine="*osacompile*" CommandLine="* -x *" CommandLine="* -e *"

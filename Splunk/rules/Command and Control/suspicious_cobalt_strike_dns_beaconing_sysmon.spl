@@ -6,4 +6,4 @@
 # MITRE Tactic: Command and Control
 # Tags: attack.command-and-control, attack.t1071.004
 
-QueryName IN ("aaa.stage.*", "post.1*") OR QueryName="*.stage.123456.*" | table Image,CommandLine
+QueryName IN ("aaa.stage.*", "post.1*") OR QueryName="*.stage.123456.*"

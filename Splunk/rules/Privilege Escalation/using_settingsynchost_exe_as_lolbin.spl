@@ -6,4 +6,4 @@
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.defense-evasion, attack.t1574.008
 
-NOT (Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*")) ParentCommandLine="*cmd.exe /c*" ParentCommandLine="*RoamDiag.cmd*" ParentCommandLine="*-outputpath*" | table TargetFilename,Image
+NOT (Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*")) ParentCommandLine="*cmd.exe /c*" ParentCommandLine="*RoamDiag.cmd*" ParentCommandLine="*-outputpath*"

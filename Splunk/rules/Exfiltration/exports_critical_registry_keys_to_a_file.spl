@@ -8,4 +8,4 @@
 # False Positives:
 #   - Dumping hives for legitimate purpouse i.e. backup or forensic investigation
 
-CommandLine="* -E *" OR CommandLine="* /E *" OR CommandLine="* –E *" OR CommandLine="* —E *" OR CommandLine="* ―E *" CommandLine IN ("*hklm*", "*hkey_local_machine*") CommandLine IN ("*\\system", "*\\sam", "*\\security") Image="*\\regedit.exe" OR OriginalFileName="REGEDIT.EXE" | table ParentImage,CommandLine
+CommandLine="* -E *" OR CommandLine="* /E *" OR CommandLine="* –E *" OR CommandLine="* —E *" OR CommandLine="* ―E *" CommandLine IN ("*hklm*", "*hkey_local_machine*") CommandLine IN ("*\\system", "*\\sam", "*\\security") Image="*\\regedit.exe" OR OriginalFileName="REGEDIT.EXE"

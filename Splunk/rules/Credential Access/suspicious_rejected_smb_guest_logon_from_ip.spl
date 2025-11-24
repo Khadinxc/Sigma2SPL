@@ -8,4 +8,4 @@
 # False Positives:
 #   - Account fallback reasons (after failed login with specific account)
 
-EventID=31017 ServerName="\\1*" UserName="" | table Computer,User
+EventID=31017 ServerName="\\1*" UserName=""

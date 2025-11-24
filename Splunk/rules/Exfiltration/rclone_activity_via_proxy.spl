@@ -8,4 +8,4 @@
 # False Positives:
 #   - Valid requests with this exact user agent to that is used by legitimate scripts or sysadmin operations
 
-"c-useragent"="rclone/v*" | table c-ip
+"c-useragent"="rclone/v*"

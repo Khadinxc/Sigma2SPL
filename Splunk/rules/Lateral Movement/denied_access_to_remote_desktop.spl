@@ -9,4 +9,4 @@
 # False Positives:
 #   - Valid user was not added to RDP group
 
-EventID=4825 | table EventCode,AccountName,ClientAddress
+EventID=4825

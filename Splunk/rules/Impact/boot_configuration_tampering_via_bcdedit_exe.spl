@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely
 
-(CommandLine="*bootstatuspolicy*" CommandLine="*ignoreallfailures*") OR (CommandLine="*recoveryenabled*" CommandLine="*no*") Image="*\\bcdedit.exe" OR OriginalFileName="bcdedit.exe" CommandLine="*set*" | table ComputerName,User,CommandLine
+(CommandLine="*bootstatuspolicy*" CommandLine="*ignoreallfailures*") OR (CommandLine="*recoveryenabled*" CommandLine="*no*") Image="*\\bcdedit.exe" OR OriginalFileName="bcdedit.exe" CommandLine="*set*"

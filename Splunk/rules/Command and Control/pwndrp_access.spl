@@ -6,4 +6,4 @@
 # MITRE Tactic: Command and Control
 # Tags: attack.command-and-control, attack.t1071.001, attack.t1102.001, attack.t1102.003
 
-"c-uri"="*/pwndrop/*" | table ClientIP,c-uri,c-useragent
+"c-uri"="*/pwndrop/*"

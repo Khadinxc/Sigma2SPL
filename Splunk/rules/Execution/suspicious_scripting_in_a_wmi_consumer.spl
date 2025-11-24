@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate administrative scripts
 
-(Destination="*new-object*" Destination="*net.webclient*" Destination="*.downloadstring*") OR (Destination="*new-object*" Destination="*net.webclient*" Destination="*.downloadfile*") OR Destination IN ("* iex(*", "* -nop *", "* -noprofile *", "* -decode *", "* -enc *", "*WScript.Shell*", "*System.Security.Cryptography.FromBase64Transform*") | table User,Operation
+(Destination="*new-object*" Destination="*net.webclient*" Destination="*.downloadstring*") OR (Destination="*new-object*" Destination="*net.webclient*" Destination="*.downloadfile*") OR Destination IN ("* iex(*", "* -nop *", "* -noprofile *", "* -decode *", "* -enc *", "*WScript.Shell*", "*System.Security.Cryptography.FromBase64Transform*")

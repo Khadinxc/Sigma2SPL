@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate deployment of AnyDesk
 
-CommandLine="*--install*" CommandLine="*--start-with-win*" CommandLine="*--silent*" | table CommandLine,ParentCommandLine,CurrentDirectory
+CommandLine="*--install*" CommandLine="*--start-with-win*" CommandLine="*--silent*"

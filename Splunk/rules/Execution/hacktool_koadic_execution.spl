@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059.003, attack.t1059.005, attack.t1059.007
 
-CommandLine="*/q*" CommandLine="*/c*" CommandLine="*chcp*" Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe" | table CommandLine,ParentCommandLine
+CommandLine="*/q*" CommandLine="*/c*" CommandLine="*chcp*" Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe"

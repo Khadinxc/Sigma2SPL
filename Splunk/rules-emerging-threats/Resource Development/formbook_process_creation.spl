@@ -6,4 +6,4 @@
 # MITRE Tactic: Resource Development
 # Tags: attack.resource-development, attack.t1587.001, detection.emerging-threats
 
-ParentCommandLine="*.exe" ParentCommandLine IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*") (CommandLine="*/c*" CommandLine="*del*" CommandLine="*C:\\Users\\*" CommandLine="*\\AppData\\Local\\Temp\\*") OR (CommandLine="*/c*" CommandLine="*del*" CommandLine="*C:\\Users\\*" CommandLine="*\\Desktop\\*") OR (CommandLine="*/C*" CommandLine="*type nul >*" CommandLine="*C:\\Users\\*" CommandLine="*\\Desktop\\*") CommandLine="*.exe" | table CommandLine,ParentCommandLine
+ParentCommandLine="*.exe" ParentCommandLine IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*") (CommandLine="*/c*" CommandLine="*del*" CommandLine="*C:\\Users\\*" CommandLine="*\\AppData\\Local\\Temp\\*") OR (CommandLine="*/c*" CommandLine="*del*" CommandLine="*C:\\Users\\*" CommandLine="*\\Desktop\\*") OR (CommandLine="*/C*" CommandLine="*type nul >*" CommandLine="*C:\\Users\\*" CommandLine="*\\Desktop\\*") CommandLine="*.exe"

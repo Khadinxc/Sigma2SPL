@@ -8,4 +8,4 @@
 # False Positives:
 #   - Some legitimate apps use this, but limited.
 
-Image="*\\bitsadmin.exe" OR OriginalFileName="bitsadmin.exe" CommandLine="* /transfer *" OR (CommandLine IN ("* /create *", "* /addfile *") CommandLine="*http*") | table CommandLine,ParentCommandLine
+Image="*\\bitsadmin.exe" OR OriginalFileName="bitsadmin.exe" CommandLine="* /transfer *" OR (CommandLine IN ("* /create *", "* /addfile *") CommandLine="*http*")

@@ -8,4 +8,4 @@
 # False Positives:
 #   - System administrator usage
 
-OriginalFileName="sdelete.exe" NOT (Image IN ("*\\sdelete.exe", "*\\sdelete64.exe")) | table ComputerName,User,CommandLine,ParentCommandLine
+OriginalFileName="sdelete.exe" NOT (Image IN ("*\\sdelete.exe", "*\\sdelete64.exe"))

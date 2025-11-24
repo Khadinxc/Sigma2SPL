@@ -6,4 +6,4 @@
 # MITRE Tactic: Initial Access
 # Tags: attack.t1190, attack.initial-access, cve.2020-28188, detection.emerging-threats
 
-"cs-method"="GET" "cs-uri-query"="*/include/makecvs.php*" "cs-uri-query"="**Event=*" "cs-uri-query" IN ("*curl*", "*wget*", "*.py*", "*.sh*", "*chmod*", "*_GET*") | table c-ip,c-dns
+"cs-method"="GET" "cs-uri-query"="*/include/makecvs.php*" "cs-uri-query"="**Event=*" "cs-uri-query" IN ("*curl*", "*wget*", "*.py*", "*.sh*", "*chmod*", "*_GET*")

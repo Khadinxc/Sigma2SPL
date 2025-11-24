@@ -8,4 +8,4 @@
 # False Positives:
 #   - Potential FP by sysadmin opening a zip file containing a legitimate ISO file
 
-(TargetFilename="*\\AppData\\Local\\Temp\\*" TargetFilename="*.zip\\*" TargetFilename="*.iso") OR (TargetFilename="*\\AppData\\Local\\Microsoft\\Windows\\INetCache\\Content.Outlook\\*" TargetFilename="*.iso") | table Image,ComputerName,TargetFileName
+(TargetFilename="*\\AppData\\Local\\Temp\\*" TargetFilename="*.zip\\*" TargetFilename="*.iso") OR (TargetFilename="*\\AppData\\Local\\Microsoft\\Windows\\INetCache\\Content.Outlook\\*" TargetFilename="*.iso")

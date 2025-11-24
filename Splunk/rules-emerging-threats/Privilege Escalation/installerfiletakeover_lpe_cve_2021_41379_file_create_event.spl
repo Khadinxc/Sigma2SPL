@@ -8,4 +8,4 @@
 # False Positives:
 #   - Possibly some Microsoft Edge upgrades
 
-Image="*\\msiexec.exe" TargetFilename="*\\elevation_service.exe" TargetFilename="C:\\Program Files (x86)\\Microsoft\\Edge\\Application*" | table ComputerName,TargetFilename
+Image="*\\msiexec.exe" TargetFilename="*\\elevation_service.exe" TargetFilename="C:\\Program Files (x86)\\Microsoft\\Edge\\Application*"

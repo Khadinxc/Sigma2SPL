@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate export of keys
 
-CommandLine="* -E *" OR CommandLine="* /E *" OR CommandLine="* –E *" OR CommandLine="* —E *" OR CommandLine="* ―E *" Image="*\\regedit.exe" OR OriginalFileName="REGEDIT.EXE" NOT (CommandLine IN ("*hklm*", "*hkey_local_machine*") CommandLine IN ("*\\system", "*\\sam", "*\\security")) | table ParentImage,CommandLine
+CommandLine="* -E *" OR CommandLine="* /E *" OR CommandLine="* –E *" OR CommandLine="* —E *" OR CommandLine="* ―E *" Image="*\\regedit.exe" OR OriginalFileName="REGEDIT.EXE" NOT (CommandLine IN ("*hklm*", "*hkey_local_machine*") CommandLine IN ("*\\system", "*\\sam", "*\\security"))

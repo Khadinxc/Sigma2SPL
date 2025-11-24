@@ -8,4 +8,4 @@
 # False Positives:
 #   - Rpcnet.exe / rpcnetp.exe which is a lojack style software. https://www.blackhat.com/docs/us-14/materials/us-14-Kamlyuk-Kamluk-Computrace-Backdoor-Revisited.pdf
 
-CommandLine="*svchost.exe" Image="*\\svchost.exe" NOT (ParentImage IN ("*\\rpcnet.exe", "*\\rpcnetp.exe") OR NOT CommandLine=*) | table CommandLine,ParentCommandLine
+CommandLine="*svchost.exe" Image="*\\svchost.exe" NOT (ParentImage IN ("*\\rpcnet.exe", "*\\rpcnetp.exe") OR NOT CommandLine=*)

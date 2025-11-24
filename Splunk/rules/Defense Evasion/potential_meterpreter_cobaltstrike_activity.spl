@@ -9,4 +9,4 @@
 #   - Commandlines containing components like cmd accidentally
 #   - Jobs and services started with cmd
 
-ParentImage="*\\services.exe" (CommandLine IN ("*cmd*", "*%COMSPEC%*") CommandLine="*/c*" CommandLine="*echo*" CommandLine="*\\pipe\\*") OR (CommandLine="*rundll32*" CommandLine="*.dll,a*" CommandLine="*/p:*") NOT CommandLine="*MpCmdRun*" | table ComputerName,User,CommandLine
+ParentImage="*\\services.exe" (CommandLine IN ("*cmd*", "*%COMSPEC%*") CommandLine="*/c*" CommandLine="*echo*" CommandLine="*\\pipe\\*") OR (CommandLine="*rundll32*" CommandLine="*.dll,a*" CommandLine="*/p:*") NOT CommandLine="*MpCmdRun*"

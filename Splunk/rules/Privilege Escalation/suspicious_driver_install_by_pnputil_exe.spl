@@ -10,4 +10,4 @@
 #   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
 #   - Pnputil.exe being executed from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
 
-CommandLine IN ("*-i*", "*/install*", "*-a*", "*/add-driver*", "*.inf*") Image="*\\pnputil.exe" | table ComputerName,User,CommandLine,ParentCommandLine
+CommandLine IN ("*-i*", "*/install*", "*-a*", "*/add-driver*", "*.inf*") Image="*\\pnputil.exe"

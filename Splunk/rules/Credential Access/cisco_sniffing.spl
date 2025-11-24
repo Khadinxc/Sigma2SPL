@@ -8,4 +8,4 @@
 # False Positives:
 #   - Admins may setup new or modify old spans, or use a monitor for troubleshooting
 
-"monitor capture point" OR "set span" OR "set rspan" | table CmdSet
+"monitor capture point" OR "set span" OR "set rspan"

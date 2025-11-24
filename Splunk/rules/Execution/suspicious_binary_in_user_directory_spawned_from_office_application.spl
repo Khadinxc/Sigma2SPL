@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1204.002, attack.g0046, car.2013-05-002
 
-Image="*.exe" Image="C:\\users\\*" ParentImage IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.exe", "*\\MSPUB.exe", "*\\VISIO.exe", "*\\MSACCESS.exe", "*\\EQNEDT32.exe") NOT Image="*\\Teams.exe" | table CommandLine,ParentCommandLine
+Image="*.exe" Image="C:\\users\\*" ParentImage IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.exe", "*\\MSPUB.exe", "*\\VISIO.exe", "*\\MSACCESS.exe", "*\\EQNEDT32.exe") NOT Image="*\\Teams.exe"
