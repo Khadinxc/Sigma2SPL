@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate usage by software developers
 
-Company="Microsoft Corporation" Image IN ("*\\csi.exe", "*\\rcsi.exe") OR OriginalFileName IN ("csi.exe", "rcsi.exe") | table ComputerName,User,CommandLine,ParentCommandLine
+Company="Microsoft Corporation" Image IN ("*\\csi.exe", "*\\rcsi.exe") OR OriginalFileName IN ("csi.exe", "rcsi.exe")

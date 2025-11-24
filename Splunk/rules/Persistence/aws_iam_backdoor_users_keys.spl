@@ -11,4 +11,4 @@
 #   - Adding user keys to their own accounts (the filter cannot cover all possible variants of user naming)
 #   - AWS API keys legitimate exchange workflows
 
-eventName="CreateAccessKey" eventSource="iam.amazonaws.com" NOT userIdentity.arn="*responseElements.accessKey.userName*" | table userIdentity.arn,responseElements.accessKey.userName,errorCode,errorMessage
+eventName="CreateAccessKey" eventSource="iam.amazonaws.com" NOT userIdentity.arn="*responseElements.accessKey.userName*"

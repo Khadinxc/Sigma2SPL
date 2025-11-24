@@ -6,4 +6,4 @@
 # MITRE Tactic: Initial Access
 # Tags: attack.initial-access, attack.defense-evasion, cve.2021-42278, cve.2021-42287, attack.persistence, attack.privilege-escalation, attack.t1078
 
-(SamAccountName="*$" SamAccountName="SAMTHEADMIN-*") OR (TargetUserName="*$" TargetUserName="SAMTHEADMIN-*") | table EventID,SamAccountName,SubjectUserName,TargetUserName
+(SamAccountName="*$" SamAccountName="SAMTHEADMIN-*") OR (TargetUserName="*$" TargetUserName="SAMTHEADMIN-*")

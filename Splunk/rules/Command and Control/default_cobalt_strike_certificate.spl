@@ -6,4 +6,4 @@
 # MITRE Tactic: Command and Control
 # Tags: attack.command-and-control, attack.s0154
 
-certificate.serial="8BB00EE" | table san.dns,certificate.subject,certificate.issuer
+certificate.serial="8BB00EE"

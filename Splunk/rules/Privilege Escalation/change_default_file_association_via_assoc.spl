@@ -9,4 +9,4 @@
 # False Positives:
 #   - Admin activity
 
-CommandLine="*assoc*" Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe" | table Image,CommandLine,User,LogonGuid,Hashes,ParentProcessGuid,ParentCommandLine
+CommandLine="*assoc*" Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe"

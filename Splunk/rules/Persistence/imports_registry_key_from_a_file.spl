@@ -10,4 +10,4 @@
 #   - Evernote
 
 CommandLine IN ("* /i *", "* /s *", "*.reg*") Image="*\\regedit.exe" OR OriginalFileName="REGEDIT.EXE" NOT (CommandLine="* -e *" OR CommandLine="* /e *" OR CommandLine="* –e *" OR CommandLine="* —e *" OR CommandLine="* ―e *" OR CommandLine="* -a *" OR CommandLine="* /a *" OR CommandLine="* –a *" OR CommandLine="* —a *" OR CommandLine="* ―a *" OR CommandLine="* -c *" OR CommandLine="* /c *" OR CommandLine="* –c *" OR CommandLine="* —c *" OR CommandLine="* ―c *")
-| regex CommandLine=":[^ \\\\]" | table ParentImage,CommandLine
+| regex CommandLine=":[^ \\\\]"

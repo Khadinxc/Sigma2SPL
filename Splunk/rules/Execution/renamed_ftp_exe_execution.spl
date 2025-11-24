@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059, attack.defense-evasion, attack.t1202
 
-OriginalFileName="ftp.exe" NOT Image="*\\ftp.exe" | table CommandLine,ParentImage
+OriginalFileName="ftp.exe" NOT Image="*\\ftp.exe"

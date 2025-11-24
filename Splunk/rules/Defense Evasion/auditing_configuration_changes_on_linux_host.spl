@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate administrative activity
 
-name IN ("/etc/audit/*", "/etc/libaudit.conf", "/etc/audisp/*") type="PATH" | table exe,comm,key
+name IN ("/etc/audit/*", "/etc/libaudit.conf", "/etc/audisp/*") type="PATH"

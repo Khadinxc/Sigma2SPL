@@ -8,4 +8,4 @@
 # False Positives:
 #   - False positives depend on scripts and administrative tools used in the monitored environment
 
-(CommandLine="* /lockscreenurl:*" NOT (CommandLine IN ("*.jpg*", "*.jpeg*", "*.png*"))) OR (CommandLine="*reg delete*" CommandLine="*\\PersonalizationCSP*") | table CommandLine,ParentCommandLine
+(CommandLine="* /lockscreenurl:*" NOT (CommandLine IN ("*.jpg*", "*.jpeg*", "*.png*"))) OR (CommandLine="*reg delete*" CommandLine="*\\PersonalizationCSP*")

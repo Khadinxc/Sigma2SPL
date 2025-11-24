@@ -8,4 +8,4 @@
 # False Positives:
 #   - False positives may occur if a user called rundll32 from CLI with no options
 
-CommandLine IN ("rundll32.exe", "rundll32") | table ComputerName,SubjectUserName,CommandLine,Image,ParentImage
+CommandLine IN ("rundll32.exe", "rundll32")

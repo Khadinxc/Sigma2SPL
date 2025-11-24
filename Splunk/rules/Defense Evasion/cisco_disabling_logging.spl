@@ -6,4 +6,4 @@
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion, attack.t1562.001
 
-"no logging" OR "no aaa new-model" | table src,CmdSet,User,Privilege_Level,Remote_Address
+"no logging" OR "no aaa new-model"

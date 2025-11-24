@@ -9,4 +9,4 @@
 #   - Legitimate modification of keys
 
 Image="*\\regini.exe" OR OriginalFileName="REGINI.EXE"
-| regex CommandLine!=":[^ \\\\]" | table ParentImage,CommandLine
+| regex CommandLine!=":[^ \\\\]"

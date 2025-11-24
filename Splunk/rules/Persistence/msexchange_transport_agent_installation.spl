@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate installations of exchange TransportAgents. AssemblyPath is a good indicator for this.
 
-CommandLine="*Install-TransportAgent*" | table AssemblyPath
+CommandLine="*Install-TransportAgent*"

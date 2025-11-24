@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate use of fodhelper.exe utility by legitimate user
 
-ParentImage="*\\fodhelper.exe" | table ComputerName,User,CommandLine
+ParentImage="*\\fodhelper.exe"

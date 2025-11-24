@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate use of net.exe utility by legitimate user
 
-CommandLine="*view*" Image IN ("*\\net.exe", "*\\net1.exe") OR OriginalFileName IN ("net.exe", "net1.exe") NOT CommandLine="*\\\\*" | table ComputerName,User,CommandLine
+CommandLine="*view*" Image IN ("*\\net.exe", "*\\net1.exe") OR OriginalFileName IN ("net.exe", "net1.exe") NOT CommandLine="*\\\\*"

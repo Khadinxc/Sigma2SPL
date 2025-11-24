@@ -8,4 +8,4 @@
 # False Positives:
 #   - This may have false positives on hosts where Virtualbox is legitimately being used for operations
 
-CommandLine IN ("*VBoxRT.dll,RTR3Init*", "*VBoxC.dll*", "*VBoxDrv.sys*") OR CommandLine IN ("*startvm*", "*controlvm*") | table ComputerName,User,CommandLine,ParentCommandLine
+CommandLine IN ("*VBoxRT.dll,RTR3Init*", "*VBoxC.dll*", "*VBoxDrv.sys*") OR CommandLine IN ("*startvm*", "*controlvm*")

@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059, attack.defense-evasion, attack.t1202
 
-CommandLine="*surfacecheck*" Image="*\\Runscripthelper.exe" | table CommandLine
+CommandLine="*surfacecheck*" Image="*\\Runscripthelper.exe"

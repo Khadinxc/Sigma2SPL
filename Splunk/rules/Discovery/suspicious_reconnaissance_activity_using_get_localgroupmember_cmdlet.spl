@@ -8,4 +8,4 @@
 # False Positives:
 #   - Administrative activity
 
-CommandLine="*Get-LocalGroupMember *" CommandLine IN ("*domain admins*", "* administrator*", "* administrateur*", "*enterprise admins*", "*Exchange Trusted Subsystem*", "*Remote Desktop Users*", "*Utilisateurs du Bureau à distance*", "*Usuarios de escritorio remoto*") | table CommandLine,ParentCommandLine
+CommandLine="*Get-LocalGroupMember *" CommandLine IN ("*domain admins*", "* administrator*", "* administrateur*", "*enterprise admins*", "*Exchange Trusted Subsystem*", "*Remote Desktop Users*", "*Utilisateurs du Bureau à distance*", "*Usuarios de escritorio remoto*")

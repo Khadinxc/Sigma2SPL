@@ -9,4 +9,4 @@
 #   - System or Network administrator behaviors
 #   - DEV, UAT, SAT environment. You should apply this rule with PROD environment only.
 
-eventName IN ("BatchUpdateFindings", "DeleteInsight", "UpdateFindings", "UpdateInsight") eventSource="securityhub.amazonaws.com" | table sourceIPAddress,userIdentity.arn
+eventName IN ("BatchUpdateFindings", "DeleteInsight", "UpdateFindings", "UpdateInsight") eventSource="securityhub.amazonaws.com"

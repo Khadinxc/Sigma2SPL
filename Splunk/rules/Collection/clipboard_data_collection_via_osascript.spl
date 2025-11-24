@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely
 
-CommandLine="*osascript*" CommandLine="* -e *" CommandLine="*clipboard*" | table CommandLine
+CommandLine="*osascript*" CommandLine="* -e *" CommandLine="*clipboard*"

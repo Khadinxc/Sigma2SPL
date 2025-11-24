@@ -6,4 +6,4 @@
 # MITRE Tactic: Command and Control
 # Tags: attack.command-and-control, attack.t1071.001
 
-"c-useragent" IN ("XMRig *", "ccminer*") | table ClientIP,c-uri,c-useragent
+"c-useragent" IN ("XMRig *", "ccminer*")

@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely. Except due to misconfigurations
 
-"LDP" "SOCKET_TCP_PACKET_MD5_AUTHEN_FAIL" OR "TCPMD5AuthenFail" | table tcpConnLocalAddress,tcpConnRemAddress
+"LDP" "SOCKET_TCP_PACKET_MD5_AUTHEN_FAIL" OR "TCPMD5AuthenFail"

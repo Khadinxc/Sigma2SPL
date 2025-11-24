@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely. Except due to misconfigurations
 
-":179" "BGP_AUTH_FAILED" | table host,PeeId
+":179" "BGP_AUTH_FAILED"

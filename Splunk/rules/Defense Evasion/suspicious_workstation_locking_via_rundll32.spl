@@ -8,4 +8,4 @@
 # False Positives:
 #   - Scripts or links on the user desktop used to lock the workstation instead of Windows+L or the menu option
 
-CommandLine="*user32.dll,*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE" ParentImage="*\\cmd.exe" CommandLine="*LockWorkStation*" | table Image,ParentImage
+CommandLine="*user32.dll,*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE" ParentImage="*\\cmd.exe" CommandLine="*LockWorkStation*"

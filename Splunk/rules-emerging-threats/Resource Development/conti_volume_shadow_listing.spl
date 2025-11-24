@@ -6,4 +6,4 @@
 # MITRE Tactic: Resource Development
 # Tags: attack.t1587.001, attack.resource-development, detection.emerging-threats
 
-CommandLine="*vssadmin list shadows*" CommandLine="*log.txt*" | table User,CommandLine,ParentImage
+CommandLine="*vssadmin list shadows*" CommandLine="*log.txt*"

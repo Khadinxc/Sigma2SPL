@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate CMSTP use (unlikely in modern enterprise environments)
 
-TargetObject="*\\cmmgr32.exe*" | table CommandLine,ParentCommandLine,Details
+TargetObject="*\\cmmgr32.exe*"
