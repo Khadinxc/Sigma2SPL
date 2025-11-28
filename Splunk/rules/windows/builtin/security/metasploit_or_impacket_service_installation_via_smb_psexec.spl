@@ -10,4 +10,4 @@
 
 EventID=4697 ServiceStartType=3 ServiceType="0x10" NOT ServiceName="PSEXESVC"
 | regex ServiceFileName="^%systemroot%\\\\[a-zA-Z]{8}\\.exe$"
-| regex ServiceName="(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)" | table ComputerName,SubjectDomainName,SubjectUserName,ServiceName,ServiceFileName
+| regex ServiceName="(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)"

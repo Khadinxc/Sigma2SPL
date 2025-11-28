@@ -6,4 +6,4 @@
 # MITRE Tactic: Discovery
 # Tags: attack.discovery, attack.t1083
 
-".git/" | table client_ip,vhost,url,response
+".git/"

@@ -8,4 +8,4 @@
 # False Positives:
 #   - Scripts and administrative tools that use INF files for driver installation with setupapi.dll
 
-Image="*\\runonce.exe" ParentCommandLine="*setupapi.dll*" ParentCommandLine="*InstallHinfSection*" ParentImage="*\\rundll32.exe" | table ComputerName,User,CommandLine,ParentCommandLine
+Image="*\\runonce.exe" ParentCommandLine="*setupapi.dll*" ParentCommandLine="*InstallHinfSection*" ParentImage="*\\rundll32.exe"

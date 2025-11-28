@@ -6,4 +6,4 @@
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574
 
-CommandLine="*-path*" CommandLine="*dll*" Image="*\\register-cimprovider.exe" | table CommandLine
+CommandLine="*-path*" CommandLine="*dll*" Image="*\\register-cimprovider.exe"

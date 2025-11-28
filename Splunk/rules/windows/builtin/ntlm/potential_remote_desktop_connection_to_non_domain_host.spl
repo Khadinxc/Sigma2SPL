@@ -10,4 +10,4 @@
 #   - Host connections not using host FQDN.
 #   - Host connections to external legitimate domains.
 
-EventID=8001 TargetName="TERMSRV*" | table Computer,UserName,DomainName,TargetName
+EventID=8001 TargetName="TERMSRV*"

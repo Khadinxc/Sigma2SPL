@@ -8,4 +8,4 @@
 # False Positives:
 #   - False positives depend on scripts and administrative tools used in the monitored environment
 
-Image="*\\svchost.exe" TargetFilename="*\\Personalization\\LockScreenImage\\*" NOT TargetFilename="*C:\\Windows\\*" NOT (TargetFilename IN ("*.jpg*", "*.jpeg*", "*.png*")) | table CommandLine,ParentCommandLine
+Image="*\\svchost.exe" TargetFilename="*\\Personalization\\LockScreenImage\\*" NOT TargetFilename="*C:\\Windows\\*" NOT (TargetFilename IN ("*.jpg*", "*.jpeg*", "*.png*"))

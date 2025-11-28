@@ -1,0 +1,13 @@
+# Title: Renamed Schtasks Execution
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-27
+# Level: high
+# Description: Detects the execution of renamed schtasks.exe binary, which is a legitimate Windows utility used for scheduling tasks.
+# One of the very common persistence techniques is schedule malicious tasks using schtasks.exe.
+# Since, it is heavily abused, it is also heavily monitored by security products. To evade detection, threat actors may rename the schtasks.exe binary to schedule their malicious tasks.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.persistence, attack.privilege-escalation, attack.t1036.003, attack.t1053.005
+# False Positives:
+#   - Unlikely
+
+(CommandLine="* -tn *" OR CommandLine="* /tn *" OR CommandLine="* –tn *" OR CommandLine="* —tn *" OR CommandLine="* ―tn *" OR CommandLine="* -tr *" OR CommandLine="* /tr *" OR CommandLine="* –tr *" OR CommandLine="* —tr *" OR CommandLine="* ―tr *" OR CommandLine="* -sc *" OR CommandLine="* /sc *" OR CommandLine="* –sc *" OR CommandLine="* —sc *" OR CommandLine="* ―sc *" OR CommandLine="* -st *" OR CommandLine="* /st *" OR CommandLine="* –st *" OR CommandLine="* —st *" OR CommandLine="* ―st *" OR CommandLine="* -ru *" OR CommandLine="* /ru *" OR CommandLine="* –ru *" OR CommandLine="* —ru *" OR CommandLine="* ―ru *" OR CommandLine="* -fo *" OR CommandLine="* /fo *" OR CommandLine="* –fo *" OR CommandLine="* —fo *" OR CommandLine="* ―fo *" CommandLine="* -create *" OR CommandLine="* /create *" OR CommandLine="* –create *" OR CommandLine="* —create *" OR CommandLine="* ―create *" OR CommandLine="* -delete *" OR CommandLine="* /delete *" OR CommandLine="* –delete *" OR CommandLine="* —delete *" OR CommandLine="* ―delete *" OR CommandLine="* -query *" OR CommandLine="* /query *" OR CommandLine="* –query *" OR CommandLine="* —query *" OR CommandLine="* ―query *" OR CommandLine="* -change *" OR CommandLine="* /change *" OR CommandLine="* –change *" OR CommandLine="* —change *" OR CommandLine="* ―change *" OR CommandLine="* -run *" OR CommandLine="* /run *" OR CommandLine="* –run *" OR CommandLine="* —run *" OR CommandLine="* ―run *" OR CommandLine="* -end *" OR CommandLine="* /end *" OR CommandLine="* –end *" OR CommandLine="* —end *" OR CommandLine="* ―end *" NOT CommandLine="*schtasks*") OR (OriginalFileName="schtasks.exe" NOT Image="*\\schtasks.exe")

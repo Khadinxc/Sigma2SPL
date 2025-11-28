@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1204.002
 
-Image IN ("*\\AppVLP.exe", "*\\bash.exe", "*\\cmd.exe", "*\\cscript.exe", "*\\forfiles.exe", "*\\hh.exe", "*\\mftrace.exe", "*\\msbuild.exe", "*\\msdt.exe", "*\\mshta.exe", "*\\msiexec.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\schtasks.exe", "*\\scrcons.exe", "*\\scriptrunner.exe", "*\\sh.exe", "*\\svchost.exe", "*\\wmic.exe", "*\\wscript.exe") ParentImage="*\\OUTLOOK.EXE" | table CommandLine,ParentCommandLine
+Image IN ("*\\AppVLP.exe", "*\\bash.exe", "*\\cmd.exe", "*\\cscript.exe", "*\\forfiles.exe", "*\\hh.exe", "*\\mftrace.exe", "*\\msbuild.exe", "*\\msdt.exe", "*\\mshta.exe", "*\\msiexec.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\schtasks.exe", "*\\scrcons.exe", "*\\scriptrunner.exe", "*\\sh.exe", "*\\svchost.exe", "*\\wmic.exe", "*\\wscript.exe") ParentImage="*\\OUTLOOK.EXE"

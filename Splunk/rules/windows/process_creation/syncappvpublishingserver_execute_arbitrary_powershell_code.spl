@@ -8,4 +8,4 @@
 # False Positives:
 #   - App-V clients
 
-CommandLine="*\"n; *" Image="*\\SyncAppvPublishingServer.exe" OR OriginalFileName="syncappvpublishingserver.exe" | table ComputerName,User,CommandLine,ParentCommandLine
+CommandLine="*\"n; *" Image="*\\SyncAppvPublishingServer.exe" OR OriginalFileName="syncappvpublishingserver.exe"

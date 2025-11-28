@@ -1,0 +1,14 @@
+# Title: Unsigned .node File Loaded
+# Author: Jonathan Beierle (@hullabrian)
+# Date: 2025-11-22
+# Level: medium
+# Description: Detects the loading of unsigned .node files.
+# Adversaries may abuse a lack of .node integrity checking to execute arbitrary code inside of trusted applications such as Slack.
+# .node files are native add-ons for Electron-based applications, which are commonly used for desktop applications like Slack, Discord, and Visual Studio Code.
+# This technique has been observed in the DripLoader malware, which uses unsigned .node files to load malicious native code into Electron applications.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1129, attack.t1574.001, attack.t1036.005
+# False Positives:
+#   - VsCode extensions or similar legitimate tools might use unsigned .node files. These should be investigated on a case-by-case basis, and whitelisted if determined to be benign.
+
+ImageLoaded="*.node" Signed="false" OR SignatureStatus="Unavailable" NOT (ImageLoaded="*.vscode\\extensions\\ms-toolsai.jupyter-*" ImageLoaded IN ("*\\electron.napi.node", "*\\node.napi.glibc.node") Image="*\\Code.exe")

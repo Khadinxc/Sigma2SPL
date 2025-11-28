@@ -9,4 +9,4 @@
 #   - Scripts created by developers and admins
 #   - Administrative activity
 
-CommandLine="*/f *" CommandLine="*/r*" Image="*\\takeown.exe" | table CommandLine,ParentCommandLine
+CommandLine="*/f *" CommandLine="*/r*" Image="*\\takeown.exe"

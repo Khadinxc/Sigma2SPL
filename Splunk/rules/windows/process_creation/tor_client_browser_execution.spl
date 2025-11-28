@@ -6,4 +6,4 @@
 # MITRE Tactic: Command and Control
 # Tags: attack.command-and-control, attack.t1090.003
 
-Image IN ("*\\tor.exe", "*\\Tor Browser\\Browser\\firefox.exe")
+Description="Tor Browser" OR Product="Tor Browser" OR Image IN ("*\\tor.exe", "*\\Tor Browser\\Browser\\firefox.exe")

@@ -8,4 +8,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1204.004, attack.defense-evasion, attack.t1027.010
 
-CommandLine="*#*" Image="*\\explorer.exe" CommandLine IN ("*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *")
+CommandLine="*#*" ParentImage="*\\explorer.exe" CommandLine IN ("*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *", "*            *")

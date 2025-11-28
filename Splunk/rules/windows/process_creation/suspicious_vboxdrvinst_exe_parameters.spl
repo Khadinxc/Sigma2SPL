@@ -10,4 +10,4 @@
 # False Positives:
 #   - Legitimate use of VBoxDrvInst.exe utility by VirtualBox Guest Additions installation process
 
-CommandLine="*driver*" CommandLine="*executeinf*" Image="*\\VBoxDrvInst.exe" | table ComputerName,User,CommandLine,ParentCommandLine
+CommandLine="*driver*" CommandLine="*executeinf*" Image="*\\VBoxDrvInst.exe"

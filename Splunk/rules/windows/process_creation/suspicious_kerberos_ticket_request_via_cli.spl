@@ -1,0 +1,14 @@
+# Title: Suspicious Kerberos Ticket Request via CLI
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-18
+# Level: high
+# Description: Detects suspicious Kerberos ticket requests via command line using System.IdentityModel.Tokens.KerberosRequestorSecurityToken class.
+# Threat actors may use command line interfaces to request Kerberos tickets for service accounts in order to
+# perform offline password cracking attacks commonly known as Kerberoasting or other Kerberos ticket abuse
+# techniques like silver ticket attacks.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558.003
+# False Positives:
+#   - Legitimate command line usage by administrators or security tools.
+
+CommandLine="*System.IdentityModel.Tokens.KerberosRequestorSecurityToken*" CommandLine="*.GetRequest()*" Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("powershell.exe", "pwsh.dll")

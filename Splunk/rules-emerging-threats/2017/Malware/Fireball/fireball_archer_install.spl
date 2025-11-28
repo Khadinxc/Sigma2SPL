@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.defense-evasion, attack.t1218.011, detection.emerging-threats
 
-CommandLine="*rundll32.exe*" CommandLine="*InstallArcherSvc*" | table CommandLine,ParentCommandLine
+CommandLine="*rundll32.exe*" CommandLine="*InstallArcherSvc*"

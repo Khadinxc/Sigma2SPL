@@ -8,4 +8,4 @@
 # False Positives:
 #   - If a computer is a member of a domain, DPAPI has a backup mechanism to allow unprotection of the data. Which will trigger this event.
 
-EventID=4692 | table ComputerName,SubjectDomainName,SubjectUserName
+EventID=4692

@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1047, attack.lateral-movement, attack.t1021.003
 
-(CommandLine="*cmd.exe*" CommandLine="*/C*" CommandLine="*Windows\\Temp\\*" CommandLine="*&1*" ParentCommandLine IN ("*svchost.exe -k netsvcs*", "*taskeng.exe*")) OR (CommandLine="*cmd.exe*" CommandLine="*/Q*" CommandLine="*/c*" CommandLine="*\\\\127.0.0.1\\*" CommandLine="*&1*" ParentImage IN ("*\\wmiprvse.exe", "*\\mmc.exe", "*\\explorer.exe", "*\\services.exe")) | table CommandLine,ParentCommandLine
+(CommandLine="*cmd.exe*" CommandLine="*/C*" CommandLine="*Windows\\Temp\\*" CommandLine="*&1*" ParentCommandLine IN ("*svchost.exe -k netsvcs*", "*taskeng.exe*")) OR (CommandLine="*cmd.exe*" CommandLine="*/Q*" CommandLine="*/c*" CommandLine="*\\\\127.0.0.1\\*" CommandLine="*&1*" ParentImage IN ("*\\wmiprvse.exe", "*\\mmc.exe", "*\\explorer.exe", "*\\services.exe"))

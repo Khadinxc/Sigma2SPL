@@ -1,0 +1,12 @@
+# Title: Windows Default Domain GPO Modification
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-22
+# Level: medium
+# Description: Detects modifications to Default Domain or Default Domain Controllers Group Policy Objects (GPOs).
+# Adversaries may modify these default GPOs to deploy malicious configurations across the domain.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1484.001
+# False Positives:
+#   - Legitimate modifications to Default Domain or Default Domain Controllers GPOs
+
+EventID=5136 ObjectClass="groupPolicyContainer" ObjectDN IN ("CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM*", "CN={6AC1786C-016F-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM*")

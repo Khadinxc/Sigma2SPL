@@ -8,4 +8,4 @@
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.defense-evasion, attack.persistence, attack.execution, attack.t1574.001
 
-CommandLine IN ("*echo *", "*copy *", "*type *", "*file createnew*") CommandLine IN ("* C:\\Windows\\System32\\Tasks\\*", "* C:\\Windows\\SysWow64\\Tasks\\*") | table CommandLine,ParentProcess
+CommandLine IN ("*echo *", "*copy *", "*type *", "*file createnew*") CommandLine IN ("* C:\\Windows\\System32\\Tasks\\*", "* C:\\Windows\\SysWow64\\Tasks\\*")

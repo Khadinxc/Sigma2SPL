@@ -7,4 +7,4 @@
 # Tags: attack.persistence, attack.t1112, attack.defense-evasion
 
 CommandLine IN ("* /i *", "*.reg*") Image="*\\regedit.exe" OR OriginalFileName="REGEDIT.EXE" NOT (CommandLine="* -e *" OR CommandLine="* /e *" OR CommandLine="* –e *" OR CommandLine="* —e *" OR CommandLine="* ―e *" OR CommandLine="* -a *" OR CommandLine="* /a *" OR CommandLine="* –a *" OR CommandLine="* —a *" OR CommandLine="* ―a *" OR CommandLine="* -c *" OR CommandLine="* /c *" OR CommandLine="* –c *" OR CommandLine="* —c *" OR CommandLine="* ―c *")
-| regex CommandLine=":[^ \\\\]" | table ParentImage,CommandLine
+| regex CommandLine=":[^ \\\\]"

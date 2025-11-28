@@ -6,4 +6,4 @@
 # MITRE Tactic: Initial Access
 # Tags: attack.initial-access, attack.t1190, cve.2019-19781, detection.emerging-threats
 
-"cs-uri-query" IN ("*/../vpns/*", "*/vpns/cfg/smb.conf") OR ("cs-uri-query"="*/vpns/portal/scripts/*" "cs-uri-query"="*.pl*") | table client_ip,vhost,url,response
+"cs-uri-query" IN ("*/../vpns/*", "*/vpns/cfg/smb.conf") OR ("cs-uri-query"="*/vpns/portal/scripts/*" "cs-uri-query"="*.pl*")

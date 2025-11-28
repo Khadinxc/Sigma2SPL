@@ -8,4 +8,4 @@
 # False Positives:
 #   - Not commonly run by administrators, especially if remote logging is configured
 
-"show history" OR "show history all" OR "show logging" | table CmdSet
+"show history" OR "show history all" OR "show logging"

@@ -8,4 +8,4 @@
 # False Positives:
 #   - Need tuning applocker or add exceptions in SIEM
 
-EventID IN (8004, 8007, 8022, 8025) | table PolicyName,RuleId,RuleName,TargetUser,TargetProcessId,FilePath,FileHash,Fqbn
+EventID IN (8004, 8007, 8022, 8025)

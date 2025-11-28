@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely
 
-(Image="*.tmp" ParentImage="*\\WINWORD.exe") OR (CommandLine="*shadowcopy delete" Image="*\\wmic.exe" ParentImage="*\\Temp\\*") OR (CommandLine="*\\..\\..\\system32*" CommandLine="*shadowcopy delete") | table ComputerName,User,Image
+(Image="*.tmp" ParentImage="*\\WINWORD.exe") OR (CommandLine="*shadowcopy delete" Image="*\\wmic.exe" ParentImage="*\\Temp\\*") OR (CommandLine="*\\..\\..\\system32*" CommandLine="*shadowcopy delete")

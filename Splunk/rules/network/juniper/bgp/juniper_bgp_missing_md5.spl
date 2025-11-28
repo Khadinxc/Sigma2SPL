@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely. Except due to misconfigurations
 
-":179" "missing MD5 digest" | table host
+":179" "missing MD5 digest"
