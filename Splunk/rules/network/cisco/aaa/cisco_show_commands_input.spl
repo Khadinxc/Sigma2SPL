@@ -1,0 +1,11 @@
+# Title: Cisco Show Commands Input
+# Author: Austin Clark
+# Date: 2019-08-11
+# Level: medium
+# Description: See what commands are being input into the device by other people, full credentials can be in the history
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1552.003
+# False Positives:
+#   - Not commonly run by administrators, especially if remote logging is configured
+
+"show history" OR "show history all" OR "show logging" | table CmdSet

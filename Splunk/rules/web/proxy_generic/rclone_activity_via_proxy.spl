@@ -1,0 +1,11 @@
+# Title: Rclone Activity via Proxy
+# Author: Janantha Marasinghe
+# Date: 2022-10-18
+# Level: medium
+# Description: Detects the use of rclone, a command-line program to manage files on cloud storage, via its default user-agent string
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1567.002
+# False Positives:
+#   - Valid requests with this exact user agent to that is used by legitimate scripts or sysadmin operations
+
+"c-useragent"="rclone/v*" | table c-ip

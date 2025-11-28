@@ -1,9 +1,0 @@
-# Title: Active Directory Replication from Non Machine Account
-# Author: Roberto Rodriguez @Cyb3rWard0g
-# Date: 2019-07-26
-# Level: critical
-# Description: Detects potential abuse of Active Directory Replication Service (ADRS) from a non machine account to request credentials.
-# MITRE Tactic: Credential Access
-# Tags: attack.credential-access, attack.t1003.006
-
-AccessMask="0x100" EventID=4662 Properties IN ("*1131f6aa-9c07-11d1-f79f-00c04fc2dcd2*", "*1131f6ad-9c07-11d1-f79f-00c04fc2dcd2*", "*89e95b76-444d-4c62-991a-0facbeda640c*") NOT (SubjectUserName IN ("*$", "MSOL_*"))

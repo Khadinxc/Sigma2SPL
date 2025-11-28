@@ -1,0 +1,9 @@
+# Title: New Kind of Network (NKN) Detection
+# Author: Michael Portera (@mportatoes)
+# Date: 2022-04-21
+# Level: low
+# Description: NKN is a networking service using blockchain technology to support a decentralized network of peers. While there are legitimate uses for it, it can also be used as a C2 channel. This rule looks for a DNS request to the ma>
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control
+
+query="*seed*" query="*.nkn.org*" | table id.orig_h,id.resp_h,answers

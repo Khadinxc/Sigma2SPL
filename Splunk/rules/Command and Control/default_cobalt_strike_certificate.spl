@@ -1,9 +1,0 @@
-# Title: Default Cobalt Strike Certificate
-# Author: Bhabesh Raj
-# Date: 2021-06-23
-# Level: high
-# Description: Detects the presence of default Cobalt Strike certificate in the HTTPS traffic
-# MITRE Tactic: Command and Control
-# Tags: attack.command-and-control, attack.s0154
-
-certificate.serial="8BB00EE"

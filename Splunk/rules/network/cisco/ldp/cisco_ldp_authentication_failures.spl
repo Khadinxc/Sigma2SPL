@@ -1,0 +1,11 @@
+# Title: Cisco LDP Authentication Failures
+# Author: Tim Brown
+# Date: 2023-01-09
+# Level: low
+# Description: Detects LDP failures which may be indicative of brute force attacks to manipulate MPLS labels
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation, attack.defense-evasion, attack.credential-access, attack.collection, attack.t1078, attack.t1110, attack.t1557
+# False Positives:
+#   - Unlikely. Except due to misconfigurations
+
+"LDP" "SOCKET_TCP_PACKET_MD5_AUTHEN_FAIL" OR "TCPMD5AuthenFail" | table tcpConnLocalAddress,tcpConnRemAddress

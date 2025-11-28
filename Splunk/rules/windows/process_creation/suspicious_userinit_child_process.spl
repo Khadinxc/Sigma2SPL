@@ -1,0 +1,11 @@
+# Title: Suspicious Userinit Child Process
+# Author: Florian Roth (Nextron Systems), Samir Bousseaden (idea)
+# Date: 2019-06-17
+# Level: medium
+# Description: Detects a suspicious child process of userinit
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1055
+# False Positives:
+#   - Administrative scripts
+
+ParentImage="*\\userinit.exe" NOT (Image="*\\explorer.exe" OR OriginalFileName="explorer.exe" OR CommandLine="C:\\Windows\\Explorer.EXE" OR CommandLine="*\\netlogon\\*" OR NOT Image=*) | table CommandLine,ParentCommandLine

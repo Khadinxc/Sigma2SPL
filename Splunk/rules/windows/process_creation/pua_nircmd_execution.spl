@@ -1,0 +1,11 @@
+# Title: PUA - NirCmd Execution
+# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-01-24
+# Level: medium
+# Description: Detects the use of NirCmd tool for command execution, which could be the result of legitimate administrative activity
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002, attack.s0029
+# False Positives:
+#   - Legitimate use by administrators
+
+CommandLine IN ("* execmd *", "*.exe script *", "*.exe shexec *", "* runinteractive *") OR Image="*\\NirCmd.exe" OR OriginalFileName="NirCmd.exe" OR (CommandLine IN ("* exec *", "* exec2 *") CommandLine IN ("* show *", "* hide *")) | table CommandLine,ParentCommandLine

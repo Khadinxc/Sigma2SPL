@@ -1,0 +1,11 @@
+# Title: File Was Not Allowed To Run
+# Author: Pushkarev Dmitry
+# Date: 2020-06-28
+# Level: medium
+# Description: Detect run not allowed files. Applocker is a very useful tool, especially on servers where unprivileged users have access. For example terminal servers. You need configure applocker and log collect to receive these events.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204.002, attack.t1059.001, attack.t1059.003, attack.t1059.005, attack.t1059.006, attack.t1059.007
+# False Positives:
+#   - Need tuning applocker or add exceptions in SIEM
+
+EventID IN (8004, 8007, 8022, 8025) | table PolicyName,RuleId,RuleName,TargetUser,TargetProcessId,FilePath,FileHash,Fqbn

@@ -1,0 +1,11 @@
+# Title: Juniper BGP Missing MD5
+# Author: Tim Brown
+# Date: 2023-01-09
+# Level: low
+# Description: Detects juniper BGP missing MD5 digest. Which may be indicative of brute force attacks to manipulate routing.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation, attack.defense-evasion, attack.credential-access, attack.collection, attack.t1078, attack.t1110, attack.t1557
+# False Positives:
+#   - Unlikely. Except due to misconfigurations
+
+":179" "missing MD5 digest" | table host

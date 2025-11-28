@@ -132,7 +132,7 @@ for rule_folder in RULE_FOLDERS:
     # Statistics for this folder
     SUCCESSFUL_CONVERSIONS = 0
     FAILED_CONVERSIONS = 0
-    tactic_stats = {}
+    folder_stats = {}
 
     for idx, yml in enumerate(file_list, 1):
         try:
@@ -148,13 +148,14 @@ for rule_folder in RULE_FOLDERS:
             # Convert the rule
             splunk_query = backend.convert_rule(sigma_rule)[0]
 
-            # Get MITRE tactic from tags
+            # Get MITRE tactic from tags (kept for metadata)
             tags = yaml_contents.get("tags", [])
             TACTIC_FOLDER = extract_mitre_tactic(tags)
 
-            # Write the Splunk query to a .spl file organized by tactic
-            BASE_OUTPUT_DIR = os.path.join(OUTPUT_BASE, rule_folder)
-            OUTPUT_DIR = os.path.join(BASE_OUTPUT_DIR, TACTIC_FOLDER)
+            # Determine output directory preserving original sigma folder structure
+            # e.g., sigma/rules/collection/foo.yml -> <OUTPUT_BASE>/rules/collection/
+            rel_dir = os.path.relpath(os.path.dirname(yml), SIGMA_BASE)
+            OUTPUT_DIR = os.path.join(OUTPUT_BASE, rel_dir)
             os.makedirs(OUTPUT_DIR, exist_ok=True)
 
             # Sanitize filename and convert to snake_case
@@ -197,8 +198,8 @@ for rule_folder in RULE_FOLDERS:
                 spl_file.write(splunk_query)
 
             SUCCESSFUL_CONVERSIONS += 1
-            # Track by tactic
-            tactic_stats[TACTIC_FOLDER] = tactic_stats.get(TACTIC_FOLDER, 0) + 1
+            # Track by original sigma folder
+            folder_stats[rel_dir] = folder_stats.get(rel_dir, 0) + 1
 
             if SUCCESSFUL_CONVERSIONS % 10 == 0:
                 print(f"[{idx}/{len(file_list)}] {rule_folder}: Converted: {SUCCESSFUL_CONVERSIONS}")
@@ -213,16 +214,16 @@ for rule_folder in RULE_FOLDERS:
     print(f"\n{rule_folder} Summary:")
     print(f"  Successful: {SUCCESSFUL_CONVERSIONS}")
     print(f"  Failed: {FAILED_CONVERSIONS}")
-    if tactic_stats:
-        print(f"  Tactics covered: {len(tactic_stats)}")
+    if folder_stats:
+        print(f"  Folders covered: {len(folder_stats)}")
 
     # Update overall statistics
     TOTAL_SUCCESSFUL += SUCCESSFUL_CONVERSIONS
     TOTAL_FAILED += FAILED_CONVERSIONS
 
-    # Merge tactic stats
-    for tactic, count in tactic_stats.items():
-        folder_key = f"{rule_folder}/{tactic}"
+    # Merge folder stats
+    for folder_rel, count in folder_stats.items():
+        folder_key = f"{rule_folder}/{folder_rel}"
         overall_stats[folder_key] = count
 
 # Print final statistics

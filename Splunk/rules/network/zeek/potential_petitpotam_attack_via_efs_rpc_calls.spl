@@ -1,0 +1,14 @@
+# Title: Potential PetitPotam Attack Via EFS RPC Calls
+# Author: @neu5ron, @Antonlovesdnb, Mike Remen
+# Date: 2021-08-17
+# Level: medium
+# Description: Detects usage of the windows RPC library Encrypting File System Remote Protocol (MS-EFSRPC). Variations of this RPC are used within the attack refereed to as PetitPotam.
+# The usage of this RPC function should be rare if ever used at all.
+# Thus usage of this function is uncommon enough that any usage of this RPC function should warrant further investigation to determine if it is legitimate.
+#  View surrounding logs (within a few minutes before and after) from the Source IP to. Logs from from the Source IP would include dce_rpc, smb_mapping, smb_files, rdp, ntlm, kerberos, etc..'
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.credential-access, attack.t1557.001, attack.t1187
+# False Positives:
+#   - Uncommon but legitimate windows administrator or software tasks that make use of the Encrypting File System RPC Calls. Verify if this is common activity (see description).
+
+operation="efs*" | table id.orig_h,id.resp_h,id.resp_p,operation,endpoint,named_pipe,uid

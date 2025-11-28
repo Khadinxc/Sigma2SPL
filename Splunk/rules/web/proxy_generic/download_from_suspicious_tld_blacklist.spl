@@ -1,0 +1,11 @@
+# Title: Download From Suspicious TLD - Blacklist
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-11-07
+# Level: low
+# Description: Detects download of certain file types from hosts in suspicious TLDs
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1566, attack.execution, attack.t1203, attack.t1204.002
+# False Positives:
+#   - All kinds of software downloads
+
+"c-uri-extension" IN ("exe", "vbs", "bat", "rar", "ps1", "doc", "docm", "xls", "xlsm", "pptm", "rtf", "hta", "dll", "ws", "wsf", "sct", "zip") "cs-host" IN ("*.country", "*.stream", "*.gdn", "*.mom", "*.xin", "*.kim", "*.men", "*.loan", "*.download", "*.racing", "*.online", "*.science", "*.ren", "*.gb", "*.win", "*.top", "*.review", "*.vip", "*.party", "*.tech", "*.xyz", "*.date", "*.faith", "*.zip", "*.cricket", "*.space", "*.info", "*.vn", "*.cm", "*.am", "*.cc", "*.asia", "*.ws", "*.tk", "*.biz", "*.su", "*.st", "*.ro", "*.ge", "*.ms", "*.pk", "*.nu", "*.me", "*.ph", "*.to", "*.tt", "*.name", "*.tv", "*.kz", "*.tc", "*.mobi", "*.study", "*.click", "*.link", "*.trade", "*.accountant", "*.cf", "*.gq", "*.ml", "*.ga", "*.pw") | table ClientIP,c-uri

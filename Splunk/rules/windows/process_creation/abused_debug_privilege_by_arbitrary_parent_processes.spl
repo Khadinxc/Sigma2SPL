@@ -1,0 +1,9 @@
+# Title: Abused Debug Privilege by Arbitrary Parent Processes
+# Author: Semanur Guneysu @semanurtg, oscd.community
+# Date: 2020-10-28
+# Level: high
+# Description: Detection of unusual child processes by different system processes
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1548
+
+Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\cmd.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll", "Cmd.Exe") ParentImage IN ("*\\winlogon.exe", "*\\services.exe", "*\\lsass.exe", "*\\csrss.exe", "*\\smss.exe", "*\\wininit.exe", "*\\spoolsv.exe", "*\\searchindexer.exe") User IN ("*AUTHORI*", "*AUTORI*") NOT (CommandLine="* route *" CommandLine="* ADD *") | table ParentImage,Image,User,CommandLine

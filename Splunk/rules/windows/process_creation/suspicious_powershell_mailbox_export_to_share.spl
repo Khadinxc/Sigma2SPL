@@ -1,0 +1,9 @@
+# Title: Suspicious PowerShell Mailbox Export to Share
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-08-07
+# Level: critical
+# Description: Detects usage of the powerShell New-MailboxExportRequest Cmdlet to exports a mailbox to a remote or local share, as used in ProxyShell exploitations
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration
+
+CommandLine="*New-MailboxExportRequest*" CommandLine="* -Mailbox *" CommandLine="* -FilePath \\\\*" | table CommandLine,ParentCommandLine

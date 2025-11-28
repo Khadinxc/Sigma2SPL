@@ -1,0 +1,11 @@
+# Title: SyncAppvPublishingServer Execute Arbitrary PowerShell Code
+# Author: frack113
+# Date: 2021-07-12
+# Level: medium
+# Description: Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218
+# False Positives:
+#   - App-V clients
+
+CommandLine="*\"n; *" Image="*\\SyncAppvPublishingServer.exe" OR OriginalFileName="syncappvpublishingserver.exe" | table ComputerName,User,CommandLine,ParentCommandLine

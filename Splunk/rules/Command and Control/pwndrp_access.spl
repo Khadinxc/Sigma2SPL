@@ -1,9 +1,0 @@
-# Title: PwnDrp Access
-# Author: Florian Roth (Nextron Systems)
-# Date: 2020-04-15
-# Level: critical
-# Description: Detects downloads from PwnDrp web servers developed for red team testing and most likely also used for criminal activity
-# MITRE Tactic: Command and Control
-# Tags: attack.command-and-control, attack.t1071.001, attack.t1102.001, attack.t1102.003
-
-"c-uri"="*/pwndrop/*"

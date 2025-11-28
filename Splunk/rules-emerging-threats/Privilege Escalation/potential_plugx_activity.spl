@@ -1,9 +1,0 @@
-# Title: Potential PlugX Activity
-# Author: Florian Roth (Nextron Systems)
-# Date: 2017-06-12
-# Level: high
-# Description: Detects the execution of an executable that is typically used by PlugX for DLL side loading starting from an uncommon location
-# MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.s0013, attack.defense-evasion, attack.t1574.001, detection.emerging-threats
-
-(Image="*\\CamMute.exe" NOT (Image IN ("*\\Lenovo\\Communication Utility\\*", "*\\Lenovo\\Communications Utility\\*"))) OR (Image="*\\chrome_frame_helper.exe" NOT Image="*\\Google\\Chrome\\application\\*") OR (Image="*\\dvcemumanager.exe" NOT Image="*\\Microsoft Device Emulator\\*") OR (Image="*\\Gadget.exe" NOT Image="*\\Windows Media Player\\*") OR (Image="*\\hcc.exe" NOT Image="*\\HTML Help Workshop\\*") OR (Image="*\\hkcmd.exe" NOT (Image IN ("*\\System32\\*", "*\\SysNative\\*", "*\\SysWow64\\*"))) OR (Image="*\\Mc.exe" NOT (Image IN ("*\\Microsoft Visual Studio*", "*\\Microsoft SDK*", "*\\Windows Kit*"))) OR (Image="*\\MsMpEng.exe" NOT (Image IN ("*\\Microsoft Security Client\\*", "*\\Windows Defender\\*", "*\\AntiMalware\\*"))) OR (Image="*\\msseces.exe" NOT (Image IN ("*\\Microsoft Security Center\\*", "*\\Microsoft Security Client\\*", "*\\Microsoft Security Essentials\\*"))) OR (Image="*\\OInfoP11.exe" NOT Image="*\\Common Files\\Microsoft Shared\\*") OR (Image="*\\OleView.exe" NOT (Image IN ("*\\Microsoft Visual Studio*", "*\\Microsoft SDK*", "*\\Windows Kit*", "*\\Windows Resource Kit\\*"))) OR (Image="*\\rc.exe" NOT (Image IN ("*\\Microsoft Visual Studio*", "*\\Microsoft SDK*", "*\\Windows Kit*", "*\\Windows Resource Kit\\*", "*\\Microsoft.NET\\*")))

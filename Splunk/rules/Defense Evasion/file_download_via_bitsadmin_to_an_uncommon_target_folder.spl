@@ -1,9 +1,0 @@
-# Title: File Download Via Bitsadmin To An Uncommon Target Folder
-# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-06-28
-# Level: medium
-# Description: Detects usage of bitsadmin downloading a file to uncommon target folder
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.persistence, attack.t1197, attack.s0190, attack.t1036.003
-
-CommandLine IN ("* /transfer *", "* /create *", "* /addfile *") CommandLine IN ("*%AppData%*", "*%temp%*", "*%tmp%*", "*\\AppData\\Local\\*", "*C:\\Windows\\Temp\\*") Image="*\\bitsadmin.exe" OR OriginalFileName="bitsadmin.exe"

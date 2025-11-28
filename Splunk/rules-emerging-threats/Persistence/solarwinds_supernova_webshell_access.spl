@@ -1,9 +1,0 @@
-# Title: Solarwinds SUPERNOVA Webshell Access
-# Author: Florian Roth (Nextron Systems)
-# Date: 2020-12-17
-# Level: critical
-# Description: Detects access to SUPERNOVA webshell as described in Guidepoint report
-# MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.t1505.003, detection.emerging-threats
-
-("cs-uri-query"="*logoimagehandler.ashx*" "cs-uri-query"="*clazz*") OR ("cs-uri-query"="*logoimagehandler.ashx*" "sc-status"=500)

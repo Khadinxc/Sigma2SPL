@@ -1,0 +1,9 @@
+# Title: Disable Security Events Logging Adding Reg Key MiniNt
+# Author: Ilyas Ochkov, oscd.community
+# Date: 2019-10-25
+# Level: high
+# Description: Detects the addition of a key 'MiniNt' to the registry. Upon a reboot, Windows Event Log service will stop writing events.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.defense-evasion, attack.t1562.002, attack.t1112, car.2022-03-001
+
+(EventType="CreateKey" TargetObject="HKLM\\SYSTEM\\CurrentControlSet\\Control\\MiniNt") OR NewName="HKLM\\SYSTEM\\CurrentControlSet\\Control\\MiniNt" | table EventID,Image,TargetObject,NewName

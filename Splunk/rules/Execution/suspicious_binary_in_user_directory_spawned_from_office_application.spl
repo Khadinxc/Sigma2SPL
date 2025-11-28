@@ -1,9 +1,0 @@
-# Title: Suspicious Binary In User Directory Spawned From Office Application
-# Author: Jason Lynch
-# Date: 2019-04-02
-# Level: high
-# Description: Detects an executable in the users directory started from one of the Microsoft Office suite applications (Word, Excel, PowerPoint, Publisher, Visio)
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.t1204.002, attack.g0046, car.2013-05-002
-
-Image="*.exe" Image="C:\\users\\*" ParentImage IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.exe", "*\\MSPUB.exe", "*\\VISIO.exe", "*\\MSACCESS.exe", "*\\EQNEDT32.exe") NOT Image="*\\Teams.exe"

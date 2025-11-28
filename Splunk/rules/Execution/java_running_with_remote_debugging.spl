@@ -1,9 +1,0 @@
-# Title: Java Running with Remote Debugging
-# Author: Florian Roth (Nextron Systems)
-# Date: 2019-01-16
-# Level: medium
-# Description: Detects a JAVA process running with remote debugging allowing more than just localhost to connect
-# MITRE Tactic: Execution
-# Tags: attack.t1203, attack.execution
-
-CommandLine="*transport=dt_socket,address=*" CommandLine IN ("*jre1.*", "*jdk1.*") NOT (CommandLine IN ("*address=127.0.0.1*", "*address=localhost*"))

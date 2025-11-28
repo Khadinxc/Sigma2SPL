@@ -1,9 +1,0 @@
-# Title: Crypto Miner User Agent
-# Author: Florian Roth (Nextron Systems)
-# Date: 2019-10-21
-# Level: high
-# Description: Detects suspicious user agent strings used by crypto miners in proxy logs
-# MITRE Tactic: Command and Control
-# Tags: attack.command-and-control, attack.t1071.001
-
-"c-useragent" IN ("XMRig *", "ccminer*")

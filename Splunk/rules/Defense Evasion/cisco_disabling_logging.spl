@@ -1,9 +1,0 @@
-# Title: Cisco Disabling Logging
-# Author: Austin Clark
-# Date: 2019-08-11
-# Level: high
-# Description: Turn off logging locally or remote
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562.001
-
-"no logging" OR "no aaa new-model"
