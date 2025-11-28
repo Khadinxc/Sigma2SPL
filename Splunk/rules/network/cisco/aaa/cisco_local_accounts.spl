@@ -8,4 +8,4 @@
 # False Positives:
 #   - When remote authentication is in place, this should not change often
 
-"username" OR "aaa" | table CmdSet
+"username" OR "aaa"

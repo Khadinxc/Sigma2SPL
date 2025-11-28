@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate use by users
 
-OriginalFileName="DirLister.exe" OR Image="*\\dirlister.exe"
+OriginalFileName="DirLister.exe" OR Image="*\\DirLister.exe"

@@ -8,4 +8,4 @@
 # False Positives:
 #   - Administrative activity (adjust code pages according to your organization's region)
 
-CommandLine IN ("* 936", "* 1258") Image="*\\chcp.com" | table ParentCommandLine
+CommandLine IN ("* 936", "* 1258") Image="*\\chcp.com"

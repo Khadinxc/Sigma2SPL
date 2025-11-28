@@ -8,4 +8,4 @@
 # False Positives:
 #   - System administrator Usage
 
-CommandLine="*verb:sync*" CommandLine="*-source:RunCommand*" CommandLine="*-dest:runCommand*" Image="*\\msdeploy.exe" | table ComputerName,User,CommandLine,ParentCommandLine
+CommandLine="*verb:sync*" CommandLine="*-source:RunCommand*" CommandLine="*-dest:runCommand*" Image="*\\msdeploy.exe"

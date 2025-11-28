@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1047
 
-Image IN ("*\\svchost.exe", "*\\dllhost.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\schtasks.exe", "*\\regsvr32.exe", "*\\mshta.exe", "*\\rundll32.exe", "*\\msiexec.exe", "*\\msbuild.exe") ParentImage="*\\scrcons.exe" | table CommandLine,ParentCommandLine
+Image IN ("*\\svchost.exe", "*\\dllhost.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\schtasks.exe", "*\\regsvr32.exe", "*\\mshta.exe", "*\\rundll32.exe", "*\\msiexec.exe", "*\\msbuild.exe") ParentImage="*\\scrcons.exe"

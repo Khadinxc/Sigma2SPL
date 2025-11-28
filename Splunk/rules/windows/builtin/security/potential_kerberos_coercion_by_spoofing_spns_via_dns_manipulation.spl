@@ -11,4 +11,4 @@
 # MITRE Tactic: Collection
 # Tags: attack.collection, attack.credential-access, attack.t1557.003, attack.persistence, attack.privilege-escalation
 
-(AdditionalInfo="*UWhRCA*" AdditionalInfo="*BAAAA*" AdditionalInfo="*CN=MicrosoftDNS*" EventID=4662) OR (EventID IN (5136, 5137) ObjectClass="dnsNode" ObjectDN="*UWhRCA*" ObjectDN="*BAAAA*" ObjectDN="*CN=MicrosoftDNS*") | table SubjectUserName
+(AdditionalInfo="*UWhRCA*" AdditionalInfo="*BAAAA*" AdditionalInfo="*CN=MicrosoftDNS*" EventID=4662) OR (EventID IN (5136, 5137) ObjectClass="dnsNode" ObjectDN="*UWhRCA*" ObjectDN="*BAAAA*" ObjectDN="*CN=MicrosoftDNS*")

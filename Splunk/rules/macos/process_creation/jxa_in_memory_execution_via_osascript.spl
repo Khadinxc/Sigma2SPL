@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.t1059.002, attack.t1059.007, attack.execution
 
-(CommandLine="* -l *" CommandLine="*JavaScript*") OR CommandLine="*.js*" CommandLine="*osascript*" CommandLine="* -e *" CommandLine="*eval*" CommandLine="*NSData.dataWithContentsOfURL*" | table CommandLine
+(CommandLine="* -l *" CommandLine="*JavaScript*") OR CommandLine="*.js*" CommandLine="*osascript*" CommandLine="* -e *" CommandLine="*eval*" CommandLine="*NSData.dataWithContentsOfURL*"

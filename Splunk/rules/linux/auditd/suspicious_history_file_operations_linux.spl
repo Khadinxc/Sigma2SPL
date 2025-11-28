@@ -9,4 +9,4 @@
 #   - Legitimate administrative activity
 #   - Legitimate software, cleaning hist file
 
-type="EXECVE" ".bash_history" OR ".zsh_history" OR ".zhistory" OR ".history" OR ".sh_history" OR "fish_history" | table a0,a1,a2,a3,key
+type="EXECVE" ".bash_history" OR ".zsh_history" OR ".zhistory" OR ".history" OR ".sh_history" OR "fish_history"

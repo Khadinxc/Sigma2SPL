@@ -8,4 +8,4 @@
 # False Positives:
 #   - Rare programs that use Bitsadmin and update from regional TLDs e.g. .uk or .ca
 
-"c-useragent"="Microsoft BITS/*" NOT ("cs-host" IN ("*.com", "*.net", "*.org", "*.scdn.co", "*.sfx.ms")) | table ClientIP,c-uri,c-useragent
+"c-useragent"="Microsoft BITS/*" NOT ("cs-host" IN ("*.com", "*.net", "*.org", "*.scdn.co", "*.sfx.ms"))

@@ -1,0 +1,14 @@
+# Title: DNS Query by Finger Utility
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-19
+# Level: high
+# Description: Detects DNS queries made by the finger utility, which can be abused by threat actors to retrieve remote commands for execution on Windows devices.
+# In one ClickFix malware campaign, adversaries leveraged the finger protocol to fetch commands from a remote server.
+# Since the finger utility is not commonly used in modern Windows environments, its presence already raises suspicion.
+# Investigating such DNS queries can also help identify potential malicious infrastructure used by threat actors for command and control (C2) communication.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.004, attack.execution, attack.t1059.003
+# False Positives:
+#   - Unlikely
+
+Image="*\\finger.exe"

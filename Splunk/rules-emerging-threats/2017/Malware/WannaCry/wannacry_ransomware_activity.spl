@@ -6,4 +6,4 @@
 # MITRE Tactic: Lateral Movement
 # Tags: attack.lateral-movement, attack.t1210, attack.discovery, attack.t1083, attack.defense-evasion, attack.t1222.001, attack.impact, attack.t1486, attack.t1490, detection.emerging-threats
 
-CommandLine="*@Please_Read_Me@.txt*" OR Image IN ("*\\tasksche.exe", "*\\mssecsvc.exe", "*\\taskdl.exe", "*\\taskhsvc.exe", "*\\taskse.exe", "*\\111.exe", "*\\lhdfrgui.exe", "*\\linuxnew.exe", "*\\wannacry.exe") OR Image="*WanaDecryptor*" | table CommandLine,ParentCommandLine
+CommandLine="*@Please_Read_Me@.txt*" OR Image IN ("*\\tasksche.exe", "*\\mssecsvc.exe", "*\\taskdl.exe", "*\\taskhsvc.exe", "*\\taskse.exe", "*\\111.exe", "*\\lhdfrgui.exe", "*\\linuxnew.exe", "*\\wannacry.exe") OR Image="*WanaDecryptor*"

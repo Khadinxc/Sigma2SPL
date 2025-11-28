@@ -1,0 +1,14 @@
+# Title: Suspicious FileFix Execution Pattern
+# Author: 0xFustang, Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-24
+# Level: high
+# Description: Detects suspicious FileFix execution patterns where users are tricked into running malicious commands through browser file upload dialog manipulation.
+# This attack typically begins when users visit malicious websites impersonating legitimate services or news platforms,
+# which may display fake CAPTCHA challenges or direct instructions to open file explorer and paste clipboard content.
+# The clipboard content usually contains commands that download and execute malware, such as information stealing tools.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204.004
+# False Positives:
+#   - Legitimate use of PowerShell or other utilities launched from browser extensions or automation tools
+
+CommandLine="*#*" ParentImage IN ("*\\brave.exe", "*\\chrome.exe", "*\\firefox.exe", "*\\msedge.exe") CommandLine IN ("*account*", "*anti-bot*", "*botcheck*", "*captcha*", "*challenge*", "*confirmation*", "*fraud*", "*human*", "*identification*", "*identificator*", "*identity*", "*robot*", "*validation*", "*verification*", "*verify*") OR CommandLine IN ("*%comspec%*", "*bitsadmin*", "*certutil*", "*cmd*", "*cscript*", "*curl*", "*finger*", "*mshta*", "*powershell*", "*pwsh*", "*regsvr32*", "*rundll32*", "*schtasks*", "*wget*", "*wscript*")

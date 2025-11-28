@@ -8,4 +8,4 @@
 # False Positives:
 #   - False positives depend on custom use of vsls-agent.exe
 
-CommandLine="*--agentExtensionPath*" Image="*\\vsls-agent.exe" NOT CommandLine="*Microsoft.VisualStudio.LiveShare.Agent.*" | table CommandLine,ParentCommandLine
+CommandLine="*--agentExtensionPath*" Image="*\\vsls-agent.exe" NOT CommandLine="*Microsoft.VisualStudio.LiveShare.Agent.*"

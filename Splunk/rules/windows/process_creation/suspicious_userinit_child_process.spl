@@ -8,4 +8,4 @@
 # False Positives:
 #   - Administrative scripts
 
-ParentImage="*\\userinit.exe" NOT (Image="*\\explorer.exe" OR OriginalFileName="explorer.exe" OR CommandLine="C:\\Windows\\Explorer.EXE" OR CommandLine="*\\netlogon\\*" OR NOT Image=*) | table CommandLine,ParentCommandLine
+ParentImage="*\\userinit.exe" NOT (Image="*\\explorer.exe" OR OriginalFileName="explorer.exe" OR CommandLine="C:\\Windows\\Explorer.EXE" OR CommandLine="*\\netlogon\\*" OR NOT Image=*)

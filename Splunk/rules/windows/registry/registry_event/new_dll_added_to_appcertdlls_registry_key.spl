@@ -7,4 +7,4 @@
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.persistence, attack.t1546.009
 
-TargetObject="HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCertDlls" OR NewName="HKLM\\SYSTEM\\CurentControlSet\\Control\\Session Manager\\AppCertDlls" | table EventID,Image,TargetObject,NewName
+TargetObject="HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCertDlls" OR NewName="HKLM\\SYSTEM\\CurentControlSet\\Control\\Session Manager\\AppCertDlls"

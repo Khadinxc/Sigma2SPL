@@ -6,4 +6,4 @@
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.defense-evasion, attack.persistence, attack.t1036, attack.t1098, cve.2021-42287, detection.emerging-threats
 
-EventID=4781 OldTargetUserName="*$*" NOT NewTargetUserName="*$*" | table EventID,SubjectUserName
+EventID=4781 OldTargetUserName="*$*" NOT NewTargetUserName="*$*"

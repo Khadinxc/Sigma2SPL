@@ -6,4 +6,4 @@
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion, attack.t1036.003
 
-(CommandLine="*copy *" Image="*\\cmd.exe") OR Image IN ("*\\robocopy.exe", "*\\xcopy.exe") OR OriginalFileName IN ("robocopy.exe", "XCOPY.EXE") OR (CommandLine IN ("*copy-item*", "* copy *", "*cpi *", "* cp *") Image IN ("*\\powershell.exe", "*\\pwsh.exe")) CommandLine IN ("*\\bitsadmin.exe*", "*\\calc.exe*", "*\\certutil.exe*", "*\\cmdl32.exe*", "*\\cscript.exe*", "*\\mshta.exe*", "*\\rundll32.exe*", "*\\wscript.exe*") CommandLine IN ("*\\System32*", "*\\SysWOW64*", "*\\WinSxS*")
+(CommandLine="*copy *" Image="*\\cmd.exe") OR Image IN ("*\\robocopy.exe", "*\\xcopy.exe") OR OriginalFileName IN ("robocopy.exe", "XCOPY.EXE") OR (CommandLine IN ("*copy-item*", "* copy *", "*cpi *", "* cp *") Image IN ("*\\powershell.exe", "*\\pwsh.exe")) CommandLine IN ("*\\bitsadmin.exe*", "*\\calc.exe*", "*\\certutil.exe*", "*\\cmdl32.exe*", "*\\cscript.exe*", "*\\mshta.exe*", "*\\rundll32.exe*", "*\\wscript.exe*", "*\\ie4uinit.exe*") CommandLine IN ("*\\System32*", "*\\SysWOW64*", "*\\WinSxS*")

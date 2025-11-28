@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate administrators may run these commands, though rarely.
 
-"shutdown" OR "config-register 0x2100" OR "config-register 0x2142" | table CmdSet
+"shutdown" OR "config-register 0x2100" OR "config-register 0x2142"

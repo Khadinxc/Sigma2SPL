@@ -6,4 +6,4 @@
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.persistence, attack.t1547
 
-TargetObject="*Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Backup Mgr" | table ComputerName,Image,EventType,TargetObject
+TargetObject="*Software\\Microsoft\\Windows\\CurrentVersion\\Run\\Backup Mgr"

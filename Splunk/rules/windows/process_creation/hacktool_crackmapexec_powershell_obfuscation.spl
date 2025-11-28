@@ -6,4 +6,4 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059.001, attack.defense-evasion, attack.t1027.005
 
-CommandLine IN ("*join*split*", "*( $ShellId[1]+$ShellId[13]+'x')*", "*( $PSHome[*]+$PSHOME[*]+*", "*( $env:Public[13]+$env:Public[5]+'x')*", "*( $env:ComSpec[4,*,25]-Join'')*", "*[1,3]+'x'-Join'')*") Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") | table ComputerName,User,CommandLine
+CommandLine IN ("*join*split*", "*( $ShellId[1]+$ShellId[13]+'x')*", "*( $PSHome[*]+$PSHOME[*]+*", "*( $env:Public[13]+$env:Public[5]+'x')*", "*( $env:ComSpec[4,*,25]-Join'')*", "*[1,3]+'x'-Join'')*") Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll")

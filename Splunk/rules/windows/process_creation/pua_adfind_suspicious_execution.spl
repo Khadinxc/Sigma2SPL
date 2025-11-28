@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate admin activity
 
-CommandLine IN ("*domainlist*", "*trustdmp*", "*dcmodes*", "*adinfo*", "* dclist *", "*computer_pwdnotreqd*", "*objectcategory=*", "*-subnets -f*", "*name=\"Domain Admins\"*", "*-sc u:*", "*domainncs*", "*dompol*", "* oudmp *", "*subnetdmp*", "*gpodmp*", "*fspdmp*", "*users_noexpire*", "*computers_active*", "*computers_pwdnotreqd*")
+CommandLine IN ("*domainlist*", "*trustdmp*", "*dcmodes*", "*adinfo*", "*-sc dclist*", "*computer_pwdnotreqd*", "*objectcategory=*", "*-subnets -f*", "*name=\"Domain Admins\"*", "*-sc u:*", "*domainncs*", "*dompol*", "* oudmp *", "*subnetdmp*", "*gpodmp*", "*fspdmp*", "*users_noexpire*", "*computers_active*", "*computers_pwdnotreqd*")

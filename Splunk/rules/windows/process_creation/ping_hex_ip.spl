@@ -9,4 +9,4 @@
 #   - Unlikely, because no sane admin pings IP addresses in a hexadecimal form
 
 Image="*\\ping.exe"
-| regex CommandLine="0x[a-fA-F0-9]{8}" | table ParentCommandLine
+| regex CommandLine="0x[a-fA-F0-9]{8}"

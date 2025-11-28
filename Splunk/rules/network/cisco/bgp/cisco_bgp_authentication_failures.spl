@@ -8,4 +8,4 @@
 # False Positives:
 #   - Unlikely. Except due to misconfigurations
 
-":179" "IP-TCP-3-BADAUTH" | table tcpConnLocalAddress,tcpConnRemAddress
+":179" "IP-TCP-3-BADAUTH"

@@ -7,4 +7,4 @@
 # Tags: attack.persistence, attack.t1112, attack.defense-evasion
 
 Image="*\\regini.exe" OR OriginalFileName="REGINI.EXE"
-| regex CommandLine=":[^ \\\\]" | table ParentImage,CommandLine
+| regex CommandLine=":[^ \\\\]"

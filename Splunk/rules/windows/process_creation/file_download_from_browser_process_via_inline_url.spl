@@ -6,4 +6,4 @@
 # MITRE Tactic: Command and Control
 # Tags: attack.command-and-control, attack.t1105
 
-CommandLine IN ("*.7z", "*.dat", "*.dll", "*.exe", "*.hta", "*.ps1", "*.psm1", "*.txt", "*.vbe", "*.vbs", "*.zip") CommandLine="*http*" Image IN ("*\\brave.exe", "*\\chrome.exe", "*\\msedge.exe", "*\\opera.exe", "*\\vivaldi.exe")
+CommandLine IN ("*.7z", "*.dat", "*.dll", "*.exe", "*.hta", "*.ps1", "*.psm1", "*.txt", "*.vbe", "*.vbs", "*.zip") OR CommandLine IN ("*.7z\"*", "*.dat\"*", "*.dll\"*", "*.hta\"*", "*.ps1\"*", "*.psm1\"*", "*.txt\"*", "*.vbe\"*", "*.vbs\"*", "*.zip\"*") CommandLine="*http*" Image IN ("*\\brave.exe", "*\\chrome.exe", "*\\msedge.exe", "*\\opera.exe", "*\\vivaldi.exe")

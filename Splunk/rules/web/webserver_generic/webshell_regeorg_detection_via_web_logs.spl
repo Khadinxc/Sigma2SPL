@@ -8,4 +8,4 @@
 # False Positives:
 #   - Web applications that use the same URL parameters as ReGeorg
 
-"cs-uri-query" IN ("*cmd=read*", "*connect&target*", "*cmd=connect*", "*cmd=disconnect*", "*cmd=forward*") "cs-method"="POST" NOT "cs-referer"=* NOT "cs-user-agent"=* | table cs-uri-query,cs-referer,cs-method,cs-User-Agent
+"cs-uri-query" IN ("*cmd=read*", "*connect&target*", "*cmd=connect*", "*cmd=disconnect*", "*cmd=forward*") "cs-method"="POST" NOT "cs-referer"=* NOT "cs-user-agent"=*

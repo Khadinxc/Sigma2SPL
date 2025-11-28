@@ -6,4 +6,4 @@
 # MITRE Tactic: Command and Control
 # Tags: attack.command-and-control
 
-query="*seed*" query="*.nkn.org*" | table id.orig_h,id.resp_h,answers
+query="*seed*" query="*.nkn.org*"

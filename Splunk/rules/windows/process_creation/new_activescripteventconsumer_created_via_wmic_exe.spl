@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate software creating script event consumers
 
-CommandLine="*ActiveScriptEventConsumer*" CommandLine="* CREATE *" | table CommandLine,ParentCommandLine
+CommandLine="*ActiveScriptEventConsumer*" CommandLine="* CREATE *"

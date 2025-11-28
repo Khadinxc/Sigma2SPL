@@ -8,4 +8,4 @@
 # False Positives:
 #   - High
 
-CommandLine="*http*" CommandLine="*://*" CommandLine="*%AppData%*" Image="*\\cmd.exe" | table CommandLine,ParentCommandLine
+CommandLine="*http*" CommandLine="*://*" CommandLine="*%AppData%*" Image="*\\cmd.exe"

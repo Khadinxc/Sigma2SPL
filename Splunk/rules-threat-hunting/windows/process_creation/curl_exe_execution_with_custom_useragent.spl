@@ -9,4 +9,4 @@
 #   - Scripts created by developers and admins
 #   - Administrative activity
 
-Image="*\\curl.exe" OR Product="The curl executable" CommandLine IN ("* -A *", "* --user-agent *") | table CommandLine,ParentCommandLine
+Image="*\\curl.exe" OR Product="The curl executable" CommandLine IN ("* -A *", "* --user-agent *")

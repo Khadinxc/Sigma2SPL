@@ -11,4 +11,5 @@
 #   - When cmd.exe and xcopy.exe are called directly
 #   - When the command contains the keywords but not in the correct order
 
-(CommandLine="*copy *" Image="*\\cmd.exe") OR Image IN ("*\\robocopy.exe", "*\\xcopy.exe") OR OriginalFileName IN ("robocopy.exe", "XCOPY.EXE") OR (CommandLine IN ("*copy-item*", "* copy *", "*cpi *", "* cp *") Image IN ("*\\powershell_ise.exe", "*\\powershell.exe", "*\\pwsh.exe")) CommandLine IN ("*\\System32*", "*\\SysWOW64*", "*\\WinSxS*") NOT (CommandLine IN ("*C:\\Program Files\\Avira\\*", "*C:\\Program Files (x86)\\Avira\\*") CommandLine="*/c copy*" CommandLine="*\\Temp\\*" CommandLine="*\\avira_system_speedup.exe*" Image="*\\cmd.exe")
+(CommandLine="*copy *" Image="*\\cmd.exe") OR Image IN ("*\\robocopy.exe", "*\\xcopy.exe") OR OriginalFileName IN ("robocopy.exe", "XCOPY.EXE") OR (CommandLine IN ("*copy-item*", "* copy *", "*cpi *", "* cp *") Image IN ("*\\powershell.exe", "*\\pwsh.exe")) NOT (CommandLine IN ("*C:\\Program Files\\Avira\\*", "*C:\\Program Files (x86)\\Avira\\*") CommandLine="*/c copy*" CommandLine="*\\Temp\\*" CommandLine="*\\avira_system_speedup.exe*" Image="*\\cmd.exe")
+| regex CommandLine="(?i)\\s['\"]?C:\\\\Windows\\\\(System32|SysWOW64|WinSxS)"

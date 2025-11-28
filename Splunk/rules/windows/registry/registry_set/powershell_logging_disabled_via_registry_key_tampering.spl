@@ -4,6 +4,6 @@
 # Level: high
 # Description: Detects changes to the registry for the currently logged-in user. In order to disable PowerShell module logging, script block logging or transcription and script execution logging
 # MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1564.001
+# Tags: attack.defense-evasion, attack.t1564.001, attack.t1112, attack.persistence
 
 Details="DWORD (0x00000000)" TargetObject IN ("*\\Microsoft\\Windows\\PowerShell\\*", "*\\Microsoft\\PowerShellCore\\*") TargetObject IN ("*\\ModuleLogging\\EnableModuleLogging", "*\\ScriptBlockLogging\\EnableScriptBlockLogging", "*\\ScriptBlockLogging\\EnableScriptBlockInvocationLogging", "*\\Transcription\\EnableTranscripting", "*\\Transcription\\EnableInvocationHeader", "*\\EnableScripts")

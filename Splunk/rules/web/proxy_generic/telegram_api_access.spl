@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate use of Telegram bots in the company
 
-"cs-host"="api.telegram.org" NOT ("c-useragent" IN ("*Telegram*", "*Bot*")) | table ClientIP,c-uri,c-useragent
+"cs-host"="api.telegram.org" NOT ("c-useragent" IN ("*Telegram*", "*Bot*"))
