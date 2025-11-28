@@ -6,23 +6,12 @@ Sigma Queries turned into SPL for Splunk Enterprise and Enterprise Security usin
 __Disclaimer: Not all of these rules have been validated either to ensure SPL is functional or if they are an exact replica of the Sigma rule. The script was created with the assumption that the pySigma Splunk backend does what it is meant to do.__
 
 ```
-├───rules
-│   └───Collection
-│   └───Command and Control
-│   └───Credential Access
-│   └───Defense Evasion
-│   └───Discovery
-│   └───Execution
-│   └───Exfiltration
-│   └───Impact
-│   └───Initial Access
-│   └───Lateral Movement
-│   └───Persistence
-│   └───Privilege Escalation
-│   └───Reconnaissance
-│   └───Resource Development
-├───rules-emerging-threats
-├───rules-threat-hunting
+├───Splunk
+│   ├───rules
+│   ├───rules-compliance
+│   ├───rules-emerging-threats
+│   ├───rules-placeholder
+│   └───rules-threat-hunting
 ```
 
 ## How do I use the helper to do this locally or in a Detection as Code pipeline?
@@ -68,7 +57,7 @@ pip install -r requirements.txt
 rules-threat-hunting Summary:
     Successful: 129
     Failed: 1
-    Tactics covered: 13
+    Folders covered: 26
 
 ================================================================================
 OVERALL CONVERSION COMPLETE!
