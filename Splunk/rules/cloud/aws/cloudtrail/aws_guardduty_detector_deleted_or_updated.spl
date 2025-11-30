@@ -1,0 +1,15 @@
+# Title: AWS GuardDuty Detector Deleted Or Updated
+# Author: suktech24
+# Date: 2025-11-27
+# Level: high
+# Description: Detects successful deletion or disabling of an AWS GuardDuty detector, possibly by an attacker trying to avoid detection of its malicious activities.
+# Upon deletion, GuardDuty stops monitoring the environment and all existing findings are lost.
+# Verify with the user identity that this activity is legitimate.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001, attack.t1562.008
+# False Positives:
+#   - Legitimate detector deletion by an admin (e.g., during account decommissioning).
+#   - Temporary disablement for troubleshooting (verify via change management tickets).
+#   - Automated deployment tools (e.g. Terraform) managing GuardDuty state.
+
+eventSource="guardduty.amazonaws.com" eventName="DeleteDetector" OR (eventName="UpdateDetector" requestParameters.enable="false") NOT errorCode=* OR errorCode="Success"
