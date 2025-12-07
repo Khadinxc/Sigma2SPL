@@ -4,6 +4,6 @@
 # Level: high
 # Description: Detects the execution of certutil with certain flags that allow the utility to download files from direct IPs.
 # MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1027
+# Tags: attack.defense-evasion, attack.t1027, attack.command-and-control, attack.t1105
 
-CommandLine IN ("*urlcache *", "*verifyctl *") CommandLine IN ("*://1*", "*://2*", "*://3*", "*://4*", "*://5*", "*://6*", "*://7*", "*://8*", "*://9*") Image="*\\certutil.exe" OR OriginalFileName="CertUtil.exe" NOT CommandLine="*://7-*"
+CommandLine IN ("*urlcache *", "*verifyctl *", "*URL *") CommandLine IN ("*://1*", "*://2*", "*://3*", "*://4*", "*://5*", "*://6*", "*://7*", "*://8*", "*://9*") Image="*\\certutil.exe" OR OriginalFileName="CertUtil.exe" NOT CommandLine="*://7-*"
