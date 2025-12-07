@@ -1,0 +1,14 @@
+# Title: HTML File Opened From Download Folder
+# Author: Joseph Kamau
+# Date: 2025-12-05
+# Level: low
+# Description: Detects web browser process opening an HTML file from a user's Downloads folder.
+# This behavior is could be associated with phishing attacks where threat actors send HTML attachments to users.
+# When a user opens such an attachment, it can lead to the execution of malicious scripts or the download of malware.
+# During investigation, analyze the HTML file for embedded scripts or links, check for any subsequent downloads or process executions, and investigate the source of the email or message containing the attachment.
+# MITRE Tactic: Initial Access
+# Tags: attack.t1598.002, attack.t1566.001, attack.initial-access, attack.reconnaissance, detection.threat-hunting
+# False Positives:
+#   - Opening any HTML file located in users directories via a browser process will trigger this.
+
+CommandLine="*:\\users\\*" CommandLine="*\\Downloads\\*" CommandLine="*.htm*" Image IN ("*\\brave.exe", "*\\chrome.exe", "*\\firefox.exe", "*\\msedge.exe", "*\\opera.exe", "*\\vivaldi.exe")
