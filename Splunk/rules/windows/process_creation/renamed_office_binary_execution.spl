@@ -4,6 +4,6 @@
 # Level: high
 # Description: Detects the execution of a renamed office binary
 # MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# Tags: attack.defense-evasion, attack.t1036.003
 
-OriginalFileName IN ("Excel.exe", "MSACCESS.EXE", "MSPUB.EXE", "OneNote.exe", "OneNoteM.exe", "OUTLOOK.EXE", "POWERPNT.EXE", "WinWord.exe") OR Description IN ("Microsoft Access", "Microsoft Excel", "Microsoft OneNote", "Microsoft Outlook", "Microsoft PowerPoint", "Microsoft Publisher", "Microsoft Word", "Sent to OneNote Tool") NOT (Image IN ("*\\EXCEL.exe", "*\\excelcnv.exe", "*\\MSACCESS.exe", "*\\MSPUB.EXE", "*\\ONENOTE.EXE", "*\\ONENOTEM.EXE", "*\\OUTLOOK.EXE", "*\\POWERPNT.EXE", "*\\WINWORD.exe"))
+OriginalFileName IN ("Excel.exe", "MSACCESS.EXE", "MSPUB.EXE", "OneNote.exe", "OneNoteM.exe", "OUTLOOK.EXE", "POWERPNT.EXE", "WinWord.exe", "Olk.exe") OR Description IN ("Microsoft Access", "Microsoft Excel", "Microsoft OneNote", "Microsoft Outlook", "Microsoft PowerPoint", "Microsoft Publisher", "Microsoft Word", "Sent to OneNote Tool") NOT (Image IN ("*\\EXCEL.exe", "*\\excelcnv.exe", "*\\MSACCESS.exe", "*\\MSPUB.EXE", "*\\ONENOTE.EXE", "*\\ONENOTEM.EXE", "*\\OUTLOOK.EXE", "*\\POWERPNT.EXE", "*\\WINWORD.exe", "*\\OLK.EXE"))

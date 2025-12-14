@@ -1,0 +1,11 @@
+# Title: Remove Immutable File Attribute - Auditd
+# Author: Jakob Weinzettl, oscd.community
+# Date: 2019-09-23
+# Level: medium
+# Description: Detects removing immutable file attribute.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1222.002
+# False Positives:
+#   - Administrator interacting with immutable files (e.g. for instance backups).
+
+a0="*chattr*" a1="*-i*" type="EXECVE"

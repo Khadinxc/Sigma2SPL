@@ -6,4 +6,4 @@
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion, attack.impact, attack.t1490
 
-ImageLoaded="*\\vsstrace.dll" NOT (NOT Image=* OR Image IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*") OR Image IN ("C:\\Windows\\explorer.exe", "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe") OR Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\Temp\\{*", "C:\\Windows\\WinSxS\\*", "C:\\ProgramData\\Package Cache\\{*")) NOT (Image="*\\temp\\is-*" Image="*\\avira_system_speedup.tmp*")
+ImageLoaded="*\\vsstrace.dll" NOT (NOT Image=* OR Image IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*") OR Image IN ("C:\\Windows\\explorer.exe", "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe") OR Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\Temp\\{*", "C:\\Windows\\WinSxS\\*", "C:\\ProgramData\\Package Cache\\{*")) NOT ((Image="*\\temp\\is-*" Image="*\\avira_system_speedup.tmp*") OR Image="C:\\$WinREAgent\\Scratch\\*")

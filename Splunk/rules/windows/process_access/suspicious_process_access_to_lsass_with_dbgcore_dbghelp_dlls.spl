@@ -1,0 +1,13 @@
+# Title: Suspicious Process Access to LSASS with Dbgcore/Dbghelp DLLs
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-27
+# Level: high
+# Description: Detects suspicious process access to LSASS.exe from processes located in uncommon locations with dbgcore.dll or dbghelp.dll in the call trace.
+# These DLLs contain functions like MiniDumpWriteDump that can be abused for credential dumping purposes. While modern tools like Mimikatz have moved to using ntdll.dll,
+# dbgcore.dll and dbghelp.dll are still used by basic credential dumping utilities and legacy tools for LSASS memory access and process suspension techniques.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001, attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Possibly during software installation or update processes
+
+CallTrace IN ("*dbgcore.dll*", "*dbghelp.dll*") TargetImage="*\\lsass.exe" SourceImage IN ("*:\\Perflogs\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*\\$Recycle.Bin\\*", "*\\AppData\\Roaming\\*", "*\\Contacts\\*", "*\\Desktop\\*", "*\\Documents\\*", "*\\Downloads\\*", "*\\Favorites\\*", "*\\Favourites\\*", "*\\inetpub\\wwwroot\\*", "*\\Music\\*", "*\\Pictures\\*", "*\\Start Menu\\Programs\\Startup\\*", "*\\Users\\Default\\*", "*\\Videos\\*", "*\\Windows\\Temp\\*")

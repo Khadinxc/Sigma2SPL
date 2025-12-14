@@ -1,0 +1,11 @@
+# Title: Disable System Firewall
+# Author: Pawel Mazur
+# Date: 2022-01-22
+# Level: high
+# Description: Detects disabling of system firewalls which could be used by adversaries to bypass controls that limit usage of the network.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.t1562.004, attack.defense-evasion
+# False Positives:
+#   - Admin activity
+
+type="SERVICE_STOP" unit IN ("firewalld", "iptables", "ufw")

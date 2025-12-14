@@ -1,0 +1,12 @@
+# Title: System Owner or User Discovery - Linux
+# Author: Timur Zinniatullin, oscd.community
+# Date: 2019-10-21
+# Level: low
+# Description: Detects the execution of host or user discovery utilities such as "whoami", "hostname", "id", etc.
+# Adversaries may use the information from System Owner/User Discovery during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1033
+# False Positives:
+#   - Admin activity
+
+a0 IN ("hostname", "id", "last", "uname", "users", "w", "who", "whoami") type="EXECVE"

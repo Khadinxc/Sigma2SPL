@@ -1,0 +1,12 @@
+# Title: Overwriting the File with Dev Zero or Null
+# Author: Jakob Weinzettl, oscd.community
+# Date: 2019-10-23
+# Level: low
+# Description: Detects overwriting (effectively wiping/deleting) of a file.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1485
+# False Positives:
+#   - Appending null bytes to files.
+#   - Legitimate overwrite of files.
+
+a0="*dd*" a1 IN ("*if=/dev/null*", "*if=/dev/zero*") type="EXECVE"

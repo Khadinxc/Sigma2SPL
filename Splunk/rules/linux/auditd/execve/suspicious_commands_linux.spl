@@ -1,0 +1,11 @@
+# Title: Suspicious Commands Linux
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-12-12
+# Level: medium
+# Description: Detects relevant commands often related to malware or hacking activity
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.004
+# False Positives:
+#   - Admin activity
+
+(a0="chmod" a1=777 type="EXECVE") OR (a0="chmod" a1="u+s" type="EXECVE") OR (a0="cp" a1="/bin/ksh" type="EXECVE") OR (a0="cp" a1="/bin/sh" type="EXECVE")

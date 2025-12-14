@@ -1,0 +1,11 @@
+# Title: Loading of Kernel Module via Insmod
+# Author: Pawel Mazur
+# Date: 2021-11-02
+# Level: high
+# Description: Detects loading of kernel modules with insmod command.
+# Loadable Kernel Modules (LKMs) are pieces of code that can be loaded and unloaded into the kernel upon demand.
+# Adversaries may use LKMs to obtain persistence within the system or elevate the privileges.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.t1547.006
+
+comm="insmod" exe="/usr/bin/kmod" type="SYSCALL"

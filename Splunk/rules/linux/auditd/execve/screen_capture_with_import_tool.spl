@@ -1,0 +1,13 @@
+# Title: Screen Capture with Import Tool
+# Author: Pawel Mazur
+# Date: 2021-09-21
+# Level: low
+# Description: Detects adversary creating screen capture of a desktop with Import Tool.
+# Highly recommended using rule on servers, due to high usage of screenshot utilities on user workstations.
+# ImageMagick must be installed.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1113
+# False Positives:
+#   - Legitimate use of screenshot utility
+
+a0="import" type="EXECVE" (a1="-window" a2="root" a3 IN ("*.png", "*.jpg", "*.jpeg")) OR a1 IN ("*.png", "*.jpg", "*.jpeg")

@@ -1,0 +1,12 @@
+# Title: Suspicious Loading of Dbgcore/Dbghelp DLLs from Uncommon Location
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-27
+# Level: high
+# Description: Detects loading of dbgcore.dll or dbghelp.dll from uncommon locations such as user directories.
+# These DLLs contain the MiniDumpWriteDump function, which can be abused for credential dumping purposes or in some cases for evading EDR/AV detection by suspending processes.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003, attack.defense-evasion, attack.t1562.001
+# False Positives:
+#   - Possibly during software installation or update processes
+
+ImageLoaded IN ("*\\dbgcore.dll", "*\\dbghelp.dll") Image IN ("*:\\Perflogs\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*\\$Recycle.Bin\\*", "*\\Contacts\\*", "*\\Desktop\\*", "*\\Documents\\*", "*\\Downloads\\*", "*\\Favorites\\*", "*\\Favourites\\*", "*\\inetpub\\wwwroot\\*", "*\\Music\\*", "*\\Pictures\\*", "*\\Start Menu\\Programs\\Startup\\*", "*\\Users\\Default\\*", "*\\Videos\\*")

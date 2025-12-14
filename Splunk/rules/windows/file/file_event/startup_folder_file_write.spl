@@ -8,4 +8,4 @@
 # False Positives:
 #   - FP could be caused by legitimate application writing shortcuts for example. This folder should always be inspected to make sure that all the files in there are legitimate
 
-TargetFilename="*\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp*" NOT (Image="C:\\Windows\\System32\\wuauclt.exe" OR TargetFilename="C:\\$WINDOWS.~BT\\NewOS\\*") NOT (Image="*\\ONENOTE.EXE" TargetFilename="*\\Send to OneNote.lnk")
+TargetFilename="*\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp*" NOT (Image IN ("C:\\Windows\\System32\\wuauclt.exe", "C:\\Windows\\uus\\ARM64\\wuaucltcore.exe") OR TargetFilename IN ("C:\\$WINDOWS.~BT\\NewOS\\*", "C:\\$WinREAgent\\Scratch\\Mount\\*")) NOT (Image="*\\ONENOTE.EXE" TargetFilename="*\\Send to OneNote.lnk")
