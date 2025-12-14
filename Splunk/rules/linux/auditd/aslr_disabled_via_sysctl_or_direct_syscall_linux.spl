@@ -13,4 +13,4 @@
 # False Positives:
 #   - Debugging or legitimate software testing
 
-(a0=40000 syscall="personality" type="SYSCALL") OR (a0="sysctl" a1="-w" a2="kernel.randomize_va_space=0" type="EXECVE")
+(SYSCALL="personality" a0=40000 type="SYSCALL") OR (a0="sysctl" a1="-w" a2="kernel.randomize_va_space=0" type="EXECVE")

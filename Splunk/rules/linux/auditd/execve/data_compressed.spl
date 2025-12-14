@@ -1,0 +1,11 @@
+# Title: Data Compressed
+# Author: Timur Zinniatullin, oscd.community
+# Date: 2019-10-21
+# Level: low
+# Description: An adversary may compress data (e.g., sensitive documents) that is collected prior to exfiltration in order to make it portable and minimize the amount of data sent over the network.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.collection, attack.t1560.001
+# False Positives:
+#   - Legitimate use of archiving tools by legitimate user.
+
+(a0="zip" type="execve") OR (a0="gzip" a1="-k" type="execve") OR (a0="tar" a1="*-c*" type="execve")

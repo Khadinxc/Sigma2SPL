@@ -1,0 +1,9 @@
+# Title: Modification of ld.so.preload
+# Author: E.M. Anhaus (originally from Atomic Blue Detections, Tony Lambert), oscd.community
+# Date: 2019-10-24
+# Level: high
+# Description: Identifies modification of ld.so.preload for shared object injection. This technique is used by attackers to load arbitrary code into processes.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.006
+
+name="/etc/ld.so.preload" type="PATH"

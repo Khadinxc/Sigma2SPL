@@ -1,0 +1,13 @@
+# Title: Service Reload or Start - Linux
+# Author: Jakob Weinzettl, oscd.community, CheraghiMilad
+# Date: 2019-09-23
+# Level: low
+# Description: Detects the start, reload or restart of a service.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1543.002
+# False Positives:
+#   - Installation of legitimate service.
+#   - Legitimate reconfiguration of service.
+#   - Command line contains daemon-reload.
+
+a0 IN ("*systemctl*", "*service*") a1 IN ("*reload*", "*start*") type="EXECVE"

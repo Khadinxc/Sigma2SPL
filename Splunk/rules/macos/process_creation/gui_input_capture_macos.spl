@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate administration tools and activities
 
-Image="/usr/sbin/osascript" CommandLine="*-e*" CommandLine="*display*" CommandLine="*dialog*" CommandLine="*answer*" CommandLine IN ("*admin*", "*administrator*", "*authenticate*", "*authentication*", "*credentials*", "*pass*", "*password*", "*unlock*")
+CommandLine="*-e*" CommandLine="*display*" CommandLine="*dialog*" CommandLine="*answer*" CommandLine IN ("*admin*", "*administrator*", "*authenticate*", "*authentication*", "*credentials*", "*pass*", "*password*", "*unlock*") Image="*/osascript"

@@ -6,4 +6,4 @@
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
 
-TargetFilename IN ("*\\WerFault.exe", "*\\wer.dll") NOT (TargetFilename IN ("C:\\Windows\\SoftwareDistribution\\*", "C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*"))
+TargetFilename IN ("*\\WerFault.exe", "*\\wer.dll") NOT (TargetFilename IN ("C:\\Windows\\SoftwareDistribution\\*", "C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*", "C:\\Windows\\UUS\\arm64\\*"))

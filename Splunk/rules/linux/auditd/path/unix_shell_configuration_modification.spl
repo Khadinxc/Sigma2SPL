@@ -1,0 +1,11 @@
+# Title: Unix Shell Configuration Modification
+# Author: Peter Matkovski, IAI
+# Date: 2023-03-06
+# Level: medium
+# Description: Detect unix shell configuration modification. Adversaries may establish persistence through executing malicious commands triggered when a new shell is opened.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1546.004
+# False Positives:
+#   - Admin or User activity are expected to generate some false positives
+
+name IN ("/etc/shells", "/etc/profile", "/etc/profile.d/*", "/etc/bash.bashrc", "/etc/bashrc", "/etc/zsh/zprofile", "/etc/zsh/zshrc", "/etc/zsh/zlogin", "/etc/zsh/zlogout", "/etc/csh.cshrc", "/etc/csh.login", "/root/.bashrc", "/root/.bash_profile", "/root/.profile", "/root/.zshrc", "/root/.zprofile", "/home/*/.bashrc", "/home/*/.zshrc", "/home/*/.bash_profile", "/home/*/.zprofile", "/home/*/.profile", "/home/*/.bash_login", "/home/*/.bash_logout", "/home/*/.zlogin", "/home/*/.zlogout") type="PATH"

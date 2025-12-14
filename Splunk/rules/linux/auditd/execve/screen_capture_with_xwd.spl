@@ -1,0 +1,11 @@
+# Title: Screen Capture with Xwd
+# Author: Pawel Mazur
+# Date: 2021-09-13
+# Level: low
+# Description: Detects adversary creating screen capture of a full with xwd. Highly recommended using rule on servers, due high usage of screenshot utilities on user workstations
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1113
+# False Positives:
+#   - Legitimate use of screenshot utility
+
+a0="xwd" type="EXECVE" (a1="-out" a2="*.xwd") OR (a1="-root" a2="-out" a3="*.xwd")

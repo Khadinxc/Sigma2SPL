@@ -1,0 +1,11 @@
+# Title: Creation Of An User Account
+# Author: Marie Euler, Pawel Mazur
+# Date: 2020-05-18
+# Level: medium
+# Description: Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system.
+# MITRE Tactic: Persistence
+# Tags: attack.t1136.001, attack.persistence
+# False Positives:
+#   - Admin activity
+
+type="ADD_USER" OR (exe="*/useradd" type="SYSCALL")

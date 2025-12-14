@@ -1,0 +1,12 @@
+# Title: Program Executions in Suspicious Folders
+# Author: Florian Roth (Nextron Systems)
+# Date: 2018-01-23
+# Level: medium
+# Description: Detects program executions in suspicious non-program folders related to malware or hacking activity
+# MITRE Tactic: Resource Development
+# Tags: attack.t1587, attack.t1584, attack.resource-development
+# False Positives:
+#   - Admin activity (especially in /tmp folders)
+#   - Crazy web applications
+
+exe IN ("/tmp/*", "/var/www/*", "/home/*/public_html/*", "/usr/local/apache2/*", "/usr/local/httpd/*", "/var/apache/*", "/srv/www/*", "/home/httpd/html/*", "/srv/http/*", "/usr/share/nginx/html/*", "/var/lib/pgsql/data/*", "/usr/local/mysql/data/*", "/var/lib/mysql/*", "/var/vsftpd/*", "/etc/bind/*", "/var/named/*") type="SYSCALL"

@@ -1,0 +1,11 @@
+# Title: BPFDoor Abnormal Process ID or Lock File Accessed
+# Author: Rafal Piasecki
+# Date: 2022-08-10
+# Level: high
+# Description: detects BPFDoor .lock and .pid files access in temporary file storage facility
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1106, attack.t1059
+# False Positives:
+#   - Unlikely
+
+name IN ("/var/run/haldrund.pid", "/var/run/xinetd.lock", "/var/run/kdevrund.pid") type="PATH"

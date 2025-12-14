@@ -6,4 +6,4 @@
 # MITRE Tactic: Collection
 # Tags: attack.collection, attack.t1123
 
-(a0="arecord" a1="-vv" a2="-fdat" type="EXECVE") OR (exe="*/ecasound" syscall="memfd_create" type="SYSCALL")
+(a0="arecord" a1="-vv" a2="-fdat" type="EXECVE") OR (SYSCALL="memfd_create" exe="*/ecasound" type="SYSCALL")
