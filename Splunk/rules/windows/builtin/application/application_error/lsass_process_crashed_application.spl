@@ -1,0 +1,12 @@
+# Title: LSASS Process Crashed - Application
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-12-07
+# Level: high
+# Description: Detects Windows error reporting events where the process that crashed is LSASS (Local Security Authority Subsystem Service).
+# This could be the cause of a provoked crash by techniques such as Lsass-Shtinkering to dump credentials.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# False Positives:
+#   - Rare legitimate crashing of the lsass process
+
+AppName="lsass.exe" EventID=1000 ExceptionCode="c0000001" Provider_Name="Application Error"

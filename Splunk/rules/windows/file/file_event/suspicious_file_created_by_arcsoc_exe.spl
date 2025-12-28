@@ -1,0 +1,13 @@
+# Title: Suspicious File Created by ArcSOC.exe
+# Author: Micah Babinski
+# Date: 2025-11-25
+# Level: high
+# Description: Detects instances where the ArcGIS Server process ArcSOC.exe, which hosts REST services running on an ArcGIS
+# server, creates a file with suspicious file type, indicating that it may be an executable, script file,
+# or otherwise unusual.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.command-and-control, attack.persistence, attack.initial-access, attack.t1127, attack.t1105, attack.t1133
+# False Positives:
+#   - Unlikely
+
+Image="*\\ArcSOC.exe" TargetFilename IN ("*.ahk", "*.aspx", "*.au3", "*.bat", "*.cmd", "*.dll", "*.exe", "*.hta", "*.js", "*.ps1", "*.py", "*.vbe", "*.vbs", "*.wsf")

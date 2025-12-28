@@ -1,0 +1,11 @@
+# Title: Remote AppX Package Downloaded from File Sharing or CDN Domain
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-11
+# Level: high
+# Description: Detects an appx package that was added to the pipeline of the "to be processed" packages which was downloaded from a file sharing or CDN domain.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion
+# False Positives:
+#   - Unlikely, unless the organization uses file sharing or CDN services to distribute internal applications.
+
+EventID=854 Path IN ("*.githubusercontent.com*", "*anonfiles.com*", "*cdn.discordapp.com*", "*ddns.net*", "*dl.dropboxusercontent.com*", "*ghostbin.co*", "*github.com*", "*glitch.me*", "*gofile.io*", "*hastebin.com*", "*mediafire.com*", "*mega.nz*", "*onrender.com*", "*pages.dev*", "*paste.ee*", "*pastebin.com*", "*pastebin.pl*", "*pastetext.net*", "*privatlab.com*", "*privatlab.net*", "*send.exploit.in*", "*sendspace.com*", "*storage.googleapis.com*", "*storjshare.io*", "*supabase.co*", "*temp.sh*", "*transfer.sh*", "*trycloudflare.com*", "*ufile.io*", "*w3spaces.com*", "*workers.dev*")

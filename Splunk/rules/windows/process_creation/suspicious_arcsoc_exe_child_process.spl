@@ -1,0 +1,12 @@
+# Title: Suspicious ArcSOC.exe Child Process
+# Author: Micah Babinski
+# Date: 2025-11-25
+# Level: high
+# Description: Detects script interpreters, command-line tools, and similar suspicious child processes of ArcSOC.exe.
+# ArcSOC.exe is the process name which hosts ArcGIS Server REST services. If an attacker compromises an ArcGIS
+# Server system and uploads a malicious Server Object Extension (SOE), they can send crafted requests to the corresponding
+# service endpoint and remotely execute code from the ArcSOC.exe process.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059, attack.t1203
+
+Image IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wmic.exe", "*\\wscript.exe") ParentImage="*\\ArcSOC.exe" NOT (CommandLine="cmd.exe /c \"ver\"" Image="*\\cmd.exe")
