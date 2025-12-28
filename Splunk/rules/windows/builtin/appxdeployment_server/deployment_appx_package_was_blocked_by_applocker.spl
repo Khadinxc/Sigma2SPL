@@ -2,8 +2,10 @@
 # Author: frack113
 # Date: 2023-01-11
 # Level: medium
-# Description: Detects an appx package deployment that was blocked by AppLocker policy
+# Description: Detects an appx package deployment that was blocked by AppLocker policy.
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion
+# False Positives:
+#   - Unlikely, since this event notifies about blocked application deployment. Tune your applocker rules to avoid blocking legitimate applications.
 
 EventID=412

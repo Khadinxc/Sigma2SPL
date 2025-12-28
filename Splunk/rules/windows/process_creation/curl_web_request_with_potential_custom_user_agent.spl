@@ -6,5 +6,7 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution
 
-CommandLine="*User-Agent:*" Image="*\\curl.exe" OR OriginalFileName="curl.exe"
-| regex CommandLine="\\s-H\\s"
+
+| rex field=CommandLine "(?<CommandLineMatch>\\s-H\\s)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| search Image="*\\curl.exe" OR OriginalFileName="curl.exe" CommandLineCondition="true" OR CommandLine="*--header*" CommandLine="*User-Agent:*"

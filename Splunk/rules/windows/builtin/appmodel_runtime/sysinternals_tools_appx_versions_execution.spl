@@ -2,10 +2,11 @@
 # Author: Nasreddine Bencherchali (Nextron Systems)
 # Date: 2023-01-16
 # Level: low
-# Description: Detects execution of Sysinternals tools via an AppX package. Attackers could install the Sysinternals Suite to get access to tools such as psexec and procdump to avoid detection based on System paths
+# Description: Detects execution of Sysinternals tools via an AppX package.
+# Attackers could install the Sysinternals Suite to get access to tools such as psexec and procdump to avoid detection based on System paths.
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion, attack.execution
 # False Positives:
-#   - Legitimate usage of the applications from the Windows Store
+#   - Legitimate usage of sysinternals applications from the Windows Store will trigger this. Apply exclusions as needed.
 
 EventID=201 ImageName IN ("procdump.exe", "psloglist.exe", "psexec.exe", "livekd.exe", "ADExplorer.exe")
