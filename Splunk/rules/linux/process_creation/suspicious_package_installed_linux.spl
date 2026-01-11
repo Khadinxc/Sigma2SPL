@@ -8,4 +8,4 @@
 # False Positives:
 #   - Legitimate administration activities
 
-(CommandLine="*install*" Image IN ("*/apt", "*/apt-get")) OR (CommandLine IN ("*--install*", "*-i*") Image="*/dpkg") OR (CommandLine="*-i*" Image="*/rpm") OR (CommandLine IN ("*localinstall*", "*install*") Image="*/yum") CommandLine IN ("*nmap*", "* nc*", "*netcat*", "*wireshark*", "*tshark*", "*openconnect*", "*proxychains*")
+(CommandLine="*install*" Image IN ("*/apt", "*/apt-get")) OR (CommandLine IN ("*--install*", "*-i*") Image="*/dpkg") OR (CommandLine="*-i*" Image="*/rpm") OR (CommandLine IN ("*localinstall*", "*install*") Image="*/yum") CommandLine IN ("*nmap*", "* nc*", "*netcat*", "*wireshark*", "*tshark*", "*openconnect*", "*proxychains*", "*socat*")
