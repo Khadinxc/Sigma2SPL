@@ -1,0 +1,13 @@
+# Title: Suspicious Shell Open Command Registry Modification
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2026-01-24
+# Level: medium
+# Description: Detects modifications to shell open registry keys that point to suspicious locations typically used by malware for persistence.
+# Generally, modifications to the `*\shell\open\command` registry key can indicate an attempt to change the default action for opening files,
+# and various UAC bypass or persistence techniques involve modifying these keys to execute malicious scripts or binaries.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.privilege-escalation, attack.persistence, attack.t1548.002, attack.t1546.001
+# False Positives:
+#   - Legitimate software installations or updates that modify the shell open command registry keys to these locations.
+
+Details IN ("*\\$Recycle.Bin\\*", "*\\AppData\\Local\\Temp\\*", "*\\Contacts\\*", "*\\Music\\*", "*\\PerfLogs\\*", "*\\Photos\\*", "*\\Pictures\\*", "*\\Users\\Public\\*", "*\\Videos\\*", "*\\Windows\\Temp\\*", "*%AppData%*", "*%LocalAppData%*", "*%Temp%*", "*%tmp%*") TargetObject="*\\shell\\open\\command\\*"

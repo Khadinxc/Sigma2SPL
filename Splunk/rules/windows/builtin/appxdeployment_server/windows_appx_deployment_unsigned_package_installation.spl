@@ -1,0 +1,11 @@
+# Title: Windows AppX Deployment Unsigned Package Installation
+# Author: Michael Haag, Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-03
+# Level: medium
+# Description: Detects attempts to install unsigned MSIX/AppX packages using the -AllowUnsigned parameter via AppXDeployment-Server events
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution, attack.t1204.002, attack.t1553.005
+# False Positives:
+#   - Legitimate installation of unsigned packages for legitimate purposes such as development or testing
+
+EventID=603 Flags="8388608"

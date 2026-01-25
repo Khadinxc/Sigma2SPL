@@ -6,4 +6,4 @@
 # MITRE Tactic: Discovery
 # Tags: attack.discovery, attack.t1083
 
-CommandLine="* -r *" OR CommandLine="* /r *" OR CommandLine="* –r *" OR CommandLine="* —r *" OR CommandLine="* ―r *" Image="*/getcap"
+CommandLine="* -r *" Image="*/getcap"
