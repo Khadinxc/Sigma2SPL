@@ -2,9 +2,10 @@
 # Author: Nasreddine Bencherchali (Nextron Systems), fornotes
 # Date: 2022-12-01
 # Level: medium
-# Description: Detects the creation of system DLLs that are usually not present on the system (or at least not in system directories).
-# Usually this technique is used to achieve DLL hijacking.
+# Description: Detects creation of specific system DLL files that are  usually not present on the system (or at least not in system directories) but may be loaded by legitimate processes.
+# Phantom DLL hijacking involves placing malicious DLLs with names of non-existent system binaries in locations where legitimate applications may search for them, leading to execution of the malicious DLLs.
+# Thus, the creation of such DLLs may indicate preparation for phantom DLL hijacking attacks.
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001
 
-TargetFilename IN ("*:\\Windows\\System32\\TSMSISrv.dll", "*:\\Windows\\System32\\TSVIPSrv.dll", "*:\\Windows\\System32\\wbem\\wbemcomn.dll", "*:\\Windows\\System32\\WLBSCTRL.dll", "*:\\Windows\\System32\\wow64log.dll", "*:\\Windows\\System32\\WptsExtensions.dll", "*\\SprintCSP.dll")
+TargetFilename IN ("*:\\Windows\\System32\\axeonoffhelper.dll", "*:\\Windows\\System32\\cdpsgshims.dll", "*:\\Windows\\System32\\oci.dll", "*:\\Windows\\System32\\offdmpsvc.dll", "*:\\Windows\\System32\\shellchromeapi.dll", "*:\\Windows\\System32\\TSMSISrv.dll", "*:\\Windows\\System32\\TSVIPSrv.dll", "*:\\Windows\\System32\\wbem\\wbemcomn.dll", "*:\\Windows\\System32\\WLBSCTRL.dll", "*:\\Windows\\System32\\wow64log.dll", "*:\\Windows\\System32\\WptsExtensions.dll", "*\\SprintCSP.dll")

@@ -1,0 +1,13 @@
+# Title: Successful MSIX/AppX Package Installation
+# Author: Michael Haag, Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-11-03
+# Level: low
+# Description: Detects successful MSIX/AppX package installations on Windows systems by monitoring EventID 854 in the Microsoft-Windows-AppXDeployment-Server/Operational log.
+# While most installations are legitimate, this can help identify unauthorized or suspicious package installations.
+# It is crucial to monitor such events as threat actors may exploit MSIX/AppX packages to deliver and execute malicious payloads.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204.002, detection.threat-hunting
+# False Positives:
+#   - Legitimate MSIX/AppX package installations
+
+EventID=854

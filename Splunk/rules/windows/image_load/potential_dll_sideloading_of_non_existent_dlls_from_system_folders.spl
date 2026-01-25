@@ -2,9 +2,9 @@
 # Author: Nasreddine Bencherchali (Nextron Systems), SBousseaden
 # Date: 2022-12-09
 # Level: high
-# Description: Detects DLL sideloading of system DLLs that are not present on the system by default (at least not in system directories).
-# Usually this technique is used to achieve UAC bypass or privilege escalation.
+# Description: Detects loading of specific system DLL files that are usually not present on the system (or at least not in system directories) but may be loaded by legitimate processes, potentially indicating phantom DLL hijacking attempts.
+# Phantom DLL hijacking involves placing malicious DLLs with names of non-existent system binaries in locations where legitimate applications may search for them, leading to execution of the malicious DLLs.
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.001
 
-ImageLoaded IN ("*:\\Windows\\System32\\TSMSISrv.dll", "*:\\Windows\\System32\\TSVIPSrv.dll", "*:\\Windows\\System32\\wbem\\wbemcomn.dll", "*:\\Windows\\System32\\WLBSCTRL.dll", "*:\\Windows\\System32\\wow64log.dll", "*:\\Windows\\System32\\WptsExtensions.dll") NOT (Signature="Microsoft Windows" SignatureStatus="Valid" Signed="true")
+ImageLoaded IN ("*:\\Windows\\System32\\axeonoffhelper.dll", "*:\\Windows\\System32\\cdpsgshims.dll", "*:\\Windows\\System32\\oci.dll", "*:\\Windows\\System32\\offdmpsvc.dll", "*:\\Windows\\System32\\shellchromeapi.dll", "*:\\Windows\\System32\\TSMSISrv.dll", "*:\\Windows\\System32\\TSVIPSrv.dll", "*:\\Windows\\System32\\wbem\\wbemcomn.dll", "*:\\Windows\\System32\\WLBSCTRL.dll", "*:\\Windows\\System32\\wow64log.dll", "*:\\Windows\\System32\\WptsExtensions.dll") NOT (Signature="Microsoft Windows" SignatureStatus="Valid" Signed="true")
