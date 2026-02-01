@@ -1,0 +1,14 @@
+# Title: Cmd Launched with Hidden Start Flags to Suspicious Targets
+# Author: Vladan Sekulic, Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2026-01-24
+# Level: medium
+# Description: Detects cmd.exe executing commands with the "start" utility using "/b" (no window) or "/min" (minimized) flags.
+# To reduce false positives from standard background tasks, detection is restricted to scenarios where the target is a known script extension or located in suspicious temporary/public directories.
+# This technique was observed in Chaos, DarkSide, and Emotet malware campaigns.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564.003
+# False Positives:
+#   - Legitimate administrative scripts running from temporary folders.
+#   - Niche software updaters utilizing hidden batch files in ProgramData.
+
+CommandLine="*start *" OR CommandLine="*start/b*" OR CommandLine="*start/min*" CommandLine="*-b *" OR CommandLine="*/b *" OR CommandLine="*–b *" OR CommandLine="*—b *" OR CommandLine="*―b *" OR CommandLine="*-b\"*" OR CommandLine="*/b\"*" OR CommandLine="*–b\"*" OR CommandLine="*—b\"*" OR CommandLine="*―b\"*" OR CommandLine="*-min *" OR CommandLine="*/min *" OR CommandLine="*–min *" OR CommandLine="*—min *" OR CommandLine="*―min *" OR CommandLine="*-min\"*" OR CommandLine="*/min\"*" OR CommandLine="*–min\"*" OR CommandLine="*—min\"*" OR CommandLine="*―min\"*" Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe" CommandLine IN ("*.bat*", "*.cmd*", "*.cpl*", "*.hta*", "*.js*", "*.ps1*", "*.scr*", "*.vbe*", "*.vbs*") OR CommandLine IN ("* -nop *", "* -sta *", "*.downloadfile(*", "*.downloadstring(*", "*-noni *", "*-w hidden *") OR CommandLine IN ("*:\\Perflogs\\*", "*:\\Temp\\*", "*:\\Users\\Default\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\Roaming\\*", "*\\Contacts\\*", "*\\Documents\\*", "*\\Downloads\\*", "*\\Favorites\\*", "*\\Favourites\\*", "*\\inetpub\\*", "*\\Music\\*", "*\\Photos\\*", "*\\Temporary Internet\\*", "*\\Users\\Public\\*", "*\\Videos\\*")

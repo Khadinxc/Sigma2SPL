@@ -4,6 +4,6 @@
 # Level: high
 # Description: Detects usage of bitsadmin downloading a file to a suspicious target folder
 # MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.persistence, attack.t1197, attack.s0190, attack.t1036.003
+# Tags: attack.defense-evasion, attack.persistence, attack.t1197, attack.s0190, attack.t1036.003, attack.command-and-control, attack.t1105
 
-CommandLine IN ("* /transfer *", "* /create *", "* /addfile *") CommandLine IN ("*:\\Perflogs*", "*:\\ProgramData\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Roaming\\*", "*\\Desktop\\*", "*%ProgramData%*", "*%public%*") Image="*\\bitsadmin.exe" OR OriginalFileName="bitsadmin.exe"
+CommandLine IN ("* /transfer *", "* /create *", "* /addfile *") CommandLine IN ("*:\\Perflogs*", "*:\\ProgramData\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\*", "*\\$Recycle.Bin\\*", "*\\AppData\\Local\\*", "*\\AppData\\Roaming\\*", "*\\Contacts\\*", "*\\Desktop\\*", "*\\Favorites\\*", "*\\Favourites\\*", "*\\inetpub\\wwwroot\\*", "*\\Music\\*", "*\\Pictures\\*", "*\\Start Menu\\Programs\\Startup\\*", "*\\Users\\Default\\*", "*\\Videos\\*", "*%ProgramData%*", "*%public%*", "*%temp%*", "*%tmp%*") Image="*\\bitsadmin.exe" OR OriginalFileName="bitsadmin.exe"
