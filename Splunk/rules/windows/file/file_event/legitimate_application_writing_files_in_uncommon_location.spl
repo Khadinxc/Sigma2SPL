@@ -1,0 +1,10 @@
+# Title: Legitimate Application Writing Files In Uncommon Location
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-12-10
+# Level: high
+# Description: Detects legitimate applications writing any type of file to uncommon or suspicious locations that are not typical for application data storage or execution.
+# Adversaries may leverage legitimate applications (Living off the Land Binaries - LOLBins) to drop or download malicious files to uncommon locations on the system to evade detection by security solutions.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1218, attack.command-and-control, attack.t1105
+
+Image IN ("*\\eqnedt32.exe", "*\\wordpad.exe", "*\\wordview.exe", "*\\cmdl32.exe", "*\\certutil.exe", "*\\certoc.exe", "*\\CertReq.exe", "*\\bitsadmin.exe", "*\\Desktopimgdownldr.exe", "*\\esentutl.exe", "*\\expand.exe", "*\\extrac32.exe", "*\\replace.exe", "*\\mshta.exe", "*\\ftp.exe", "*\\Ldifde.exe", "*\\RdrCEF.exe", "*\\hh.exe", "*\\finger.exe", "*\\findstr.exe") TargetFilename IN ("*:\\Perflogs*", "*:\\ProgramData\\*", "*:\\Temp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\*", "*\\$Recycle.Bin\\*", "*\\AppData\\Local\\*", "*\\AppData\\Roaming\\*", "*\\Contacts\\*", "*\\Desktop\\*", "*\\Favorites\\*", "*\\Favourites\\*", "*\\inetpub\\wwwroot\\*", "*\\Music\\*", "*\\Pictures\\*", "*\\Start Menu\\Programs\\Startup\\*", "*\\Users\\Default\\*", "*\\Videos\\*")

@@ -1,0 +1,11 @@
+# Title: Windows AMSI Related Registry Tampering Via CommandLine
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2025-12-25
+# Level: high
+# Description: Detects tampering of AMSI (Anti-Malware Scan Interface) related registry values via command line tools such as reg.exe or PowerShell.
+# AMSI provides a generic interface for applications and services to integrate with antimalware products.
+# Adversaries may disable AMSI to evade detection of malicious scripts and code execution.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.001, attack.t1562.006
+
+CommandLine="*\\Software\\Microsoft\\Windows Script\\Settings*" CommandLine="*AmsiEnable*" (CommandLine IN ("*Set-ItemProperty*", "*New-ItemProperty*", "*sp *") Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll")) OR (CommandLine="*add*" Image="*\\reg.exe" OR OriginalFileName="reg.exe")

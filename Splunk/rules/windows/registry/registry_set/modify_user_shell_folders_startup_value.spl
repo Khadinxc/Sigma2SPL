@@ -1,9 +1,11 @@
 # Title: Modify User Shell Folders Startup Value
-# Author: frack113
+# Author: frack113, Swachchhanda Shrawan Poudel (Nextron Systems)
 # Date: 2022-10-01
 # Level: high
-# Description: Detect modification of the startup key to a path where a payload could be stored to be launched during startup
+# Description: Detect modification of the User Shell Folders registry values for Startup or Common Startup which could indicate persistence attempts.
+# Attackers may modify User Shell Folders registry keys to point to malicious executables or scripts that will be executed during startup.
+# This technique is often used to maintain persistence on a compromised system by ensuring that the malicious payload is executed automatically.
 # MITRE Tactic: Persistence
 # Tags: attack.persistence, attack.privilege-escalation, attack.t1547.001
 
-TargetObject="*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders*" TargetObject="*Startup"
+TargetObject IN ("*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders*", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders*") TargetObject IN ("*\\Common Startup", "*\\Startup") NOT (NOT Details=* OR Details IN ("*C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup*", "*%ProgramData%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup*") OR Details IN ("*%USERPROFILE%\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup*", "*%%USERPROFILE%%\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup*") OR (Details="*C:\\Users\\*" Details="*\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup*"))
