@@ -1,0 +1,13 @@
+# Title: Notepad++ Updater DNS Query to Uncommon Domains
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2026-02-02
+# Level: medium
+# Description: Detects when the Notepad++ updater (gup.exe) makes DNS queries to domains that are not part of the known legitimate update infrastructure.
+# This could indicate potential exploitation of the updater mechanism or suspicious network activity that warrants further investigation.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.credential-access, attack.t1195.002, attack.initial-access, attack.t1557
+# False Positives:
+#   - Some legitimate network misconfigurations or proxy issues causing unexpected DNS queries.
+#   - Other legitimate query to official domains not listed in the filter, needing tuning.
+
+Image="*\\gup.exe" NOT QueryName="notepad-plus-plus.org" NOT (QueryName IN ("*.githubusercontent.com", "github.com") OR QueryName="*.googleapis.com" OR QueryName="*.sourceforge.net")
