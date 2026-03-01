@@ -8,4 +8,4 @@
 # False Positives:
 #   - This rule doesn't exclude other known TLDs such as ".org" or ".net". It's recommended to apply additional filters for software and scripts that leverage the BITS service
 
-EventID=16403 NOT (RemoteName IN ("*.azureedge.net/*", "*.com/*", "*.sfx.ms/*", "*download.mozilla.org/*", "*cdn.onenote.net/*", "*cdn.office.net/*"))
+EventID=16403 NOT (RemoteName IN ("*.azureedge.net/*", "*.com/*", "*.sfx.ms/*", "*download.mozilla.org/*", "*cdn.onenote.net/*", "*cdn.office.net/*", "*tscdn.m365.static.microsoft/*"))
