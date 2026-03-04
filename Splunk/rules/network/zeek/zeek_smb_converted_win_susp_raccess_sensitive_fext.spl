@@ -1,0 +1,13 @@
+# Title: Suspicious Access to Sensitive File Extensions - Zeek
+# Author: Samir Bousseaden, @neu5ron
+# Date: 2020-04-02
+# Level: medium
+# Description: Detects known sensitive file extensions via Zeek
+# MITRE Tactic: Collection
+# Tags: attack.collection
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/zeek/zeek_smb_converted_win_susp_raccess_sensitive_fext.yml
+# False Positives:
+#   - Help Desk operator doing backup or re-imaging end user machine or backup software
+#   - Users working with these data types or exchanging message files
+
+name IN ("*.pst", "*.ost", "*.msg", "*.nst", "*.oab", "*.edb", "*.nsf", "*.bak", "*.dmp", "*.kirbi", "*.rdp")

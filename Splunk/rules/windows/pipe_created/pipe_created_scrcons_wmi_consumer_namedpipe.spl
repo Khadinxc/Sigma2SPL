@@ -1,0 +1,10 @@
+# Title: WMI Event Consumer Created Named Pipe
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-09-01
+# Level: medium
+# Description: Detects the WMI Event Consumer service scrcons.exe creating a named pipe
+# MITRE Tactic: Execution
+# Tags: attack.t1047, attack.execution
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_scrcons_wmi_consumer_namedpipe.yml
+
+Image="*\\scrcons.exe"

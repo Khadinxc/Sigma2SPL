@@ -1,0 +1,10 @@
+# Title: Potential DCOM InternetExplorer.Application DLL Hijack - Image Load
+# Author: Roberto Rodriguez @Cyb3rWard0g, Open Threat Research (OTR), wagga
+# Date: 2020-10-12
+# Level: critical
+# Description: Detects potential DLL hijack of "iertutil.dll" found in the DCOM InternetExplorer.Application Class
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002, attack.t1021.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_iexplore_dcom_iertutil_dll_hijack.yml
+
+ImageLoaded="*\\Internet Explorer\\iertutil.dll" Image="*\\Internet Explorer\\iexplore.exe"

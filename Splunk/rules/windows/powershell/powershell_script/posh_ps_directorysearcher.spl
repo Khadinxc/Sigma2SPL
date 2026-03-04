@@ -1,0 +1,10 @@
+# Title: DirectorySearcher Powershell Exploitation
+# Author: frack113
+# Date: 2022-02-12
+# Level: medium
+# Description: Enumerates Active Directory to determine computers that are joined to the domain
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1018
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_directorysearcher.yml
+
+ScriptBlockText="*New-Object *" ScriptBlockText="*System.DirectoryServices.DirectorySearcher*" ScriptBlockText="*.PropertiesToLoad.Add*" ScriptBlockText="*.findall()*" ScriptBlockText="*Properties.name*"

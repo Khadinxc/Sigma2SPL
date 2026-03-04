@@ -1,0 +1,10 @@
+# Title: PsExec Default Named Pipe
+# Author: Thomas Patzke
+# Date: 2017-06-12
+# Level: low
+# Description: Detects PsExec service default pipe creation
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002, attack.s0029, detection.threat-hunting
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/pipe_created/pipe_created_sysinternals_psexec_default_pipe.yml
+
+PipeName="\\PSEXESVC"

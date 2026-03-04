@@ -1,0 +1,10 @@
+# Title: Remove Exported Mailbox from Exchange Webserver
+# Author: Christian Burkard (Nextron Systems)
+# Date: 2021-08-27
+# Level: high
+# Description: Detects removal of an exported Exchange mailbox which could be to cover tracks from ProxyShell exploit
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1070
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/msexchange/win_exchange_proxyshell_remove_mailbox_export.yml
+
+"Remove-MailboxExportRequest" " -Identity " " -Confirm \"False\""

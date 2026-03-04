@@ -1,0 +1,12 @@
+# Title: Kerberos Network Traffic RC4 Ticket Encryption
+# Author: sigma
+# Date: 2020-02-12
+# Level: medium
+# Description: Detects kerberos TGS request using RC4 encryption which may be indicative of kerberoasting
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/zeek/zeek_susp_kerberos_rc4.yml
+# False Positives:
+#   - Normal enterprise SPN requests activity
+
+cipher="rc4-hmac" request_type="TGS" NOT service="$*"

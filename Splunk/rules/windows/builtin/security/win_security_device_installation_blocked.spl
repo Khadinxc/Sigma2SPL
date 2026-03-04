@@ -1,0 +1,10 @@
+# Title: Device Installation Blocked
+# Author: frack113
+# Date: 2022-10-14
+# Level: medium
+# Description: Detects an installation of a device that is forbidden by the system policy
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1200
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_device_installation_blocked.yml
+
+EventID=6423

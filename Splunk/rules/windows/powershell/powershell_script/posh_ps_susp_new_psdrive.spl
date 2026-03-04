@@ -1,0 +1,10 @@
+# Title: Suspicious New-PSDrive to Admin Share
+# Author: frack113
+# Date: 2022-08-13
+# Level: medium
+# Description: Adversaries may use to interact with a remote network share using Server Message Block (SMB). The adversary may then perform actions as the logged-on user.
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_new_psdrive.yml
+
+ScriptBlockText="*New-PSDrive*" ScriptBlockText="*-psprovider *" ScriptBlockText="*filesystem*" ScriptBlockText="*-root *" ScriptBlockText="*\\\\*" ScriptBlockText="*$*"

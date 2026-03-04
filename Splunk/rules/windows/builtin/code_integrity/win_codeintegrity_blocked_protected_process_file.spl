@@ -1,0 +1,12 @@
+# Title: CodeIntegrity - Disallowed File For Protected Processes Has Been Blocked
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-06
+# Level: high
+# Description: Detects block events for files that are disallowed by code integrity for protected processes
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/code_integrity/win_codeintegrity_blocked_protected_process_file.yml
+# False Positives:
+#   - Unlikely
+
+EventID=3104

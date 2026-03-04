@@ -1,0 +1,10 @@
+# Title: JexBoss Command Sequence
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-08-24
+# Level: high
+# Description: Detects suspicious command sequence that JexBoss
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_susp_jexboss.yml
+
+"bash -c /bin/bash" "&/dev/tcp/"

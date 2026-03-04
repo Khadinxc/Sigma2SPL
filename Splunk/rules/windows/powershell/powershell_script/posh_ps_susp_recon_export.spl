@@ -1,0 +1,10 @@
+# Title: Recon Information for Export with PowerShell
+# Author: frack113
+# Date: 2021-07-30
+# Level: medium
+# Description: Once established within a system or network, an adversary may use automated techniques for collecting internal data
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1119
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_recon_export.yml
+
+ScriptBlockText IN ("*Get-Service *", "*Get-ChildItem *", "*Get-Process *") ScriptBlockText="*> $env:TEMP\\*"

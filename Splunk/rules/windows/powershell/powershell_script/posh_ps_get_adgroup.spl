@@ -1,0 +1,10 @@
+# Title: Active Directory Group Enumeration With Get-AdGroup
+# Author: frack113
+# Date: 2022-03-17
+# Level: low
+# Description: Detects usage of the "Get-AdGroup" cmdlet to enumerate Groups within Active Directory
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1069.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_get_adgroup.yml
+
+ScriptBlockText="*Get-AdGroup *" ScriptBlockText="*-Filter*"

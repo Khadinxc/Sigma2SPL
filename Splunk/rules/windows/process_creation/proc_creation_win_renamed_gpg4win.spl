@@ -1,0 +1,10 @@
+# Title: Renamed Gpg.EXE Execution
+# Author: Nasreddine Bencherchali (Nextron Systems), frack113
+# Date: 2023-08-09
+# Level: high
+# Description: Detects the execution of a renamed "gpg.exe". Often used by ransomware and loaders to decrypt/encrypt data.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1486
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_gpg4win.yml
+
+OriginalFileName="gpg.exe" NOT (Image IN ("*\\gpg.exe", "*\\gpg2.exe"))

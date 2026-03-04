@@ -1,0 +1,12 @@
+# Title: Access To ADMIN$ Network Share
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-04
+# Level: low
+# Description: Detects access to ADMIN$ network share
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.t1021.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_admin_share_access.yml
+# False Positives:
+#   - Legitimate administrative activity
+
+EventID=5140 ShareName="Admin$" NOT SubjectUserName="*$"

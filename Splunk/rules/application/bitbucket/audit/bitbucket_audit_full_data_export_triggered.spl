@@ -1,0 +1,12 @@
+# Title: Bitbucket Full Data Export Triggered
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-02-25
+# Level: high
+# Description: Detects when full data export is attempted.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1213.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_full_data_export_triggered.yml
+# False Positives:
+#   - Legitimate user activity.
+
+auditType.action="Full data export triggered" auditType.category="Data pipeline"

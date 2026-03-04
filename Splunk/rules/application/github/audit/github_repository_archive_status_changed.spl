@@ -5,6 +5,7 @@
 # Description: Detects when a GitHub repository is archived or unarchived, which may indicate unauthorized changes to repository status.
 # MITRE Tactic: Persistence
 # Tags: attack.persistence, attack.defense-evasion, attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_repository_archive_status_changed.yml
 # False Positives:
 #   - Archiving or unarchiving a repository is often legitimate. Investigate this action to determine if it was authorized.
 

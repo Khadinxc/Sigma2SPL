@@ -1,0 +1,12 @@
+# Title: Suspicious PowerShell Invocations - Generic - PowerShell Module
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-12
+# Level: high
+# Description: Detects suspicious PowerShell invocation command parameters
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_module/posh_pm_susp_invocation_generic.yml
+# False Positives:
+#   - Very special / sneaky PowerShell scripts
+
+ContextInfo IN ("* -enc *", "* -EncodedCommand *", "* -ec *") ContextInfo IN ("* -w hidden *", "* -window hidden *", "* -windowstyle hidden *", "* -w 1 *") ContextInfo IN ("* -noni *", "* -noninteractive *")

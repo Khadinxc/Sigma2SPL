@@ -1,0 +1,10 @@
+# Title: Remote Schedule Task Lateral Movement via SASec
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to create or execute a scheduled task via SASec
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.lateral-movement, attack.execution, attack.persistence, attack.t1053, attack.t1053.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/rpc_firewall/rpc_firewall_sasec_lateral_movement.yml
+
+EventID=3 EventLog="RPCFW" InterfaceUuid="378e52b0-c0a9-11cf-822d-00aa0051e40f" OpNum IN (0, 1)

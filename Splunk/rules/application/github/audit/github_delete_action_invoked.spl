@@ -5,6 +5,7 @@
 # Description: Detects delete action in the Github audit logs for codespaces, environment, project and repo.
 # MITRE Tactic: Impact
 # Tags: attack.impact, attack.collection, attack.t1213.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_delete_action_invoked.yml
 # False Positives:
 #   - Validate the deletion activity is permitted. The "actor" field need to be validated.
 

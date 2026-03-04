@@ -5,6 +5,7 @@
 # Description: Detects instances where an HTTP service on an OpenCanary node has had login attempt via Form POST.
 # MITRE Tactic: Initial Access
 # Tags: attack.initial-access, attack.t1190
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_http_post_login_attempt.yml
 # False Positives:
 #   - Unlikely
 

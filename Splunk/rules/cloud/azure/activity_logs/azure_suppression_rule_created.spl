@@ -5,6 +5,7 @@
 # Description: Identifies when a suppression rule is created in Azure. Adversary's could attempt this to evade detection.
 # MITRE Tactic: Impact
 # Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_suppression_rule_created.yml
 # False Positives:
 #   - Suppression Rule being created may be performed by a system administrator.
 #   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.

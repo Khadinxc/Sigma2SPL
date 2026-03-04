@@ -1,0 +1,10 @@
+# Title: DNS TXT Answer with Possible Execution Strings
+# Author: Markus Neis
+# Date: 2018-08-08
+# Level: high
+# Description: Detects strings used in command execution in DNS TXT Answer
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_susp_txt_exec_strings.yml
+
+answer IN ("*IEX*", "*Invoke-Expression*", "*cmd.exe*") record_type="TXT"

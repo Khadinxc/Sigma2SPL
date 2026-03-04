@@ -5,6 +5,7 @@
 # Description: Identifies when a new cloudshell is created inside of Azure portal.
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_new_cloudshell_created.yml
 # False Positives:
 #   - A new cloudshell may be created by a system administrator.
 

@@ -1,0 +1,10 @@
+# Title: DPAPI Domain Backup Key Extraction
+# Author: Roberto Rodriguez @Cyb3rWard0g
+# Date: 2019-06-20
+# Level: high
+# Description: Detects tools extracting LSA secret DPAPI domain backup key from Domain Controllers
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_dpapi_domain_backupkey_extraction.yml
+
+AccessMask="0x2" EventID=4662 ObjectName="*BCKUPKEY*" ObjectType="SecretObject"

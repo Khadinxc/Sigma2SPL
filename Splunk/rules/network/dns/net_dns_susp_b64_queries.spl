@@ -1,0 +1,10 @@
+# Title: Suspicious DNS Query with B64 Encoded String
+# Author: Florian Roth (Nextron Systems)
+# Date: 2018-05-10
+# Level: medium
+# Description: Detects suspicious DNS queries using base64 encoding
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1048.003, attack.command-and-control, attack.t1071.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_susp_b64_queries.yml
+
+query="*==.*"

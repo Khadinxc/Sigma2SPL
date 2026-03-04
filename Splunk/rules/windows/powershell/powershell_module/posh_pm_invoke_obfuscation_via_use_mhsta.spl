@@ -1,0 +1,10 @@
+# Title: Invoke-Obfuscation Via Use MSHTA - PowerShell Module
+# Author: Nikita Nazarov, oscd.community
+# Date: 2020-10-08
+# Level: high
+# Description: Detects Obfuscated Powershell via use MSHTA in Scripts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_via_use_mhsta.yml
+
+Payload="*set*" Payload="*&&*" Payload="*mshta*" Payload="*vbscript:createobject*" Payload="*.run*" Payload="*(window.close)*"

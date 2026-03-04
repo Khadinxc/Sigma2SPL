@@ -5,5 +5,6 @@
 # Description: Detects when a API Token is revoked.
 # MITRE Tactic: Impact
 # Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_api_token_revoked.yml
 
 eventtype="system.api_token.revoke"

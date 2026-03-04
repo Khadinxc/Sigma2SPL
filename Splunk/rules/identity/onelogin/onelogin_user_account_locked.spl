@@ -5,6 +5,7 @@
 # Description: Detects when an user account is locked or suspended.
 # MITRE Tactic: Impact
 # Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/onelogin/onelogin_user_account_locked.yml
 # False Positives:
 #   - System may lock or suspend user accounts.
 

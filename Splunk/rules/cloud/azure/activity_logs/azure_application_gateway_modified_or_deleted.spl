@@ -5,6 +5,7 @@
 # Description: Identifies when a application gateway is modified or deleted.
 # MITRE Tactic: Impact
 # Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_application_gateway_modified_or_deleted.yml
 # False Positives:
 #   - Application gateway being modified or deleted may be performed by a system administrator.
 #   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.

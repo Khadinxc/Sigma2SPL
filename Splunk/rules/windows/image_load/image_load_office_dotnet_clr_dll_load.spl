@@ -1,0 +1,10 @@
+# Title: CLR DLL Loaded Via Office Applications
+# Author: Antonlovesdnb
+# Date: 2020-02-19
+# Level: medium
+# Description: Detects CLR DLL being loaded by an Office Product
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_dotnet_clr_dll_load.yml
+
+ImageLoaded="*\\clr.dll*" Image IN ("*\\excel.exe", "*\\mspub.exe", "*\\outlook.exe", "*\\onenote.exe", "*\\onenoteim.exe", "*\\powerpnt.exe", "*\\winword.exe")

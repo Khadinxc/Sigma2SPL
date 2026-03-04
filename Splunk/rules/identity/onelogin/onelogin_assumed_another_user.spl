@@ -1,0 +1,10 @@
+# Title: OneLogin User Assumed Another User
+# Author: Austin Songer @austinsonger
+# Date: 2021-10-12
+# Level: low
+# Description: Detects when an user assumed another user account.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/onelogin/onelogin_assumed_another_user.yml
+
+event_type_id=3

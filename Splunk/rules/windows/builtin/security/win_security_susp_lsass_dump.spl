@@ -1,0 +1,10 @@
+# Title: Password Dumper Activity on LSASS
+# Author: sigma
+# Date: 2017-02-12
+# Level: high
+# Description: Detects process handle on LSASS process with certain access mask and object type SAM_DOMAIN
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_lsass_dump.yml
+
+AccessMask="0x705" EventID=4656 ObjectType="SAM_DOMAIN" ProcessName="*\\lsass.exe"

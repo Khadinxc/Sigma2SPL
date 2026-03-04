@@ -1,0 +1,12 @@
+# Title: CodeIntegrity - Blocked Image Load With Revoked Certificate
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-06-06
+# Level: high
+# Description: Detects blocked image load events with revoked certificates by code integrity.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/code_integrity/win_codeintegrity_revoked_image_blocked.yml
+# False Positives:
+#   - Unlikely
+
+EventID=3036

@@ -5,6 +5,7 @@
 # Description: Identifies when a service principal is created in Azure.
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_service_principal_created.yml
 # False Positives:
 #   - Service principal being created may be performed by a system administrator.
 #   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.

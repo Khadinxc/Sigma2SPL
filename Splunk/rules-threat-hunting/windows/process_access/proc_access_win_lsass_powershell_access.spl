@@ -1,0 +1,10 @@
+# Title: Potential Credential Dumping Attempt Via PowerShell
+# Author: oscd.community, Natalia Shornikova
+# Date: 2020-10-06
+# Level: medium
+# Description: Detects a PowerShell process requesting access to "lsass.exe", which can be indicative of potential credential dumping attempts
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001, detection.threat-hunting
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_access/proc_access_win_lsass_powershell_access.yml
+
+SourceImage IN ("*\\powershell.exe", "*\\pwsh.exe") TargetImage="*\\lsass.exe"

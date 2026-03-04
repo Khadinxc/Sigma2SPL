@@ -1,0 +1,10 @@
+# Title: Registry Persistence Mechanisms in Recycle Bin
+# Author: frack113
+# Date: 2021-11-18
+# Level: high
+# Description: Detects persistence registry keys for Recycle Bin
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1547
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_persistence_recycle_bin.yml
+
+(EventType="RenameKey" NewName="*\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open*") OR (EventType="SetValue" TargetObject="*\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open\\command\\(Default)*")

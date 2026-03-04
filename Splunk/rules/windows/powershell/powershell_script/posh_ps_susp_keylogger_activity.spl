@@ -1,0 +1,10 @@
+# Title: Potential Keylogger Activity
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-01-04
+# Level: medium
+# Description: Detects PowerShell scripts that contains reference to keystroke capturing functions
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.credential-access, attack.t1056.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_keylogger_activity.yml
+
+ScriptBlockText="*[Windows.Input.Keyboard]::IsKeyDown([System.Windows.Input.Key]::*"

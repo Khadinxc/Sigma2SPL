@@ -1,0 +1,10 @@
+# Title: Replay Attack Detected
+# Author: frack113
+# Date: 2022-10-14
+# Level: high
+# Description: Detects possible Kerberos Replay Attack on the domain controllers when "KRB_AP_ERR_REPEAT" Kerberos response is sent to the client
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_replay_attack_detected.yml
+
+EventID=4649

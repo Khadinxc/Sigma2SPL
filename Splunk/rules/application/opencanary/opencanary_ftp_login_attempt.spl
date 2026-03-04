@@ -5,6 +5,7 @@
 # Description: Detects instances where an FTP service on an OpenCanary node has had a login attempt.
 # MITRE Tactic: Initial Access
 # Tags: attack.initial-access, attack.exfiltration, attack.lateral-movement, attack.t1190, attack.t1021
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_ftp_login_attempt.yml
 # False Positives:
 #   - Unlikely
 

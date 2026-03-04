@@ -5,6 +5,7 @@
 # Description: Detects instances where a MySQL service on an OpenCanary node has had a login attempt.
 # MITRE Tactic: Credential Access
 # Tags: attack.credential-access, attack.collection, attack.t1003, attack.t1213
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_mysql_login_attempt.yml
 # False Positives:
 #   - Unlikely
 

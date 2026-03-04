@@ -1,0 +1,10 @@
+# Title: PowerShell PSAttack
+# Author: Sean Metcalf (source), Florian Roth (Nextron Systems)
+# Date: 2017-03-05
+# Level: high
+# Description: Detects the use of PSAttack PowerShell hack tool
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_psattack.yml
+
+ScriptBlockText="*PS ATTACK!!!*"

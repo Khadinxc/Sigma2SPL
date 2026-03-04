@@ -1,0 +1,12 @@
+# Title: Suspicious Script Execution From Temp Folder
+# Author: Florian Roth (Nextron Systems), Max Altgelt (Nextron Systems), Tim Shelton
+# Date: 2021-07-14
+# Level: high
+# Description: Detects a suspicious script executions from temporary folder
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_temp.yml
+# False Positives:
+#   - Administrative scripts
+
+CommandLine IN ("*\\Windows\\Temp*", "*\\Temporary Internet*", "*\\AppData\\Local\\Temp*", "*\\AppData\\Roaming\\Temp*", "*%TEMP%*", "*%TMP%*", "*%LocalAppData%\\Temp*") Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\mshta.exe", "*\\wscript.exe", "*\\cscript.exe") NOT (CommandLine IN ("* >*", "*Out-File*", "*ConvertTo-Json*", "*-WindowStyle hidden -Verb runAs*", "*\\Windows\\system32\\config\\systemprofile\\AppData\\Local\\Temp\\Amazon\\EC2-Windows\\*"))

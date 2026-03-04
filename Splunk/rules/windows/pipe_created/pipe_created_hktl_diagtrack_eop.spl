@@ -1,0 +1,12 @@
+# Title: HackTool - DiagTrackEoP Default Named Pipe
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-03
+# Level: critical
+# Description: Detects creation of default named pipe used by the DiagTrackEoP POC, a tool that abuses "SeImpersonate" privilege.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_diagtrack_eop.yml
+# False Positives:
+#   - Unlikely
+
+PipeName="*thisispipe*"

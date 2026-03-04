@@ -1,0 +1,12 @@
+# Title: System Information Discovery via Registry Queries
+# Author: lazarg
+# Date: 2025-06-12
+# Level: low
+# Description: Detects attempts to query system information directly from the Windows Registry.
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1082
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_discovery_via_reg_queries.yml
+# False Positives:
+#   - Unlikely
+
+(CommandLine IN ("*Get-ItemPropertyValue*", "*gpv*") Image IN ("*\\powershell.exe", "*\\pwsh.exe")) OR (CommandLine="*query*" CommandLine="*-v*" OR CommandLine="*/v*" OR CommandLine="*–v*" OR CommandLine="*—v*" OR CommandLine="*―v*" Image="*\\reg.exe") CommandLine IN ("*\\SOFTWARE\\Microsoft\\Windows Defender*", "*\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion*", "*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall*", "*\\SYSTEM\\CurrentControlSet\\Control\\TimeZoneInformation*", "*\\SYSTEM\\CurrentControlSet\\Services*")

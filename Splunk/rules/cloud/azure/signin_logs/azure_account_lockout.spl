@@ -1,0 +1,10 @@
+# Title: Account Lockout
+# Author: AlertIQ
+# Date: 2021-10-10
+# Level: medium
+# Description: Identifies user account which has been locked because the user tried to sign in too many times with an incorrect user ID or password.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1110
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_account_lockout.yml
+
+ResultType=50053

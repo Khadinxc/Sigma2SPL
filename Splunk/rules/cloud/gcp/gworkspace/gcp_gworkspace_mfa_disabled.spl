@@ -1,0 +1,12 @@
+# Title: Google Workspace MFA Disabled
+# Author: Austin Songer
+# Date: 2021-08-26
+# Level: medium
+# Description: Detects when multi-factor authentication (MFA) is disabled.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/gworkspace/gcp_gworkspace_mfa_disabled.yml
+# False Positives:
+#   - MFA may be disabled and performed by a system administrator.
+
+eventName IN ("ENFORCE_STRONG_AUTHENTICATION", "ALLOW_STRONG_AUTHENTICATION") eventService="admin.googleapis.com" new_value="false"

@@ -1,0 +1,10 @@
+# Title: Cobalt Strike DNS Beaconing
+# Author: Florian Roth (Nextron Systems)
+# Date: 2018-05-10
+# Level: critical
+# Description: Detects suspicious DNS queries known from Cobalt Strike beacons
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_mal_cobaltstrike.yml
+
+query IN ("aaa.stage.*", "post.1*") OR query="*.stage.123456.*"

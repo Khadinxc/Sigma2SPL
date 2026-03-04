@@ -1,0 +1,10 @@
+# Title: Guacamole Two Users Sharing Session Anomaly
+# Author: Florian Roth (Nextron Systems)
+# Date: 2020-07-03
+# Level: high
+# Description: Detects suspicious session with two users present
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1212
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/guacamole/lnx_guacamole_susp_guacamole.yml
+
+"(2 users now present)"

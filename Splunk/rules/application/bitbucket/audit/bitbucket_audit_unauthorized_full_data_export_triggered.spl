@@ -1,0 +1,12 @@
+# Title: Bitbucket Unauthorized Full Data Export Triggered
+# Author: Muhammad Faisal (@faisalusuf)
+# Date: 2024-02-25
+# Level: critical
+# Description: Detects when full data export is attempted an unauthorized user.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.resource-development, attack.t1213.003, attack.t1586
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_unauthorized_full_data_export_triggered.yml
+# False Positives:
+#   - Unlikely
+
+auditType.action="Unauthorized full data export triggered" auditType.category="Data pipeline"

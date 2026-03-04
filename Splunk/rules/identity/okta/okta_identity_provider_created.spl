@@ -5,6 +5,7 @@
 # Description: Detects when a new identity provider is created for Okta.
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.persistence, attack.t1098.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_identity_provider_created.yml
 # False Positives:
 #   - When an admin creates a new, authorised identity provider.
 

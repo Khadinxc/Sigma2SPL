@@ -1,0 +1,13 @@
+# Title: Webshell Remote Command Execution
+# Author: Ilyas Ochkov, Beyu Denis, oscd.community
+# Date: 2019-10-12
+# Level: critical
+# Description: Detects possible command execution by web application/web shell
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.t1505.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/syscall/lnx_auditd_web_rce.yml
+# False Positives:
+#   - Admin activity
+#   - Crazy web applications
+
+SYSCALL IN ("execve", "execveat") euid=33 type="SYSCALL"

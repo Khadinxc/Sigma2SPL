@@ -5,6 +5,7 @@
 # Description: Detects when a user tampers with S3 data management in Amazon Web Services.
 # MITRE Tactic: Exfiltration
 # Tags: attack.exfiltration, attack.t1537
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_s3_data_management_tampering.yml
 # False Positives:
 #   - A S3 configuration change may be done by a system or network administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. S3 configuration change from unfamiliar users or hosts should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
 

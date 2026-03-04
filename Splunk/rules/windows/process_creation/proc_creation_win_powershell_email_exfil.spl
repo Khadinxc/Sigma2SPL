@@ -1,0 +1,10 @@
+# Title: Email Exifiltration Via Powershell
+# Author: Nasreddine Bencherchali (Nextron Systems),  Azure-Sentinel (idea)
+# Date: 2022-09-09
+# Level: high
+# Description: Detects email exfiltration via powershell cmdlets
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_email_exfil.yml
+
+CommandLine="*Add-PSSnapin*" CommandLine="*Get-Recipient*" CommandLine="*-ExpandProperty*" CommandLine="*EmailAddresses*" CommandLine="*SmtpAddress*" CommandLine="*-hidetableheaders*" Image IN ("*\\powershell.exe", "*\\pwsh.exe")

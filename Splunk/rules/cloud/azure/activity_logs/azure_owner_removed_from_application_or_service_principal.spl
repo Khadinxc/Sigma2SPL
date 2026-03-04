@@ -5,6 +5,7 @@
 # Description: Identifies when a owner is was removed from a application or service principal in Azure.
 # MITRE Tactic: Defense Evasion
 # Tags: attack.defense-evasion
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_owner_removed_from_application_or_service_principal.yml
 # False Positives:
 #   - Owner being removed may be performed by a system administrator.
 #   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.

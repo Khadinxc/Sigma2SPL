@@ -5,5 +5,6 @@
 # Description: Detects when a EFS Fileshare Mount is modified or deleted. An adversary breaking any file system using the mount target that is being deleted, which might disrupt instances or applications using those mounts.
 # MITRE Tactic: Impact
 # Tags: attack.impact, attack.t1485
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_efs_fileshare_mount_modified_or_deleted.yml
 
 eventName="DeleteMountTarget" eventSource="elasticfilesystem.amazonaws.com"

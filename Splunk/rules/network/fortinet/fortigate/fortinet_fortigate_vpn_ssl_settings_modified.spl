@@ -1,0 +1,13 @@
+# Title: FortiGate - VPN SSL Settings Modified
+# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Date: 2025-11-01
+# Level: medium
+# Description: Detects the modification of VPN SSL Settings (for example, the modification of authentication rules).
+# This behavior was observed in pair with the addition of a VPN SSL Web Portal.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.initial-access, attack.t1133
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/fortinet/fortigate/fortinet_fortigate_vpn_ssl_settings_modified.yml
+# False Positives:
+#   - VPN SSL settings can be changed for legitimate purposes.
+
+action="Edit" cfgpath="vpn.ssl.settings"

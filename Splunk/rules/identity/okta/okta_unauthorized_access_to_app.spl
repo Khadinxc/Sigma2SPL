@@ -5,6 +5,7 @@
 # Description: Detects when unauthorized access to app occurs.
 # MITRE Tactic: Impact
 # Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_unauthorized_access_to_app.yml
 # False Positives:
 #   - User might of believe that they had access.
 

@@ -1,0 +1,12 @@
+# Title: PowerShell Create Local User
+# Author: @ROxPinTeddy
+# Date: 2020-04-11
+# Level: medium
+# Description: Detects creation of a local user via PowerShell
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.persistence, attack.t1136.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_create_local_user.yml
+# False Positives:
+#   - Legitimate user creation
+
+ScriptBlockText="*New-LocalUser*"

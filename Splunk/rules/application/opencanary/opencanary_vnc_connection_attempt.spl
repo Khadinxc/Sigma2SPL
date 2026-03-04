@@ -5,6 +5,7 @@
 # Description: Detects instances where a VNC service on an OpenCanary node has had a connection attempt.
 # MITRE Tactic: Lateral Movement
 # Tags: attack.lateral-movement, attack.t1021
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_vnc_connection_attempt.yml
 # False Positives:
 #   - Unlikely
 

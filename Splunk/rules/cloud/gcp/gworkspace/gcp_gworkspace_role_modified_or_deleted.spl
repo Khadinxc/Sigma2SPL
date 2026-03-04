@@ -1,0 +1,10 @@
+# Title: Google Workspace Role Modified or Deleted
+# Author: Austin Songer
+# Date: 2021-08-24
+# Level: medium
+# Description: Detects when an a role is modified or deleted in Google Workspace.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/gworkspace/gcp_gworkspace_role_modified_or_deleted.yml
+
+eventName IN ("DELETE_ROLE", "RENAME_ROLE", "UPDATE_ROLE") eventService="admin.googleapis.com"

@@ -5,6 +5,7 @@
 # Description: Identifies when a VPN connection is modified or deleted.
 # MITRE Tactic: Impact
 # Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_vpn_connection_modified_or_deleted.yml
 # False Positives:
 #   - VPN Connection being modified or deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
 #   - VPN Connection modified or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.

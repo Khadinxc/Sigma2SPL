@@ -1,0 +1,10 @@
+# Title: PowerShell Base64 Encoded Invoke Keyword
+# Author: pH-T (Nextron Systems), Harjot Singh, @cyb3rjy0t
+# Date: 2022-05-20
+# Level: high
+# Description: Detects UTF-8 and UTF-16 Base64 encoded powershell 'Invoke-' calls
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, attack.defense-evasion, attack.t1027
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_base64_invoke.yml
+
+CommandLine="* -e*" CommandLine IN ("*SQBuAHYAbwBrAGUALQ*", "*kAbgB2AG8AawBlAC0A*", "*JAG4AdgBvAGsAZQAtA*", "*SW52b2tlL*", "*ludm9rZS*", "*JbnZva2Ut*") Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll")

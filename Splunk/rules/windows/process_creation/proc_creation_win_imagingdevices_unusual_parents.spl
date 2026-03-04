@@ -1,0 +1,10 @@
+# Title: ImagingDevices Unusual Parent/Child Processes
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-09-27
+# Level: high
+# Description: Detects unusual parent or children of the ImagingDevices.exe (Windows Contacts) process as seen being used with Bumblebee activity
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.execution
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imagingdevices_unusual_parents.yml
+
+ParentImage="*\\ImagingDevices.exe" OR (Image="*\\ImagingDevices.exe" ParentImage IN ("*\\WmiPrvSE.exe", "*\\svchost.exe", "*\\dllhost.exe"))

@@ -5,6 +5,7 @@
 # Description: Detects the modification of an EC2 snapshot's permissions to enable access from another account
 # MITRE Tactic: Exfiltration
 # Tags: attack.exfiltration, attack.t1537
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_snapshot_backup_exfiltration.yml
 # False Positives:
 #   - Valid change to a snapshot's permissions
 

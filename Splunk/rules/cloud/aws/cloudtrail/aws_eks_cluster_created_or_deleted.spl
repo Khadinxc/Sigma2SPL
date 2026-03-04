@@ -5,6 +5,7 @@
 # Description: Identifies when an EKS cluster is created or deleted.
 # MITRE Tactic: Impact
 # Tags: attack.impact, attack.t1485
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_eks_cluster_created_or_deleted.yml
 # False Positives:
 #   - EKS Cluster being created or deleted may be performed by a system administrator.
 #   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
