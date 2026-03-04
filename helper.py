@@ -158,12 +158,11 @@ for rule_folder in RULE_FOLDERS:
             OUTPUT_DIR = os.path.join(OUTPUT_BASE, rel_dir)
             os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-            # Sanitize filename and convert to snake_case
-            SAFE_FILENAME = "".join(c if c.isalnum() or c in (' ', '_', '-') else '_' for c in sigma_rule.title)
-            SNAKE_CASE_FILENAME = SAFE_FILENAME.replace(' ', '_').replace('-', '_').lower()
-            while '__' in SNAKE_CASE_FILENAME:
-                SNAKE_CASE_FILENAME = SNAKE_CASE_FILENAME.replace('__', '_')
-            output_file = os.path.join(OUTPUT_DIR, SNAKE_CASE_FILENAME + '.spl')
+            # Use original yml filename (preserves SigmaHQ naming convention)
+            original_filename = os.path.splitext(os.path.basename(yml))[0]
+            rel_path_for_url = os.path.relpath(yml, SIGMA_BASE).replace('\\', '/')
+            github_reference = f'https://github.com/SigmaHQ/sigma/blob/master/{rel_path_for_url}'
+            output_file = os.path.join(OUTPUT_DIR, original_filename + '.spl')
 
             with open(output_file, 'w', encoding='utf-8') as spl_file:
                 # Write metadata as comments
@@ -183,6 +182,7 @@ for rule_folder in RULE_FOLDERS:
 
                 spl_file.write(f'# MITRE Tactic: {TACTIC_FOLDER}\n')
                 spl_file.write(f'# Tags: {", ".join(tags) if tags else ""}\n')
+                spl_file.write(f'# Reference: {github_reference}\n')
 
                 false_positives = yaml_contents.get("falsepositives", [])
                 if false_positives:
