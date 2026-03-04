@@ -1,0 +1,10 @@
+# Title: Default Cobalt Strike Certificate
+# Author: Bhabesh Raj
+# Date: 2021-06-23
+# Level: high
+# Description: Detects the presence of default Cobalt Strike certificate in the HTTPS traffic
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.s0154
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/zeek/zeek_default_cobalt_strike_certificate.yml
+
+certificate.serial="8BB00EE"

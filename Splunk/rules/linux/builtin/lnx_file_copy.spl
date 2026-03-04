@@ -1,0 +1,12 @@
+# Title: Remote File Copy
+# Author: Ömer Günal
+# Date: 2020-06-18
+# Level: low
+# Description: Detects the use of tools that copy files from or to remote systems
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.lateral-movement, attack.t1105
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_file_copy.yml
+# False Positives:
+#   - Legitimate administration activities
+
+"scp " OR "rsync " OR "sftp " "@" OR ":"

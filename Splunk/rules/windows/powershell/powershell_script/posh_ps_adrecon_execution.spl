@@ -1,0 +1,10 @@
+# Title: PowerShell ADRecon Execution
+# Author: Bhabesh Raj
+# Date: 2021-07-16
+# Level: high
+# Description: Detects execution of ADRecon.ps1 for AD reconnaissance which has been reported to be actively used by FIN7
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.execution, attack.t1059.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_adrecon_execution.yml
+
+ScriptBlockText IN ("*Function Get-ADRExcelComOb*", "*Get-ADRGPO*", "*Get-ADRDomainController*", "*ADRecon-Report.xlsx*")

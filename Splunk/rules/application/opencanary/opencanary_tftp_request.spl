@@ -5,6 +5,7 @@
 # Description: Detects instances where a TFTP service on an OpenCanary node has had a request.
 # MITRE Tactic: Exfiltration
 # Tags: attack.exfiltration, attack.t1041
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_tftp_request.yml
 # False Positives:
 #   - Unlikely
 

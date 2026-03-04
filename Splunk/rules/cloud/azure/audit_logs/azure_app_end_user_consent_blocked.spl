@@ -1,0 +1,10 @@
+# Title: End User Consent Blocked
+# Author: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'
+# Date: 2022-07-10
+# Level: medium
+# Description: Detects when end user consent is blocked due to risk-based consent.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1528
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_app_end_user_consent_blocked.yml
+
+failure_status_reason="Microsoft.online.Security.userConsentBlockedForRiskyAppsExceptions"

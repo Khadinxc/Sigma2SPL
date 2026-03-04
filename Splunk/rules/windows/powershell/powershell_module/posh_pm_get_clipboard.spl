@@ -1,0 +1,10 @@
+# Title: PowerShell Get Clipboard
+# Author: Roberto Rodriguez (Cyb3rWard0g), OTR (Open Threat Research)
+# Date: 2020-05-02
+# Level: medium
+# Description: A General detection for the Get-Clipboard commands in PowerShell logs. This could be an adversary capturing clipboard contents.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1115
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_module/posh_pm_get_clipboard.yml
+
+Payload="*Get-Clipboard*"

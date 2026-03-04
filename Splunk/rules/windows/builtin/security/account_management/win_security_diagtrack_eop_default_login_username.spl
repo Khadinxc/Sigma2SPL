@@ -1,0 +1,12 @@
+# Title: DiagTrackEoP Default Login Username
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-08-03
+# Level: critical
+# Description: Detects the default "UserName" used by the DiagTrackEoP POC
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_diagtrack_eop_default_login_username.yml
+# False Positives:
+#   - Unlikely
+
+EventID=4624 LogonType=9 TargetOutboundUserName="thisisnotvaliduser"

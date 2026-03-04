@@ -7,6 +7,7 @@
 # An Adversary may use Kubernetes CronJob for scheduling execution of malicious code that would run as a container in the cluster.
 # MITRE Tactic: Persistence
 # Tags: attack.persistence, attack.t1053.003, attack.privilege-escalation, attack.execution
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_kubernetes_cronjob.yml
 # False Positives:
 #   - Azure Kubernetes CronJob/Job may be done by a system administrator.
 #   - If known behavior is causing false positives, it can be exempted from the rule.

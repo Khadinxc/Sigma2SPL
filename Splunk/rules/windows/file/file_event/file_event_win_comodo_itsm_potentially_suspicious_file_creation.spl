@@ -1,0 +1,16 @@
+# Title: Potentially Suspicious File Creation by OpenEDR's ITSMService
+# Author: @kostastsale
+# Date: 2026-02-19
+# Level: medium
+# Description: Detects the creation of potentially suspicious files by OpenEDR's ITSMService process.
+# The ITSMService is responsible for remote management operations and can create files on the system through the Process Explorer or file management features.
+# While legitimate for IT operations, creation of executable or script files could indicate unauthorized file uploads, data staging, or malicious file deployment.
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1105, attack.lateral-movement, attack.t1570, attack.t1219
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_comodo_itsm_potentially_suspicious_file_creation.yml
+# False Positives:
+#   - Legitimate OpenEDR file management operations
+#   - Authorized remote file uploads by IT administrators
+#   - Software deployment through OpenEDR console
+
+Image="*\\COMODO\\Endpoint Manager\\ITSMService.exe" TargetFilename IN ("*.7z", "*.bat", "*.cmd", "*.com", "*.dll", "*.exe", "*.hta", "*.js", "*.pif", "*.ps1", "*.rar", "*.scr", "*.vbe", "*.vbs", "*.zip")

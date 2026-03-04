@@ -1,0 +1,14 @@
+# Title: Inbox Rules Creation Or Update Activity in O365
+# Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
+# Date: 2026-01-09
+# Level: medium
+# Description: Detects inbox rule creation or update via O365 Audit logs, a technique commonly observed in Business Email Compromise (BEC) attacks to hide emails.
+# The usage of inbox rules can be a sign of a compromised mailbox, where an attacker is attempting to evade detections by suppressing or redirecting incoming emails.
+# Analysts should review these rules in context, validate whether they reflect normal user behavior, and correlate with other indicators such as unusual login activity or recent mailbox rule modifications.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1564.008, attack.exfiltration, attack.collection, attack.t1114.003, detection.threat-hunting
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/cloud/m365/audit/microsoft365_susp_inbox_rule_creation_or_update_activity.yml
+# False Positives:
+#   - Legitimate inbox rules created by users or administrators to manage email flow such as filtering, organizing, or automating email handling.
+
+Operation IN ("New-InboxRule", "Set-InboxRule") Parameters IN ("*DeleteMessage*", "*MarkAsRead*", "*MoveToFolder*", "*SubjectOrBodyContainsWords*")

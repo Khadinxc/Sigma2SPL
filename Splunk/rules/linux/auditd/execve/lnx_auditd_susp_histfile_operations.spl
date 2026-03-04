@@ -1,0 +1,13 @@
+# Title: Suspicious History File Operations - Linux
+# Author: Mikhail Larin, oscd.community
+# Date: 2020-10-17
+# Level: medium
+# Description: Detects commandline operations on shell history files
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1552.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_susp_histfile_operations.yml
+# False Positives:
+#   - Legitimate administrative activity
+#   - Legitimate software, cleaning hist file
+
+type="EXECVE" ".bash_history" OR ".zsh_history" OR ".zhistory" OR ".history" OR ".sh_history" OR "fish_history"

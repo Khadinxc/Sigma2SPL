@@ -7,6 +7,7 @@
 # it should be validated from GitHub UI because the log entry may not provide full context.
 # MITRE Tactic: Impact
 # Tags: attack.impact, attack.discovery, attack.collection, attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.initial-access, attack.t1526, attack.t1213.003, attack.t1078.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_self_hosted_runner_changes_detected.yml
 # False Positives:
 #   - Allowed self-hosted runners changes in the environment.
 #   - A self-hosted runner is automatically removed from GitHub if it has not connected to GitHub Actions for more than 14 days.

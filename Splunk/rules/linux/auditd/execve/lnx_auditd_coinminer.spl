@@ -1,0 +1,12 @@
+# Title: Possible Coin Miner CPU Priority Param
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-10-09
+# Level: critical
+# Description: Detects command line parameter very often used with coin miners
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.t1068
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_coinminer.yml
+# False Positives:
+#   - Other tools that use a --cpu-priority flag
+
+a1="--cpu-priority*" OR a2="--cpu-priority*" OR a3="--cpu-priority*" OR a4="--cpu-priority*" OR a5="--cpu-priority*" OR a6="--cpu-priority*" OR a7="--cpu-priority*"

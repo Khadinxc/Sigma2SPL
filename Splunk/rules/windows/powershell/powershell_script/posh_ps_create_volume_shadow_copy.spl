@@ -1,0 +1,12 @@
+# Title: Create Volume Shadow Copy with Powershell
+# Author: frack113
+# Date: 2022-01-12
+# Level: high
+# Description: Adversaries may attempt to access or create a copy of the Active Directory domain database in order to steal credential information
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.003, attack.ds0005
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_create_volume_shadow_copy.yml
+# False Positives:
+#   - Legitimate PowerShell scripts
+
+ScriptBlockText="*Win32_ShadowCopy*" ScriptBlockText="*).Create(*" ScriptBlockText="*ClientAccessible*"

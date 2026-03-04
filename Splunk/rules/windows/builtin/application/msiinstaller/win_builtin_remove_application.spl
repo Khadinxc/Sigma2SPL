@@ -1,0 +1,10 @@
+# Title: Application Uninstalled
+# Author: frack113
+# Date: 2022-01-28
+# Level: low
+# Description: An application has been removed. Check if it is critical.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1489
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/msiinstaller/win_builtin_remove_application.yml
+
+EventID IN (1034, 11724) Provider_Name="MsiInstaller"

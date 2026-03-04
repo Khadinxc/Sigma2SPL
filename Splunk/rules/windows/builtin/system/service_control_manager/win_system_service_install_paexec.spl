@@ -1,0 +1,10 @@
+# Title: PAExec Service Installation
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-10-26
+# Level: medium
+# Description: Detects PAExec service installation
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_service_install_paexec.yml
+
+EventID=7045 Provider_Name="Service Control Manager" ServiceName="PAExec-*" OR ImagePath="C:\\WINDOWS\\PAExec-*"

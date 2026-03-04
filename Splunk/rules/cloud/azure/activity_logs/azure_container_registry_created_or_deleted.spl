@@ -5,6 +5,7 @@
 # Description: Detects when a Container Registry is created or deleted.
 # MITRE Tactic: Impact
 # Tags: attack.impact, attack.t1485, attack.t1496, attack.t1489
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_container_registry_created_or_deleted.yml
 # False Positives:
 #   - Container Registry being created or deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
 #   - Container Registry created or deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.

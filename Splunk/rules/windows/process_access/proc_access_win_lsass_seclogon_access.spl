@@ -1,0 +1,10 @@
+# Title: Suspicious LSASS Access Via MalSecLogon
+# Author: Samir Bousseaden (original elastic rule), Nasreddine Bencherchali (Nextron Systems)
+# Date: 2022-06-29
+# Level: high
+# Description: Detects suspicious access to LSASS handle via a call trace to "seclogon.dll" with a suspicious access right.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_lsass_seclogon_access.yml
+
+CallTrace="*seclogon.dll*" GrantedAccess="0x14c0" SourceImage="*\\svchost.exe" TargetImage="*\\lsass.exe"

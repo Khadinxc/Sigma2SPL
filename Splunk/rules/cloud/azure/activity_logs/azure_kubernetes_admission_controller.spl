@@ -11,6 +11,7 @@
 # An adversary could use the webhook to intercept the requests to the API server, record secrets, and other sensitive information.
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation, attack.initial-access, attack.defense-evasion, attack.persistence, attack.t1078, attack.credential-access, attack.t1552, attack.t1552.007
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_kubernetes_admission_controller.yml
 # False Positives:
 #   - Azure Kubernetes Admissions Controller may be done by a system administrator.
 #   - If known behavior is causing false positives, it can be exempted from the rule.

@@ -5,6 +5,7 @@
 # Description: Identifies when a device in azure is no longer managed or compliant
 # MITRE Tactic: Impact
 # Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_device_no_longer_managed_or_compliant.yml
 # False Positives:
 #   - Administrator may have forgotten to review the device.
 

@@ -5,5 +5,6 @@
 # Description: Detects when an security threat is detected in Okta.
 # MITRE Tactic: Command and Control
 # Tags: attack.command-and-control
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_security_threat_detected.yml
 
 eventtype="security.threat.detected"

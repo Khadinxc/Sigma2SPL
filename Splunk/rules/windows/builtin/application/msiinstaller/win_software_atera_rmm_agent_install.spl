@@ -1,0 +1,12 @@
+# Title: Atera Agent Installation
+# Author: Bhabesh Raj
+# Date: 2021-09-01
+# Level: high
+# Description: Detects successful installation of Atera Remote Monitoring & Management (RMM) agent as recently found to be used by Conti operators
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1219.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/msiinstaller/win_software_atera_rmm_agent_install.yml
+# False Positives:
+#   - Legitimate Atera agent installation
+
+EventID=1033 Message="*AteraAgent*" Provider_Name="MsiInstaller"

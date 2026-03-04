@@ -1,0 +1,12 @@
+# Title: Modifying Crontab
+# Author: Pawel Mazur
+# Date: 2022-04-16
+# Level: medium
+# Description: Detects suspicious modification of crontab file.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.execution, attack.persistence, attack.t1053.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/cron/lnx_cron_crontab_file_modification.yml
+# False Positives:
+#   - Legitimate modification of crontab
+
+"REPLACE"

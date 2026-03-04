@@ -1,0 +1,12 @@
+# Title: Delegated Permissions Granted For All Users
+# Author: Bailey Bercik '@baileybercik', Mark Morowczynski '@markmorow'
+# Date: 2022-07-28
+# Level: high
+# Description: Detects when highly privileged delegated permissions are granted on behalf of all users
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1528
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_app_delegated_permissions_all_users.yml
+# False Positives:
+#   - When the permission is legitimately needed for the app
+
+properties.message="Add delegated permission grant"

@@ -1,0 +1,10 @@
+# Title: Suspicious Log Entries
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-25
+# Level: medium
+# Description: Detects suspicious log entries in Linux log files
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_shell_susp_log_entries.yml
+
+"entered promiscuous mode" OR "Deactivating service" OR "Oversized packet received from" OR "imuxsock begins to drop messages"

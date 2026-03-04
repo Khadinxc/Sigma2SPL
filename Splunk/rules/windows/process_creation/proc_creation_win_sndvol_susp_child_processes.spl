@@ -1,0 +1,10 @@
+# Title: Uncommon Child Processes Of SndVol.exe
+# Author: X__Junior (Nextron Systems)
+# Date: 2023-06-09
+# Level: medium
+# Description: Detects potentially uncommon child processes of SndVol.exe (the Windows volume mixer)
+# MITRE Tactic: Execution
+# Tags: attack.execution
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sndvol_susp_child_processes.yml
+
+ParentImage="*\\SndVol.exe" NOT (CommandLine="* shell32.dll,Control_RunDLL *" Image="*\\rundll32.exe")

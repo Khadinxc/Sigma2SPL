@@ -5,6 +5,7 @@
 # Description: Detects instances where an SIP service on an OpenCanary node has had a SIP request.
 # MITRE Tactic: Collection
 # Tags: attack.collection, attack.t1123
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_sip_request.yml
 # False Positives:
 #   - Unlikely
 

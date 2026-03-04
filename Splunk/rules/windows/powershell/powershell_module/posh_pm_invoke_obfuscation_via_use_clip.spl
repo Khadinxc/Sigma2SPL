@@ -1,0 +1,11 @@
+# Title: Invoke-Obfuscation Via Use Clip - PowerShell Module
+# Author: Nikita Nazarov, oscd.community
+# Date: 2020-10-09
+# Level: high
+# Description: Detects Obfuscated Powershell via use Clip.exe in Scripts
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_via_use_clip.yml
+
+*
+| regex Payload="(?i)echo.*clip.*&&.*(Clipboard|i`?n`?v`?o`?k`?e`?)"

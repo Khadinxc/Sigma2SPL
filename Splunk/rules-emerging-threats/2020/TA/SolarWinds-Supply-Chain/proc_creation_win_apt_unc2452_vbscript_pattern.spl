@@ -1,0 +1,10 @@
+# Title: Suspicious VBScript UN2452 Pattern
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-03-05
+# Level: high
+# Description: Detects suspicious inline VBScript keywords as used by UNC2452
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1547.001, detection.emerging-threats
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2020/TA/SolarWinds-Supply-Chain/proc_creation_win_apt_unc2452_vbscript_pattern.yml
+
+CommandLine="*Execute*" CommandLine="*CreateObject*" CommandLine="*RegRead*" CommandLine="*window.close*" CommandLine="*\\Microsoft\\Windows\\CurrentVersion*" NOT CommandLine="*\\Software\\Microsoft\\Windows\\CurrentVersion\\Run*"

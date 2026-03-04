@@ -1,0 +1,11 @@
+# Title: Powershell Add Name Resolution Policy Table Rule
+# Author: Borna Talebi
+# Date: 2021-09-14
+# Level: high
+# Description: Detects powershell scripts that adds a Name Resolution Policy Table (NRPT) rule for the specified namespace.
+# This will bypass the default DNS server and uses a specified server for answering the query.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1565
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_add_dnsclient_rule.yml
+
+ScriptBlockText="*Add-DnsClientNrptRule*" ScriptBlockText="*-Namesp*" ScriptBlockText="*-NameSe*"

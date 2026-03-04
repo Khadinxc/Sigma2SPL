@@ -7,6 +7,7 @@
 # This would give an adversary access to resources that the function has access to.
 # MITRE Tactic: Privilege Escalation
 # Tags: attack.privilege-escalation
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_new_lambda_layer_attached.yml
 # False Positives:
 #   - Lambda Layer being attached may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
 #   - Lambda Layer being attached from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.

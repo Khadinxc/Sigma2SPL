@@ -1,0 +1,10 @@
+# Title: HackTool - Potential CobaltStrike Process Injection
+# Author: Olaf Hartong, Florian Roth (Nextron Systems), Aleksey Potapov, oscd.community
+# Date: 2018-11-30
+# Level: high
+# Description: Detects a potential remote threat creation with certain characteristics which are typical for Cobalt Strike beacons
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1055.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_hktl_cobaltstrike.yml
+
+StartAddress IN ("*0B80", "*0C7C", "*0C88")

@@ -1,0 +1,10 @@
+# Title: Remote Service Activity via SVCCTL Named Pipe
+# Author: Samir Bousseaden
+# Date: 2019-04-03
+# Level: medium
+# Description: Detects remote service activity via remote access to the svcctl named pipe
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.persistence, attack.t1021.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_svcctl_remote_service.yml
+
+AccessList="*WriteData*" EventID=5145 RelativeTargetName="svcctl" ShareName="\\\\\*\\IPC$"

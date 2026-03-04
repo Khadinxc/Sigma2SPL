@@ -1,0 +1,12 @@
+# Title: Malicious IP Address Sign-In Failure Rate
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-07
+# Level: high
+# Description: Indicates sign-in from a malicious IP address based on high failure rates.
+# MITRE Tactic: Command and Control
+# Tags: attack.t1090, attack.command-and-control
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/identity_protection/azure_identity_protection_malicious_ip_address.yml
+# False Positives:
+#   - We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user.
+
+riskEventType="maliciousIPAddress"

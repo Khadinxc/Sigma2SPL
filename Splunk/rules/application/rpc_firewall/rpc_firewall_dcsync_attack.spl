@@ -1,0 +1,10 @@
+# Title: Possible DCSync Attack
+# Author: Sagie Dulce, Dekel Paz
+# Date: 2022-01-01
+# Level: high
+# Description: Detects remote RPC calls to MS-DRSR from non DC hosts, which could indicate DCSync / DCShadow attacks.
+# MITRE Tactic: Discovery
+# Tags: attack.t1033, attack.discovery
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/rpc_firewall/rpc_firewall_dcsync_attack.yml
+
+EventID=3 EventLog="RPCFW" InterfaceUuid="e3514235-4b06-11d1-ab04-00c04fc2dcd2" NOT (OpNum IN (0, 1, 12))

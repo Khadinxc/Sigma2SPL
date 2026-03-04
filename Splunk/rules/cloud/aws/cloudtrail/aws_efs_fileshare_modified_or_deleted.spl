@@ -7,5 +7,6 @@
 # If the file system has any mount targets, the adversary must first delete them, so deletion of a mount will occur before deletion of a fileshare.
 # MITRE Tactic: Impact
 # Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_efs_fileshare_modified_or_deleted.yml
 
 eventName="DeleteFileSystem" eventSource="elasticfilesystem.amazonaws.com"

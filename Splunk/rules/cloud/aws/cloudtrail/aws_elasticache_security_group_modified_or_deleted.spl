@@ -5,6 +5,7 @@
 # Description: Identifies when an ElastiCache security group has been modified or deleted.
 # MITRE Tactic: Impact
 # Tags: attack.impact, attack.t1531
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_elasticache_security_group_modified_or_deleted.yml
 # False Positives:
 #   - A ElastiCache security group deletion may be done by a system or network administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment. Security Group deletions from unfamiliar users or hosts should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
 

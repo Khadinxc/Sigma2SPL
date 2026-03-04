@@ -1,0 +1,12 @@
+# Title: OpenCanary - NTP Monlist Request
+# Author: Security Onion Solutions
+# Date: 2024-03-08
+# Level: high
+# Description: Detects instances where an NTP service on an OpenCanary node has had a NTP monlist request.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.t1498
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_ntp_monlist.yml
+# False Positives:
+#   - Unlikely
+
+logtype=11001

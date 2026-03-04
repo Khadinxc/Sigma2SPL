@@ -1,0 +1,10 @@
+# Title: Potentially Suspicious Compression Tool Parameters
+# Author: Florian Roth (Nextron Systems), Samir Bousseaden
+# Date: 2019-10-15
+# Level: medium
+# Description: Detects potentially suspicious command line arguments of common data compression tools
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1560.001, detection.threat-hunting
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_compression_params.yml
+
+CommandLine IN ("* -p*", "* -ta*", "* -tb*", "* -sdel*", "* -dw*", "* -hp*") OriginalFileName IN ("7z*.exe", "*rar.exe", "*Command*Line*RAR*") NOT (ParentImage IN ("*:\\Program Files\\*", "*:\\Program Files (x86)\\*"))

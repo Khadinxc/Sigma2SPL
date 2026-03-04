@@ -1,0 +1,11 @@
+# Title: Suspicious Kerberos Ticket Request via PowerShell Script - ScriptBlock
+# Author: frack113
+# Date: 2021-12-28
+# Level: high
+# Description: Detects PowerShell scripts that utilize native PowerShell Identity modules to request Kerberos tickets.
+# This behavior is typically seen during a Kerberos or silver ticket attack. A successful execution will output the SPNs for the endpoint in question.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1558.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_request_kerberos_ticket.yml
+
+ScriptBlockText="*System.IdentityModel.Tokens.KerberosRequestorSecurityToken*" ScriptBlockText="*.GetRequest()*"

@@ -1,0 +1,10 @@
+# Title: Powershell Sensitive File Discovery
+# Author: frack113
+# Date: 2022-09-16
+# Level: medium
+# Description: Detect adversaries enumerate sensitive files
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1083
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_sensitive_file_discovery.yml
+
+ScriptBlockText IN ("*ls*", "*get-childitem*", "*gci*") ScriptBlockText IN ("*.pass*", "*.kdbx*", "*.kdb*") ScriptBlockText="*-recurse*"

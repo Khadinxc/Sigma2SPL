@@ -1,0 +1,10 @@
+# Title: Potential Credential Dumping Attempt Via PowerShell Remote Thread
+# Author: oscd.community, Natalia Shornikova
+# Date: 2020-10-06
+# Level: high
+# Description: Detects remote thread creation by PowerShell processes into "lsass.exe"
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1003.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_powershell_lsass.yml
+
+SourceImage IN ("*\\powershell.exe", "*\\pwsh.exe") TargetImage="*\\lsass.exe"

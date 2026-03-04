@@ -1,0 +1,11 @@
+# Title: Invoke-Obfuscation STDIN+ Launcher - PowerShell Module
+# Author: Jonathan Cheong, oscd.community
+# Date: 2020-10-15
+# Level: high
+# Description: Detects Obfuscated use of stdin to execute PowerShell
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027, attack.execution, attack.t1059.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_stdin.yml
+
+*
+| regex Payload="cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$\\{?input\\}?|noexit).+\""

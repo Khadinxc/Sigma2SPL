@@ -1,0 +1,10 @@
+# Title: Windows Update Error
+# Author: frack113
+# Date: 2021-12-04
+# Level: informational
+# Description: Detects Windows update errors including installation failures and connection issues. Defenders should observe this in case critical update KBs aren't installed.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.resource-development, attack.t1584
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_windows_update_client/win_system_susp_system_update_error.yml
+
+EventID IN (16, 20, 24, 213, 217) Provider_Name="Microsoft-Windows-WindowsUpdateClient"

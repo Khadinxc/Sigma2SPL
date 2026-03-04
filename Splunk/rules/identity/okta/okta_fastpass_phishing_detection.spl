@@ -5,6 +5,7 @@
 # Description: Detects when Okta FastPass prevents a known phishing site.
 # MITRE Tactic: Initial Access
 # Tags: attack.initial-access, attack.t1566
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_fastpass_phishing_detection.yml
 # False Positives:
 #   - Unlikely
 

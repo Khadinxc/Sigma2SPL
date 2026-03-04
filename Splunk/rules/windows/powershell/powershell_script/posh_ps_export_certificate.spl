@@ -1,0 +1,12 @@
+# Title: Certificate Exported Via PowerShell - ScriptBlock
+# Author: Florian Roth (Nextron Systems)
+# Date: 2021-04-23
+# Level: medium
+# Description: Detects calls to cmdlets inside of PowerShell scripts that are used to export certificates from the local certificate store. Threat actors were seen abusing this to steal private keys from compromised machines.
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1552.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_export_certificate.yml
+# False Positives:
+#   - Legitimate certificate exports by administrators. Additional filters might be required.
+
+ScriptBlockText IN ("*Export-PfxCertificate*", "*Export-Certificate*") NOT ScriptBlockText="*CmdletsToExport = @(*"

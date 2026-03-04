@@ -1,0 +1,12 @@
+# Title: Primary Refresh Token Access Attempt
+# Author: Mark Morowczynski '@markmorow', Gloria Lee, '@gleeiamglo'
+# Date: 2023-09-07
+# Level: high
+# Description: Indicates access attempt to the PRT resource which can be used to move laterally into an organization or perform credential theft
+# MITRE Tactic: Credential Access
+# Tags: attack.t1528, attack.credential-access
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/identity_protection/azure_identity_protection_prt_access.yml
+# False Positives:
+#   - This detection is low-volume and is seen infrequently in most organizations. When this detection appears it's high risk, and users should be remediated.
+
+riskEventType="attemptedPrtAccess"

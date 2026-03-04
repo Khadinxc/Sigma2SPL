@@ -5,6 +5,7 @@
 # Description: Detects juniper BGP missing MD5 digest. Which may be indicative of brute force attacks to manipulate routing.
 # MITRE Tactic: Initial Access
 # Tags: attack.initial-access, attack.persistence, attack.privilege-escalation, attack.defense-evasion, attack.credential-access, attack.collection, attack.t1078, attack.t1110, attack.t1557
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/juniper/bgp/juniper_bgp_missing_md5.yml
 # False Positives:
 #   - Unlikely. Except due to misconfigurations
 

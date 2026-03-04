@@ -1,0 +1,10 @@
+# Title: CSExec Service Installation
+# Author: Nasreddine Bencherchali (Nextron Systems)
+# Date: 2023-08-07
+# Level: medium
+# Description: Detects CSExec service installation and execution events
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1569.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_service_install_csexecsvc.yml
+
+EventID=7045 Provider_Name="Service Control Manager" ServiceName="csexecsvc" OR ImagePath="*\\csexecsvc.exe"

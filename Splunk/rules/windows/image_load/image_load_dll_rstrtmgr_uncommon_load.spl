@@ -1,0 +1,15 @@
+# Title: Load Of RstrtMgr.DLL By An Uncommon Process
+# Author: Luc Génaux
+# Date: 2023-11-28
+# Level: low
+# Description: Detects the load of RstrtMgr DLL (Restart Manager) by an uncommon process.
+# This library has been used during ransomware campaigns to kill processes that would prevent file encryption by locking them (e.g. Conti ransomware, Cactus ransomware). It has also recently been seen used by the BiBi wiper for Windows.
+# It could also be used for anti-analysis purposes by shut downing specific processes.
+# MITRE Tactic: Impact
+# Tags: attack.impact, attack.defense-evasion, attack.t1486, attack.t1562.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_rstrtmgr_uncommon_load.yml
+# False Positives:
+#   - Other legitimate Windows processes not currently listed
+#   - Processes related to software installation
+
+ImageLoaded="*\\RstrtMgr.dll" OR OriginalFileName="RstrtMgr.dll" NOT (Image="C:\\Windows\\Temp\\'*" OR Image IN ("C:\\$WINDOWS.~BT\\'*", "C:\\$WinREAgent\\'*", "C:\\Program Files (x86)\\'*", "C:\\Program Files\\'*", "C:\\ProgramData\\'*", "C:\\Windows\\explorer.exe'*", "C:\\Windows\\SoftwareDistribution\\'*", "C:\\Windows\\SysNative\\'*", "C:\\Windows\\System32\\'*", "C:\\Windows\\SysWOW64\\'*", "C:\\Windows\\WinSxS\\'*", "C:\\WUDownloadCache\\'*") OR (Image="*\\AppData\\Local\\Temp\\is-*" Image="*.tmp\\*" Image="*.tmp" Image="C:\\Users\\'*")) NOT (Image="*\\AppData\\Local\\Microsoft\\OneDrive\\OneDriveStandaloneUpdater.exe" Image="C:\\Users\\*")

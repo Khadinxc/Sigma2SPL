@@ -1,0 +1,10 @@
+# Title: Source Code Enumeration Detection by Keyword
+# Author: James Ahearn
+# Date: 2019-06-08
+# Level: medium
+# Description: Detects source code enumeration that use GET requests by keyword searches in URL strings
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1083
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/web/webserver_generic/web_source_code_enumeration.yml
+
+".git/"

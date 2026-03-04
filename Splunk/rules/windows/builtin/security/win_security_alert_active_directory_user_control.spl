@@ -1,0 +1,10 @@
+# Title: Enabled User Right in AD to Control User Objects
+# Author: @neu5ron
+# Date: 2017-07-30
+# Level: high
+# Description: Detects scenario where if a user is assigned the SeEnableDelegationPrivilege right in Active Directory it would allow control of other AD user objects.
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.t1098
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_alert_active_directory_user_control.yml
+
+EventID=4704 PrivilegeList="*SeEnableDelegationPrivilege*"

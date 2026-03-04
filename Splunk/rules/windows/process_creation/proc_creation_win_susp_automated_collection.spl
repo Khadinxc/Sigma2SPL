@@ -1,0 +1,10 @@
+# Title: Automated Collection Command Prompt
+# Author: frack113
+# Date: 2021-07-28
+# Level: medium
+# Description: Once established within a system or network, an adversary may use automated techniques for collecting internal data.
+# MITRE Tactic: Collection
+# Tags: attack.collection, attack.t1119, attack.credential-access, attack.t1552.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_automated_collection.yml
+
+CommandLine IN ("*.doc*", "*.docx*", "*.xls*", "*.xlsx*", "*.ppt*", "*.pptx*", "*.rtf*", "*.pdf*", "*.txt*") (CommandLine="*dir *" CommandLine="* /b *" CommandLine="* /s *") OR (CommandLine IN ("* /e *", "* /si *") OriginalFileName="FINDSTR.EXE")

@@ -1,0 +1,12 @@
+# Title: Exports Critical Registry Keys To a File
+# Author: Oddvar Moe, Sander Wiebing, oscd.community
+# Date: 2020-10-12
+# Level: high
+# Description: Detects the export of a crital Registry key to a file.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.discovery, attack.t1012
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_regedit_export_critical_keys.yml
+# False Positives:
+#   - Dumping hives for legitimate purpouse i.e. backup or forensic investigation
+
+CommandLine="* -E *" OR CommandLine="* /E *" OR CommandLine="* –E *" OR CommandLine="* —E *" OR CommandLine="* ―E *" CommandLine IN ("*hklm*", "*hkey_local_machine*") CommandLine IN ("*\\system", "*\\sam", "*\\security") Image="*\\regedit.exe" OR OriginalFileName="REGEDIT.EXE"

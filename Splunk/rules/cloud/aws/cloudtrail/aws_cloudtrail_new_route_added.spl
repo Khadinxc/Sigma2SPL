@@ -1,0 +1,13 @@
+# Title: New Network Route Added
+# Author: jamesc-grafana
+# Date: 2024-07-11
+# Level: medium
+# Description: Detects the addition of a new network route to a route table in AWS.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1562.007
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_new_route_added.yml
+# False Positives:
+#   - New VPC Creation requiring setup of a new route table
+#   - New subnets added requiring routing setup
+
+eventName="CreateRoute" eventSource="ec2.amazonaws.com"

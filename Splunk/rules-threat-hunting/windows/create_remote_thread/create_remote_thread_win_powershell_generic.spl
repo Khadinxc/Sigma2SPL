@@ -1,0 +1,10 @@
+# Title: Remote Thread Creation Via PowerShell
+# Author: Nikita Nazarov, oscd.community
+# Date: 2020-10-06
+# Level: medium
+# Description: Detects the creation of a remote thread from a Powershell process to another process
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001, detection.threat-hunting
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/create_remote_thread/create_remote_thread_win_powershell_generic.yml
+
+SourceImage IN ("*\\powershell.exe", "*\\pwsh.exe") NOT SourceParentImage="*:\\Windows\\System32\\CompatTelRunner.exe"

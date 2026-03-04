@@ -1,0 +1,10 @@
+# Title: Steganography Hide Files with Steghide
+# Author: Pawel Mazur
+# Date: 2021-09-11
+# Level: low
+# Description: Detects embedding of files with usage of steghide binary, the adversaries may use this technique to prevent the detection of hidden information.
+# MITRE Tactic: Defense Evasion
+# Tags: attack.defense-evasion, attack.t1027.003
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_steghide_embed_steganography.yml
+
+a0="steghide" a1="embed" a2 IN ("-cf", "-ef") a4 IN ("-cf", "-ef") type="EXECVE"

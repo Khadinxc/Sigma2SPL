@@ -1,0 +1,12 @@
+# Title: Certificate Private Key Acquired
+# Author: Zach Mathis
+# Date: 2023-05-13
+# Level: medium
+# Description: Detects when an application acquires a certificate private key
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.t1649
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/capi2/win_capi2_acquire_certificate_private_key.yml
+# False Positives:
+#   - Legitimate application requesting certificate exports will trigger this. Apply additional filters as needed
+
+EventID=70

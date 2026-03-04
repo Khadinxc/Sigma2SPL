@@ -1,0 +1,10 @@
+# Title: Suspicious Query of MachineGUID
+# Author: frack113
+# Date: 2022-01-01
+# Level: low
+# Description: Use of reg to get MachineGuid information
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1082
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_machineguid.yml
+
+CommandLine="*SOFTWARE\\Microsoft\\Cryptography*" CommandLine="*/v *" CommandLine="*MachineGuid*" Image="*\\reg.exe"
