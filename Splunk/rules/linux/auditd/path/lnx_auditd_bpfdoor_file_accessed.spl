@@ -9,4 +9,4 @@
 # False Positives:
 #   - Unlikely
 
-name IN ("/var/run/haldrund.pid", "/var/run/xinetd.lock", "/var/run/kdevrund.pid") type="PATH"
+name IN ("/var/run/aepmonend.pid", "/var/run/auditd.lock", "/var/run/cma.lock", "/var/run/console-kit.pid", "/var/run/consolekit.pid", "/var/run/daemon.pid", "/var/run/hald-addon.pid", "/var/run/hald-smartd.pid", "/var/run/haldrund.pid", "/var/run/hp-health.pid", "/var/run/hpasmlit.lock", "/var/run/hpasmlited.pid", "/var/run/kdevrund.pid", "/var/run/lldpad.lock", "/var/run/mcelog.pid", "/var/run/system.pid", "/var/run/uvp-srv.pid", "/var/run/vmtoolagt.pid", "/var/run/xinetd.lock") type="PATH"

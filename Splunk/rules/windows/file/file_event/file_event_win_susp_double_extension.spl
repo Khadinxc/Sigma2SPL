@@ -9,4 +9,4 @@
 # False Positives:
 #   - Unlikely
 
-TargetFilename IN ("*.rar.exe", "*.zip.exe") OR (TargetFilename IN ("*.doc.*", "*.docx.*", "*.gif.*", "*.jpeg.*", "*.jpg.*", "*.mp3.*", "*.mp4.*", "*.pdf.*", "*.png.*", "*.ppt.*", "*.pptx.*", "*.rtf.*", "*.svg.*", "*.txt.*", "*.xls.*", "*.xlsx.*") TargetFilename IN ("*.exe", "*.iso", "*.rar", "*.svg", "*.zip"))
+TargetFilename IN ("*.rar.exe", "*.zip.exe") OR (TargetFilename IN ("*.doc.*", "*.docx.*", "*.gif.*", "*.jpeg.*", "*.jpg.*", "*.mp3.*", "*.mp4.*", "*.pdf.*", "*.png.*", "*.ppt.*", "*.pptx.*", "*.rtf.*", "*.svg.*", "*.txt.*", "*.xls.*", "*.xlsx.*") TargetFilename IN ("*.exe", "*.iso", "*.rar", "*.svg", "*.zip")) NOT TargetFilename="/usr/share/icons/*"

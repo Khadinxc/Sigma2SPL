@@ -9,4 +9,4 @@
 # False Positives:
 #   - Filenames that contains scriptures such as arabic or hebrew might make use of this character
 
-TargetFilename IN ("*3pm.*", "*4pm.*", "*cod.*", "*fdp.*", "*ftr.*", "*gepj.*", "*gnp.*", "*gpj.*", "*ism.*", "*lmth.*", "*nls.*", "*piz.*", "*slx.*", "*tdo.*", "*vsc.*", "*vwm.*", "*xcod.*", "*xslx.*", "*xtpp.*") TargetFilename IN ("*\\u202e*", "*[U+202E]*")
+TargetFilename IN ("*3pm.*", "*4pm.*", "*cod.*", "*fdp.*", "*ftr.*", "*gepj.*", "*gnp.*", "*gpj.*", "*ism.*", "*lmth.*", "*nls.*", "*piz.*", "*slx.*", "*tdo.*", "*vsc.*", "*vwm.*", "*xcod.*", "*xslx.*", "*xtpp.*") TargetFilename IN ("*\\u202e*", "*[U+202E]*", "*‮*")

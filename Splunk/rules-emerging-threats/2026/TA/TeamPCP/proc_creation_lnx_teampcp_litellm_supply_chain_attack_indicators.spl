@@ -1,0 +1,12 @@
+# Title: LiteLLM / TeamPCP Supply Chain Attack Indicators
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2026-03-30
+# Level: high
+# Description: Detects process executions related to the backdoored versions of LiteLLM (v1.82.7 or v1.82.8).
+# In March 2026, a supply chain attack was discovered involving the popular open-source LLM framework LiteLLM by Threat Actor TeamPCP.
+# The malicious package harvests every credential on the system, encrypts and exfiltrates them, and installs a persistent C2 backdoor.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.t1195.002, attack.collection, attack.t1560.001, attack.persistence, attack.privilege-escalation, attack.t1543.002, detection.emerging-threats
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2026/TA/TeamPCP/proc_creation_lnx_teampcp_litellm_supply_chain_attack_indicators.yml
+
+(CommandLine="*models.litellm.cloud*" CommandLine="*X-Filename: tpcp.tar.gz*" Image="*/curl") OR (CommandLine="*exec(base64.b64decode('aW1wb3J0*" CommandLine="*kI2NF9TQ1JJUFQgPSAiYV*" Image="*/python3*") OR (CommandLine="*systemctl*" CommandLine="*--user*" CommandLine="*sysmon*" ParentImage="*/python3*") OR (CommandLine="*tpcp.tar.gz*" CommandLine="*payload.enc*" CommandLine="*session.key.enc*" Image="*/tar")
