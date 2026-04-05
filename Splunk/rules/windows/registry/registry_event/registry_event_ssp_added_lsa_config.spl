@@ -7,4 +7,4 @@
 # Tags: attack.privilege-escalation, attack.persistence, attack.t1547.005
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_ssp_added_lsa_config.yml
 
-TargetObject IN ("*\\Control\\Lsa\\Security Packages", "*\\Control\\Lsa\\OSConfig\\Security Packages") NOT (Image IN ("C:\\Windows\\system32\\msiexec.exe", "C:\\Windows\\syswow64\\MsiExec.exe"))
+TargetObject IN ("*\\Control\\Lsa\\Security Packages", "*\\Control\\Lsa\\OSConfig\\Security Packages") NOT (NOT Image=* OR Image IN ("C:\\Windows\\system32\\msiexec.exe", "C:\\Windows\\syswow64\\MsiExec.exe"))
