@@ -11,4 +11,4 @@
 # False Positives:
 #   - Some legitimate admin or install scripts may use these processes for registry modifications.
 
-Image IN ("*\\mshta.exe", "*\\wscript.exe", "*\\cscript.exe")
+Image IN ("*\\mshta.exe", "*\\wscript.exe", "*\\cscript.exe") NOT (Image="*\\wscript.exe" TargetObject IN ("*SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Notifications\\Data\\*", "*\\Services\\bam\\State\\UserSettings\\S-1-*", "*Software\\Microsoft\\Windows Script\\Settings\\Telemetry\\wscript.exe\\*", "*Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\*"))
