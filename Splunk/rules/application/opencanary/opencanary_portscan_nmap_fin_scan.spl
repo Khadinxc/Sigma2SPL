@@ -1,0 +1,12 @@
+# Title: OpenCanary - NMAP FIN Scan
+# Author: Marco Pedrinazzi (@pedrinazziM)
+# Date: 2026-01-06
+# Level: high
+# Description: Detects instances where an OpenCanary node has been targeted by a NMAP FIN Scan
+# MITRE Tactic: Discovery
+# Tags: attack.discovery, attack.t1046
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_portscan_nmap_fin_scan.yml
+# False Positives:
+#   - Unlikely
+
+logtype=5005

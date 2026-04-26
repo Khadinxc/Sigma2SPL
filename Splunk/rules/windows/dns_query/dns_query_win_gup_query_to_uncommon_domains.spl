@@ -11,4 +11,4 @@
 #   - Some legitimate network misconfigurations or proxy issues causing unexpected DNS queries.
 #   - Other legitimate query to official domains not listed in the filter, needing tuning.
 
-Image="*\\gup.exe" NOT QueryName="notepad-plus-plus.org" NOT (QueryName IN ("*.githubusercontent.com", "github.com") OR QueryName="*.googleapis.com" OR QueryName="*.sourceforge.net")
+Image="*\\gup.exe" NOT QueryName="notepad-plus-plus.org" NOT (QueryName IN ("*.githubusercontent.com", "github.com") OR QueryName="*.googleapis.com" OR QueryName="*.sourceforge.net" OR QueryName IN ("*.azurewebsites.net", "*block.opendns.com", "*gateway.zscalerthree.net"))
