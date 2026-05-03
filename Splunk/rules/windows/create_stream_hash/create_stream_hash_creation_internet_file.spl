@@ -3,8 +3,8 @@
 # Date: 2022-10-22
 # Level: medium
 # Description: Detects the creation of a suspicious ADS (Alternate Data Stream) file by software other than browsers
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_stream_hash/create_stream_hash_creation_internet_file.yml
 # False Positives:
 #   - Other legitimate browsers not currently included in the filter (please add them)

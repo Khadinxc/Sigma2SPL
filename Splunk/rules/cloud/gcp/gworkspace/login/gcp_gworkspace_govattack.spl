@@ -1,0 +1,10 @@
+# Title: Google Workspace Government Attack Warning
+# Author: Tom Kluter
+# Date: 2026-04-28
+# Level: medium
+# Description: Detects a login attempt in Google Workspace flagged as a potential attack by a government-backed threat actor
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.impact, attack.stealth, attack.t1078
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/gworkspace/login/gcp_gworkspace_govattack.yml
+
+protoPayload.metadata.event.eventName="gov_attack_warning" protoPayload.serviceName="login.googleapis.com"

@@ -3,10 +3,10 @@
 # Date: 2023-09-07
 # Level: high
 # Description: Detects when an Okta user session starts where the user is behind an anonymising proxy service.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562.006
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1685
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_session_start_via_anonymised_proxy.yml
 # False Positives:
 #   - If a user requires an anonymising proxy due to valid justifications.
 
-eventtype="user.session.start" securitycontext.isproxy="true"
+eventType="user.session.start" securityContext.isProxy="true"

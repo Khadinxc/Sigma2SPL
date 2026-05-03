@@ -3,8 +3,8 @@
 # Date: 2022-09-16
 # Level: medium
 # Description: Detects modifications to the Windows Defender configuration settings using PowerShell to add exclusions
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562, attack.execution, attack.t1059
+# MITRE Tactic: Execution
+# Tags: attack.defense-impairment, attack.t1685, attack.execution, attack.t1059
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_win_defender_exclusions_added.yml
 
 ScriptBlockText IN ("* -ExclusionPath *", "* -ExclusionExtension *", "* -ExclusionProcess *", "* -ExclusionIpAddress *") ScriptBlockText IN ("*Add-MpPreference *", "*Set-MpPreference *")

@@ -3,8 +3,8 @@
 # Date: 2022-08-24
 # Level: high
 # Description: Detects the download of suspicious file type from a well-known file and paste sharing domain
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.s0139, attack.t1564.004
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.s0139, attack.t1564.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_stream_hash/create_stream_hash_file_sharing_domains_download_susp_extension.yml
 # False Positives:
 #   - Some false positives might occur with binaries download via Github

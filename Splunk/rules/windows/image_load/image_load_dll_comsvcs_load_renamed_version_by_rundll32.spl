@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects rundll32 loading a renamed comsvcs.dll to dump process memory
 # MITRE Tactic: Credential Access
-# Tags: attack.credential-access, attack.defense-evasion, attack.t1003.001
+# Tags: attack.credential-access, attack.t1003.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_dll_comsvcs_load_renamed_version_by_rundll32.yml
 # False Positives:
 #   - Unlikely

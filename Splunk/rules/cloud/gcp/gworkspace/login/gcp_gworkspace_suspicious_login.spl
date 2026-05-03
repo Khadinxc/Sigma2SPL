@@ -1,0 +1,12 @@
+# Title: Suspicious Login Activity Classified By Google
+# Author: Tom Kluter
+# Date: 2026-04-28
+# Level: medium
+# Description: Detects Google Workspace login activity that's classified as suspicious by Google.
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.privilege-escalation, attack.persistence, attack.stealth, attack.t1078.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/gworkspace/login/gcp_gworkspace_suspicious_login.yml
+# False Positives:
+#   - Legitimate logins
+
+protoPayload.Servicename="login.googleapis.com" protoPayload.metadata.event.eventName IN ("suspicious_login_less_secure_app", "suspicious_login", "suspicious_programmatic_login")

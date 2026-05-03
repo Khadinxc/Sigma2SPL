@@ -7,8 +7,8 @@
 # This user right does not apply to Plug and Play device drivers.
 # If you exclude privileged users/admins and processes, which are allowed to do so, you are maybe left with bad programs trying to load malicious kernel drivers.
 # This will detect Ghost-In-The-Logs (https://github.com/bats3c/Ghost-In-The-Logs) and the usage of Sysinternals and various other tools. So you have to work with a whitelist to find the bad stuff.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562.001
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1685
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_user_driver_loaded.yml
 # False Positives:
 #   - Other legimate tools loading drivers. Including but not limited to, Sysinternals, CPU-Z, AVs etc. A baseline needs to be created according to the used products and allowed tools. A good thing to do is to try and exclude users who are allowed to load drivers.

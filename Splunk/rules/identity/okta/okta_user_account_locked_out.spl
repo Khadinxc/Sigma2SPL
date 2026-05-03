@@ -7,4 +7,4 @@
 # Tags: attack.impact, attack.t1531
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_account_locked_out.yml
 
-displaymessage="Max sign in attempts exceeded"
+displayMessage="Max sign in attempts exceeded"

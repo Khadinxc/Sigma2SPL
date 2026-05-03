@@ -9,4 +9,4 @@
 # False Positives:
 #   - When an admin creates a new, authorised identity provider.
 
-eventtype="system.idp.lifecycle.create"
+eventType="system.idp.lifecycle.create"

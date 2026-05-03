@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Adversaries may use a non-application layer protocol for communication between host and C2 server or among infected hosts within a network
 # MITRE Tactic: Command and Control
-# Tags: attack.command-and-control, attack.t1095
+# Tags: attack.command-and-control, attack.execution, attack.t1095, attack.t1059.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_powercat.yml
 
 Data IN ("*powercat *", "*powercat.ps1*")

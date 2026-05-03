@@ -4,7 +4,7 @@
 # Level: high
 # Description: This rule detects a DHCP server error in which a specified Callout DLL (in registry) could not be loaded
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.t1574.001
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_dhcp_server/win_system_susp_dhcp_config_failed.yml
 
 EventID IN (1031, 1032, 1034) Provider_Name="Microsoft-Windows-DHCP-Server"

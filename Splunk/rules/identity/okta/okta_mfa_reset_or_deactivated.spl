@@ -4,9 +4,9 @@
 # Level: medium
 # Description: Detects when an attempt at deactivating  or resetting MFA.
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.credential-access, attack.defense-evasion, attack.t1556.006
+# Tags: attack.persistence, attack.credential-access, attack.defense-impairment, attack.t1556.006
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_mfa_reset_or_deactivated.yml
 # False Positives:
 #   - If a MFA reset or deactivated was performed by a system administrator.
 
-eventtype IN ("user.mfa.factor.deactivate", "user.mfa.factor.reset_all")
+eventType IN ("user.mfa.factor.deactivate", "user.mfa.factor.reset_all")

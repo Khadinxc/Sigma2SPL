@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects guest users being invited to tenant by non-approved inviters
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.stealth, attack.t1078
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_ad_guest_users_invited_to_tenant_by_non_approved_inviters.yml
 # False Positives:
 #   - If this was approved by System Administrator.

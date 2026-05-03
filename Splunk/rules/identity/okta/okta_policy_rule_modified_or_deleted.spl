@@ -7,4 +7,4 @@
 # Tags: attack.impact
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_policy_rule_modified_or_deleted.yml
 
-eventtype IN ("policy.rule.update", "policy.rule.delete")
+eventType IN ("policy.rule.update", "policy.rule.delete")

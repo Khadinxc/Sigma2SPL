@@ -4,8 +4,8 @@
 # Level: medium
 # Description: Detects the deletion of S3 buckets in AWS CloudTrail logs.
 # Monitoring the deletion of S3 buckets is critical for security and data integrity, as it may indicate potential data loss or unauthorized access attempts.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_bucket_deleted.yml
 # False Positives:
 #   - During maintenance operations or testing, authorized administrators may delete S3 buckets as part of routine data management or cleanup activities.

@@ -3,8 +3,8 @@
 # Date: 2017-03-05
 # Level: high
 # Description: Detects PowerShell called from an executable by the version mismatch method
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.execution, attack.t1059.001
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_exe_calling_ps.yml
 
 Data IN ("*EngineVersion=2.*", "*EngineVersion=4.*", "*EngineVersion=5.*") Data="*HostVersion=3.*"

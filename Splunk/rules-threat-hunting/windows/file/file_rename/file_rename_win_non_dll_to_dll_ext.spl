@@ -3,8 +3,8 @@
 # Date: 2022-02-19
 # Level: medium
 # Description: Detects rename operations of files with non-DLL extensions to files with a DLL extension. This is often performed by malware in order to avoid initial detections based on extensions.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1036.008, detection.threat-hunting
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1036.008, detection.threat-hunting
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/file/file_rename/file_rename_win_non_dll_to_dll_ext.yml
 # False Positives:
 #   - Likely from installers and temporary locations

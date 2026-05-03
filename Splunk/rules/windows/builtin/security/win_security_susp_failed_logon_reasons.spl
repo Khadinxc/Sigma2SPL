@@ -4,7 +4,7 @@
 # Level: medium
 # Description: This method uses uncommon error codes on failed logons to determine suspicious activity and tampering with accounts that have been disabled or somehow restricted.
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.initial-access, attack.t1078
+# Tags: attack.persistence, attack.privilege-escalation, attack.initial-access, attack.stealth, attack.t1078
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_failed_logon_reasons.yml
 # False Positives:
 #   - User using a disabled account

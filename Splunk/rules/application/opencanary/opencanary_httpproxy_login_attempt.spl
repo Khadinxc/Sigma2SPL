@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects instances where an HTTPPROXY service on an OpenCanary node has had an attempt to proxy another page.
 # MITRE Tactic: Initial Access
-# Tags: attack.initial-access, attack.defense-evasion, attack.command-and-control, attack.t1090
+# Tags: attack.initial-access, attack.command-and-control, attack.t1090
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/opencanary/opencanary_httpproxy_login_attempt.yml
 # False Positives:
 #   - Unlikely

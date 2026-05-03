@@ -9,4 +9,4 @@
 # False Positives:
 #   - Unlikely
 
-CommandLine IN ("*\\Windows\\BitLocker*", "*\\Windows\\ExploitGuard*", "*\\Windows\\SystemRestore\\SR*", "*\\Windows\\UpdateOrchestrator\\*", "*\\Windows\\Windows Defender\\*", "*\\Windows\\WindowsBackup\\*", "*\\Windows\\WindowsUpdate\\*") CommandLine="*/delete*" CommandLine="*/tn*" Image="*\\schtasks.exe"
+CommandLine="*-delete*" OR CommandLine="*/delete*" OR CommandLine="*–delete*" OR CommandLine="*—delete*" OR CommandLine="*―delete*" CommandLine IN ("*\\Windows\\BitLocker*", "*\\Windows\\ExploitGuard*", "*\\Windows\\SystemRestore\\SR*", "*\\Windows\\UpdateOrchestrator\\*", "*\\Windows\\Windows Defender\\*", "*\\Windows\\WindowsBackup\\*", "*\\Windows\\WindowsUpdate\\*") Image="*\\schtasks.exe" OR OriginalFileName="schtasks.exe"

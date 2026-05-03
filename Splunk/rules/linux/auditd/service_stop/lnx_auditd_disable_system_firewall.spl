@@ -3,8 +3,8 @@
 # Date: 2022-01-22
 # Level: high
 # Description: Detects disabling of system firewalls which could be used by adversaries to bypass controls that limit usage of the network.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.t1562.004, attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1686
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/service_stop/lnx_auditd_disable_system_firewall.yml
 # False Positives:
 #   - Admin activity

@@ -3,8 +3,8 @@
 # Date: 2022-04-09
 # Level: medium
 # Description: Adversaries may carry out malicious operations using a virtual instance to avoid detection
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1564.006
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1564.006
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_hyper_v_condlet.yml
 # False Positives:
 #   - Legitimate PowerShell scripts

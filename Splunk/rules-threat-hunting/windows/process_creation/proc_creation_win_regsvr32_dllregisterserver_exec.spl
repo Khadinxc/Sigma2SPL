@@ -4,8 +4,8 @@
 # Level: medium
 # Description: Detects execution of regsvr32 with the silent flag and no other flags on a DLL located in an uncommon or potentially suspicious location.
 # When Regsvr32 is called in such a way, it implicitly calls the DLL export function 'DllRegisterServer'.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1218, detection.threat-hunting
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1218, detection.threat-hunting
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_regsvr32_dllregisterserver_exec.yml
 # False Positives:
 #   - Legitimate usage as part of application installation, but less likely from e.g. temporary paths.

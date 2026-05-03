@@ -9,4 +9,4 @@
 # False Positives:
 #   - Administrator roles could be assigned to users or group by other admin users.
 
-eventtype IN ("group.privilege.grant", "user.account.privilege.grant")
+eventType IN ("group.privilege.grant", "user.account.privilege.grant")

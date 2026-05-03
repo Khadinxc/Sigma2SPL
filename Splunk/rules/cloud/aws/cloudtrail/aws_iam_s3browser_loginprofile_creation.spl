@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects S3 Browser utility performing reconnaissance looking for existing IAM Users without a LoginProfile defined then (when found) creating a LoginProfile.
 # MITRE Tactic: Execution
-# Tags: attack.execution, attack.persistence, attack.defense-evasion, attack.initial-access, attack.privilege-escalation, attack.t1059.009, attack.t1078.004
+# Tags: attack.execution, attack.persistence, attack.initial-access, attack.privilege-escalation, attack.stealth, attack.t1059.009, attack.t1078.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_iam_s3browser_loginprofile_creation.yml
 # False Positives:
 #   - Valid usage of S3 Browser for IAM LoginProfile listing and/or creation

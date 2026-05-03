@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects the change of user type from "Guest" to "Member" for potential elevation of privilege.
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.initial-access, attack.t1078.004
+# Tags: attack.persistence, attack.privilege-escalation, attack.initial-access, attack.stealth, attack.t1078.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_guest_to_member.yml
 # False Positives:
 #   - If this was approved by System Administrator.

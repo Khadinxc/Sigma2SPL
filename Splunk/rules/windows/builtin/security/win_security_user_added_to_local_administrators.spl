@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects the addition of a new member to the local administrator group, which could be legitimate activity or a sign of privilege escalation activity
 # MITRE Tactic: Initial Access
-# Tags: attack.initial-access, attack.defense-evasion, attack.privilege-escalation, attack.t1078, attack.persistence, attack.t1098
+# Tags: attack.initial-access, attack.privilege-escalation, attack.stealth, attack.t1078, attack.persistence, attack.t1098
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_user_added_to_local_administrators.yml
 # False Positives:
 #   - Legitimate administrative activity

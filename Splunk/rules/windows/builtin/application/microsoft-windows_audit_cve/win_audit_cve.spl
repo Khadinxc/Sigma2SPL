@@ -6,7 +6,7 @@
 # MS started using this log in Jan. 2020 with CVE-2020-0601 (a Windows CryptoAPI vulnerability.
 # Unfortunately, that is about the only instance of CVEs being written to this log.
 # MITRE Tactic: Execution
-# Tags: attack.execution, attack.t1203, attack.privilege-escalation, attack.t1068, attack.defense-evasion, attack.t1211, attack.credential-access, attack.t1212, attack.lateral-movement, attack.t1210, attack.impact, attack.t1499.004
+# Tags: attack.execution, attack.stealth, attack.t1203, attack.privilege-escalation, attack.t1068, attack.t1211, attack.credential-access, attack.t1212, attack.lateral-movement, attack.t1210, attack.impact, attack.t1499.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/microsoft-windows_audit_cve/win_audit_cve.yml
 
 EventID=1 Provider_Name IN ("Microsoft-Windows-Audit-CVE", "Audit-CVE")

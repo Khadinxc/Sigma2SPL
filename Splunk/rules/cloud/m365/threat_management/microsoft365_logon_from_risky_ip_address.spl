@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects when a Microsoft Cloud App Security reported when a user signs into your sanctioned apps from a risky IP address.
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.stealth, attack.t1078
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_logon_from_risky_ip_address.yml
 
 eventName="Log on from a risky IP address" eventSource="SecurityComplianceCenter" status="success"

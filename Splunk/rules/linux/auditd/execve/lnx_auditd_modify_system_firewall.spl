@@ -4,8 +4,8 @@
 # Level: medium
 # Description: Detects the removal of system firewall rules. Adversaries may only delete or modify a specific system firewall rule to bypass controls limiting network usage or access.
 # Detection rules that match only on the disabling of firewalls will miss this.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.t1562.004, attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1686
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_modify_system_firewall.yml
 # False Positives:
 #   - Legitimate admin activity

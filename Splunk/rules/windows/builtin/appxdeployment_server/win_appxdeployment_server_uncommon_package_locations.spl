@@ -3,8 +3,8 @@
 # Date: 2023-01-11
 # Level: medium
 # Description: Detects an appx package that was added to the pipeline of the "to be processed" packages that is located in uncommon locations.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_uncommon_package_locations.yml
 
 EventID=854 NOT (Path IN ("*:/Program%20Files*", "*:/Windows/System32/*", "*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\ImmersiveControlPanel\\*", "*:\\Windows\\PrintDialog\\*", "*:\\Windows\\SystemApps\\*", "*AppData/Local/Temp/WinGet/Microsoft.Winget.Source*", "*x-windowsupdate://*") OR Path IN ("*https://installer.teams.static.microsoft/*", "*https://res.cdn.office.net*", "*https://statics.teams.cdn.live.net/*", "*https://statics.teams.cdn.office.net/*", "*microsoft.com*")) NOT (Path="*AppData\\Local\\Microsoft\\OneDrive\\*" OR Path IN ("*AppData/Local/Temp/WinGet/Microsoft.Winget.Source*", "*AppData\\Local\\Temp\\WinGet\\Microsoft.Winget.Source*") OR Path="*x-windowsupdate://*")

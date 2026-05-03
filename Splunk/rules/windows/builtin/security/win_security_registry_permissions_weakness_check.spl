@@ -5,8 +5,8 @@
 # Description: Detects "read access" requests on the services registry key.
 # Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
 # Adversaries may use flaws in the permissions for Registry keys related to services to redirect from the originally specified executable to one that they control, in order to launch their own code when a service starts.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1574.011
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.011
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_registry_permissions_weakness_check.yml
 # False Positives:
 #   - Likely from legitimate applications reading their key. Requires heavy tuning

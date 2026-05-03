@@ -4,7 +4,7 @@
 # Level: low
 # Description: Detects BGP failures which may be indicative of brute force attacks to manipulate routing.
 # MITRE Tactic: Initial Access
-# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation, attack.defense-evasion, attack.credential-access, attack.collection, attack.t1078, attack.t1110, attack.t1557
+# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation, attack.credential-access, attack.collection, attack.stealth, attack.t1078, attack.t1110, attack.t1557
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/huawei/bgp/huawei_bgp_auth_failed.yml
 # False Positives:
 #   - Unlikely. Except due to misconfigurations

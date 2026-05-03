@@ -3,8 +3,8 @@
 # Date: 2022-02-08
 # Level: medium
 # Description: Detection for when multi factor authentication has been disabled, which might indicate a malicious activity to bypass authentication mechanisms.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.credential-access, attack.persistence, attack.t1556
+# MITRE Tactic: Credential Access
+# Tags: attack.credential-access, attack.persistence, attack.defense-impairment, attack.t1556
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_mfa_disabled.yml
 # False Positives:
 #   - Authorized modification by administrators

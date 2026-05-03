@@ -3,8 +3,8 @@
 # Date: 2019-02-05
 # Level: low
 # Description: Detect scenarios where a potentially unauthorized application or user is modifying the system time.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1070.006
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1070.006
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_time_modification.yml
 # False Positives:
 #   - HyperV or other virtualization technologies with binary not listed in filter portion of detection

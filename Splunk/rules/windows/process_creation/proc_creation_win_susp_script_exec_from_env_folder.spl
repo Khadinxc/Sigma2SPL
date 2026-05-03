@@ -2,9 +2,12 @@
 # Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems)
 # Date: 2022-02-08
 # Level: high
-# Description: Detects a suspicious script execution in temporary folders or folders accessible by environment variables
+# Description: Detects suspicious script execution from suspicious directories or folders accessible by environment variables that may indicate malware activity.
+# Script interpreters (cscript, wscript, mshta, powershell) executing from folders like Temp, Public, or user profile directories may suggest attempts to evade detection or execute malicious scripts.
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_script_exec_from_env_folder.yml
+# False Positives:
+#   - Various legitimate software have been observed to use similar techniques for installation or update purposes;thus, it is recommended to review and tune filters for your environment to reduce false positives before deploying to production.
 
-CommandLine IN ("* -ep bypass *", "* -ExecutionPolicy bypass *", "* -w hidden *", "*/e:javascript *", "*/e:Jscript *", "*/e:vbscript *") OR Image IN ("*\\cscript.exe", "*\\mshta.exe", "*\\wscript.exe") OR OriginalFileName IN ("cscript.exe", "mshta.exe", "wscript.exe") CommandLine IN ("*:\\Perflogs\\*", "*:\\Users\\Public\\*", "*\\AppData\\Local\\Temp*", "*\\AppData\\Roaming\\Temp*", "*\\Temporary Internet*", "*\\Windows\\Temp*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favorites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favourites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Contacts\\*")
+CommandLine IN ("* -ep bypass *", "* -ExecutionPolicy bypass *", "* -w hidden *", "*/e:javascript *", "*/e:Jscript *", "*/e:vbscript *") OR Image IN ("*\\cscript.exe", "*\\mshta.exe", "*\\wscript.exe") OR OriginalFileName IN ("cscript.exe", "mshta.exe", "wscript.exe") CommandLine IN ("*:\\Perflogs\\*", "*:\\Users\\Public\\*", "*\\%Public%*", "*\\AppData\\Local\\Temp*", "*\\AppData\\Roaming\\Temp*", "*\\Temporary Internet*", "*\\Windows\\Temp*", "*\\Start Menu\\Programs\\Startup\\*", "*%TEMP%*", "*%TMP%*", "*%LocalAppData%\\Temp*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favorites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Favourites\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Contacts\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Documents\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Music\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Pictures\\*") OR (CommandLine="*:\\Users\\*" CommandLine="*\\Videos\\*") NOT (CommandLine="*-NoProfile -ExecutionPolicy Bypass -Command*" CommandLine="*AppData\\Local\\Temp\\*" CommandLine="*Install-Chocolatey.ps1*" Image="*\\powershell.exe" ParentImage IN ("C:\\Windows\\System32\\Msiexec.exe", "C:\\Windows\\SysWOW64\\Msiexec.exe"))

@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects successful logon from public IP address via RDP. This can indicate a publicly-exposed RDP port.
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.credential-access, attack.t1133, attack.t1078, attack.t1110
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.credential-access, attack.stealth, attack.t1133, attack.t1078, attack.t1110
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_successful_external_remote_rdp_login.yml
 # False Positives:
 #   - Legitimate or intentional inbound connections from public IP addresses on the RDP port.

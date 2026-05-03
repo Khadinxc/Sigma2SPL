@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects disabling of Multi Factor Authentication.
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.defense-evasion, attack.credential-access, attack.t1556.006
+# Tags: attack.persistence, attack.credential-access, attack.defense-impairment, attack.t1556.006
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/audit/microsoft365_disabling_mfa.yml
 # False Positives:
 #   - Unlikely

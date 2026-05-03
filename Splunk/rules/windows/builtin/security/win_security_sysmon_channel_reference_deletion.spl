@@ -4,7 +4,7 @@
 # Level: high
 # Description: Potential threat actor tampering with Sysmon manifest and eventually disabling it
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.defense-evasion, attack.t1112
+# Tags: attack.persistence, attack.defense-impairment, attack.t1112
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_sysmon_channel_reference_deletion.yml
 
 (EventID=4657 NewValue=0 ObjectName IN ("*WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}*", "*WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational*") ObjectValueName="Enabled") OR (AccessMask="0x10000" EventID=4663 ObjectName IN ("*WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}*", "*WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational*"))

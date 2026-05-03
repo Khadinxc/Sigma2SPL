@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects potentially suspicious child processes of KeyScrambler.exe
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.execution, attack.defense-evasion, attack.privilege-escalation, attack.t1203, attack.t1574.001
+# Tags: attack.persistence, attack.execution, attack.privilege-escalation, attack.stealth, attack.t1203, attack.t1574.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_keyscrambler_susp_child_process.yml
 
 Image IN ("*\\cmd.exe", "*\\cscript.exe", "*\\mshta.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\wscript.exe") OR OriginalFileName IN ("Cmd.Exe", "cscript.exe", "mshta.exe", "PowerShell.EXE", "pwsh.dll", "regsvr32.exe", "RUNDLL32.EXE", "wscript.exe") ParentImage="*\\KeyScrambler.exe"

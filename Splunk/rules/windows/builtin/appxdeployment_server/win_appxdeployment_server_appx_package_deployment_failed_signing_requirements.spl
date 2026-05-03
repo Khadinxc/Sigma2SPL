@@ -3,8 +3,8 @@
 # Date: 2023-01-11
 # Level: medium
 # Description: Detects an appx package deployment / installation with the error code "0x80073cff" which indicates that the package didn't meet the signing requirements.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_package_deployment_failed_signing_requirements.yml
 # False Positives:
 #   - Legitimate AppX packages not signed by MS used part of an enterprise.

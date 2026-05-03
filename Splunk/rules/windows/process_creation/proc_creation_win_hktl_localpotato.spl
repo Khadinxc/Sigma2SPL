@@ -3,8 +3,8 @@
 # Date: 2023-02-14
 # Level: high
 # Description: Detects the execution of the LocalPotato POC based on basic PE metadata information and default CLI examples
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.privilege-escalation, cve.2023-21746
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, cve.2023-21746, attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_localpotato.yml
 # False Positives:
 #   - Unlikely

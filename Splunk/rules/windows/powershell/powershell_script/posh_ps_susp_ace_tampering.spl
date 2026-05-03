@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects usage of certain functions and keywords that are used to manipulate security descriptors in order to potentially set a backdoor. As seen used in the DAMP project.
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.defense-evasion, attack.privilege-escalation
+# Tags: attack.persistence, attack.privilege-escalation, attack.defense-impairment
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_ace_tampering.yml
 
 ScriptBlockText IN ("*\\Lsa\\JD*", "*\\Lsa\\Skew1*", "*\\Lsa\\Data*", "*\\Lsa\\GBG*") ScriptBlockText="*win32_Trustee*" ScriptBlockText="*win32_Ace*" ScriptBlockText="*.AccessMask*" ScriptBlockText="*.AceType*" ScriptBlockText="*.SetSecurityDescriptor*"

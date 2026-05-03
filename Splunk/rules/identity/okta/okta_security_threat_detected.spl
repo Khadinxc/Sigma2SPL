@@ -7,4 +7,4 @@
 # Tags: attack.command-and-control
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_security_threat_detected.yml
 
-eventtype="security.threat.detected"
+eventType="security.threat.detected"

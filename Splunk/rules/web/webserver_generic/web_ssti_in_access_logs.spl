@@ -3,8 +3,8 @@
 # Date: 2022-06-14
 # Level: high
 # Description: Detects SSTI attempts sent via GET requests in access logs
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1221
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1221
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/web/webserver_generic/web_ssti_in_access_logs.yml
 # False Positives:
 #   - User searches in search boxes of the respective website

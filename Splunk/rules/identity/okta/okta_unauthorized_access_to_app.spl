@@ -9,4 +9,4 @@
 # False Positives:
 #   - User might of believe that they had access.
 
-displaymessage="User attempted unauthorized access to app"
+displayMessage="User attempted unauthorized access to app"

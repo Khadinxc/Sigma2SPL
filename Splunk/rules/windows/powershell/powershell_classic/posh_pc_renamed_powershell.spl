@@ -4,7 +4,7 @@
 # Level: low
 # Description: Detects a renamed Powershell execution, which is a common technique used to circumvent security controls and bypass detection logic that's dependent on process names and process paths.
 # MITRE Tactic: Execution
-# Tags: attack.execution, attack.defense-evasion, attack.t1059.001, attack.t1036.003
+# Tags: attack.execution, attack.stealth, attack.t1059.001, attack.t1036.003
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_renamed_powershell.yml
 
 

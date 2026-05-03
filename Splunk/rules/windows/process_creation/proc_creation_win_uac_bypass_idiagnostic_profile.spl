@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects the "IDiagnosticProfileUAC" UAC bypass technique
 # MITRE Tactic: Execution
-# Tags: attack.execution, attack.defense-evasion, attack.privilege-escalation, attack.t1548.002
+# Tags: attack.execution, attack.privilege-escalation, attack.t1548.002
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml
 
 IntegrityLevel IN ("High", "System", "S-1-16-16384", "S-1-16-12288") ParentCommandLine="* /Processid:{12C21EA7-2EB8-4B55-9249-AC243DA8C666}*" ParentImage="*\\DllHost.exe"

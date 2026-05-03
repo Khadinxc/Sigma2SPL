@@ -3,8 +3,8 @@
 # Date: 2023-01-11
 # Level: medium
 # Description: Detects potential installation or installation attempts of known malicious appx packages
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_mal_appx_names.yml
 # False Positives:
 #   - Rare occasions where a malicious package uses the exact same name and version as a legitimate application.

@@ -9,4 +9,4 @@
 # False Positives:
 #   - Validate the deletion activity is permitted. The "actor" field need to be validated.
 
-action IN ("codespaces.delete", "environment.delete", "project.delete", "repo.destroy")
+action IN ("codespaces.destroy", "environment.delete", "project.delete", "repo.destroy")

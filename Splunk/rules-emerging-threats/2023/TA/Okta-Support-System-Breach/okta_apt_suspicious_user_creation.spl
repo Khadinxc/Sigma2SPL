@@ -8,4 +8,4 @@
 # Tags: attack.credential-access, detection.emerging-threats
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Okta-Support-System-Breach/okta_apt_suspicious_user_creation.yml
 
-eventtype IN ("user.lifecycle.create", "user.lifecycle.activate") target.user.display.name="*svc_network_backup*"
+eventType IN ("user.lifecycle.create", "user.lifecycle.activate") target.displayName="*svc_network_backup*"

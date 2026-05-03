@@ -3,8 +3,8 @@
 # Date: 2023-01-05
 # Level: medium
 # Description: Detects suspicious PowerShell invocation command parameters
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml
 
 (CommandLine="*-nop*" CommandLine="* -w *" CommandLine="*hidden*" CommandLine="* -c *" CommandLine="*[Convert]::FromBase64String*") OR (CommandLine="* -w *" CommandLine="*hidden*" CommandLine="*-ep*" CommandLine="*bypass*" CommandLine="*-Enc*") OR (CommandLine="* -w *" CommandLine="*hidden*" CommandLine="*-noni*" CommandLine="*-nop*" CommandLine="* -c *" CommandLine="*iex*" CommandLine="*New-Object*") OR (CommandLine="*iex*" CommandLine="*New-Object*" CommandLine="*Net.WebClient*" CommandLine="*.Download*") OR (CommandLine="*powershell*" CommandLine="*reg*" CommandLine="*add*" CommandLine="*\\software\\*") OR (CommandLine="*bypass*" CommandLine="*-noprofile*" CommandLine="*-windowstyle*" CommandLine="*hidden*" CommandLine="*new-object*" CommandLine="*system.net.webclient*" CommandLine="*.download*") NOT (CommandLine IN ("*(New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1*", "*Write-ChocolateyWarning*"))

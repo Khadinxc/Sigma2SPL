@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects email forwarding or redirecting activity via ExchangePowerShell Cmdlet
 # MITRE Tactic: Collection
-# Tags: attack.collection, attack.t1114.003, attack.defense-evasion, attack.t1564.008, attack.exfiltration, attack.t1020, detection.threat-hunting
+# Tags: attack.collection, attack.stealth, attack.t1114.003, attack.t1564.008, attack.exfiltration, attack.t1020, detection.threat-hunting
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/powershell/powershell_script/posh_ps_email_forwarding_activity.yml
 # False Positives:
 #   - Legitimate mail forwarding rules created by users or administrators to forward email to designated internal or external recipients for business or operational purposes.

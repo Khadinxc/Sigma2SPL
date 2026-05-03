@@ -3,8 +3,8 @@
 # Date: 2019-02-16
 # Level: high
 # Description: Detects svchost hosting RDP termsvcs communicating with the loopback address
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.command-and-control, attack.lateral-movement, attack.t1090.001, attack.t1090.002, attack.t1021.001, car.2013-07-002
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.lateral-movement, attack.t1090.001, attack.t1090.002, attack.t1021.001, car.2013-07-002
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_rdp_reverse_tunnel.yml
 # False Positives:
 #   - Programs that connect locally to the RDP port

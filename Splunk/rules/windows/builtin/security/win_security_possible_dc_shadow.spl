@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects DCShadow via create new SPN
 # MITRE Tactic: Credential Access
-# Tags: attack.credential-access, attack.defense-evasion, attack.t1207
+# Tags: attack.credential-access, attack.defense-impairment, attack.t1207
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_possible_dc_shadow.yml
 # False Positives:
 #   - Valid on domain controllers; exclude known DCs

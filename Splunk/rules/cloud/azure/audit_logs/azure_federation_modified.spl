@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Identifies when an user or application modified the federation settings on the domain.
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.stealth, attack.t1078
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_federation_modified.yml
 # False Positives:
 #   - Federation Settings being modified or deleted may be performed by a system administrator.

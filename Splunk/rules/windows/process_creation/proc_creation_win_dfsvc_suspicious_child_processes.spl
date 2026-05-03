@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects potentially suspicious child processes of a ClickOnce deployment application
 # MITRE Tactic: Execution
-# Tags: attack.execution, attack.defense-evasion
+# Tags: attack.execution, attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dfsvc_suspicious_child_processes.yml
 
 Image IN ("*\\calc.exe", "*\\cmd.exe", "*\\cscript.exe", "*\\explorer.exe", "*\\mshta.exe", "*\\net.exe", "*\\net1.exe", "*\\nltest.exe", "*\\notepad.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\reg.exe", "*\\regsvr32.exe", "*\\rundll32.exe", "*\\schtasks.exe", "*\\werfault.exe", "*\\wscript.exe") ParentImage="*\\AppData\\Local\\Apps\\2.0\\*"

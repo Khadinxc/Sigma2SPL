@@ -3,8 +3,8 @@
 # Date: 2022-03-01
 # Level: low
 # Description: Detects the creation of a new bits job by PowerShell
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.persistence, attack.t1197
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.execution, attack.stealth, attack.t1197
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/bits_client/win_bits_client_new_job_via_powershell.yml
 # False Positives:
 #   - Administrator PowerShell scripts

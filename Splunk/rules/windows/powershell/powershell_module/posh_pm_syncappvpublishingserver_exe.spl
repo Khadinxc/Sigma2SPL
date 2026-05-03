@@ -3,8 +3,8 @@
 # Date: 2020-10-05
 # Level: medium
 # Description: Detects SyncAppvPublishingServer process execution which usually utilized by adversaries to bypass PowerShell execution restrictions.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1218
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1218
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_module/posh_pm_syncappvpublishingserver_exe.yml
 # False Positives:
 #   - App-V clients

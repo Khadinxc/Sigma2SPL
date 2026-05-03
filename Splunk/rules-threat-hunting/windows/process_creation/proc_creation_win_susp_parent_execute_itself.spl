@@ -5,8 +5,8 @@
 # Description: Detects when an executable launches an identical instance of itself, a behavior often used to create a suspended “sacrificial” process for code injection or evasion.
 # Investigate for indicators such as the process being started in suspended mode, rapid parent termination, memory manipulation (e.g., WriteProcessMemory, CreateRemoteThread), or unsigned binaries.
 # Review command-line arguments, process ancestry, and network activity to confirm if this is legitimate behavior or process injection activity.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055, detection.threat-hunting
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.stealth, attack.t1055, detection.threat-hunting
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_parent_execute_itself.yml
 # False Positives:
 #   - Legitimate software that may launch a new instance of itself, especially updaters or installers. Investigate each alert and apply whitelisting as needed.

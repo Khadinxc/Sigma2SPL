@@ -5,7 +5,7 @@
 # Description: Detects the deletion of an AWS SAML provider, potentially indicating malicious intent to disrupt administrative or security team access.
 # An attacker can remove the SAML provider for the information security team or a team of system administrators, to make it difficult for them to work and investigate at the time of the attack and after it.
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.t1078.004, attack.privilege-escalation, attack.defense-evasion, attack.initial-access, attack.persistence, attack.t1531, attack.impact
+# Tags: attack.stealth, attack.t1078.004, attack.privilege-escalation, attack.initial-access, attack.persistence, attack.t1531, attack.impact
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_delete_saml_provider.yml
 # False Positives:
 #   - Automated processes using tools like Terraform may trigger this alert.

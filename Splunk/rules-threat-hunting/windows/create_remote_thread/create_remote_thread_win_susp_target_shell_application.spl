@@ -4,8 +4,8 @@
 # Level: medium
 # Description: Detects remote thread creation in command shell applications, such as "Cmd.EXE" and "PowerShell.EXE".
 # It is a common technique used by malware, such as IcedID, to inject malicious code and execute it within legitimate processes.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055, detection.threat-hunting
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.stealth, attack.t1055, detection.threat-hunting
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/create_remote_thread/create_remote_thread_win_susp_target_shell_application.yml
 
 TargetImage IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe") NOT (SourceImage IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Program Files (x86)\\*", "C:\\Program Files\\*")) NOT SourceImage="*\\MsMpEng.exe"
