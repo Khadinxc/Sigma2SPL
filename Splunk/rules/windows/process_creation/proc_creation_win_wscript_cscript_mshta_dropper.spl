@@ -1,0 +1,12 @@
+# Title: Potential Dropper Script Execution Via WScript/CScript/MSHTA
+# Author: Margaritis Dimitrios (idea), Florian Roth (Nextron Systems), oscd.community, Nasreddine Bencherchali (Nextron Systems), Dave Johnson
+# Date: 2019-01-16
+# Level: medium
+# Description: Detects wscript/cscript/mshta executions of scripts located in user directories
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1059.005, attack.t1059.007
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wscript_cscript_mshta_dropper.yml
+# False Positives:
+#   - Some installers might generate a similar behavior. An initial baseline is required
+
+Image IN ("*\\wscript.exe", "*\\cscript.exe", "*\\mshta.exe") CommandLine IN ("*.hta*", "*.js*", "*.jse*", "*.vba*", "*.vbe*", "*.vbs*", "*.wsf*", "*.wsh*") CommandLine IN ("*:\\Perflogs\\*", "*:\\Temp\\*", "*:\\Tmp\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp\\*", "*\\AppData\\Roaming\\Temp\\*", "*\\Start Menu\\Programs\\Startup\\*", "*\\Temporary Internet*", "*\\Windows\\Temp*", "*%LocalAppData%\\Temp\\*", "*%TEMP%*", "*%TMP%*")

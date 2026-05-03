@@ -5,8 +5,8 @@
 # Description: Device code flow is an OAuth 2.0 protocol flow specifically for input constrained devices and is not used in all environments.
 # If this type of flow is seen in the environment and not being used in an input constrained device scenario, further investigation is warranted.
 # This can be a misconfigured application or potentially something malicious.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.t1078, attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.initial-access
+# MITRE Tactic: Persistence
+# Tags: attack.stealth, attack.t1078, attack.persistence, attack.privilege-escalation, attack.initial-access
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_app_device_code_authentication.yml
 # False Positives:
 #   - Applications that are input constrained will need to use device code flow and are valid authentications.

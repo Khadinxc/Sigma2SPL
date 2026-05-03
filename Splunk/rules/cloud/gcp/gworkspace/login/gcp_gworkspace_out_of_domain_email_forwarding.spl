@@ -1,0 +1,12 @@
+# Title: Google Workspace Out Of Domain Email Forwarding
+# Author: Tom kluter
+# Date: 2026-04-28
+# Level: medium
+# Description: Detects automatic email forwarding to external domains in Google Workspace, which may indicate data leakage or misuse.
+# MITRE Tactic: Collection
+# Tags: attack.t1114.003, attack.collection
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/gworkspace/login/gcp_gworkspace_out_of_domain_email_forwarding.yml
+# False Positives:
+#   - Legitimate forwarding
+
+protoPayload.metadata.event.eventName="email_forwarding_out_of_domain" protoPayload.serviceName="login.googleapis.com"

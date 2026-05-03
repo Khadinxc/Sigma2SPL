@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects unsigned module load by ClickOnce application.
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.defense-evasion, attack.persistence, attack.t1574.001
+# Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_susp_clickonce_unsigned_module_loaded.yml
 # False Positives:
 #   - Unlikely

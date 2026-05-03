@@ -3,8 +3,8 @@
 # Date: 2022-04-26
 # Level: high
 # Description: Detects application popup reporting a failure of the Sysmon service
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1685
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/application_popup/win_system_application_sysmon_crash.yml
 
 Caption IN ("sysmon64.exe - Application Error", "sysmon.exe - Application Error") EventID=26 Provider_Name="Application Popup"

@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects restricted access to applications by the Software Restriction Policies (SRP) policy
 # MITRE Tactic: Lateral Movement
-# Tags: attack.lateral-movement, attack.execution, attack.defense-evasion, attack.t1072
+# Tags: attack.lateral-movement, attack.execution, attack.t1072
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/microsoft_windows_software_restriction_policies/win_software_restriction_policies_block.yml
 
 EventID IN (865, 866, 867, 868, 882) Provider_Name="Microsoft-Windows-SoftwareRestrictionPolicies"

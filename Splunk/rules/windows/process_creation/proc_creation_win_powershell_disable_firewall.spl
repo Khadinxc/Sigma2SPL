@@ -3,8 +3,8 @@
 # Date: 2022-09-14
 # Level: medium
 # Description: Detects attempts to disable the Windows Firewall using PowerShell
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1685
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_firewall.yml
 
 CommandLine="*Set-NetFirewallProfile *" CommandLine="* -Enabled *" CommandLine="* False*" Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\powershell_ise.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll") CommandLine IN ("* -All *", "*Public*", "*Domain*", "*Private*")

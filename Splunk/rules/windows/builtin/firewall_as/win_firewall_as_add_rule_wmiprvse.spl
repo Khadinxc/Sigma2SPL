@@ -4,8 +4,8 @@
 # Level: medium
 # Description: Detects the addition of a new "Allow" firewall rule by the WMI process (WmiPrvSE.EXE).
 # This can occur if an attacker leverages PowerShell cmdlets such as "New-NetFirewallRule", or directly uses WMI CIM classes such as "MSFT_NetFirewallRule".
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562.004
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1686.003
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/firewall_as/win_firewall_as_add_rule_wmiprvse.yml
 # False Positives:
 #   - Administrator scripts or activity.

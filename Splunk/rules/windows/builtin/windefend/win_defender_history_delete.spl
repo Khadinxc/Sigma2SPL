@@ -3,8 +3,8 @@
 # Date: 2020-08-13
 # Level: informational
 # Description: Windows Defender logs when the history of detected infections is deleted.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_history_delete.yml
 # False Positives:
 #   - Deletion of Defender malware detections history for legitimate reasons

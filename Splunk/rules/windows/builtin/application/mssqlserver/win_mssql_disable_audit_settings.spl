@@ -3,8 +3,8 @@
 # Date: 2022-07-13
 # Level: high
 # Description: Detects when an attacker calls the "ALTER SERVER AUDIT" or "DROP SERVER AUDIT" transaction in order to delete or disable audit logs on the server
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/application/mssqlserver/win_mssql_disable_audit_settings.yml
 # False Positives:
 #   - This event should only fire when an administrator is modifying the audit policy. Which should be a rare occurrence once it's set up

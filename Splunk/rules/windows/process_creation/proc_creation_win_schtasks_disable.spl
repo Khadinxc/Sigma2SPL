@@ -7,4 +7,4 @@
 # Tags: attack.impact, attack.t1489
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_disable.yml
 
-CommandLine IN ("*\\Windows\\BitLocker*", "*\\Windows\\ExploitGuard*", "*\\Windows\\ExploitGuard\\ExploitGuard MDM policy Refresh*", "*\\Windows\\SystemRestore\\SR*", "*\\Windows\\UpdateOrchestrator\\*", "*\\Windows\\Windows Defender\\*", "*\\Windows\\WindowsBackup\\*", "*\\Windows\\WindowsUpdate\\*") CommandLine="*/Change*" CommandLine="*/TN*" CommandLine="*/disable*" Image="*\\schtasks.exe"
+CommandLine="*-disable*" OR CommandLine="*/disable*" OR CommandLine="*–disable*" OR CommandLine="*—disable*" OR CommandLine="*―disable*" CommandLine IN ("*\\Windows\\BitLocker*", "*\\Windows\\ExploitGuard*", "*\\Windows\\ExploitGuard\\ExploitGuard MDM policy Refresh*", "*\\Windows\\SystemRestore\\SR*", "*\\Windows\\UpdateOrchestrator\\*", "*\\Windows\\Windows Defender\\*", "*\\Windows\\WindowsBackup\\*", "*\\Windows\\WindowsUpdate\\*") Image="*\\schtasks.exe" OR OriginalFileName="schtasks.exe"

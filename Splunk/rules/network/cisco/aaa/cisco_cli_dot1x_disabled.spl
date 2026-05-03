@@ -1,0 +1,14 @@
+# Title: Cisco Dot1x Disabled
+# Author: Luc Génaux
+# Date: 2026-04-28
+# Level: medium
+# Description: Detects the manual disablement of IEEE 802.1X (dot1x) on a Cisco network device interface.
+# Disabling dot1x bypasses Network Access Control (NAC) mechanisms, potentially allowing unauthorized devices to gain access to the internal network.
+# This activity is a common technique used by attackers or malicious insiders to establish persistence or perform lateral movement via rogue devices.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.credential-access, attack.defense-impairment, attack.t1685, attack.t1556.004
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_dot1x_disabled.yml
+# False Positives:
+#   - Administrator troubleshooting connectivity issues
+
+"access-session port-control force-authorized" OR "authentication port-control force-authorized" OR "dot1x port-control force-authorized" OR "no access-session port-control" OR "no authentication port-control" OR "no dot1x port-control" OR "no dot1x system-auth-control"

@@ -3,8 +3,8 @@
 # Date: 2023-01-11
 # Level: high
 # Description: Detects an appx package that was added to the pipeline of the "to be processed" packages which was downloaded from a file sharing or CDN domain.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_downloaded_from_file_sharing_domains.yml
 # False Positives:
 #   - Unlikely, unless the organization uses file sharing or CDN services to distribute internal applications.

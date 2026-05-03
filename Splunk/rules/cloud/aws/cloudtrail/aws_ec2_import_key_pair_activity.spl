@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects the import of SSH key pairs into AWS EC2, which may indicate an attacker attempting to gain unauthorized access to instances. This activity could lead to initial access, persistence, or privilege escalation, potentially compromising sensitive data and operations.
 # MITRE Tactic: Initial Access
-# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# Tags: attack.initial-access, attack.stealth, attack.t1078, attack.persistence, attack.privilege-escalation
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_ec2_import_key_pair_activity.yml
 # False Positives:
 #   - Legitimate administrative actions by authorized users importing keys for valid purposes.

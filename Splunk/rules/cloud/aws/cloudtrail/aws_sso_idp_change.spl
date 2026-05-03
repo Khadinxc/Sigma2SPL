@@ -5,7 +5,7 @@
 # Description: Detects a change in the AWS Identity Center (FKA AWS SSO) identity provider.
 # A change in identity provider allows an attacker to establish persistent access or escalate privileges via user impersonation.
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.credential-access, attack.defense-evasion, attack.t1556
+# Tags: attack.persistence, attack.credential-access, attack.defense-impairment, attack.t1556
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_sso_idp_change.yml
 # False Positives:
 #   - Authorized changes to the AWS account's identity provider

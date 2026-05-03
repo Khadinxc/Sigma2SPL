@@ -9,4 +9,4 @@
 # False Positives:
 #   - Legitimate and authorized user creation
 
-eventtype="user.lifecycle.create"
+eventType="user.lifecycle.create"

@@ -3,8 +3,8 @@
 # Date: 2022-01-01
 # Level: high
 # Description: Detects remote RPC calls to modify the registry and possible execute code
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.lateral-movement, attack.t1112, attack.persistence
+# MITRE Tactic: Lateral Movement
+# Tags: attack.lateral-movement, attack.defense-impairment, attack.t1112, attack.persistence
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/rpc_firewall/rpc_firewall_remote_registry_lateral_movement.yml
 # False Positives:
 #   - Remote administration of registry values

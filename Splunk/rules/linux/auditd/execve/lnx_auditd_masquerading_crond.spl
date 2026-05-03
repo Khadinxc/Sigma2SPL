@@ -4,8 +4,8 @@
 # Level: medium
 # Description: Masquerading occurs when the name or location of an executable, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation.
 # Several different variations of this technique have been observed.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1036.003
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1036.003
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_masquerading_crond.yml
 
 a0="cp" a1="/bin/sh" a2="*/crond" type="execve"

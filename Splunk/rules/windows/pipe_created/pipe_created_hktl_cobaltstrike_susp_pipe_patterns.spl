@@ -3,8 +3,8 @@
 # Date: 2021-07-30
 # Level: high
 # Description: Detects the creation of a named pipe with a pattern found in CobaltStrike malleable C2 profiles
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055, stp.1k
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.stealth, attack.t1055, stp.1k
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_cobaltstrike_susp_pipe_patterns.yml
 # False Positives:
 #   - Chrome instances using the exact same pipe name "mojo.xxx"

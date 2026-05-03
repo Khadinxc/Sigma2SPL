@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects when a new admin is created.
 # MITRE Tactic: Initial Access
-# Tags: attack.initial-access, attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1078.004
+# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation, attack.stealth, attack.t1078.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_privileged_account_creation.yml
 # False Positives:
 #   - A legitimate new admin account being created

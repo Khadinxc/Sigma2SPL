@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects when PIM alerts are set to disabled.
 # MITRE Tactic: Initial Access
-# Tags: attack.initial-access, attack.defense-evasion, attack.persistence, attack.privilege-escalation, attack.t1078
+# Tags: attack.initial-access, attack.persistence, attack.privilege-escalation, attack.stealth, attack.t1078
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_pim_alerts_disabled.yml
 # False Positives:
 #   - Administrator disabling PIM alerts as an active choice.

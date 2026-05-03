@@ -3,8 +3,8 @@
 # Date: 2021-09-22
 # Level: medium
 # Description: Identifies when suspicious SAML activity has occurred in AWS. An adversary could gain backdoor access via SAML.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.initial-access, attack.lateral-movement, attack.persistence, attack.privilege-escalation, attack.t1078, attack.t1548, attack.t1550, attack.t1550.001
+# MITRE Tactic: Initial Access
+# Tags: attack.initial-access, attack.lateral-movement, attack.persistence, attack.privilege-escalation, attack.stealth, attack.t1078, attack.t1548, attack.t1550, attack.t1550.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_susp_saml_activity.yml
 # False Positives:
 #   - Automated processes that uses Terraform may lead to false positives.

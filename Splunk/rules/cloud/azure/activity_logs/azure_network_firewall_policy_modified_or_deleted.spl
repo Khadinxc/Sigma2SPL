@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Identifies when a Firewall Policy is Modified or Deleted.
 # MITRE Tactic: Impact
-# Tags: attack.impact, attack.defense-evasion, attack.t1562.007
+# Tags: attack.impact, attack.defense-impairment, attack.t1686.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_network_firewall_policy_modified_or_deleted.yml
 # False Positives:
 #   - Firewall Policy being modified or deleted may be performed by a system administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.

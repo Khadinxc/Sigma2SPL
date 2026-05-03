@@ -5,8 +5,8 @@
 # Description: This detection uses azureactivity logs (Administrative category) to identify the creation or update of a server instance in an Azure AD Hybrid health AD FS service.
 # A threat actor can create a new AD Health ADFS service and create a fake server instance to spoof AD FS signing logs. There is no need to compromise an on-prem AD FS server.
 # This can be done programmatically via HTTP requests to Azure.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1578
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1578
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activity_logs/azure_aadhybridhealth_adfs_new_server.yml
 # False Positives:
 #   - Legitimate AD FS servers added to an AAD Health AD FS service instance

@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects when an account is disabled or blocked for sign in but tried to log in
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078.004
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.stealth, attack.t1078.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_blocked_account_attempt.yml
 # False Positives:
 #   - Account disabled or blocked in error

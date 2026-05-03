@@ -9,4 +9,4 @@
 # False Positives:
 #   - Unlikely
 
-eventtype="user.authentication.auth_via_mfa" outcome.reason="FastPass declined phishing attempt" outcome.result="FAILURE"
+eventType="user.authentication.auth_via_mfa" outcome.reason="FastPass declined phishing attempt" outcome.result="FAILURE"

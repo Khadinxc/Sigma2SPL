@@ -6,7 +6,7 @@
 # These DLLs contain functions like MiniDumpWriteDump that can be abused for credential dumping purposes. While modern tools like Mimikatz have moved to using ntdll.dll,
 # dbgcore.dll and dbghelp.dll are still used by basic credential dumping utilities and legacy tools for LSASS memory access and process suspension techniques.
 # MITRE Tactic: Credential Access
-# Tags: attack.credential-access, attack.t1003.001, attack.defense-evasion, attack.t1562.001
+# Tags: attack.credential-access, attack.defense-impairment, attack.t1003.001, attack.t1685
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_susp_dbgcore_dbghelp_load.yml
 # False Positives:
 #   - Possibly during software installation or update processes

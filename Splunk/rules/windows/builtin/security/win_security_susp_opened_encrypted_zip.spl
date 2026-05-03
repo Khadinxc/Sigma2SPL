@@ -3,8 +3,8 @@
 # Date: 2022-05-09
 # Level: medium
 # Description: Detects the extraction of password protected ZIP archives. See the filename variable for more details on which file has been opened.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1027
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1027
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_susp_opened_encrypted_zip.yml
 # False Positives:
 #   - Legitimate used of encrypted ZIP files

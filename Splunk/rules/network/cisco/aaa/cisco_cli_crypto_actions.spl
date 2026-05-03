@@ -4,7 +4,7 @@
 # Level: high
 # Description: Show when private keys are being exported from the device, or when new certificates are installed
 # MITRE Tactic: Credential Access
-# Tags: attack.credential-access, attack.defense-evasion, attack.t1553.004, attack.t1552.004
+# Tags: attack.credential-access, attack.defense-impairment, attack.t1553.004, attack.t1552.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/cisco/aaa/cisco_cli_crypto_actions.yml
 # False Positives:
 #   - Not commonly run by administrators. Also whitelist your known good certificates

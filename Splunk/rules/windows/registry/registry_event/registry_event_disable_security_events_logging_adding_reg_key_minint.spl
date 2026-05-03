@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects the addition of a key 'MiniNt' to the registry. Upon a reboot, Windows Event Log service will stop writing events.
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.defense-evasion, attack.t1562.002, attack.t1112, car.2022-03-001
+# Tags: attack.persistence, attack.defense-impairment, attack.t1685.001, attack.t1112, car.2022-03-001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_disable_security_events_logging_adding_reg_key_minint.yml
 
 (EventType="CreateKey" TargetObject="HKLM\\SYSTEM\\CurrentControlSet\\Control\\MiniNt") OR NewName="HKLM\\SYSTEM\\CurrentControlSet\\Control\\MiniNt"

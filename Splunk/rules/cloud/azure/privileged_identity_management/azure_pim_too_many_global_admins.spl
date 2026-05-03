@@ -4,7 +4,7 @@
 # Level: high
 # Description: Identifies an event where there are there are too many accounts assigned the Global Administrator role.
 # MITRE Tactic: Initial Access
-# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# Tags: attack.initial-access, attack.stealth, attack.t1078, attack.persistence, attack.privilege-escalation
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/privileged_identity_management/azure_pim_too_many_global_admins.yml
 # False Positives:
 #   - Investigate if threshold setting in PIM is too low.

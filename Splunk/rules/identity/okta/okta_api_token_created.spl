@@ -9,4 +9,4 @@
 # False Positives:
 #   - Legitimate creation of an API token by authorized users
 
-eventtype="system.api_token.create"
+eventType="system.api_token.create"

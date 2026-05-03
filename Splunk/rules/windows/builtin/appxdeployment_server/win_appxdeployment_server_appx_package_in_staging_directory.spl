@@ -3,8 +3,8 @@
 # Date: 2023-01-11
 # Level: high
 # Description: Detects an appx package that was added to the pipeline of the "to be processed" packages that is located in a known folder often used as a staging directory.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_package_in_staging_directory.yml
 
 EventID=854 Path IN ("*:\\PerfLogs\\*", "*:\\Users\\Public\\*", "*:\\Windows\\Temp\\*", "*\\AppdData\\Local\\Temp\\*", "*\\Desktop\\*", "*\\Downloads\\*") OR Path IN ("*:/Perflogs/*", "*:/Users/Public/*", "*:/Windows/Temp/*", "*/AppdData/Local/Temp/*", "*/Desktop/*", "*/Downloads/*")

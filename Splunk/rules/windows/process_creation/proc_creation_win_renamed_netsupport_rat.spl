@@ -3,8 +3,8 @@
 # Date: 2022-09-19
 # Level: high
 # Description: Detects the execution of a renamed "client32.exe" (NetSupport RAT) via Imphash, Product and OriginalFileName strings
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_renamed_netsupport_rat.yml
 
 Product="*NetSupport Remote Control*" OR OriginalFileName="*client32.exe*" OR Hashes="*IMPHASH=A9D50692E95B79723F3E76FCF70D023E*" NOT Image="*\\client32.exe"

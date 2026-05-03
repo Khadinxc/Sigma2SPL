@@ -7,4 +7,4 @@
 # Tags: attack.impact
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_network_zone_deactivated_or_deleted.yml
 
-eventtype IN ("zone.deactivate", "zone.delete")
+eventType IN ("zone.deactivate", "zone.delete")

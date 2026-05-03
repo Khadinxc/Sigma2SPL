@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects suspicious child processes of a Windows shell and scripting processes such as wscript, rundll32, powershell, mshta...etc.
 # MITRE Tactic: Execution
-# Tags: attack.execution, attack.defense-evasion, attack.t1059.005, attack.t1059.001, attack.t1218
+# Tags: attack.execution, attack.stealth, attack.t1059.005, attack.t1059.001, attack.t1218
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_shell_spawn_susp_program.yml
 # False Positives:
 #   - Administrative scripts

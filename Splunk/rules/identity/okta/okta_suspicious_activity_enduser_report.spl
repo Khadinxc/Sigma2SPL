@@ -9,4 +9,4 @@
 # False Positives:
 #   - If an end-user incorrectly identifies normal activity as suspicious.
 
-eventtype="user.account.report_suspicious_activity_by_enduser"
+eventType="user.account.report_suspicious_activity_by_enduser"

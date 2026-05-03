@@ -3,8 +3,8 @@
 # Date: 2018-06-25
 # Level: medium
 # Description: Detects the creation of a remote thread from a Powershell process in an uncommon target process
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.execution, attack.t1218.011, attack.t1059.001
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.stealth, attack.t1218.011, attack.t1059.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_powershell_susp_targets.yml
 
 SourceImage IN ("*\\powershell.exe", "*\\pwsh.exe") TargetImage IN ("*\\rundll32.exe", "*\\regsvr32.exe")

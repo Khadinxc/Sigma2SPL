@@ -1,0 +1,13 @@
+# Title: PowerShell Download Via Net.WebClient - PowerShell Classic
+# Author: Florian Roth (Nextron Systems)
+# Date: 2017-03-05
+# Level: low
+# Description: Detects PowerShell download activity, via the .DownloadFile() or .DownloadString() methods of the Net.WebClient class.
+# This technique is often abused by attackers to download additional payloads.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.command-and-control, attack.t1059.001, attack.t1105
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_classic/posh_pc_download_via_webclient.yml
+# False Positives:
+#   - This activity may be used by legitimate software, such as patch management tools or software updaters. Investigate any such activity and apply the necessary filter.
+
+Data IN ("*.DownloadFile(*", "*.DownloadString(*") Data="*Net.WebClient*"

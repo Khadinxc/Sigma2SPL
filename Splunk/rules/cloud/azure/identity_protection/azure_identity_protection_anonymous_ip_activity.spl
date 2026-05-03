@@ -4,7 +4,7 @@
 # Level: high
 # Description: Identifies that users were active from an IP address that has been identified as an anonymous proxy IP address.
 # MITRE Tactic: Persistence
-# Tags: attack.t1078, attack.persistence, attack.defense-evasion, attack.privilege-escalation, attack.initial-access
+# Tags: attack.stealth, attack.t1078, attack.persistence, attack.privilege-escalation, attack.initial-access
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/identity_protection/azure_identity_protection_anonymous_ip_activity.yml
 # False Positives:
 #   - We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user.

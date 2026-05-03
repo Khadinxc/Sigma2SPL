@@ -10,4 +10,4 @@
 # Tags: attack.execution, attack.t1047
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_service.yml
 
-CommandLine="*service*" Image="*\\WMIC.exe" OR OriginalFileName="wmic.exe"
+CommandLine="*service*" Image="*\\WMIC.exe" OR OriginalFileName="wmic.exe" NOT (CommandLine IN ("*Change*", "*Create*", "*Delete*", "*PauseService*", "*ResumeService*", "*SetSecurityDescriptor*", "*StartService*", "*StopService*", "*UserControlService*"))

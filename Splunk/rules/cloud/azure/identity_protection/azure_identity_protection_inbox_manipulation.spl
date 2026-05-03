@@ -3,8 +3,8 @@
 # Date: 2023-09-03
 # Level: high
 # Description: Detects suspicious rules that delete or move messages or folders are set on a user's inbox.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.t1140, attack.defense-evasion
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1140
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/identity_protection/azure_identity_protection_inbox_manipulation.yml
 # False Positives:
 #   - Actual mailbox rules that are moving items based on their workflow.

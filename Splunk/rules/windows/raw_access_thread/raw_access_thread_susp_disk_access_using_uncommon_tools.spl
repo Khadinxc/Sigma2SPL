@@ -3,8 +3,8 @@
 # Date: 2019-10-22
 # Level: low
 # Description: Detects raw disk access using uncommon tools or tools that are located in suspicious locations (heavy filtering is required), which could indicate possible defense evasion attempts
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1006
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1006
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/raw_access_thread/raw_access_thread_susp_disk_access_using_uncommon_tools.yml
 # False Positives:
 #   - Likely

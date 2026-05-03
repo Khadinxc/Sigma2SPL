@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects Bitbucket global SSH access configuration changes.
 # MITRE Tactic: Lateral Movement
-# Tags: attack.lateral-movement, attack.defense-evasion, attack.t1562.001, attack.t1021.004
+# Tags: attack.lateral-movement, attack.defense-impairment, attack.t1685, attack.t1021.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/bitbucket/audit/bitbucket_audit_global_ssh_settings_change_detected.yml
 # False Positives:
 #   - Legitimate user activity.

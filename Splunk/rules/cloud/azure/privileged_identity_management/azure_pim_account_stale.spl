@@ -4,7 +4,7 @@
 # Level: high
 # Description: Identifies when an account hasn't signed in during the past n number of days.
 # MITRE Tactic: Initial Access
-# Tags: attack.initial-access, attack.defense-evasion, attack.t1078, attack.persistence, attack.privilege-escalation
+# Tags: attack.initial-access, attack.stealth, attack.t1078, attack.persistence, attack.privilege-escalation
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/privileged_identity_management/azure_pim_account_stale.yml
 # False Positives:
 #   - Investigate if potential generic account that cannot be removed.

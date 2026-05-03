@@ -3,8 +3,8 @@
 # Date: 2022-03-01
 # Level: medium
 # Description: Detects new BITS transfer job saving local files with potential suspicious extensions
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.persistence, attack.t1197
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.execution, attack.stealth, attack.t1197
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/bits_client/win_bits_client_new_transfer_saving_susp_extensions.yml
 # False Positives:
 #   - While the file extensions in question can be suspicious at times. It's best to add filters according to your environment to avoid large amount false positives

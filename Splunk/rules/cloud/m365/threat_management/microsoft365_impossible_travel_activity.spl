@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects when a Microsoft Cloud App Security reported a risky sign-in attempt due to a login associated with an impossible travel.
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.defense-evasion, attack.initial-access, attack.t1078
+# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.stealth, attack.t1078
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/m365/threat_management/microsoft365_impossible_travel_activity.yml
 
 eventName="Impossible travel activity" eventSource="SecurityComplianceCenter" status="success"

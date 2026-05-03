@@ -1,0 +1,10 @@
+# Title: Google Workspace Role Privilege Deleted
+# Author: Austin Songer
+# Date: 2021-08-24
+# Level: medium
+# Description: Detects when an a role privilege is deleted in Google Workspace.
+# MITRE Tactic: Impact
+# Tags: attack.impact
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/gworkspace/admin/gcp_gworkspace_role_privilege_deleted.yml
+
+eventName="REMOVE_PRIVILEGE" eventService="admin.googleapis.com"

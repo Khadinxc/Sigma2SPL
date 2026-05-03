@@ -3,8 +3,8 @@
 # Date: 2021-08-09
 # Level: high
 # Description: Detects the process injection of a LittleCorporal generated Maldoc.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.execution, attack.privilege-escalation, attack.t1204.002, attack.t1055.003
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.privilege-escalation, attack.stealth, attack.t1204.002, attack.t1055.003
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_hktl_littlecorporal_generated_maldoc.yml
 
 CallTrace="*:\\Windows\\Microsoft.NET\\Framework64\\v2.*" CallTrace="*UNKNOWN*" SourceImage="*\\winword.exe"

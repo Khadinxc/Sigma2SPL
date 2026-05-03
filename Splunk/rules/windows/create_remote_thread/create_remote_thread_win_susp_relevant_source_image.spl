@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects uncommon processes creating remote threads.
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1055
+# Tags: attack.privilege-escalation, attack.stealth, attack.t1055
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_susp_relevant_source_image.yml
 # False Positives:
 #   - This rule is best put in testing first in order to create a baseline that reflects the data in your environment.

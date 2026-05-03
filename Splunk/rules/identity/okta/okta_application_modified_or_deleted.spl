@@ -7,4 +7,4 @@
 # Tags: attack.impact
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_application_modified_or_deleted.yml
 
-eventtype IN ("application.lifecycle.update", "application.lifecycle.delete")
+eventType IN ("application.lifecycle.update", "application.lifecycle.delete")

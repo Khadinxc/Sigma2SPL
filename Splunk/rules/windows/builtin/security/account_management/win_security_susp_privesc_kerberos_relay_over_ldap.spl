@@ -4,8 +4,8 @@
 # Level: high
 # Description: Detects a suspicious local successful logon event where the Logon Package is Kerberos, the remote address is set to localhost, and the target user SID is the built-in local Administrator account.
 # This may indicate an attempt to leverage a Kerberos relay attack variant that can be used to elevate privilege locally from a domain joined limited user to local System privileges.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.privilege-escalation, attack.credential-access, attack.t1548
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.credential-access, attack.t1548
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/account_management/win_security_susp_privesc_kerberos_relay_over_ldap.yml
 
 AuthenticationPackageName="Kerberos" EventID=4624 IpAddress="127.0.0.1" LogonType=3 TargetUserSid="*-500" TargetUserSid="S-1-5-21-*" NOT IpPort="0"

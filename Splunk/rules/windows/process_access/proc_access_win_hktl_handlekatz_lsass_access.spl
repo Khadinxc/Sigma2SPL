@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects HandleKatz opening LSASS to duplicate its handle to later dump the memory without opening any new handles
 # MITRE Tactic: Execution
-# Tags: attack.execution, attack.t1106, attack.defense-evasion, attack.t1003.001, attack.credential-access
+# Tags: attack.execution, attack.t1106, attack.t1003.001, attack.credential-access
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_hktl_handlekatz_lsass_access.yml
 
 CallTrace="*|UNKNOWN(*" CallTrace="*)" CallTrace="C:\\Windows\\System32\\ntdll.dll+*" GrantedAccess="0x1440" TargetImage="*\\lsass.exe"

@@ -3,8 +3,8 @@
 # Date: 2023-06-20
 # Level: high
 # Description: Detects scenarios where system auditing for important events such as "Process Creation" or "Logon" events is disabled.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562.002
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1685.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_disable_event_auditing_critical.yml
 # False Positives:
 #   - Unlikely

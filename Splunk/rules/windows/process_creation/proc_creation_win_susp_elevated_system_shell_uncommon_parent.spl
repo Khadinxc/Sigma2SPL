@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Detects when a shell program such as the Windows command prompt or PowerShell is launched with system privileges from a uncommon parent location.
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.defense-evasion, attack.execution, attack.t1059
+# Tags: attack.privilege-escalation, attack.execution, attack.t1059
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_elevated_system_shell_uncommon_parent.yml
 # False Positives:
 #   - Some legitimate applications may spawn shells from uncommon parent locations. Apply additional filters and perform an initial baseline before deploying.

@@ -3,8 +3,8 @@
 # Date: 2020-02-11
 # Level: high
 # Description: Detects updates of the GuardDuty list of trusted IPs, perhaps to disable security alerts against malicious IPs.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562.001
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1685
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_guardduty_disruption.yml
 # False Positives:
 #   - Valid change in the GuardDuty (e.g. to ignore internal scanners)

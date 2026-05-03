@@ -7,4 +7,4 @@
 # Tags: attack.impact
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_application_sign_on_policy_modified_or_deleted.yml
 
-eventtype IN ("application.policy.sign_on.update", "application.policy.sign_on.rule.delete")
+eventType IN ("application.policy.sign_on.update", "application.policy.sign_on.rule.delete")

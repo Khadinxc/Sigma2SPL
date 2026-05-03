@@ -1,0 +1,12 @@
+# Title: Potential Vcruntime140 DLL Sideloading
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2026-01-12
+# Level: high
+# Description: Detects potential DLL sideloading of vcruntime140.dll, a common C++ runtime library.
+# Threat actors have been observed using DLL sideloading techniques to load malicious payloads under the guise of legitimate applications such as SqlWriter, SqlDumper etc.
+# Notably, APT29 has been documented leveraging WinELOADER to sideload vcruntime140.dll for executing malicious code.
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_vcruntime140.yml
+
+ImageLoaded="*\\vcruntime140.dll" NOT (ImageLoaded IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Program Files\\*", "C:\\Program Files (x86)\\*") OR (Description="Microsoft® C Runtime Library" SignatureStatus="Valid" Signed=true))

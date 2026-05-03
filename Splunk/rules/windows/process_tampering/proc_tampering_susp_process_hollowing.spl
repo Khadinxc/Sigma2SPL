@@ -3,8 +3,8 @@
 # Date: 2022-01-25
 # Level: medium
 # Description: Detects when a memory process image does not match the disk image, indicative of process hollowing.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1055.012
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.stealth, attack.t1055.012
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_tampering/proc_tampering_susp_process_hollowing.yml
 
 Type="Image is replaced" NOT (Image IN ("*:\\Program Files (x86)*", "*:\\Program Files\\*", "*:\\Windows\\System32\\wbem\\WMIADAP.exe*", "*:\\Windows\\SysWOW64\\wbem\\WMIADAP.exe*")) NOT (Image="*\\WindowsApps\\MicrosoftEdge.exe" OR (Image="*\\AppData\\Local\\Programs\\Opera\\*" Image="*\\opera.exe"))

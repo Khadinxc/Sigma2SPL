@@ -9,4 +9,4 @@
 # False Positives:
 #   - Administrative activity
 
-TargetObject="*\\SOFTWARE\\Microsoft\\Office\\*" TargetObject="*\\Outlook\\Security\\*"
+TargetObject="*\\SOFTWARE\\Microsoft\\Office\\*" TargetObject="*\\Outlook\\Security\\*" NOT (Image="*\\OUTLOOK.EXE" Image IN ("C:\\Program Files\\Microsoft Office\\*", "C:\\Program Files (x86)\\Microsoft Office\\*"))

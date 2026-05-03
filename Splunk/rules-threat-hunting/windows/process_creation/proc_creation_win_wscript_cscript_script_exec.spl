@@ -2,11 +2,11 @@
 # Author: Michael Haag
 # Date: 2019-01-16
 # Level: medium
-# Description: Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf) by Wscript/Cscript
+# Description: Detects script file execution (.js, .jse, .vba, .vbe, .vbs, .wsf, .wsh) by Wscript/Cscript.
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059.005, attack.t1059.007, detection.threat-hunting
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_wscript_cscript_script_exec.yml
 # False Positives:
 #   - Some additional tuning is required. It is recommended to add the user profile path in CommandLine if it is getting too noisy.
 
-CommandLine IN ("*.js*", "*.jse*", "*.vba*", "*.vbe*", "*.vbs*", "*.wsf*") OriginalFileName IN ("wscript.exe", "cscript.exe") OR Image IN ("*\\wscript.exe", "*\\cscript.exe")
+CommandLine IN ("*.js*", "*.jse*", "*.vba*", "*.vbe*", "*.vbs*", "*.wsf*", "*.wsh*") OriginalFileName IN ("wscript.exe", "cscript.exe") OR Image IN ("*\\wscript.exe", "*\\cscript.exe")

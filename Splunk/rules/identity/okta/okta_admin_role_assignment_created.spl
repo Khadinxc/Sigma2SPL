@@ -9,4 +9,4 @@
 # False Positives:
 #   - Legitimate creation of a new admin role assignment
 
-eventtype="iam.resourceset.bindings.add"
+eventType="iam.resourceset.bindings.add"

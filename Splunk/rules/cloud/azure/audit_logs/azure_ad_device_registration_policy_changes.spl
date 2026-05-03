@@ -3,8 +3,8 @@
 # Date: 2022-06-28
 # Level: high
 # Description: Monitor and alert for changes to the device registration policy.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.privilege-escalation, attack.t1484
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.defense-impairment, attack.t1484
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_ad_device_registration_policy_changes.yml
 
 ActivityDisplayName="Set device registration policies" Category="Policy"

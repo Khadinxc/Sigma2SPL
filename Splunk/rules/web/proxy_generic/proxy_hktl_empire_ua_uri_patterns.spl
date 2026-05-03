@@ -3,8 +3,8 @@
 # Date: 2020-07-13
 # Level: high
 # Description: Detects user agent and URI paths used by empire agents
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.command-and-control, attack.t1071.001
+# MITRE Tactic: Command and Control
+# Tags: attack.command-and-control, attack.t1071.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_hktl_empire_ua_uri_patterns.yml
 # False Positives:
 #   - Valid requests with this exact user agent to server scripts of the defined names

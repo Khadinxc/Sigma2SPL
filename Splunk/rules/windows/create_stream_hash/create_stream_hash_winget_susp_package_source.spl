@@ -3,8 +3,8 @@
 # Date: 2023-04-18
 # Level: high
 # Description: Detects potential suspicious winget package installation from a suspicious source.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.persistence
+# MITRE Tactic: Persistence
+# Tags: attack.persistence, attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_stream_hash/create_stream_hash_winget_susp_package_source.yml
 
 Contents IN ("*://1*", "*://2*", "*://3*", "*://4*", "*://5*", "*://6*", "*://7*", "*://8*", "*://9*") Contents="[ZoneTransfer]  ZoneId=3*" TargetFilename="*\\AppData\\Local\\Temp\\WinGet\\*" TargetFilename="*:Zone.Identifier"

@@ -3,8 +3,8 @@
 # Date: 2019-10-25
 # Level: high
 # Description: Detect changes of syslog daemons configuration files
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1562.006
+# MITRE Tactic: Uncategorized
+# Tags: attack.defense-impairment, attack.t1685
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/path/lnx_auditd_logging_config_change.yml
 # False Positives:
 #   - Legitimate administrative activity

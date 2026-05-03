@@ -4,7 +4,7 @@
 # Level: medium
 # Description: Monitor and alert on group membership additions of groups that have CA policy modification access
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.credential-access, attack.defense-evasion, attack.persistence, attack.t1548, attack.t1556
+# Tags: attack.privilege-escalation, attack.credential-access, attack.persistence, attack.defense-impairment, attack.t1548, attack.t1556
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_group_user_addition_ca_modification.yml
 # False Positives:
 #   - User removed from the group is approved

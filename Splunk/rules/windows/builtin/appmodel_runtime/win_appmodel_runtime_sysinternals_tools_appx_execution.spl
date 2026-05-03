@@ -4,8 +4,8 @@
 # Level: low
 # Description: Detects execution of Sysinternals tools via an AppX package.
 # Attackers could install the Sysinternals Suite to get access to tools such as psexec and procdump to avoid detection based on System paths.
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.execution
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.stealth
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/appmodel_runtime/win_appmodel_runtime_sysinternals_tools_appx_execution.yml
 # False Positives:
 #   - Legitimate usage of sysinternals applications from the Windows Store will trigger this. Apply exclusions as needed.

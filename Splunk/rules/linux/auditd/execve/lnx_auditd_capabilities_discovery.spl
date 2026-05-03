@@ -4,7 +4,7 @@
 # Level: low
 # Description: Detects attempts to discover the files with setuid/setgid capability on them. That would allow adversary to escalate their privileges.
 # MITRE Tactic: Discovery
-# Tags: attack.discovery, attack.defense-evasion, attack.privilege-escalation, attack.t1083, attack.t1548
+# Tags: attack.discovery, attack.privilege-escalation, attack.t1083, attack.t1548
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/execve/lnx_auditd_capabilities_discovery.yml
 
 a0="getcap" a1="-r" a2="/" type="EXECVE"

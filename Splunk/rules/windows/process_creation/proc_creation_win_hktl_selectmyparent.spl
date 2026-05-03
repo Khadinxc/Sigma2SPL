@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects the use of parent process ID spoofing tools like Didier Stevens tool SelectMyParent
 # MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.defense-evasion, attack.t1134.004
+# Tags: attack.privilege-escalation, attack.stealth, attack.t1134.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_selectmyparent.yml
 # False Positives:
 #   - Unlikely

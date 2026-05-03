@@ -9,4 +9,4 @@
 # False Positives:
 #   - Very common in environments that rely heavily on macro documents
 
-TargetFilename IN ("*.docm", "*.dotm", "*.xlsm", "*.xltm", "*.potm", "*.pptm")
+TargetFilename IN ("*.docm", "*.dotm", "*.xlsm", "*.xltm", "*.potm", "*.pptm") NOT (Image IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.EXE") Image IN ("C:\\Program Files\\Microsoft Office\\*", "C:\\Program Files (x86)\\Microsoft Office\\*") TargetFilename="*\\~$*")

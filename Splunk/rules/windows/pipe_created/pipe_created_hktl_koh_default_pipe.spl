@@ -3,8 +3,8 @@
 # Date: 2022-07-08
 # Level: critical
 # Description: Detects creation of default named pipes used by the Koh tool
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.privilege-escalation, attack.credential-access, attack.t1528, attack.t1134.001
+# MITRE Tactic: Privilege Escalation
+# Tags: attack.privilege-escalation, attack.credential-access, attack.stealth, attack.t1528, attack.t1134.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_koh_default_pipe.yml
 # False Positives:
 #   - Unlikely

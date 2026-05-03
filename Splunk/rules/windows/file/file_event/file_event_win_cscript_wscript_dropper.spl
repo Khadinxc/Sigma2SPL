@@ -2,9 +2,9 @@
 # Author: Tim Shelton
 # Date: 2022-01-10
 # Level: high
-# Description: Detects a file ending in jse, vbe, js, vba, vbs written by cscript.exe or wscript.exe
+# Description: Detects a file ending in jse, vbe, js, vba, vbs, wsf, wsh written by cscript.exe or wscript.exe
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059.005, attack.t1059.007
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_cscript_wscript_dropper.yml
 
-Image IN ("*\\wscript.exe", "*\\cscript.exe") TargetFilename IN ("*.jse", "*.vbe", "*.js", "*.vba", "*.vbs") TargetFilename IN ("C:\\Users\\*", "C:\\ProgramData*")
+Image IN ("*\\wscript.exe", "*\\cscript.exe") TargetFilename IN ("*:\\Perflogs\\*", "*:\\ProgramData\\*", "*:\\Temp\\*", "*:\\Tmp\\*", "*:\\Users\\*", "*:\\Windows\\Temp\\*", "*\\AppData\\Local\\Temp*", "*\\AppData\\Roaming\\Temp*", "*\\Start Menu\\Programs\\Startup\\*", "*\\Temporary Internet*") TargetFilename IN ("*.js", "*.jse", "*.vba", "*.vbe", "*.vbs", "*.wsf", "*.wsh")

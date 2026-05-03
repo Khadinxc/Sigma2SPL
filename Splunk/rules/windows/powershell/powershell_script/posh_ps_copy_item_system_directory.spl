@@ -4,7 +4,7 @@
 # Level: high
 # Description: Uses PowerShell to install/copy a file into a system directory such as "System32" or "SysWOW64"
 # MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.defense-evasion, attack.credential-access, attack.t1556.002
+# Tags: attack.persistence, attack.credential-access, attack.defense-impairment, attack.t1556.002
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_copy_item_system_directory.yml
 
 *

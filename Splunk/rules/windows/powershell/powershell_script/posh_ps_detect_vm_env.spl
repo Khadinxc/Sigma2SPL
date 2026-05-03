@@ -5,7 +5,7 @@
 # Description: Adversaries may employ various system checks to detect and avoid virtualization and analysis environments.
 # This may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox
 # MITRE Tactic: Discovery
-# Tags: attack.discovery, attack.defense-evasion, attack.t1497.001
+# Tags: attack.discovery, attack.stealth, attack.t1497.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_detect_vm_env.yml
 
 ScriptBlockText IN ("*Get-WmiObject*", "*gwmi*") ScriptBlockText IN ("*MSAcpi_ThermalZoneTemperature*", "*Win32_ComputerSystem*")

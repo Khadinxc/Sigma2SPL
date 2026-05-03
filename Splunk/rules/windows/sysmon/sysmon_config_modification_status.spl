@@ -3,8 +3,8 @@
 # Date: 2021-06-04
 # Level: high
 # Description: Detects when an attacker tries to hide from Sysmon by disabling or stopping it
-# MITRE Tactic: Defense Evasion
-# Tags: attack.defense-evasion, attack.t1564
+# MITRE Tactic: Uncategorized
+# Tags: attack.stealth, attack.t1564
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/sysmon/sysmon_config_modification_status.yml
 # False Positives:
 #   - Legitimate administrative action

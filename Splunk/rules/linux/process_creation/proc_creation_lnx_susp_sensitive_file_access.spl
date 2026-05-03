@@ -3,10 +3,12 @@
 # Date: 2023-05-30
 # Level: medium
 # Description: Detects changes of sensitive and critical files. Monitors files that you don't expect to change without planning on Linux system.
+# These files include, but are not limited to, system configuration files, authentication files, and critical application files.
+# Attackers often target these files to maintain persistence, escalate privileges, or disrupt system operations.
 # MITRE Tactic: Impact
 # Tags: attack.impact, attack.t1565.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_susp_sensitive_file_access.yml
 # False Positives:
 #   - Some false positives are to be expected on user or administrator machines. Apply additional filters as needed.
 
-(CommandLine="*>*" Image IN ("*/cat", "*/echo", "*/grep", "*/head", "*/more", "*/tail")) OR Image IN ("*/emacs", "*/nano", "*/sed", "*/vi", "*/vim") CommandLine IN ("*/bin/login*", "*/bin/passwd*", "*/boot/*", "*/etc/*.conf*", "*/etc/cron.*", "*/etc/crontab*", "*/etc/hosts*", "*/etc/init.d*", "*/etc/sudoers*", "*/opt/bin/*", "*/sbin*", "*/usr/bin/*", "*/usr/local/bin/*")
+(CommandLine="*>*" Image IN ("*/cat", "*/echo", "*/grep", "*/head", "*/more", "*/tail")) OR Image IN ("*/emacs", "*/nano", "*/sed", "*/vi", "*/vim") CommandLine IN ("*/bin/login*", "*/bin/passwd*", "*/boot/*", "*/etc/*.conf*", "*/etc/cron.*", "*/etc/crontab*", "*/etc/hosts*", "*/etc/init.d*", "*/etc/sudoers*", "*/opt/bin/*", "*/sbin*", "*/usr/bin/*", "*/usr/local/bin/*") NOT (CommandLine="*/etc/mdadm/mdadm.conf" CommandLine IN ("sed -i /^*", "sed -ne s/^*") Image="*/bin/sed")

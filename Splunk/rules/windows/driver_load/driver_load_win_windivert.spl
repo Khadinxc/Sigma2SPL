@@ -4,7 +4,7 @@
 # Level: high
 # Description: Detects the load of the Windiver driver, a powerful user-mode capture/sniffing/modification/blocking/re-injection package for Windows
 # MITRE Tactic: Credential Access
-# Tags: attack.credential-access, attack.collection, attack.defense-evasion, attack.t1599.001, attack.t1557.001
+# Tags: attack.credential-access, attack.collection, attack.defense-impairment, attack.t1599.001, attack.t1557.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/driver_load/driver_load_win_windivert.yml
 # False Positives:
 #   - Legitimate WinDivert driver usage
