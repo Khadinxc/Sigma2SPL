@@ -9,4 +9,4 @@
 # False Positives:
 #   - Application installers might contain scripts as part of the installation process.
 
-CommandLine IN ("* -e *", "*.scpt*", "*.js*") Image="*/osascript"
+CommandLine IN ("* -e *", "*.scpt*", "*.js*") Image="*/osascript" NOT (CommandLine="*osascript*" CommandLine="* -e *" CommandLine="*set imageData to the clipboard*" CommandLine="*set fileRef*" ParentImage="*opencode")

@@ -9,4 +9,4 @@
 # False Positives:
 #   - Likely
 
-CommandLine="*dir*-s*" OR CommandLine="*dir*/s*" OR CommandLine="*dir*–s*" OR CommandLine="*dir*—s*" OR CommandLine="*dir*―s*" Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe"
+CommandLine="*dir *" CommandLine="*-s*" OR CommandLine="*/s*" OR CommandLine="*–s*" OR CommandLine="*—s*" OR CommandLine="*―s*" Image="*\\cmd.exe" OR OriginalFileName="Cmd.Exe" NOT CommandLine="*rmdir*"

@@ -7,5 +7,7 @@
 # MITRE Tactic: Execution
 # Tags: attack.execution, attack.t1059.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_cmd_no_space_execution.yml
+# False Positives:
+#   - Legitimate use of cmd.exe with no arguments e.g. via system("") in C to enable ANSI escape codes
 
-CommandLine IN ("*cmd.exe/c*", "*\\cmd/c*", "*\"cmd/c*", "*cmd.exe/k*", "*\\cmd/k*", "*\"cmd/k*", "*cmd.exe/r*", "*\\cmd/r*", "*\"cmd/r*") OR CommandLine IN ("*/cwhoami*", "*/cpowershell*", "*/cschtasks*", "*/cbitsadmin*", "*/ccertutil*", "*/kwhoami*", "*/kpowershell*", "*/kschtasks*", "*/kbitsadmin*", "*/kcertutil*") OR CommandLine IN ("*cmd.exe /c*", "*cmd /c*", "*cmd.exe /k*", "*cmd /k*", "*cmd.exe /r*", "*cmd /r*") NOT (CommandLine IN ("*AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\node_modules*", "*cmd.exe/c .", "cmd.exe /c") OR CommandLine IN ("*cmd.exe /c *", "*cmd /c *", "*cmd.exe /k *", "*cmd /k *", "*cmd.exe /r *", "*cmd /r *"))
+CommandLine IN ("*cmd.exe/c*", "*\\cmd/c*", "*\"cmd/c*", "*cmd.exe/k*", "*\\cmd/k*", "*\"cmd/k*", "*cmd.exe/r*", "*\\cmd/r*", "*\"cmd/r*") OR CommandLine IN ("*/cwhoami*", "*/cpowershell*", "*/cschtasks*", "*/cbitsadmin*", "*/ccertutil*", "*/kwhoami*", "*/kpowershell*", "*/kschtasks*", "*/kbitsadmin*", "*/kcertutil*") OR CommandLine IN ("*cmd.exe /c*", "*cmd /c*", "*cmd.exe /k*", "*cmd /k*", "*cmd.exe /r*", "*cmd /r*") NOT (CommandLine IN ("*AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\node_modules*", "*cmd.exe/c .", "cmd.exe /c", "cmd /c") OR CommandLine IN ("*cmd.exe /c *", "*cmd /c *", "*cmd.exe /k *", "*cmd /k *", "*cmd.exe /r *", "*cmd /r *"))

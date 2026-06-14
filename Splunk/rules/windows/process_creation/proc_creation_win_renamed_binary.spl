@@ -9,4 +9,4 @@
 # False Positives:
 #   - Custom applications use renamed binaries adding slight change to binary name. Typically this is easy to spot and add to whitelist
 
-OriginalFileName IN ("Cmd.Exe", "CONHOST.EXE", "7z.exe", "7za.exe", "WinRAR.exe", "wevtutil.exe", "net.exe", "net1.exe", "netsh.exe", "InstallUtil.exe") NOT (Image IN ("*\\cmd.exe", "*\\conhost.exe", "*\\7z.exe", "*\\7za.exe", "*\\WinRAR.exe", "*\\wevtutil.exe", "*\\net.exe", "*\\net1.exe", "*\\netsh.exe", "*\\InstallUtil.exe"))
+OriginalFileName IN ("Cmd.Exe", "CONHOST.EXE", "7z.exe", "7za.exe", "7zr.exe", "WinRAR.exe", "wevtutil.exe", "net.exe", "net1.exe", "netsh.exe", "InstallUtil.exe") NOT (Image IN ("*\\cmd.exe", "*\\conhost.exe", "*\\7z.exe", "*\\7za.exe", "*\\7zr.exe", "*\\WinRAR.exe", "*\\wevtutil.exe", "*\\net.exe", "*\\net1.exe", "*\\netsh.exe", "*\\InstallUtil.exe"))
