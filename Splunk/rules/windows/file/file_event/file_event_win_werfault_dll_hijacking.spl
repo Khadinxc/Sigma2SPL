@@ -7,4 +7,4 @@
 # Tags: attack.privilege-escalation, attack.persistence, attack.execution, attack.stealth, attack.t1574.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_werfault_dll_hijacking.yml
 
-TargetFilename IN ("*\\WerFault.exe", "*\\wer.dll") NOT (TargetFilename IN ("C:\\Windows\\SoftwareDistribution\\*", "C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*", "C:\\Windows\\UUS\\arm64\\*"))
+TargetFilename IN ("*\\WerFault.exe", "*\\wer.dll") NOT (TargetFilename IN ("C:\\Windows\\SoftwareDistribution\\*", "C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*", "C:\\Windows\\UUS\\*") OR Image="*\\wuaucltcore.exe")

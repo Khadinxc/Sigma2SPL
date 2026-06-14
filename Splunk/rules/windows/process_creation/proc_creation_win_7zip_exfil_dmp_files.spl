@@ -10,4 +10,4 @@
 #   - Legitimate use of 7z with a command line in which ".dmp" or ".dump" appears accidentally
 #   - Legitimate use of 7z to compress WER ".dmp" files for troubleshooting
 
-CommandLine IN ("*.dmp*", "*.dump*", "*.hdmp*") Description="*7-Zip*" OR Image IN ("*\\7z.exe", "*\\7zr.exe", "*\\7za.exe") OR OriginalFileName IN ("7z.exe", "7za.exe")
+CommandLine IN ("*.dmp*", "*.dump*", "*.hdmp*") Description="*7-Zip*" OR Image IN ("*\\7z.exe", "*\\7zr.exe", "*\\7za.exe") OR OriginalFileName IN ("7z.exe", "7za.exe", "7zr.exe")
