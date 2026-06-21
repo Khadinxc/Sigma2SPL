@@ -38,7 +38,7 @@
 | eval PipeNameCondition14=if(isnotnull(PipeNameMatch14), "true", "false")
 | rex field=PipeName "(?<PipeNameMatch15>\\\\win\\\\msrpc_[0-9a-f]{2})"
 | eval PipeNameCondition15=if(isnotnull(PipeNameMatch15), "true", "false")
-| rex field=PipeName "(?<PipeNameMatch16>\\\\f53f[0-9a-f]{2})"
+| rex field=PipeName "(?<PipeNameMatch16>\\\\f53f[0-9a-f]{2}$)"
 | eval PipeNameCondition16=if(isnotnull(PipeNameMatch16), "true", "false")
 | rex field=PipeName "(?<PipeNameMatch17>\\\\rpc_[0-9a-f]{2})"
 | eval PipeNameCondition17=if(isnotnull(PipeNameMatch17), "true", "false")
