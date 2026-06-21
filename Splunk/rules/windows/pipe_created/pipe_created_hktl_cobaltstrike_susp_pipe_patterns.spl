@@ -9,5 +9,6 @@
 # False Positives:
 #   - Chrome instances using the exact same pipe name "mojo.xxx"
 #   - Websense Endpoint using the pipe name "DserNamePipe(R|W)\d{1,5}"
+#   - Some applications may just coincidentally use the pipe names which contain the same prefix as the ones used by CobaltStrike, e.g. "f4c3"
 
 (PipeName="*-0," PipeName="\\Winsock2\\CatalogChangeListener-*") OR PipeName IN ("\\DserNamePipe*", "\\f4c3*", "\\f53f*", "\\fullduplex_*", "\\mojo.5688.8052.183894939787088877*", "\\mojo.5688.8052.35780273329370473*", "\\MsFteWds*", "\\msrpc_*", "\\mypipe-f*", "\\mypipe-h*", "\\ntsvcs*", "\\PGMessagePipe*", "\\rpc_*", "\\scerpc*", "\\SearchTextHarvester*", "\\spoolss*", "\\win_svc*", "\\win\\msrpc_*", "\\windows.update.manager*", "\\wkssvc*") OR PipeName IN ("\\demoagent_11", "\\demoagent_22") NOT (PipeName IN ("\\wkssvc", "\\spoolss", "\\scerpc", "\\ntsvcs", "\\SearchTextHarvester", "\\PGMessagePipe", "\\MsFteWds")) NOT (Image IN ("*:\\Program Files\\Websense\\*", "*:\\Program Files (x86)\\Websense\\*") PipeName IN ("\\DserNamePipeR*", "\\DserNamePipeW*"))
