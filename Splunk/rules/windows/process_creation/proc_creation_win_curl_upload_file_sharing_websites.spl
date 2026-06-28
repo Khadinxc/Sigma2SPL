@@ -1,0 +1,17 @@
+# Title: Curl File Upload To File Sharing Websites
+# Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+# Date: 2026-03-29
+# Level: high
+# Description: Detects usage of curl to upload files to known file sharing domains, which may indicate data exfiltration.
+# MITRE Tactic: Exfiltration
+# Tags: attack.exfiltration, attack.t1567.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_curl_upload_file_sharing_websites.yml
+# False Positives:
+#   - Legitimate file uploads to these services by administrators or developers
+
+
+| rex field=CommandLine "(?<CommandLineMatch>\\s-[FTd]\\s)"
+| eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")
+| rex field=CommandLine "(?<CommandLineMatch2>\\s-sT\\s)"
+| eval CommandLineCondition2=if(isnotnull(CommandLineMatch2), "true", "false")
+| search CommandLine IN ("*0x0.st*", "*bashupload.com*", "*chunk.io*", "*file.io*", "*filebin.net*", "*pastebin*", "*send.firefox.com*", "*temp.sh*", "*transfer.sh*", "*ufile.io*", "*uploadfiles.io*", "*wetransfer.com*", "*x0.at*") CommandLine IN ("* --form*", "* --upload-file*", "* --data*", "* -X POST*", "* --request POST *") OR CommandLineCondition="true" OR CommandLineCondition2="true" Image="*\\curl.exe" OR OriginalFileName="curl.exe"
