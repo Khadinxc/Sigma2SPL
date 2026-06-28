@@ -7,4 +7,4 @@
 # Tags: attack.execution, attack.t1047
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product.yml
 
-CommandLine="*Product*" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe" NOT (CommandLine IN ("* uninstall*", "* install*"))
+CommandLine="*Product*" Image="*\\wmic.exe" OR OriginalFileName="wmic.exe" NOT (CommandLine IN ("* uninstall*", "* install*") OR CommandLine="*csproduct*")
