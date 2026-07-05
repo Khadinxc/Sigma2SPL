@@ -1,5 +1,5 @@
 # Title: FortiGate - User Group Modified
-# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
 # Date: 2025-11-01
 # Level: medium
 # Description: Detects the modification of a user group on a Fortinet FortiGate Firewall.

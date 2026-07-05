@@ -1,10 +1,10 @@
 # Title: FortiGate - New Firewall Policy Added
-# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
 # Date: 2025-11-01
 # Level: medium
 # Description: Detects the addition of a new firewall policy on a Fortinet FortiGate Firewall.
 # MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
+# Tags: attack.defense-impairment, attack.t1686.002
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/fortinet/fortigate/fortinet_fortigate_new_firewall_policy_added.yml
 # False Positives:
 #   - A firewall policy can be added for legitimate purposes.

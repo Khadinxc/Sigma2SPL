@@ -1,5 +1,5 @@
 # Title: FortiGate - New Local User Created
-# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
 # Date: 2025-11-01
 # Level: medium
 # Description: Detects the creation of a new local user on a Fortinet FortiGate Firewall.

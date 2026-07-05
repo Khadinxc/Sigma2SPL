@@ -10,4 +10,4 @@
 # False Positives:
 #   - Some false positives may occur with legitimate renamed process explorer binaries
 
-TargetFilename="*\\PROCEXP*" TargetFilename="*.sys" NOT (Image IN ("*\\procexp.exe", "*\\procexp64.exe"))
+TargetFilename="*\\PROCEXP*" TargetFilename="*.sys" NOT (Image IN ("*\\procexp.exe", "*\\procexp64.exe", "*\\procexp64a.exe"))

@@ -9,4 +9,4 @@
 # False Positives:
 #   - Legitimate use of PsService by an administrator
 
-OriginalFileName="psservice.exe" OR Image IN ("*\\PsService.exe", "*\\PsService64.exe")
+OriginalFileName="psservice.exe" OR Image IN ("*\\PsService.exe", "*\\PsService64.exe", "*\\PsService64a.exe")

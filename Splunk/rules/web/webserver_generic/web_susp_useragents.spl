@@ -7,4 +7,4 @@
 # Tags: attack.initial-access, attack.t1190
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/web/webserver_generic/web_susp_useragents.yml
 
-"cs-user-agent" IN ("*Wfuzz/*", "*WPScan v*", "*Recon-ng/v*", "*GIS - AppSec Team - Project Vision*")
+"cs-user-agent" IN ("*commix/*", "*feroxbuster/*", "*Fuzz Faster U Fool*", "*GIS - AppSec Team - Project Vision*", "*gobuster/*", "*Nikto/*", "*Nmap Scripting Engine*", "*Recon-ng/v*", "*sqlmap/*", "*WhatWeb/*", "*Wfuzz/*", "*WPScan v*", "*zgrab/*")

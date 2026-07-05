@@ -9,4 +9,4 @@
 # False Positives:
 #   - Legitimate administrators might use this command to update Sysmon configuration.
 
-CommandLine="*-c*" OR CommandLine="*/c*" OR CommandLine="*–c*" OR CommandLine="*—c*" OR CommandLine="*―c*" Image IN ("*\\Sysmon64.exe", "*\\Sysmon.exe") OR Description="System activity monitor"
+CommandLine="*-c*" OR CommandLine="*/c*" OR CommandLine="*–c*" OR CommandLine="*—c*" OR CommandLine="*―c*" Image IN ("*\\Sysmon64.exe", "*\\Sysmon64a.exe", "*\\Sysmon.exe") OR Description="System activity monitor"

@@ -11,4 +11,4 @@
 #   - Procdump illegally bundled with legitimate software.
 #   - Administrators who rename binaries (should be investigated).
 
-OriginalFileName="procdump" OR (CommandLine="* -ma *" OR CommandLine="* /ma *" OR CommandLine="* –ma *" OR CommandLine="* —ma *" OR CommandLine="* ―ma *" OR CommandLine="* -mp *" OR CommandLine="* /mp *" OR CommandLine="* –mp *" OR CommandLine="* —mp *" OR CommandLine="* ―mp *" CommandLine="* -accepteula*" OR CommandLine="* /accepteula*" OR CommandLine="* –accepteula*" OR CommandLine="* —accepteula*" OR CommandLine="* ―accepteula*") NOT (Image IN ("*\\procdump.exe", "*\\procdump64.exe"))
+OriginalFileName="procdump" OR (CommandLine="* -ma *" OR CommandLine="* /ma *" OR CommandLine="* –ma *" OR CommandLine="* —ma *" OR CommandLine="* ―ma *" OR CommandLine="* -mp *" OR CommandLine="* /mp *" OR CommandLine="* –mp *" OR CommandLine="* —mp *" OR CommandLine="* ―mp *" CommandLine="* -accepteula*" OR CommandLine="* /accepteula*" OR CommandLine="* –accepteula*" OR CommandLine="* —accepteula*" OR CommandLine="* ―accepteula*") NOT (Image IN ("*\\procdump.exe", "*\\procdump64.exe", "*\\procdump64a.exe"))

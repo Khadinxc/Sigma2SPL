@@ -1,0 +1,22 @@
+# Title: Antivirus - APT Malware Signature
+# Author: Arnim Rupp (Nextron Systems)
+# Date: 2026-06-15
+# Level: critical
+# Description: Detects a highly relevant Antivirus alert that reports APT malware.
+# This event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1203, attack.command-and-control, attack.t1219.002
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/category/antivirus/av_advanced_persistent_threat.yml
+# False Positives:
+#   - Unlikely
+
+
+| rex field=Signature "(?<SignatureMatch>APT\\d)"
+| eval SignatureCondition=if(isnotnull(SignatureMatch), "true", "false")
+| rex field=Signature "(?<SignatureMatch2>ATK\\d)"
+| eval SignatureCondition2=if(isnotnull(SignatureMatch2), "true", "false")
+| rex field=Signature "(?<SignatureMatch3>UNC\\d)"
+| eval SignatureCondition3=if(isnotnull(SignatureMatch3), "true", "false")
+| rex field=Signature "(?<SignatureMatch4>UAC\\d)"
+| eval SignatureCondition4=if(isnotnull(SignatureMatch4), "true", "false")
+| search SignatureCondition="true" OR SignatureCondition2="true" OR SignatureCondition3="true" OR SignatureCondition4="true" OR Signature IN ("*[APT]*", "*APT_*", "*APT-*", "*BackOrder*", "*BlindingCan*", "*Blizzard*", "*Chollima*", "*Cleaver*", "*Cobra*", "*DarkHotel*", "*Dragon*", "*DTrack*", "*Equation*", "*GiftedCrook*", "*GraphSteel*", "*GreyEnergy*", "*GEnergy*", "*GrimPlant*", "*Hydra*", "*Jackal*", "*Kitten*", "*Kimsuky*", "*Lazar*", "*LightRail*", "*Lotus*", "*Luminous*", "*LumiMoth*", "*Nimbus*", "*Manticore*", "*MiniBike*", "*MiniBrowse*", "*MiniBus*", "*MiniFast*", "*MiniJuke*", "*MiniUpdate*", "*MuddyWater*", "*NukeSped*", "*OilRig*", "*Panda*", "*Sandstorm*", "*SandWorm*", "*Seamonkey*", "*Sleet*", "*SlugResin*", "*SnailResin*", "*Snake*", "*Tempest*", "*Tsunami*", "*Turla*", "*Typhoon*", "*UAC_*", "*UAC-*", "*UNC_*", "*UNC-*", "*VinoSiren*", "*Winnti*")

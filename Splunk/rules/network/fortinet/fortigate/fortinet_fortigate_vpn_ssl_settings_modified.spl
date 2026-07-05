@@ -1,5 +1,5 @@
 # Title: FortiGate - VPN SSL Settings Modified
-# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
 # Date: 2025-11-01
 # Level: medium
 # Description: Detects the modification of VPN SSL Settings (for example, the modification of authentication rules).
