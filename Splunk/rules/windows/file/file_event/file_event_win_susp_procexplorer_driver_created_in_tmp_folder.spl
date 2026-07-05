@@ -10,4 +10,4 @@
 # False Positives:
 #   - Other legimate tools using this driver and filename (like Sysinternals). Note - Clever attackers may easily bypass this detection by just renaming the driver filename. Therefore just Medium-level and don't rely on it.
 
-TargetFilename="*\\AppData\\Local\\Temp\\*" TargetFilename="*PROCEXP152.sys" NOT (Image IN ("*\\procexp64.exe*", "*\\procexp.exe*", "*\\procmon64.exe*", "*\\procmon.exe*"))
+TargetFilename="*\\AppData\\Local\\Temp\\*" TargetFilename="*PROCEXP152.sys" NOT (Image IN ("*\\procexp64.exe*", "*\\procexp64a.exe*", "*\\procexp.exe*", "*\\procmon64.exe*", "*\\procmon64a.exe*", "*\\procmon.exe*"))

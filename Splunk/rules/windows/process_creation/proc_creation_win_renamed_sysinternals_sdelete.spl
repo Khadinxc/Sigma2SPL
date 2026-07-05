@@ -9,4 +9,4 @@
 # False Positives:
 #   - System administrator usage
 
-OriginalFileName="sdelete.exe" NOT (Image IN ("*\\sdelete.exe", "*\\sdelete64.exe"))
+OriginalFileName="sdelete.exe" NOT (Image IN ("*\\sdelete.exe", "*\\sdelete64.exe", "*\\sdelete64a.exe"))

@@ -1,4 +1,4 @@
-# Title: Antivirus Ransomware Detection
+# Title: Antivirus - Ransomware Signature
 # Author: Florian Roth (Nextron Systems), Arnim Rupp
 # Date: 2022-05-12
 # Level: critical
@@ -10,4 +10,4 @@
 # False Positives:
 #   - Unlikely
 
-Signature IN ("*BlackWorm*", "*Chaos*", "*Cobra*", "*ContiCrypt*", "*Crypter*", "*CRYPTES*", "*Cryptor*", "*CylanCrypt*", "*DelShad*", "*Destructor*", "*Filecoder*", "*GandCrab*", "*GrandCrab*", "*Haperlock*", "*Hiddentear*", "*HydraCrypt*", "*Krypt*", "*Lockbit*", "*Locker*", "*Mallox*", "*Phobos*", "*Ransom*", "*Ryuk*", "*Ryzerlo*", "*Stopcrypt*", "*Tescrypt*", "*TeslaCrypt*", "*WannaCry*", "*Xorist*")
+Signature IN ("*Babuk*", "*Babyk*", "*BlackWorm*", "*Chaos*", "*Cobra*", "*ContiCrypt*", "*Crypter*", "*Cryptes*", "*Cryptor*", "*CylanCrypt*", "*DelShad*", "*Destructor*", "*Filecoder*", "*GandCrab*", "*GrandCrab*", "*Haperlock*", "*Hiddentear*", "*HydraCrypt*", "*Krypt*", "*Lockbit*", "*Locker*", "*Mallox*", "*Medusa*", "*Phobos*", "*Ransom*", "*Rook*", "*Ryuk*", "*Ryzerlo*", "*Stopcrypt*", "*Tescrypt*", "*TeslaCrypt*", "*WannaCry*", "*Xorist*")

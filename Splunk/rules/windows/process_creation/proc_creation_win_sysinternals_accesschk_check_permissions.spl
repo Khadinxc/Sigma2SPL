@@ -9,4 +9,4 @@
 # False Positives:
 #   - System administrator Usage
 
-CommandLine IN ("*uwcqv *", "*kwsu *", "*qwsu *", "*uwdqs *") Product="*AccessChk" OR Description="*Reports effective permissions*" OR Image IN ("*\\accesschk.exe", "*\\accesschk64.exe") OR OriginalFileName="accesschk.exe"
+CommandLine IN ("*uwcqv *", "*kwsu *", "*qwsu *", "*uwdqs *") Product="*AccessChk" OR Description="*Reports effective permissions*" OR Image IN ("*\\accesschk.exe", "*\\accesschk64.exe", "*\\accesschk64a.exe") OR OriginalFileName="accesschk.exe"

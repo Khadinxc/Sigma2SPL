@@ -1,5 +1,5 @@
 # Title: FortiGate - New VPN SSL Web Portal Added
-# Author: Marco Pedrinazzi @pedrinazziM (InTheCyber)
+# Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
 # Date: 2025-11-01
 # Level: medium
 # Description: Detects the addition of a VPN SSL Web Portal on a Fortinet FortiGate Firewall.

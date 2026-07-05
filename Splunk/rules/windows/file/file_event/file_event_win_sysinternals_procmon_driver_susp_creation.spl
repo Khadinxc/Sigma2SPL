@@ -9,4 +9,4 @@
 # False Positives:
 #   - Some false positives may occur with legitimate renamed process monitor binaries
 
-TargetFilename="*\\procmon*" TargetFilename="*.sys" NOT (Image IN ("*\\procmon.exe", "*\\procmon64.exe"))
+TargetFilename="*\\procmon*" TargetFilename="*.sys" NOT (Image IN ("*\\procmon.exe", "*\\procmon64.exe", "*\\procmon64a.exe"))

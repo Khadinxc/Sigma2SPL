@@ -9,4 +9,4 @@
 # False Positives:
 #   - Legitimate PowerShell scripts
 
-ScriptBlockText="*Start-Process*" ScriptBlockText="*-PassThru *" ScriptBlockText="*-FilePath *"
+ScriptBlockText IN ("*Start-Process *", "*saps *") ScriptBlockText="*-PassThru *" ScriptBlockText="*-FilePath *"

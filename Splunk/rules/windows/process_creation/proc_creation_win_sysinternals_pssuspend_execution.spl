@@ -7,4 +7,4 @@
 # Tags: attack.privilege-escalation, attack.discovery, attack.persistence, attack.t1543.003
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml
 
-OriginalFileName="pssuspend.exe" OR Image IN ("*\\pssuspend.exe", "*\\pssuspend64.exe")
+OriginalFileName="pssuspend.exe" OR Image IN ("*\\pssuspend.exe", "*\\pssuspend64.exe", "*\\pssuspend64a.exe")

@@ -8,4 +8,4 @@
 # Tags: attack.credential-access, attack.t1003.001, attack.s0002
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_lsass_memdump.yml
 
-CallTrace IN ("*dbgcore.dll*", "*dbghelp.dll*", "*kernel32.dll*", "*kernelbase.dll*", "*ntdll.dll*") GrantedAccess IN ("*0x1038*", "*0x1438*", "*0x143a*", "*0x1fffff*") TargetImage="*\\lsass.exe" NOT (SourceUser IN ("*AUTHORI*", "*AUTORI*")) NOT (SourceImage="*:\\Windows\\Sysmon64.exe" OR (CallTrace="*:\\Windows\\Temp\\asgard2-agent\\*" CallTrace="*\\thor\\thor64.exe+*" CallTrace="*|UNKNOWN(*" GrantedAccess="0x103800"))
+CallTrace IN ("*dbgcore.dll*", "*dbghelp.dll*", "*kernel32.dll*", "*kernelbase.dll*", "*ntdll.dll*") GrantedAccess IN ("*0x1038*", "*0x1438*", "*0x143a*", "*0x1fffff*") TargetImage="*\\lsass.exe" NOT (SourceUser IN ("*AUTHORI*", "*AUTORI*")) NOT (SourceImage IN ("*:\\Windows\\Sysmon64.exe", "*:\\Windows\\Sysmon64a.exe") OR (CallTrace="*:\\Windows\\Temp\\asgard2-agent\\*" CallTrace="*\\thor\\thor64.exe+*" CallTrace="*|UNKNOWN(*" GrantedAccess="0x103800"))

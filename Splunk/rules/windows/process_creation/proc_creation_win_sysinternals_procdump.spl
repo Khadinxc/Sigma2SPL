@@ -9,4 +9,4 @@
 # False Positives:
 #   - Legitimate use of procdump by a developer or administrator
 
-Image IN ("*\\procdump.exe", "*\\procdump64.exe")
+Image IN ("*\\procdump.exe", "*\\procdump64.exe", "*\\procdump64a.exe")

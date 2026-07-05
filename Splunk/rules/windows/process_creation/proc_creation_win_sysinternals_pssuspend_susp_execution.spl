@@ -9,4 +9,4 @@
 # False Positives:
 #   - Unlikely
 
-CommandLine="*msmpeng.exe*" OriginalFileName="pssuspend.exe" OR Image IN ("*\\pssuspend.exe", "*\\pssuspend64.exe")
+CommandLine="*msmpeng.exe*" OriginalFileName="pssuspend.exe" OR Image IN ("*\\pssuspend.exe", "*\\pssuspend64.exe", "*\\pssuspend64a.exe")

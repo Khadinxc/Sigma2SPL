@@ -9,4 +9,4 @@
 # False Positives:
 #   - Legitimate administrators might use this command to remove Sysmon for debugging purposes
 
-CommandLine="*-u*" OR CommandLine="*/u*" OR CommandLine="*–u*" OR CommandLine="*—u*" OR CommandLine="*―u*" Image IN ("*\\Sysmon64.exe", "*\\Sysmon.exe") OR Description="System activity monitor"
+CommandLine="*-u*" OR CommandLine="*/u*" OR CommandLine="*–u*" OR CommandLine="*—u*" OR CommandLine="*―u*" Image IN ("*\\Sysmon64.exe", "*\\Sysmon64a.exe", "*\\Sysmon.exe") OR Description="System activity monitor"
