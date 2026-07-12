@@ -2,11 +2,12 @@
 # Author: Alejandro Ortuno, oscd.community
 # Date: 2020-10-08
 # Level: low
-# Description: Detects enumeration of local systeam accounts on MacOS
+# Description: Detects enumeration of local system accounts on MacOS systems.
+# This can be used by attackers to identify accounts for lateral movement or privilege escalation.
 # MITRE Tactic: Discovery
 # Tags: attack.discovery, attack.t1087.001
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/macos/process_creation/proc_creation_macos_local_account.yml
 # False Positives:
 #   - Legitimate administration activities
 
-(CommandLine="*list*" CommandLine="*/users*" Image="*/dscl") OR (CommandLine="*-q*" CommandLine="*user*" Image="*/dscacheutil") OR CommandLine="*'x:0:'*" OR (CommandLine IN ("*/etc/passwd*", "*/etc/sudoers*") Image="*/cat") OR Image="*/id" OR (CommandLine="*-u*" Image="*/lsof")
+(CommandLine="*-q*" CommandLine="*user*" Image="*/dscacheutil") OR (CommandLine="*list*" CommandLine="*/users*" Image="*/dscl") OR (CommandLine IN ("*/Users", "*/Users'", "*/Users\"") Image="*/ls") OR Image="*/id" OR Image IN ("*/who", "*/w", "*/users", "*/last") OR (CommandLine="*com.apple.loginwindow*" Image IN ("*/defaults", "*/plutil")) OR (CommandLine="*-u*" Image="*/lsof") OR (CommandLine IN ("*/etc/passwd*", "*/etc/sudoers*") Image IN ("*/cat", "*/awk", "*/grep")) OR CommandLine="*'*:0:'*"
