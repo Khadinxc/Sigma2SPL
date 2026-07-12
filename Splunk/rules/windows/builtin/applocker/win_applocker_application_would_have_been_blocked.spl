@@ -1,0 +1,12 @@
+# Title: AppLocker Application Would Have Been Blocked
+# Author: heyyanu
+# Date: 2026-03-26
+# Level: medium
+# Description: Detects when AppLocker "Audit only" enforcement mode reports that an Application, DLL, Script, MSI, or Packaged-App would have been blocked if AppLocker "Enforce rules" enforcement mode was enabled.
+# MITRE Tactic: Execution
+# Tags: attack.execution, attack.t1204.002, attack.t1059.001, attack.t1059.003, attack.t1059.005, attack.t1059.006, attack.t1059.007
+# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/applocker/win_applocker_application_would_have_been_blocked.yml
+# False Positives:
+#   - Expected during AppLocker policy testing and audit mode deployments
+
+EventID IN (8003, 8006, 8021, 8024)
