@@ -2,11 +2,20 @@
 # Author: Florian Roth (Nextron Systems), Matt Kelly (list of domains)
 # Date: 2022-06-07
 # Level: high
-# Description: Detects suspicious DNS queries to external service interaction domains often used for out-of-band interactions after successful RCE
+# Description: Detects DNS queries to well-known out-of-band application security testing (OAST) and callback domains.
+# These services (e.g. Burp Collaborator, interactsh, canarytokens, dnslog.cn) are used by security
+# researchers and attackers alike to confirm blind vulnerabilities such as SSRF, XXE, blind RCE, and
+# Log4Shell-style injections, where the exploit payload triggers an external DNS lookup to a controlled domain.
+# A detection indicates that a host on your network resolved one of these domains, which may mean:
+#     (1) an attacker is actively probing or exploiting a vulnerable service and using the callback to
+#     confirm code execution or data exfiltration,
+#     (2) a security scanner (e.g. Nuclei, Gobies) is running against internal targets.
+# Investigate the source host, the full DNS query string (the unique subdomain prefix encodes the callback session),
+# and any concurrent outbound connections or process activity to determine intent.
 # MITRE Tactic: Initial Access
 # Tags: attack.initial-access, attack.t1190, attack.reconnaissance, attack.t1595.002
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_external_service_interaction_domains.yml
 # False Positives:
 #   - Legitimate security scanning.
 
-query IN ("*.burpcollaborator.net", "*.canarytokens.com", "*.ceye.io", "*.ddns.1443.eu.org", "*.ddns.bypass.eu.org", "*.ddns.xn--gg8h.eu.org", "*.digimg.store", "*.dns.su18.org", "*.dnshook.site", "*.dnslog.cn", "*.dnslog.ink", "*.instances.httpworkbench.com", "*.interact.sh", "*.log.dnslog.pp.ua", "*.log.dnslog.qzz.io", "*.log.dnslogs.dpdns.org", "*.log.javaweb.org", "*.log.nat.cloudns.ph", "*.oast.fun", "*.oast.live", "*.oast.me", "*.oast.online", "*.oast.pro", "*.oast.site", "*.oastify.com", "*.p8.lol", "*.requestbin.net") NOT query="*polling.oastify.com*"
+query IN ("*.burpcollaborator.net", "*.canarytokens.com", "*.ceye.io", "*.ddns.1443.eu.org", "*.ddns.bypass.eu.org", "*.ddns.xn--gg8h.eu.org", "*.digimg.store", "*.dns.su18.org", "*.dnshook.site", "*.dnslog.cn", "*.dnslog.ink", "*.gobygo.net", "*.instances.httpworkbench.com", "*.interact.sh", "*.log.dnslog.pp.ua", "*.log.dnslog.qzz.io", "*.log.dnslogs.dpdns.org", "*.log.javaweb.org", "*.log.nat.cloudns.ph", "*.oast.fun", "*.oast.live", "*.oast.me", "*.oast.online", "*.oast.pro", "*.oast.site", "*.oastify.com", "*.p8.lol", "*.requestbin.net") NOT query="*polling.oastify.com*"
