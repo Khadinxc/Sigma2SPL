@@ -8,4 +8,4 @@
 # Tags: attack.credential-access, attack.t1555.004
 # Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_access/file_access_win_susp_dpapi_master_key_access.yml
 
-FileName IN ("*\\Microsoft\\Protect\\S-1-5-18\\*", "*\\Microsoft\\Protect\\S-1-5-21-*") NOT (Image IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*", "C:\\Windows\\system32\\*", "C:\\Windows\\SysWOW64\\*"))
+FileName IN ("*\\Microsoft\\Protect\\S-1-5-18\\*", "*\\Microsoft\\Protect\\S-1-5-21-*") NOT (Image="C:\\Windows\\explorer.exe" OR Image IN ("C:\\Program Files\\*", "C:\\Program Files (x86)\\*", "C:\\Windows\\system32\\*", "C:\\Windows\\SysWOW64\\*"))
