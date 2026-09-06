@@ -12,4 +12,4 @@
 # False Positives:
 #   - VsCode extensions or similar legitimate tools might use unsigned .node files. These should be investigated on a case-by-case basis, and whitelisted if determined to be benign.
 
-ImageLoaded="*.node" Signed="false" OR SignatureStatus="Unavailable" NOT (ImageLoaded="*.vscode\\extensions\\ms-toolsai.jupyter-*" ImageLoaded IN ("*\\electron.napi.node", "*\\node.napi.glibc.node") Image="*\\Code.exe")
+ImageLoaded="*.node" Signed="false" OR SignatureStatus="Unavailable" NOT ((ImageLoaded="*\\Evernote\\resources\\app*" Image IN ("*C:\\Program Files (x86)\\*", "*C:\\Program Files\\*", "*\\AppData\\Local\\Programs\\*") Image="*\\Evernote\\Evernote.exe") OR (ImageLoaded="*\\Microsoft VS Code\\resources\\app\\node_modules*" Image="*\\Microsoft VS Code\\Code.exe*") OR (ImageLoaded="*.vscode\\extensions\\ms-toolsai.jupyter-*" ImageLoaded IN ("*\\electron.napi.node", "*\\node.napi.glibc.node") Image="*\\Code.exe"))
