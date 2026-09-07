@@ -120,7 +120,7 @@ level: medium
 
 **SPL Rule:**
 ```
-\`\`\`
+\```
 Title: 7Zip Compressing Dump Files
 Author: Nasreddine Bencherchali (Nextron Systems)
 Date: 2022-09-27
@@ -131,7 +131,7 @@ Tags: attack.collection, attack.t1560.001
 False Positives:
   - Legitimate use of 7z with a command line in which ".dmp" or ".dump" appears accidentally
   - Legitimate use of 7z to compress WER ".dmp" files for troubleshooting
-\`\`\`
+\```
 
 index=main sourcetype=WinEventLog:ProcessCreation (
     (CommandLine="*.dmp" OR CommandLine="*.dump" OR CommandLine="*.hdmp") AND (
