@@ -1,10 +1,11 @@
-# Title: Remote Thread Creation Ttdinject.exe Proxy
-# Author: frack113
-# Date: 2022-05-16
-# Level: high
-# Description: Detects a remote thread creation of Ttdinject.exe used as proxy
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.stealth, attack.t1127
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_ttdinjec.yml
-
+```
+Title: Remote Thread Creation Ttdinject.exe Proxy
+Author: frack113
+Date: 2022-05-16
+Level: high
+Description: Detects a remote thread creation of Ttdinject.exe used as proxy
+MITRE Tactic: Execution
+Tags: attack.execution, attack.stealth, attack.t1127
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_remote_thread/create_remote_thread_win_ttdinjec.yml
+```
 SourceImage="*\\ttdinject.exe"

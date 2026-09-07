@@ -1,13 +1,14 @@
-# Title: Antivirus - Remote Access Tools Signature
-# Author: Arnim Rupp (Nextron Systems)
-# Date: 2026-06-15
-# Level: critical
-# Description: Detects a highly relevant Antivirus alert that reports a remote access tool.
+```
+Title: Antivirus - Remote Access Tools Signature
+Author: Arnim Rupp (Nextron Systems)
+Date: 2026-06-15
+Level: critical
+Description: Detects a highly relevant Antivirus alert that reports a remote access tool.
 # This event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.t1203, attack.command-and-control, attack.t1219.002
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/category/antivirus/av_remote_access_toolkit.yml
+MITRE Tactic: Execution
+Tags: attack.execution, attack.t1203, attack.command-and-control, attack.t1219.002
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/category/antivirus/av_remote_access_toolkit.yml
 # False Positives:
 #   - Unlikely
-
+```
 Signature IN ("*AgentB*", "*AgentTesla*", "*AMRat*", "*Ammyy*", "*AsyncRAT*", "*Bandook*", "*Bitrat*", "*Bladabindi*", "*Connectwise*", "*CyberGate*", "*DarkComet*", "*DCrat*", "*Delf*", "*DokStorm*", "*Egairtigado*", "*Gh0st*", "*Gorat*", "*GodRat*", "*Jalapeno*", "*LummaC2*", "*Minirat*", "*Netwire*", "*NanoCore*", "*NJRat*", "*Paralax*", "*PlugX*", "*Pulsar*", "*Quasar*", "*Remcos*", "*Ravartar*", "*RemoteAdmin*", "*RemoteTool*", "*revengeRAT*", "*rokRAT*", "*salatstealer*", "*Salgorea*", "*SmokedHam*", "*TigerRat*", "*Tzeebot*", "*WarZone*", "*VenomRAT*", "*Vidar*", "*Wirenet*", "*XWorm*", "*Zapchast*", "*Zegost*")

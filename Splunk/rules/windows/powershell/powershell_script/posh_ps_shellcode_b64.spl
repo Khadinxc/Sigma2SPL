@@ -1,10 +1,11 @@
-# Title: PowerShell ShellCode
-# Author: David Ledbetter (shellcode), Florian Roth (Nextron Systems)
-# Date: 2018-11-17
-# Level: high
-# Description: Detects Base64 encoded Shellcode
-# MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.stealth, attack.t1055, attack.execution, attack.t1059.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_shellcode_b64.yml
-
+```
+Title: PowerShell ShellCode
+Author: David Ledbetter (shellcode), Florian Roth (Nextron Systems)
+Date: 2018-11-17
+Level: high
+Description: Detects Base64 encoded Shellcode
+MITRE Tactic: Privilege Escalation
+Tags: attack.privilege-escalation, attack.stealth, attack.t1055, attack.execution, attack.t1059.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_shellcode_b64.yml
+```
 ScriptBlockText IN ("*OiCAAAAYInlM*", "*OiJAAAAYInlM*")

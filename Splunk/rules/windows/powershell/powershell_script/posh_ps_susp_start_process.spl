@@ -1,12 +1,13 @@
-# Title: Suspicious Start-Process PassThru
-# Author: frack113
-# Date: 2022-01-15
-# Level: medium
-# Description: Powershell use PassThru option to start in background
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1036.003
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_start_process.yml
+```
+Title: Suspicious Start-Process PassThru
+Author: frack113
+Date: 2022-01-15
+Level: medium
+Description: Powershell use PassThru option to start in background
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1036.003
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_susp_start_process.yml
 # False Positives:
 #   - Legitimate PowerShell scripts
-
+```
 ScriptBlockText IN ("*Start-Process *", "*saps *") ScriptBlockText="*-PassThru *" ScriptBlockText="*-FilePath *"

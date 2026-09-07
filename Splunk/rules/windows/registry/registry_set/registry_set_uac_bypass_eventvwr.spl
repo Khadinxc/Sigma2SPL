@@ -1,10 +1,11 @@
-# Title: UAC Bypass via Event Viewer
-# Author: Florian Roth (Nextron Systems)
-# Date: 2017-03-19
-# Level: high
-# Description: Detects UAC bypass method using Windows event viewer
-# MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.t1548.002, car.2019-04-001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_eventvwr.yml
-
+```
+Title: UAC Bypass via Event Viewer
+Author: Florian Roth (Nextron Systems)
+Date: 2017-03-19
+Level: high
+Description: Detects UAC bypass method using Windows event viewer
+MITRE Tactic: Privilege Escalation
+Tags: attack.privilege-escalation, attack.t1548.002, car.2019-04-001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_uac_bypass_eventvwr.yml
+```
 TargetObject="*\\mscfile\\shell\\open\\command"

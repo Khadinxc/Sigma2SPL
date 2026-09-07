@@ -1,12 +1,13 @@
-# Title: Suspicious Invoke-Item From Mount-DiskImage
-# Author: frack113
-# Date: 2022-02-01
-# Level: medium
-# Description: Adversaries may abuse container files such as disk image (.iso, .vhd) file formats to deliver malicious payloads that may not be tagged with MOTW.
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1553.005
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_run_from_mount_diskimage.yml
+```
+Title: Suspicious Invoke-Item From Mount-DiskImage
+Author: frack113
+Date: 2022-02-01
+Level: medium
+Description: Adversaries may abuse container files such as disk image (.iso, .vhd) file formats to deliver malicious payloads that may not be tagged with MOTW.
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1553.005
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_run_from_mount_diskimage.yml
 # False Positives:
 #   - Legitimate PowerShell scripts
-
+```
 ScriptBlockText="*Mount-DiskImage *" ScriptBlockText="*-ImagePath *" ScriptBlockText="*Get-Volume*" ScriptBlockText="*.DriveLetter*" ScriptBlockText="*invoke-item *" ScriptBlockText="*):\\*"

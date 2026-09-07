@@ -1,12 +1,13 @@
-# Title: ScreenSaver Registry Key Set
-# Author: Jose Luis Sanchez Martinez (@Joseliyo_Jstnk)
-# Date: 2022-05-04
-# Level: medium
-# Description: Detects registry key established after masqueraded .scr file execution using Rundll32 through desk.cpl
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1218.011
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_scr_file_executed_by_rundll32.yml
+```
+Title: ScreenSaver Registry Key Set
+Author: Jose Luis Sanchez Martinez (@Joseliyo_Jstnk)
+Date: 2022-05-04
+Level: medium
+Description: Detects registry key established after masqueraded .scr file execution using Rundll32 through desk.cpl
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1218.011
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_scr_file_executed_by_rundll32.yml
 # False Positives:
 #   - Legitimate use of screen saver
-
+```
 Image="*\\rundll32.exe" Details="*.scr" TargetObject="*\\Control Panel\\Desktop\\SCRNSAVE.EXE*" NOT (Details IN ("*C:\\Windows\\System32\\*", "*C:\\Windows\\SysWOW64\\*"))

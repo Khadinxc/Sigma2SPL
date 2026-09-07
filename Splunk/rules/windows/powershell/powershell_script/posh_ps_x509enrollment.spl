@@ -1,12 +1,13 @@
-# Title: Suspicious X509Enrollment - Ps Script
-# Author: frack113
-# Date: 2022-12-23
-# Level: medium
-# Description: Detect use of X509Enrollment
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1553.004
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_x509enrollment.yml
+```
+Title: Suspicious X509Enrollment - Ps Script
+Author: frack113
+Date: 2022-12-23
+Level: medium
+Description: Detect use of X509Enrollment
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1553.004
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_x509enrollment.yml
 # False Positives:
 #   - Legitimate administrative script
-
+```
 ScriptBlockText IN ("*X509Enrollment.CBinaryConverter*", "*884e2002-217d-11da-b2a4-000e7bbb2b09*")

@@ -1,12 +1,13 @@
-# Title: Csc.EXE Execution Form Potentially Suspicious Parent
-# Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
-# Date: 2019-02-11
-# Level: high
-# Description: Detects a potentially suspicious parent of "csc.exe", which could be a sign of payload delivery.
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.stealth, attack.t1059.005, attack.t1059.007, attack.t1218.005, attack.t1027.004
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csc_susp_parent.yml
-
+```
+Title: Csc.EXE Execution Form Potentially Suspicious Parent
+Author: Florian Roth (Nextron Systems), Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
+Date: 2019-02-11
+Level: high
+Description: Detects a potentially suspicious parent of "csc.exe", which could be a sign of payload delivery.
+MITRE Tactic: Execution
+Tags: attack.execution, attack.stealth, attack.t1059.005, attack.t1059.007, attack.t1218.005, attack.t1027.004
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_csc_susp_parent.yml
+```
 
 | rex field=ParentCommandLine "(?<ParentCommandLineMatch>(?:[Pp]rogram[Dd]ata|%(?:[Ll]ocal)?[Aa]pp[Dd]ata%|\\\\[Aa]pp[Dd]ata\\\\(?:[Ll]ocal(?:[Ll]ow)?|[Rr]oaming))\\\\[^\\\\]{1,256}$)"
 | eval ParentCommandLineCondition=if(isnotnull(ParentCommandLineMatch), "true", "false")

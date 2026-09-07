@@ -1,13 +1,14 @@
-# Title: Important Windows Eventlog Cleared
-# Author: Florian Roth (Nextron Systems), Tim Shelton, Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-05-17
-# Level: high
-# Description: Detects the clearing of one of the Windows Core Eventlogs. e.g. caused by "wevtutil cl" command execution
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685.005, car.2016-04-002
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_eventlog/win_system_susp_eventlog_cleared.yml
+```
+Title: Important Windows Eventlog Cleared
+Author: Florian Roth (Nextron Systems), Tim Shelton, Nasreddine Bencherchali (Nextron Systems)
+Date: 2022-05-17
+Level: high
+Description: Detects the clearing of one of the Windows Core Eventlogs. e.g. caused by "wevtutil cl" command execution
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685.005, car.2016-04-002
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/microsoft_windows_eventlog/win_system_susp_eventlog_cleared.yml
 # False Positives:
 #   - Rollout of log collection agents (the setup routine often includes a reset of the local Eventlog)
 #   - System provisioning (system reset before the golden image creation)
-
+```
 Channel IN ("Microsoft-Windows-PowerShell/Operational", "Microsoft-Windows-Sysmon/Operational", "PowerShellCore/Operational", "Security", "System", "Windows PowerShell") EventID=104 Provider_Name="Microsoft-Windows-Eventlog"

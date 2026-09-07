@@ -1,14 +1,15 @@
-# Title: Azure Application Deleted
-# Author: Austin Songer @austinsonger
-# Date: 2021-09-03
-# Level: medium
-# Description: Identifies when a application is deleted in Azure.
-# MITRE Tactic: Impact
-# Tags: attack.impact, attack.t1489
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_application_deleted.yml
+```
+Title: Azure Application Deleted
+Author: Austin Songer @austinsonger
+Date: 2021-09-03
+Level: medium
+Description: Identifies when a application is deleted in Azure.
+MITRE Tactic: Impact
+Tags: attack.impact, attack.t1489
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_application_deleted.yml
 # False Positives:
 #   - Application being deleted may be performed by a system administrator.
 #   - Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
 #   - Application deleted from unfamiliar users should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
-
+```
 operationName IN ("Delete application", "Hard Delete application", "Delete administrative unit")

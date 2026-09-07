@@ -1,12 +1,13 @@
-# Title: Disabled Volume Snapshots
-# Author: Florian Roth (Nextron Systems)
-# Date: 2021-01-28
-# Level: high
-# Description: Detects commands that temporarily turn off Volume Snapshots
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_volsnap_disable.yml
+```
+Title: Disabled Volume Snapshots
+Author: Florian Roth (Nextron Systems)
+Date: 2021-01-28
+Level: high
+Description: Detects commands that temporarily turn off Volume Snapshots
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_volsnap_disable.yml
 # False Positives:
 #   - Legitimate administration
-
+```
 CommandLine="*\\Services\\VSS\\Diag*" CommandLine="*/d Disabled*"

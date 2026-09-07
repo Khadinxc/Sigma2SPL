@@ -1,10 +1,11 @@
-# Title: Disable Microsoft Defender Firewall via Registry
-# Author: frack113
-# Date: 2022-01-09
-# Level: medium
-# Description: Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1686.003
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_defender_firewall.yml
-
+```
+Title: Disable Microsoft Defender Firewall via Registry
+Author: frack113
+Date: 2022-01-09
+Level: medium
+Description: Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1686.003
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_defender_firewall.yml
+```
 Details="DWORD (0x00000000)" TargetObject="*\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\*" TargetObject="*\\EnableFirewall"

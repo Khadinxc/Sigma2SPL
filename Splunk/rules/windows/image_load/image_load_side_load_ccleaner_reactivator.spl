@@ -1,12 +1,13 @@
-# Title: Potential CCleanerReactivator.DLL Sideloading
-# Author: X__Junior
-# Date: 2023-07-13
-# Level: medium
-# Description: Detects potential DLL sideloading of "CCleanerReactivator.dll"
-# MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_reactivator.yml
+```
+Title: Potential CCleanerReactivator.DLL Sideloading
+Author: X__Junior
+Date: 2023-07-13
+Level: medium
+Description: Detects potential DLL sideloading of "CCleanerReactivator.dll"
+MITRE Tactic: Persistence
+Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_reactivator.yml
 # False Positives:
 #   - False positives could occur from other custom installation paths. Apply additional filters accordingly.
-
+```
 ImageLoaded="*\\CCleanerReactivator.dll" NOT (Image="*\\CCleanerReactivator.exe" Image IN ("C:\\Program Files\\CCleaner\\*", "C:\\Program Files (x86)\\CCleaner\\*"))

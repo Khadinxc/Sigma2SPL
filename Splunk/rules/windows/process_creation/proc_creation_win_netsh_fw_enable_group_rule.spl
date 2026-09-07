@@ -1,12 +1,13 @@
-# Title: Netsh Allow Group Policy on Microsoft Defender Firewall
-# Author: frack113
-# Date: 2022-01-09
-# Level: medium
-# Description: Adversaries may modify system firewalls in order to bypass controls limiting network usage
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1686.003
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_enable_group_rule.yml
+```
+Title: Netsh Allow Group Policy on Microsoft Defender Firewall
+Author: frack113
+Date: 2022-01-09
+Level: medium
+Description: Adversaries may modify system firewalls in order to bypass controls limiting network usage
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1686.003
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_enable_group_rule.yml
 # False Positives:
 #   - Legitimate administration activity
-
+```
 CommandLine="*advfirewall*" CommandLine="*firewall*" CommandLine="*set*" CommandLine="*rule*" CommandLine="*group=*" CommandLine="*new*" CommandLine="*enable=Yes*" Image="*\\netsh.exe" OR OriginalFileName="netsh.exe"

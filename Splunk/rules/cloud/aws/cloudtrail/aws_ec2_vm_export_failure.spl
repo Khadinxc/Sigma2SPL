@@ -1,10 +1,11 @@
-# Title: AWS EC2 VM Export Failure
-# Author: Diogo Braz
-# Date: 2020-04-16
-# Level: low
-# Description: An attempt to export an AWS EC2 instance has been detected. A VM Export might indicate an attempt to extract information from an instance.
-# MITRE Tactic: Collection
-# Tags: attack.collection, attack.t1005, attack.exfiltration, attack.t1537
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_ec2_vm_export_failure.yml
-
+```
+Title: AWS EC2 VM Export Failure
+Author: Diogo Braz
+Date: 2020-04-16
+Level: low
+Description: An attempt to export an AWS EC2 instance has been detected. A VM Export might indicate an attempt to extract information from an instance.
+MITRE Tactic: Collection
+Tags: attack.collection, attack.t1005, attack.exfiltration, attack.t1537
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_ec2_vm_export_failure.yml
+```
 eventName="CreateInstanceExportTask" eventSource="ec2.amazonaws.com" NOT (errorMessage="*" OR errorCode="*" OR responseElements="*Failure*")

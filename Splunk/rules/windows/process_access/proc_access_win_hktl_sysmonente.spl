@@ -1,10 +1,11 @@
-# Title: HackTool - SysmonEnte Execution
-# Author: Florian Roth (Nextron Systems)
-# Date: 2022-09-07
-# Level: high
-# Description: Detects the use of SysmonEnte, a tool to attack the integrity of Sysmon
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_hktl_sysmonente.yml
-
+```
+Title: HackTool - SysmonEnte Execution
+Author: Florian Roth (Nextron Systems)
+Date: 2022-09-07
+Level: high
+Description: Detects the use of SysmonEnte, a tool to attack the integrity of Sysmon
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_hktl_sysmonente.yml
+```
 (GrantedAccess="0x1400" TargetImage IN ("*:\\Windows\\Sysmon.exe*", "*:\\Windows\\Sysmon64.exe*", "*:\\Windows\\Sysmon64a.exe*") NOT (SourceImage IN ("*:\\Program Files (x86)\\*", "*:\\Program Files\\*", "*:\\Windows\\System32\\*", "*:\\Windows\\SysWOW64\\*") OR (SourceImage="*:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\*" SourceImage="*\\MsMpEng.exe"))) OR CallTrace="Ente"

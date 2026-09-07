@@ -1,13 +1,14 @@
-# Title: Sysmon Driver Altitude Change
-# Author: B.Talebi
-# Date: 2022-07-28
-# Level: high
-# Description: Detects changes in Sysmon driver altitude value.
+```
+Title: Sysmon Driver Altitude Change
+Author: B.Talebi
+Date: 2022-07-28
+Level: high
+Description: Detects changes in Sysmon driver altitude value.
 # If the Sysmon driver is configured to load at an altitude of another registered service, it will fail to load at boot.
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_sysmon_driver_altitude.yml
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_sysmon_driver_altitude.yml
 # False Positives:
 #   - Legitimate driver altitude change to hide sysmon
-
+```
 TargetObject="*\\Services\\*" TargetObject="*\\Instances\\Sysmon Instance\\Altitude"

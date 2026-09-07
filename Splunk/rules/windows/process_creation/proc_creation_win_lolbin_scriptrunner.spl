@@ -1,12 +1,13 @@
-# Title: Use of Scriptrunner.exe
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-07-01
-# Level: medium
-# Description: The "ScriptRunner.exe" binary can be abused to proxy execution through it and bypass possible whitelisting
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.stealth, attack.t1218
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_scriptrunner.yml
+```
+Title: Use of Scriptrunner.exe
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2022-07-01
+Level: medium
+Description: The "ScriptRunner.exe" binary can be abused to proxy execution through it and bypass possible whitelisting
+MITRE Tactic: Execution
+Tags: attack.execution, attack.stealth, attack.t1218
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_scriptrunner.yml
 # False Positives:
 #   - Legitimate use when App-v is deployed
-
+```
 CommandLine="* -appvscript *" Image="*\\ScriptRunner.exe" OR OriginalFileName="ScriptRunner.exe"

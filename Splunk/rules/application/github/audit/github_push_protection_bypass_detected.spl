@@ -1,12 +1,13 @@
-# Title: Github Push Protection Bypass Detected
-# Author: Muhammad Faisal (@faisalusuf)
-# Date: 2024-03-07
-# Level: low
-# Description: Detects when a user bypasses the push protection on a secret detected by secret scanning.
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_push_protection_bypass_detected.yml
+```
+Title: Github Push Protection Bypass Detected
+Author: Muhammad Faisal (@faisalusuf)
+Date: 2024-03-07
+Level: low
+Description: Detects when a user bypasses the push protection on a secret detected by secret scanning.
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/application/github/audit/github_push_protection_bypass_detected.yml
 # False Positives:
 #   - Allowed administrative activities.
-
+```
 action="*secret_scanning_push_protection.bypass*"

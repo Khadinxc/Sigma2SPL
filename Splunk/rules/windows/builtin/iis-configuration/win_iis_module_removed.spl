@@ -1,12 +1,13 @@
-# Title: Previously Installed IIS Module Was Removed
-# Author: Nasreddine Bencherchali
-# Date: 2024-10-06
-# Level: low
-# Description: Detects the removal of a previously installed IIS module.
-# MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.defense-impairment, attack.t1685.001, attack.t1505.004
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/iis-configuration/win_iis_module_removed.yml
+```
+Title: Previously Installed IIS Module Was Removed
+Author: Nasreddine Bencherchali
+Date: 2024-10-06
+Level: low
+Description: Detects the removal of a previously installed IIS module.
+MITRE Tactic: Persistence
+Tags: attack.persistence, attack.defense-impairment, attack.t1685.001, attack.t1505.004
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/iis-configuration/win_iis_module_removed.yml
 # False Positives:
 #   - Legitimate administrator activity
-
+```
 Configuration="*/system.webServer/modules/remove*" EventID=29

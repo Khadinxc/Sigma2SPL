@@ -1,12 +1,13 @@
-# Title: Diamond Sleet APT DLL Sideloading Indicators
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2023-10-24
-# Level: high
-# Description: Detects DLL sideloading activity seen used by Diamond Sleet APT
-# MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001, detection.emerging-threats
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml
+```
+Title: Diamond Sleet APT DLL Sideloading Indicators
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2023-10-24
+Level: high
+Description: Detects DLL sideloading activity seen used by Diamond Sleet APT
+MITRE Tactic: Persistence
+Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001, detection.emerging-threats
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/Diamond-Sleet/image_load_apt_diamond_sleet_side_load.yml
 # False Positives:
 #   - Unlikely
-
+```
 (ImageLoaded="*:\\ProgramData\\Version.dll" Image="*:\\ProgramData\\clip.exe") OR (ImageLoaded="*:\\ProgramData\\DSROLE.dll" Image="*:\\ProgramData\\wsmprovhost.exe")

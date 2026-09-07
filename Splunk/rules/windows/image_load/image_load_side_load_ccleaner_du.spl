@@ -1,12 +1,13 @@
-# Title: Potential CCleanerDU.DLL Sideloading
-# Author: X__Junior (Nextron Systems)
-# Date: 2023-07-13
-# Level: medium
-# Description: Detects potential DLL sideloading of "CCleanerDU.dll"
-# MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_du.yml
+```
+Title: Potential CCleanerDU.DLL Sideloading
+Author: X__Junior (Nextron Systems)
+Date: 2023-07-13
+Level: medium
+Description: Detects potential DLL sideloading of "CCleanerDU.dll"
+MITRE Tactic: Persistence
+Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_ccleaner_du.yml
 # False Positives:
 #   - False positives could occur from other custom installation paths. Apply additional filters accordingly.
-
+```
 ImageLoaded="*\\CCleanerDU.dll" NOT (Image IN ("*\\CCleaner.exe", "*\\CCleaner64.exe") Image IN ("C:\\Program Files\\CCleaner\\*", "C:\\Program Files (x86)\\CCleaner\\*"))

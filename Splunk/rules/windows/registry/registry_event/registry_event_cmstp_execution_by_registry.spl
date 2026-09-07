@@ -1,13 +1,14 @@
-# Title: CMSTP App Paths Registry Key Modification
-# Author: Nik Seetharaman
-# Date: 2018-07-16
-# Level: high
-# Description: Detects modifications to the CMSTP App Paths registry key. This may indicate abuse of
+```
+Title: CMSTP App Paths Registry Key Modification
+Author: Nik Seetharaman
+Date: 2018-07-16
+Level: high
+Description: Detects modifications to the CMSTP App Paths registry key. This may indicate abuse of
 # Microsoft Connection Manager Profile Installer (CMSTP) for arbitrary code execution or UAC bypass.
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.stealth, attack.t1218.003, attack.g0069, car.2019-04-001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml
+MITRE Tactic: Execution
+Tags: attack.execution, attack.stealth, attack.t1218.003, attack.g0069, car.2019-04-001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml
 # False Positives:
 #   - Legitimate CMSTP use (unlikely in modern enterprise environments)
-
+```
 TargetObject="*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\cmmgr32.exe\\*" NOT ((Details IN ("C:\\Windows\\System32\\cmcfg32.dll", "C:\\Windows\\SysWOW64\\cmcfg32.dll") TargetObject="*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\cmmgr32.exe\\CmstpExtensionDll") OR Details="(Empty)")

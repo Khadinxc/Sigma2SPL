@@ -1,12 +1,13 @@
-# Title: Win Defender Restored Quarantine File
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-12-06
-# Level: high
-# Description: Detects the restoration of files from the defender quarantine
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_restored_quarantine_file.yml
+```
+Title: Win Defender Restored Quarantine File
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2022-12-06
+Level: high
+Description: Detects the restoration of files from the defender quarantine
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_restored_quarantine_file.yml
 # False Positives:
 #   - Legitimate administrator activity restoring a file
-
+```
 EventID=1009

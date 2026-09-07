@@ -1,12 +1,13 @@
-# Title: Obfuscated IP Via CLI
-# Author: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
-# Date: 2022-08-03
-# Level: medium
-# Description: Detects usage of an encoded/obfuscated version of an IP address (hex, octal, etc.) via command line
-# MITRE Tactic: Discovery
-# Tags: attack.discovery
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_via_cli.yml
-
+```
+Title: Obfuscated IP Via CLI
+Author: Nasreddine Bencherchali (Nextron Systems), X__Junior (Nextron Systems)
+Date: 2022-08-03
+Level: medium
+Description: Detects usage of an encoded/obfuscated version of an IP address (hex, octal, etc.) via command line
+MITRE Tactic: Discovery
+Tags: attack.discovery
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_via_cli.yml
+```
 
 | rex field=CommandLine "(?<CommandLineMatch>https?://[0-9]{1,3}\\.[0-9]{1,3}\\.0[0-9]{3,4})"
 | eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")

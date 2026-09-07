@@ -1,12 +1,13 @@
-# Title: Microsoft Workflow Compiler Execution
-# Author: Nik Seetharaman, frack113
-# Date: 2019-01-16
-# Level: medium
-# Description: Detects the execution of Microsoft Workflow Compiler, which may permit the execution of arbitrary unsigned code.
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.stealth, attack.t1127, attack.t1218, detection.threat-hunting
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_microsoft_workflow_compiler_execution.yml
+```
+Title: Microsoft Workflow Compiler Execution
+Author: Nik Seetharaman, frack113
+Date: 2019-01-16
+Level: medium
+Description: Detects the execution of Microsoft Workflow Compiler, which may permit the execution of arbitrary unsigned code.
+MITRE Tactic: Execution
+Tags: attack.execution, attack.stealth, attack.t1127, attack.t1218, detection.threat-hunting
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_microsoft_workflow_compiler_execution.yml
 # False Positives:
 #   - Legitimate MWC use (unlikely in modern enterprise environments)
-
+```
 Image="*\\Microsoft.Workflow.Compiler.exe" OR OriginalFileName="Microsoft.Workflow.Compiler.exe"

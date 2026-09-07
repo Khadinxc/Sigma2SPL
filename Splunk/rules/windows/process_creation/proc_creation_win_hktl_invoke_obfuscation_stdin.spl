@@ -1,11 +1,12 @@
-# Title: Invoke-Obfuscation STDIN+ Launcher
-# Author: Jonathan Cheong, oscd.community
-# Date: 2020-10-15
-# Level: high
-# Description: Detects Obfuscated use of stdin to execute PowerShell
-# MITRE Tactic: Execution
-# Tags: attack.stealth, attack.t1027, attack.execution, attack.t1059.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_stdin.yml
-
+```
+Title: Invoke-Obfuscation STDIN+ Launcher
+Author: Jonathan Cheong, oscd.community
+Date: 2020-10-15
+Level: high
+Description: Detects Obfuscated use of stdin to execute PowerShell
+MITRE Tactic: Execution
+Tags: attack.stealth, attack.t1027, attack.execution, attack.t1059.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_stdin.yml
+```
 *
 | regex CommandLine="cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$\\{?input\\}?|noexit).+\\\""

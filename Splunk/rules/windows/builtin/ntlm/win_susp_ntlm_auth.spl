@@ -1,12 +1,13 @@
-# Title: NTLM Logon
-# Author: Florian Roth (Nextron Systems)
-# Date: 2018-06-08
-# Level: low
-# Description: Detects logons using NTLM, which could be caused by a legacy source or attackers
-# MITRE Tactic: Lateral Movement
-# Tags: attack.lateral-movement, attack.t1550.002
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/ntlm/win_susp_ntlm_auth.yml
+```
+Title: NTLM Logon
+Author: Florian Roth (Nextron Systems)
+Date: 2018-06-08
+Level: low
+Description: Detects logons using NTLM, which could be caused by a legacy source or attackers
+MITRE Tactic: Lateral Movement
+Tags: attack.lateral-movement, attack.t1550.002
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/ntlm/win_susp_ntlm_auth.yml
 # False Positives:
 #   - Legacy hosts
-
+```
 EventID=8002

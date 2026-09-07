@@ -1,12 +1,13 @@
-# Title: AWS Config Disabling Channel/Recorder
-# Author: vitaliy0x1
-# Date: 2020-01-21
-# Level: high
-# Description: Detects AWS Config Service disabling
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685.002
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_config_disable_recording.yml
+```
+Title: AWS Config Disabling Channel/Recorder
+Author: vitaliy0x1
+Date: 2020-01-21
+Level: high
+Description: Detects AWS Config Service disabling
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685.002
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_config_disable_recording.yml
 # False Positives:
 #   - Valid change in AWS Config Service
-
+```
 eventName IN ("DeleteDeliveryChannel", "StopConfigurationRecorder") eventSource="config.amazonaws.com"

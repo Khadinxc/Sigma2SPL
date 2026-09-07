@@ -1,12 +1,13 @@
-# Title: SyncAppvPublishingServer Execute Arbitrary PowerShell Code
-# Author: frack113
-# Date: 2021-07-12
-# Level: medium
-# Description: Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe.
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1218
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_execute_psh.yml
+```
+Title: SyncAppvPublishingServer Execute Arbitrary PowerShell Code
+Author: frack113
+Date: 2021-07-12
+Level: medium
+Description: Executes arbitrary PowerShell code using SyncAppvPublishingServer.exe.
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1218
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_execute_psh.yml
 # False Positives:
 #   - App-V clients
-
+```
 CommandLine="*\"n; *" Image="*\\SyncAppvPublishingServer.exe" OR OriginalFileName="syncappvpublishingserver.exe"

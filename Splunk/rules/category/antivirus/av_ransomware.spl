@@ -1,13 +1,14 @@
-# Title: Antivirus - Ransomware Signature
-# Author: Florian Roth (Nextron Systems), Arnim Rupp
-# Date: 2022-05-12
-# Level: critical
-# Description: Detects a highly relevant Antivirus alert that reports ransomware.
+```
+Title: Antivirus - Ransomware Signature
+Author: Florian Roth (Nextron Systems), Arnim Rupp
+Date: 2022-05-12
+Level: critical
+Description: Detects a highly relevant Antivirus alert that reports ransomware.
 # This event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.
-# MITRE Tactic: Impact
-# Tags: attack.t1486, attack.impact
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/category/antivirus/av_ransomware.yml
+MITRE Tactic: Impact
+Tags: attack.t1486, attack.impact
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/category/antivirus/av_ransomware.yml
 # False Positives:
 #   - Unlikely
-
+```
 Signature IN ("*Babuk*", "*Babyk*", "*BlackWorm*", "*Chaos*", "*Cobra*", "*ContiCrypt*", "*Crypter*", "*Cryptes*", "*Cryptor*", "*CylanCrypt*", "*DelShad*", "*Destructor*", "*Filecoder*", "*GandCrab*", "*GrandCrab*", "*Haperlock*", "*Hiddentear*", "*HydraCrypt*", "*Krypt*", "*Lockbit*", "*Locker*", "*Mallox*", "*Medusa*", "*Phobos*", "*Ransom*", "*Rook*", "*Ryuk*", "*Ryzerlo*", "*Stopcrypt*", "*Tescrypt*", "*TeslaCrypt*", "*WannaCry*", "*Xorist*")

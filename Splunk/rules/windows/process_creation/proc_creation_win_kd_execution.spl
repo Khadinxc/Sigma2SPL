@@ -1,12 +1,13 @@
-# Title: Windows Kernel Debugger Execution
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2023-05-15
-# Level: medium
-# Description: Detects execution of the Windows Kernel Debugger "kd.exe".
-# MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.stealth
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_kd_execution.yml
+```
+Title: Windows Kernel Debugger Execution
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2023-05-15
+Level: medium
+Description: Detects execution of the Windows Kernel Debugger "kd.exe".
+MITRE Tactic: Privilege Escalation
+Tags: attack.privilege-escalation, attack.stealth
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_kd_execution.yml
 # False Positives:
 #   - Rare occasions of legitimate cases where kernel debugging is necessary in production. Investigation is required
-
+```
 Image="*\\kd.exe" OR OriginalFileName="kd.exe"

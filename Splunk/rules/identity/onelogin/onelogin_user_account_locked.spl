@@ -1,12 +1,13 @@
-# Title: OneLogin User Account Locked
-# Author: Austin Songer @austinsonger
-# Date: 2021-10-12
-# Level: low
-# Description: Detects when an user account is locked or suspended.
-# MITRE Tactic: Impact
-# Tags: attack.impact
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/onelogin/onelogin_user_account_locked.yml
+```
+Title: OneLogin User Account Locked
+Author: Austin Songer @austinsonger
+Date: 2021-10-12
+Level: low
+Description: Detects when an user account is locked or suspended.
+MITRE Tactic: Impact
+Tags: attack.impact
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/onelogin/onelogin_user_account_locked.yml
 # False Positives:
 #   - System may lock or suspend user accounts.
-
+```
 event_type_id IN (532, 553, 551)

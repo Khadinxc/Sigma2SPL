@@ -1,12 +1,13 @@
-# Title: HackTool - CrackMapExec File Indicators
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2024-03-11
-# Level: high
-# Description: Detects file creation events with filename patterns used by CrackMapExec.
-# MITRE Tactic: Credential Access
-# Tags: attack.credential-access, attack.t1003.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_crackmapexec_indicators.yml
-
+```
+Title: HackTool - CrackMapExec File Indicators
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2024-03-11
+Level: high
+Description: Detects file creation events with filename patterns used by CrackMapExec.
+MITRE Tactic: Credential Access
+Tags: attack.credential-access, attack.t1003.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_hktl_crackmapexec_indicators.yml
+```
 
 | rex field=TargetFilename "(?<TargetFilenameMatch>\\\\[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.txt$)"
 | eval TargetFilenameCondition=if(isnotnull(TargetFilenameMatch), "true", "false")

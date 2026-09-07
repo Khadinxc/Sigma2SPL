@@ -1,14 +1,15 @@
-# Title: AWS STS AssumeRole Misuse
-# Author: Austin Songer @austinsonger
-# Date: 2021-07-24
-# Level: low
-# Description: Identifies the suspicious use of AssumeRole. Attackers could move laterally and escalate privileges.
-# MITRE Tactic: Lateral Movement
-# Tags: attack.lateral-movement, attack.privilege-escalation, attack.t1548, attack.t1550, attack.t1550.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_sts_assumerole_misuse.yml
+```
+Title: AWS STS AssumeRole Misuse
+Author: Austin Songer @austinsonger
+Date: 2021-07-24
+Level: low
+Description: Identifies the suspicious use of AssumeRole. Attackers could move laterally and escalate privileges.
+MITRE Tactic: Lateral Movement
+Tags: attack.lateral-movement, attack.privilege-escalation, attack.t1548, attack.t1550, attack.t1550.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_sts_assumerole_misuse.yml
 # False Positives:
 #   - AssumeRole may be done by a system or network administrator. Verify whether the user identity, user agent, and/or hostname should be making changes in your environment.
 #   - AssumeRole from unfamiliar users or hosts should be investigated. If known behavior is causing false positives, it can be exempted from the rule.
 #   - Automated processes that uses Terraform may lead to false positives.
-
+```
 userIdentity.sessionContext.sessionIssuer.type="Role" userIdentity.type="AssumedRole"

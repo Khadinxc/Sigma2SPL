@@ -1,12 +1,13 @@
-# Title: Azure Device No Longer Managed or Compliant
-# Author: Austin Songer @austinsonger
-# Date: 2021-09-03
-# Level: medium
-# Description: Identifies when a device in azure is no longer managed or compliant
-# MITRE Tactic: Impact
-# Tags: attack.impact
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_device_no_longer_managed_or_compliant.yml
+```
+Title: Azure Device No Longer Managed or Compliant
+Author: Austin Songer @austinsonger
+Date: 2021-09-03
+Level: medium
+Description: Identifies when a device in azure is no longer managed or compliant
+MITRE Tactic: Impact
+Tags: attack.impact
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_logs/azure_device_no_longer_managed_or_compliant.yml
 # False Positives:
 #   - Administrator may have forgotten to review the device.
-
+```
 operationName IN ("Device no longer compliant", "Device no longer managed")
