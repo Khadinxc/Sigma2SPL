@@ -1,15 +1,16 @@
-# Title: Antivirus - APT Malware Signature
-# Author: Arnim Rupp (Nextron Systems)
-# Date: 2026-06-15
-# Level: critical
-# Description: Detects a highly relevant Antivirus alert that reports APT malware.
-# This event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.t1203, attack.command-and-control, attack.t1219.002
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/category/antivirus/av_advanced_persistent_threat.yml
-# False Positives:
-#   - Unlikely
-
+```
+Title: Antivirus - APT Malware Signature
+Author: Arnim Rupp (Nextron Systems)
+Date: 2026-06-15
+Level: critical
+Description: Detects a highly relevant Antivirus alert that reports APT malware.
+ This event must not be ignored just because the AV has blocked the malware but investigate, how it came there in the first place.
+MITRE Tactic: Execution
+Tags: attack.execution, attack.t1203, attack.command-and-control, attack.t1219.002
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/category/antivirus/av_advanced_persistent_threat.yml
+ False Positives:
+   - Unlikely
+```
 
 | rex field=Signature "(?<SignatureMatch>APT\\d)"
 | eval SignatureCondition=if(isnotnull(SignatureMatch), "true", "false")

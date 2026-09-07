@@ -1,12 +1,13 @@
-# Title: FortiGate - Firewall Address Object Added
-# Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
-# Date: 2025-11-01
-# Level: medium
-# Description: Detects the addition of firewall address objects on a Fortinet FortiGate Firewall.
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1686.002
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/fortinet/fortigate/fortinet_fortigate_new_firewall_address_object.yml
-# False Positives:
-#   - An address could be added or deleted for legitimate purposes.
-
+```
+Title: FortiGate - Firewall Address Object Added
+Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
+Date: 2025-11-01
+Level: medium
+Description: Detects the addition of firewall address objects on a Fortinet FortiGate Firewall.
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1686.002
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/network/fortinet/fortigate/fortinet_fortigate_new_firewall_address_object.yml
+ False Positives:
+   - An address could be added or deleted for legitimate purposes.
+```
 action="Add" cfgpath="firewall.address"

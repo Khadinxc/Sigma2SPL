@@ -1,11 +1,12 @@
-# Title: Legitimate Application Dropped Script
-# Author: frack113, Florian Roth (Nextron Systems)
-# Date: 2022-08-21
-# Level: high
-# Description: Detects LOLBINs and applications that should not legitimately drop script files to disk.
-# This may indicate malware staging or abuse of a trusted binary for script-based code execution.
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1218
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_script.yml
-
+```
+Title: Legitimate Application Dropped Script
+Author: frack113, Florian Roth (Nextron Systems)
+Date: 2022-08-21
+Level: high
+Description: Detects LOLBINs and applications that should not legitimately drop script files to disk.
+ This may indicate malware staging or abuse of a trusted binary for script-based code execution.
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1218
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_script.yml
+```
 Image IN ("*\\eqnedt32.exe", "*\\wordpad.exe", "*\\wordview.exe", "*\\certutil.exe", "*\\certoc.exe", "*\\CertReq.exe", "*\\Desktopimgdownldr.exe", "*\\esentutl.exe", "*\\mshta.exe", "*\\AcroRd32.exe", "*\\RdrCEF.exe", "*\\hh.exe", "*\\finger.exe") TargetFilename IN ("*.bat", "*.chm", "*.csproj", "*.hta", "*.js", "*.jse", "*.proj", "*.ps1", "*.py", "*.scf", "*.vbe", "*.vbs", "*.wsf", "*.wsh") NOT (Image="*\\mshta.exe" TargetFilename="*.hta")

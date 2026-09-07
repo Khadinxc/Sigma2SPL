@@ -1,12 +1,13 @@
-# Title: Auditing Configuration Changes on Linux Host
-# Author: Mikhail Larin, oscd.community
-# Date: 2019-10-25
-# Level: high
-# Description: Detect changes in auditd configuration files
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/path/lnx_auditd_auditing_config_change.yml
-# False Positives:
-#   - Legitimate administrative activity
-
+```
+Title: Auditing Configuration Changes on Linux Host
+Author: Mikhail Larin, oscd.community
+Date: 2019-10-25
+Level: high
+Description: Detect changes in auditd configuration files
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/path/lnx_auditd_auditing_config_change.yml
+ False Positives:
+   - Legitimate administrative activity
+```
 name IN ("/etc/audit/*", "/etc/libaudit.conf", "/etc/audisp/*") type="PATH"

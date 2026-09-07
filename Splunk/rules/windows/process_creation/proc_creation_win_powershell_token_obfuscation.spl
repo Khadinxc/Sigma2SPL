@@ -1,12 +1,13 @@
-# Title: Powershell Token Obfuscation - Process Creation
-# Author: frack113
-# Date: 2022-12-27
-# Level: high
-# Description: Detects TOKEN OBFUSCATION technique from Invoke-Obfuscation
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1027.009
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml
-
+```
+Title: Powershell Token Obfuscation - Process Creation
+Author: frack113
+Date: 2022-12-27
+Level: high
+Description: Detects TOKEN OBFUSCATION technique from Invoke-Obfuscation
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1027.009
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml
+```
 
 | rex field=CommandLine "(?<CommandLineMatch>\\w+`(?:\\w+|-|.)`[\\w+|\\s])"
 | eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")

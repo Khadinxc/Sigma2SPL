@@ -1,10 +1,11 @@
-# Title: SyncAppvPublishingServer VBS Execute Arbitrary PowerShell Code
-# Author: frack113
-# Date: 2021-07-16
-# Level: medium
-# Description: Executes arbitrary PowerShell code using SyncAppvPublishingServer.vbs
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1218, attack.t1216
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_vbs_execute_psh.yml
-
+```
+Title: SyncAppvPublishingServer VBS Execute Arbitrary PowerShell Code
+Author: frack113
+Date: 2021-07-16
+Level: medium
+Description: Executes arbitrary PowerShell code using SyncAppvPublishingServer.vbs
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1218, attack.t1216
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_syncappvpublishingserver_vbs_execute_psh.yml
+```
 CommandLine="*\\SyncAppvPublishingServer.vbs*" CommandLine="*;*"

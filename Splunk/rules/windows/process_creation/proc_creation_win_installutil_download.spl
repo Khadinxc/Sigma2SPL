@@ -1,10 +1,11 @@
-# Title: File Download Via InstallUtil.EXE
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-08-19
-# Level: medium
-# Description: Detects use of .NET InstallUtil.exe in order to download arbitrary files. The files will be written to "%LOCALAPPDATA%\Microsoft\Windows\INetCache\IE\"
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1218
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_installutil_download.yml
-
+```
+Title: File Download Via InstallUtil.EXE
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2022-08-19
+Level: medium
+Description: Detects use of .NET InstallUtil.exe in order to download arbitrary files. The files will be written to "%LOCALAPPDATA%\Microsoft\Windows\INetCache\IE\"
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1218
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_installutil_download.yml
+```
 CommandLine IN ("*ftp://*", "*http://*", "*https://*") Image="*\\InstallUtil.exe" OR OriginalFileName="InstallUtil.exe"

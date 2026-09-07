@@ -1,12 +1,13 @@
-# Title: PowerShell AppLocker Policy Discovery Via Get-AppLockerPolicy
-# Author: Tom3306
-# Date: 2026-08-19
-# Level: low
-# Description: Detects AppLocker policy enumeration attempts via PowerShell using the Get-AppLockerPolicy cmdlet and an policy scope of either Effective, LDAP, or Local.
-# MITRE Tactic: Discovery
-# Tags: attack.discovery, attack.t1518.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_applocker_policy_discovery_via_get_applockerpolicy.yml
-# False Positives:
-#   - PowerShell-based AppLocker auditing and policy troubleshooting by administrators.
-
+```
+Title: PowerShell AppLocker Policy Discovery Via Get-AppLockerPolicy
+Author: Tom3306
+Date: 2026-08-19
+Level: low
+Description: Detects AppLocker policy enumeration attempts via PowerShell using the Get-AppLockerPolicy cmdlet and an policy scope of either Effective, LDAP, or Local.
+MITRE Tactic: Discovery
+Tags: attack.discovery, attack.t1518.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_applocker_policy_discovery_via_get_applockerpolicy.yml
+ False Positives:
+   - PowerShell-based AppLocker auditing and policy troubleshooting by administrators.
+```
 CommandLine="*Get-AppLockerPolicy*" CommandLine="* -Effective*" OR CommandLine="* /Effective*" OR CommandLine="* –Effective*" OR CommandLine="* —Effective*" OR CommandLine="* ―Effective*" OR CommandLine="* -Ldap *" OR CommandLine="* /Ldap *" OR CommandLine="* –Ldap *" OR CommandLine="* —Ldap *" OR CommandLine="* ―Ldap *" OR CommandLine="* -Local*" OR CommandLine="* /Local*" OR CommandLine="* –Local*" OR CommandLine="* —Local*" OR CommandLine="* ―Local*" Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("PowerShell.EXE", "pwsh.dll")

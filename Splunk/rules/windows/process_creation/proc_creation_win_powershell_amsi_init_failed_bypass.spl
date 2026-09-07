@@ -1,12 +1,13 @@
-# Title: Potential AMSI Bypass Via .NET Reflection
-# Author: Markus Neis, @Kostastsale
-# Date: 2018-08-17
-# Level: high
-# Description: Detects Request to "amsiInitFailed" that can be used to disable AMSI Scanning
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml
-# False Positives:
-#   - Unlikely
-
+```
+Title: Potential AMSI Bypass Via .NET Reflection
+Author: Markus Neis, @Kostastsale
+Date: 2018-08-17
+Level: high
+Description: Detects Request to "amsiInitFailed" that can be used to disable AMSI Scanning
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml
+ False Positives:
+   - Unlikely
+```
 (CommandLine="*System.Management.Automation.AmsiUtils*" CommandLine="*amsiInitFailed*") OR (CommandLine="*[Ref].Assembly.GetType*" CommandLine="*SetValue($null,$true)*" CommandLine="*NonPublic,Static*")

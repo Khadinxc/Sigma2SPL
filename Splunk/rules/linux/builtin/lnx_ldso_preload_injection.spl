@@ -1,12 +1,13 @@
-# Title: Code Injection by ld.so Preload
-# Author: Christian Burkard (Nextron Systems)
-# Date: 2021-05-05
-# Level: high
-# Description: Detects the ld.so preload persistence file. See `man ld.so` for more information.
-# MITRE Tactic: Persistence
-# Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.006
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_ldso_preload_injection.yml
-# False Positives:
-#   - Rare temporary workaround for library misconfiguration
-
+```
+Title: Code Injection by ld.so Preload
+Author: Christian Burkard (Nextron Systems)
+Date: 2021-05-05
+Level: high
+Description: Detects the ld.so preload persistence file. See `man ld.so` for more information.
+MITRE Tactic: Persistence
+Tags: attack.persistence, attack.privilege-escalation, attack.execution, attack.stealth, attack.t1574.006
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/builtin/lnx_ldso_preload_injection.yml
+ False Positives:
+   - Rare temporary workaround for library misconfiguration
+```
 "/etc/ld.so.preload"

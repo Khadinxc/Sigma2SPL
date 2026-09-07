@@ -1,12 +1,13 @@
-# Title: BPFDoor Abnormal Process ID or Lock File Accessed
-# Author: Rafal Piasecki
-# Date: 2022-08-10
-# Level: high
-# Description: detects BPFDoor .lock and .pid files access in temporary file storage facility
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.t1106, attack.t1059
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/path/lnx_auditd_bpfdoor_file_accessed.yml
-# False Positives:
-#   - Unlikely
-
+```
+Title: BPFDoor Abnormal Process ID or Lock File Accessed
+Author: Rafal Piasecki
+Date: 2022-08-10
+Level: high
+Description: detects BPFDoor .lock and .pid files access in temporary file storage facility
+MITRE Tactic: Execution
+Tags: attack.execution, attack.t1106, attack.t1059
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/auditd/path/lnx_auditd_bpfdoor_file_accessed.yml
+ False Positives:
+   - Unlikely
+```
 name IN ("/var/run/aepmonend.pid", "/var/run/auditd.lock", "/var/run/cma.lock", "/var/run/console-kit.pid", "/var/run/consolekit.pid", "/var/run/daemon.pid", "/var/run/hald-addon.pid", "/var/run/hald-smartd.pid", "/var/run/haldrund.pid", "/var/run/hp-health.pid", "/var/run/hpasmlit.lock", "/var/run/hpasmlited.pid", "/var/run/kdevrund.pid", "/var/run/lldpad.lock", "/var/run/mcelog.pid", "/var/run/system.pid", "/var/run/uvp-srv.pid", "/var/run/vmtoolagt.pid", "/var/run/xinetd.lock") type="PATH"

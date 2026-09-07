@@ -1,12 +1,13 @@
-# Title: New Network ACL Entry Added
-# Author: jamesc-grafana
-# Date: 2024-07-11
-# Level: low
-# Description: Detects that network ACL entries have been added to a route table which could indicate that new attack vectors have been opened up in the AWS account.
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1686.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_new_acl_entries.yml
-# False Positives:
-#   - Legitimate use of ACLs to enable customer and staff access from the public internet into a public VPC
-
+```
+Title: New Network ACL Entry Added
+Author: jamesc-grafana
+Date: 2024-07-11
+Level: low
+Description: Detects that network ACL entries have been added to a route table which could indicate that new attack vectors have been opened up in the AWS account.
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1686.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_new_acl_entries.yml
+ False Positives:
+   - Legitimate use of ACLs to enable customer and staff access from the public internet into a public VPC
+```
 eventName="CreateNetworkAclEntry" eventSource="ec2.amazonaws.com"

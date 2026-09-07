@@ -1,10 +1,11 @@
-# Title: Arbitrary File Download Via IMEWDBLD.EXE
-# Author: Swachchhanda Shrawan Poudel
-# Date: 2023-11-09
-# Level: high
-# Description: Detects usage of "IMEWDBLD.exe" to download arbitrary files
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.stealth, attack.t1218
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imewbdld_download.yml
-
+```
+Title: Arbitrary File Download Via IMEWDBLD.EXE
+Author: Swachchhanda Shrawan Poudel
+Date: 2023-11-09
+Level: high
+Description: Detects usage of "IMEWDBLD.exe" to download arbitrary files
+MITRE Tactic: Execution
+Tags: attack.execution, attack.stealth, attack.t1218
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_imewbdld_download.yml
+```
 CommandLine IN ("*http://*", "*https://*") Image="*\\IMEWDBLD.exe" OR OriginalFileName="imewdbld.exe"

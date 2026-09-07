@@ -1,13 +1,14 @@
-# Title: AWS Bedrock Guardrail Updated
-# Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
-# Date: 2026-07-10
-# Level: medium
-# Description: Detects updates to an Amazon Bedrock guardrail, which may indicate attempts to weaken
-# model safety controls and allow unsafe or unauthorized model responses.
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_bedrock_guardrail_updated.yml
-# False Positives:
-#   - Legitimate guardrail updates by authorized identities.
-
+```
+Title: AWS Bedrock Guardrail Updated
+Author: Marco Pedrinazzi (@pedrinazziM) (InTheCyber)
+Date: 2026-07-10
+Level: medium
+Description: Detects updates to an Amazon Bedrock guardrail, which may indicate attempts to weaken
+ model safety controls and allow unsafe or unauthorized model responses.
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_bedrock_guardrail_updated.yml
+ False Positives:
+   - Legitimate guardrail updates by authorized identities.
+```
 eventName="UpdateGuardrail" eventSource="bedrock.amazonaws.com"

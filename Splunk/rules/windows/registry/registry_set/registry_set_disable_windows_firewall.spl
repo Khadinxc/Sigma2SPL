@@ -1,10 +1,11 @@
-# Title: Disable Windows Firewall by Registry
-# Author: frack113
-# Date: 2022-08-19
-# Level: medium
-# Description: Detect set EnableFirewall to 0 to disable the Windows firewall
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1686.003
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml
-
+```
+Title: Disable Windows Firewall by Registry
+Author: frack113
+Date: 2022-08-19
+Level: medium
+Description: Detect set EnableFirewall to 0 to disable the Windows firewall
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1686.003
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml
+```
 Details="DWORD (0x00000000)" TargetObject IN ("*\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\StandardProfile\\EnableFirewall", "*\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\EnableFirewall")

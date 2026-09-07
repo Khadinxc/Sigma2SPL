@@ -1,12 +1,13 @@
-# Title: Windows Defender Exclusions Added
-# Author: Christian Burkard (Nextron Systems)
-# Date: 2021-07-06
-# Level: medium
-# Description: Detects the Setting of Windows Defender Exclusions
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_config_change_exclusion_added.yml
-# False Positives:
-#   - Administrator actions
-
+```
+Title: Windows Defender Exclusions Added
+Author: Christian Burkard (Nextron Systems)
+Date: 2021-07-06
+Level: medium
+Description: Detects the Setting of Windows Defender Exclusions
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_config_change_exclusion_added.yml
+ False Positives:
+   - Administrator actions
+```
 EventID=5007 NewValue="*\\Microsoft\\Windows Defender\\Exclusions*"

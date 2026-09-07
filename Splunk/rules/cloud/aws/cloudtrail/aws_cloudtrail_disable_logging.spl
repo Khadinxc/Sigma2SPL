@@ -1,12 +1,13 @@
-# Title: AWS CloudTrail Important Change
-# Author: vitaliy0x1
-# Date: 2020-01-21
-# Level: medium
-# Description: Detects disabling, deleting and updating of a Trail
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685.002
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_disable_logging.yml
-# False Positives:
-#   - Valid change in a Trail
-
+```
+Title: AWS CloudTrail Important Change
+Author: vitaliy0x1
+Date: 2020-01-21
+Level: medium
+Description: Detects disabling, deleting and updating of a Trail
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685.002
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_disable_logging.yml
+ False Positives:
+   - Valid change in a Trail
+```
 eventName IN ("StopLogging", "UpdateTrail", "DeleteTrail") eventSource="cloudtrail.amazonaws.com"

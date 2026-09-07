@@ -1,12 +1,13 @@
-# Title: Code Execution via Pcwutl.dll
-# Author: Julia Fomina, oscd.community
-# Date: 2020-10-05
-# Level: medium
-# Description: Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library.
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1218.011
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwutl.yml
-# False Positives:
-#   - Use of Program Compatibility Troubleshooter Helper
-
+```
+Title: Code Execution via Pcwutl.dll
+Author: Julia Fomina, oscd.community
+Date: 2020-10-05
+Level: medium
+Description: Detects launch of executable by calling the LaunchApplication function from pcwutl.dll library.
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1218.011
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_lolbin_pcwutl.yml
+ False Positives:
+   - Use of Program Compatibility Troubleshooter Helper
+```
 CommandLine="*pcwutl*" CommandLine="*LaunchApplication*" Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE"

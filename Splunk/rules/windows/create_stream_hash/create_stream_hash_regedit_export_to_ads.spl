@@ -1,10 +1,11 @@
-# Title: Exports Registry Key To an Alternate Data Stream
-# Author: Oddvar Moe, Sander Wiebing, oscd.community
-# Date: 2020-10-07
-# Level: high
-# Description: Exports the target Registry key and hides it in the specified alternate data stream.
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1564.004
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_stream_hash/create_stream_hash_regedit_export_to_ads.yml
-
+```
+Title: Exports Registry Key To an Alternate Data Stream
+Author: Oddvar Moe, Sander Wiebing, oscd.community
+Date: 2020-10-07
+Level: high
+Description: Exports the target Registry key and hides it in the specified alternate data stream.
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1564.004
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/create_stream_hash/create_stream_hash_regedit_export_to_ads.yml
+```
 Image="*\\regedit.exe"
