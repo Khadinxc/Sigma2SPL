@@ -1,12 +1,13 @@
-# Title: Execution Of Non-Existing File
-# Author: Max Altgelt (Nextron Systems)
-# Date: 2021-12-09
-# Level: high
-# Description: Detects process creation events where the Image field lacks an absolute path,
-# which occurs when the backing file no longer exists on disk at the time of
-# logging - commonly caused by Process Ghosting or other unorthodox process creation techniques.
-# MITRE Tactic: Privilege Escalation
-# Tags: attack.stealth, attack.privilege-escalation, attack.t1055
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml
-
+```
+Title: Execution Of Non-Existing File
+Author: Max Altgelt (Nextron Systems)
+Date: 2021-12-09
+Level: high
+Description: Detects process creation events where the Image field lacks an absolute path,
+ which occurs when the backing file no longer exists on disk at the time of
+ logging - commonly caused by Process Ghosting or other unorthodox process creation techniques.
+MITRE Tactic: Privilege Escalation
+Tags: attack.stealth, attack.privilege-escalation, attack.t1055
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml
+```
 NOT Image="*\\*" NOT (Image IN ("MemCompression", "Registry", "System", "vmmem", "vmmemWSL") OR CommandLine IN ("MemCompression", "Registry", "vmmem", "vmmemWSL") OR Image IN ("-", "") OR NOT Image=*)

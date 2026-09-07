@@ -1,10 +1,11 @@
-# Title: Okta Application Sign-On Policy Modified or Deleted
-# Author: Austin Songer @austinsonger
-# Date: 2021-09-12
-# Level: medium
-# Description: Detects when an application Sign-on Policy is modified or deleted.
-# MITRE Tactic: Impact
-# Tags: attack.impact
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_application_sign_on_policy_modified_or_deleted.yml
-
+```
+Title: Okta Application Sign-On Policy Modified or Deleted
+Author: Austin Songer @austinsonger
+Date: 2021-09-12
+Level: medium
+Description: Detects when an application Sign-on Policy is modified or deleted.
+MITRE Tactic: Impact
+Tags: attack.impact
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_application_sign_on_policy_modified_or_deleted.yml
+```
 eventType IN ("application.policy.sign_on.update", "application.policy.sign_on.rule.delete")

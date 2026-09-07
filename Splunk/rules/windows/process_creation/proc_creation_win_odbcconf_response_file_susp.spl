@@ -1,12 +1,13 @@
-# Title: Suspicious Response File Execution Via Odbcconf.EXE
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2023-05-22
-# Level: high
-# Description: Detects execution of "odbcconf" with the "-f" flag in order to load a response file with a non-".rsp" extension.
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1218.008
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file_susp.yml
-# False Positives:
-#   - Unlikely
-
+```
+Title: Suspicious Response File Execution Via Odbcconf.EXE
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2023-05-22
+Level: high
+Description: Detects execution of "odbcconf" with the "-f" flag in order to load a response file with a non-".rsp" extension.
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1218.008
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_odbcconf_response_file_susp.yml
+ False Positives:
+   - Unlikely
+```
 CommandLine="* -f *" OR CommandLine="* /f *" OR CommandLine="* –f *" OR CommandLine="* —f *" OR CommandLine="* ―f *" Image="*\\odbcconf.exe" OR OriginalFileName="odbcconf.exe" NOT (CommandLine="*.rsp*" OR (CommandLine="*.exe /E /F \"C:\\WINDOWS\\system32\\odbcconf.tmp\"*" Image="C:\\Windows\\System32\\odbcconf.exe" ParentImage="C:\\Windows\\System32\\runonce.exe"))

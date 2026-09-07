@@ -1,10 +1,11 @@
-# Title: Okta API Token Revoked
-# Author: Austin Songer @austinsonger
-# Date: 2021-09-12
-# Level: medium
-# Description: Detects when a API Token is revoked.
-# MITRE Tactic: Impact
-# Tags: attack.impact
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_api_token_revoked.yml
-
+```
+Title: Okta API Token Revoked
+Author: Austin Songer @austinsonger
+Date: 2021-09-12
+Level: medium
+Description: Detects when a API Token is revoked.
+MITRE Tactic: Impact
+Tags: attack.impact
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_api_token_revoked.yml
+```
 eventType="system.api_token.revoke"

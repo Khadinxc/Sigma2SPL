@@ -1,10 +1,11 @@
-# Title: Azure Unusual Authentication Interruption
-# Author: Austin Songer @austinsonger
-# Date: 2021-11-26
-# Level: medium
-# Description: Detects when there is a interruption in the authentication process.
-# MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.stealth, attack.t1078
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_unusual_authentication_interruption.yml
-
+```
+Title: Azure Unusual Authentication Interruption
+Author: Austin Songer @austinsonger
+Date: 2021-11-26
+Level: medium
+Description: Detects when there is a interruption in the authentication process.
+MITRE Tactic: Privilege Escalation
+Tags: attack.privilege-escalation, attack.persistence, attack.initial-access, attack.stealth, attack.t1078
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin_logs/azure_unusual_authentication_interruption.yml
+```
 (ResultDescription="Device authentication is required" ResultType=50097) OR (ResultDescription="DeviceAuthenticationFailed" ResultType=50155) OR (ResultDescription="ExternalSecurityChallenge - External security challenge was not satisfied" ResultType=50158)

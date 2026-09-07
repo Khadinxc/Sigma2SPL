@@ -1,12 +1,13 @@
-# Title: Diskshadow Child Process Spawned
-# Author: Harjot Singh @cyb3rjy0t
-# Date: 2023-09-15
-# Level: medium
-# Description: Detects any child process spawning from "Diskshadow.exe". This could be due to executing Diskshadow in interpreter mode or script mode and using the "exec" flag to launch other applications.
-# MITRE Tactic: Execution
-# Tags: attack.stealth, attack.t1218, attack.execution, detection.threat-hunting
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_diskshadow_child_process.yml
-# False Positives:
-#   - Likely from legitimate usage of Diskshadow in Interpreter mode.
-
+```
+Title: Diskshadow Child Process Spawned
+Author: Harjot Singh @cyb3rjy0t
+Date: 2023-09-15
+Level: medium
+Description: Detects any child process spawning from "Diskshadow.exe". This could be due to executing Diskshadow in interpreter mode or script mode and using the "exec" flag to launch other applications.
+MITRE Tactic: Execution
+Tags: attack.stealth, attack.t1218, attack.execution, detection.threat-hunting
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_diskshadow_child_process.yml
+ False Positives:
+   - Likely from legitimate usage of Diskshadow in Interpreter mode.
+```
 ParentImage="*\\diskshadow.exe" NOT Image="*:\\Windows\\System32\\WerFault.exe"

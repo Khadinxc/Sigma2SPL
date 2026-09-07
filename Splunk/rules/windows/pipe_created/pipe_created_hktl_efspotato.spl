@@ -1,12 +1,13 @@
-# Title: HackTool - EfsPotato Named Pipe Creation
-# Author: Florian Roth (Nextron Systems)
-# Date: 2021-08-23
-# Level: high
-# Description: Detects the pattern of a pipe name as used by the hack tool EfsPotato
-# MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.stealth, attack.t1055
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_efspotato.yml
-# False Positives:
-#   - \pipe\LOCAL\Monitorian
-
+```
+Title: HackTool - EfsPotato Named Pipe Creation
+Author: Florian Roth (Nextron Systems)
+Date: 2021-08-23
+Level: high
+Description: Detects the pattern of a pipe name as used by the hack tool EfsPotato
+MITRE Tactic: Privilege Escalation
+Tags: attack.privilege-escalation, attack.stealth, attack.t1055
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_efspotato.yml
+ False Positives:
+   - \pipe\LOCAL\Monitorian
+```
 PipeName IN ("*\\pipe\\*", "*\\pipe\\srvsvc*") NOT (PipeName IN ("*\\CtxShare*", "\\pipe\\*"))

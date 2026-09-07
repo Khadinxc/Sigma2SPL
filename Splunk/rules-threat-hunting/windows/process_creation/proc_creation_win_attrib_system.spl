@@ -1,10 +1,11 @@
-# Title: Set Files as System Files Using Attrib.EXE
-# Author: frack113
-# Date: 2022-02-04
-# Level: low
-# Description: Detects the execution of "attrib" with the "+s" flag to mark files as system files
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1564.001, detection.threat-hunting
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_attrib_system.yml
-
+```
+Title: Set Files as System Files Using Attrib.EXE
+Author: frack113
+Date: 2022-02-04
+Level: low
+Description: Detects the execution of "attrib" with the "+s" flag to mark files as system files
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1564.001, detection.threat-hunting
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_attrib_system.yml
+```
 CommandLine="* +s *" Image="*\\attrib.exe" OR OriginalFileName="ATTRIB.EXE"

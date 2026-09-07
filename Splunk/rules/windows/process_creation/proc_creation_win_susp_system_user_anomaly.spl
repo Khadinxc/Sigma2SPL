@@ -1,16 +1,17 @@
-# Title: Suspicious SYSTEM User Process Creation
-# Author: Florian Roth (Nextron Systems), David ANDRE (additional keywords)
-# Date: 2021-12-20
-# Level: high
-# Description: Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter)
-# MITRE Tactic: Credential Access
-# Tags: attack.credential-access, attack.privilege-escalation, attack.stealth, attack.t1134, attack.t1003, attack.t1027
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml
-# False Positives:
-#   - Administrative activity
-#   - Scripts and administrative tools used in the monitored environment
-#   - Monitoring activity
-
+```
+Title: Suspicious SYSTEM User Process Creation
+Author: Florian Roth (Nextron Systems), David ANDRE (additional keywords)
+Date: 2021-12-20
+Level: high
+Description: Detects a suspicious process creation as SYSTEM user (suspicious program or command line parameter)
+MITRE Tactic: Credential Access
+Tags: attack.credential-access, attack.privilege-escalation, attack.stealth, attack.t1134, attack.t1003, attack.t1027
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml
+ False Positives:
+   - Administrative activity
+   - Scripts and administrative tools used in the monitored environment
+   - Monitoring activity
+```
 
 | rex field=CommandLine "(?<CommandLineMatch>net\\s+user\\s+)"
 | eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")

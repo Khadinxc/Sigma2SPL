@@ -1,10 +1,11 @@
-# Title: Verclsid.exe Runs COM Object
-# Author: Victor Sergeev, oscd.community
-# Date: 2020-10-09
-# Level: medium
-# Description: Detects when verclsid.exe is used to run COM object via GUID
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1218
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_verclsid_runs_com.yml
-
+```
+Title: Verclsid.exe Runs COM Object
+Author: Victor Sergeev, oscd.community
+Date: 2020-10-09
+Level: medium
+Description: Detects when verclsid.exe is used to run COM object via GUID
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1218
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_verclsid_runs_com.yml
+```
 CommandLine="*/S*" CommandLine="*/C*" Image="*\\verclsid.exe" OR OriginalFileName="verclsid.exe" NOT (CommandLine="*verclsid.exe\" /S /C {*" CommandLine="*} /I {*" ParentImage="*C:\\Windows\\System32\\RuntimeBroker.exe")

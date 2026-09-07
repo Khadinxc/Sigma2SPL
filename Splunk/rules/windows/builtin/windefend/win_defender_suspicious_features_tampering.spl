@@ -1,12 +1,13 @@
-# Title: Windows Defender Configuration Changes
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-12-06
-# Level: high
-# Description: Detects suspicious changes to the Windows Defender configuration
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1685
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_suspicious_features_tampering.yml
-# False Positives:
-#   - Administrator activity (must be investigated)
-
+```
+Title: Windows Defender Configuration Changes
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2022-12-06
+Level: high
+Description: Detects suspicious changes to the Windows Defender configuration
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/windefend/win_defender_suspicious_features_tampering.yml
+ False Positives:
+   - Administrator activity (must be investigated)
+```
 EventID=5007 NewValue IN ("*\\Windows Defender\\DisableAntiSpyware *", "*\\Windows Defender\\Scan\\DisableRemovableDriveScanning *", "*\\Windows Defender\\Scan\\DisableScanningMappedNetworkDrivesForFullScan *", "*\\Windows Defender\\SpyNet\\DisableBlockAtFirstSeen *", "*\\Real-Time Protection\\SpyNetReporting *")

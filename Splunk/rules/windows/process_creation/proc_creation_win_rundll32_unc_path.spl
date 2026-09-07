@@ -1,13 +1,14 @@
-# Title: Rundll32 UNC Path Execution
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-08-10
-# Level: high
-# Description: Detects rundll32 execution where the DLL is located on a remote location (share).
-# Threat actors can abuse the rundll32.exe binary to execute remote DLLs from a UNC pathh.
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.lateral-movement, attack.stealth, attack.t1021.002, attack.t1218.011
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml
-# False Positives:
-#   - Unlikely
-
+```
+Title: Rundll32 UNC Path Execution
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2022-08-10
+Level: high
+Description: Detects rundll32 execution where the DLL is located on a remote location (share).
+ Threat actors can abuse the rundll32.exe binary to execute remote DLLs from a UNC pathh.
+MITRE Tactic: Execution
+Tags: attack.execution, attack.lateral-movement, attack.stealth, attack.t1021.002, attack.t1218.011
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml
+ False Positives:
+   - Unlikely
+```
 CommandLine IN ("* \\\\*", "* '\\\\*", "* \"\\\\*") Image="*\\rundll32.exe" OR OriginalFileName="RUNDLL32.EXE" OR CommandLine="*rundll32*" NOT CommandLine="*\\\\.\\pipe*"

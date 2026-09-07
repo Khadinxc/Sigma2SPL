@@ -1,12 +1,13 @@
-# Title: CobaltStrike Named Pipe Pattern Regex
-# Author: Florian Roth (Nextron Systems)
-# Date: 2021-07-30
-# Level: critical
-# Description: Detects the creation of a named pipe matching a pattern used by CobaltStrike Malleable C2 profiles
-# MITRE Tactic: Privilege Escalation
-# Tags: attack.privilege-escalation, attack.stealth, attack.t1055
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_cobaltstrike_re.yml
-
+```
+Title: CobaltStrike Named Pipe Pattern Regex
+Author: Florian Roth (Nextron Systems)
+Date: 2021-07-30
+Level: critical
+Description: Detects the creation of a named pipe matching a pattern used by CobaltStrike Malleable C2 profiles
+MITRE Tactic: Privilege Escalation
+Tags: attack.privilege-escalation, attack.stealth, attack.t1055
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/pipe_created/pipe_created_hktl_cobaltstrike_re.yml
+```
 
 | rex field=PipeName "(?<PipeNameMatch>\\\\mojo\\.5688\\.8052\\.(?:183894939787088877|35780273329370473)[0-9a-f]{2})"
 | eval PipeNameCondition=if(isnotnull(PipeNameMatch), "true", "false")

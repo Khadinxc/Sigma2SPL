@@ -1,12 +1,13 @@
-# Title: Suspicious File Download From IP Via Wget.EXE - Paths
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2024-02-23
-# Level: high
-# Description: Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe
-# MITRE Tactic: Execution
-# Tags: attack.execution
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_locations.yml
-
+```
+Title: Suspicious File Download From IP Via Wget.EXE - Paths
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2024-02-23
+Level: high
+Description: Detects potentially suspicious file downloads directly from IP addresses and stored in suspicious locations using Wget.exe
+MITRE Tactic: Execution
+Tags: attack.execution
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wget_download_susp_locations.yml
+```
 
 | rex field=CommandLine "(?<CommandLineMatch>\\s-O\\s)"
 | eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")

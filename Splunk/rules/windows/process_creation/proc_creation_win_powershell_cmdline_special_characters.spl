@@ -1,15 +1,16 @@
-# Title: Potential PowerShell Command Line Obfuscation
-# Author: Teymur Kheirkhabarov (idea), Vasiliy Burov (rule), oscd.community, Tim Shelton (fp)
-# Date: 2020-10-15
-# Level: high
-# Description: Detects the PowerShell command lines with special characters
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.stealth, attack.t1027, attack.t1059.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml
-# False Positives:
-#   - Amazon SSM Document Worker
-#   - Windows Defender ATP
-
+```
+Title: Potential PowerShell Command Line Obfuscation
+Author: Teymur Kheirkhabarov (idea), Vasiliy Burov (rule), oscd.community, Tim Shelton (fp)
+Date: 2020-10-15
+Level: high
+Description: Detects the PowerShell command lines with special characters
+MITRE Tactic: Execution
+Tags: attack.execution, attack.stealth, attack.t1027, attack.t1059.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml
+ False Positives:
+   - Amazon SSM Document Worker
+   - Windows Defender ATP
+```
 
 | rex field=CommandLine "(?<CommandLineMatch>\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+)"
 | eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")

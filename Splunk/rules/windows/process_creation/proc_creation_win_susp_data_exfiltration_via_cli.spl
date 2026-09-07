@@ -1,14 +1,15 @@
-# Title: Potential Data Exfiltration Activity Via CommandLine Tools
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-08-02
-# Level: high
-# Description: Detects the use of various CLI utilities exfiltrating data via web requests
-# MITRE Tactic: Execution
-# Tags: attack.execution, attack.t1059.001
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml
-# False Positives:
-#   - Unlikely
-
+```
+Title: Potential Data Exfiltration Activity Via CommandLine Tools
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2022-08-02
+Level: high
+Description: Detects the use of various CLI utilities exfiltrating data via web requests
+MITRE Tactic: Execution
+Tags: attack.execution, attack.t1059.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml
+ False Positives:
+   - Unlikely
+```
 
 | rex field=CommandLine "(?<CommandLineMatch>net\\s+view)"
 | eval CommandLineCondition=if(isnotnull(CommandLineMatch), "true", "false")

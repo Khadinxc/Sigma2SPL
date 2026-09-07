@@ -1,14 +1,15 @@
-# Title: Wmiexec Default Output File
-# Author: Nasreddine Bencherchali (Nextron Systems)
-# Date: 2022-06-02
-# Level: critical
-# Description: Detects the creation of the default output filename used by the wmiexec tool
-# MITRE Tactic: Lateral Movement
-# Tags: attack.lateral-movement, attack.execution, attack.t1047
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiexec_default_filename.yml
-# False Positives:
-#   - Unlikely
-
+```
+Title: Wmiexec Default Output File
+Author: Nasreddine Bencherchali (Nextron Systems)
+Date: 2022-06-02
+Level: critical
+Description: Detects the creation of the default output filename used by the wmiexec tool
+MITRE Tactic: Lateral Movement
+Tags: attack.lateral-movement, attack.execution, attack.t1047
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_event/file_event_win_wmiexec_default_filename.yml
+ False Positives:
+   - Unlikely
+```
 
 | rex field=TargetFilename "(?<TargetFilenameMatch>\\\\Windows\\\\__1\\d{9}\\.\\d{1,7}$)"
 | eval TargetFilenameCondition=if(isnotnull(TargetFilenameMatch), "true", "false")

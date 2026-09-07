@@ -1,12 +1,13 @@
-# Title: Firewall Disabled via Netsh.EXE
-# Author: Fatih Sirin
-# Date: 2019-11-01
-# Level: medium
-# Description: Detects netsh commands that turns off the Windows firewall
-# MITRE Tactic: Uncategorized
-# Tags: attack.defense-impairment, attack.t1686.003, attack.s0108
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_disable.yml
-# False Positives:
-#   - Legitimate administration activity
-
+```
+Title: Firewall Disabled via Netsh.EXE
+Author: Fatih Sirin
+Date: 2019-11-01
+Level: medium
+Description: Detects netsh commands that turns off the Windows firewall
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1686.003, attack.s0108
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_netsh_fw_disable.yml
+ False Positives:
+   - Legitimate administration activity
+```
 Image="*\\netsh.exe" OR OriginalFileName="netsh.exe" (CommandLine="*firewall*" CommandLine="*set*" CommandLine="*opmode*" CommandLine="*disable*") OR (CommandLine="*advfirewall*" CommandLine="*set*" CommandLine="*state*" CommandLine="*off*")

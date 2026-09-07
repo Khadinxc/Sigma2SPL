@@ -1,12 +1,13 @@
-# Title: Touch Suspicious Service File
-# Author: Joseliyo Sanchez, @Joseliyo_Jstnk
-# Date: 2023-01-11
-# Level: medium
-# Description: Detects usage of the "touch" process in service file.
-# MITRE Tactic: Uncategorized
-# Tags: attack.stealth, attack.t1070.006
-# Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml
-# False Positives:
-#   - Admin changing date of files.
-
+```
+Title: Touch Suspicious Service File
+Author: Joseliyo Sanchez, @Joseliyo_Jstnk
+Date: 2023-01-11
+Level: medium
+Description: Detects usage of the "touch" process in service file.
+MITRE Tactic: Uncategorized
+Tags: attack.stealth, attack.t1070.006
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_touch_susp.yml
+ False Positives:
+   - Admin changing date of files.
+```
 CommandLine="* -t *" CommandLine="*.service" Image="*/touch"
