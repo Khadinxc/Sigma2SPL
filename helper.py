@@ -166,23 +166,24 @@ for rule_folder in RULE_FOLDERS:
 
             with open(output_file, 'w', encoding='utf-8') as spl_file:
                 # Write metadata as comments
-                spl_file.write(f'# Title: {sigma_rule.title}\n')
-                spl_file.write(f'# Author: {yaml_contents.get("author", "")}\n')
-                spl_file.write(f'# Date: {yaml_contents.get("date", "")}\n')
-                spl_file.write(f'# Level: {yaml_contents.get("level", "")}\n')
+                spl_file.write('```\n')
+                spl_file.write(f'Title: {sigma_rule.title}\n')
+                spl_file.write(f'Author: {yaml_contents.get("author", "")}\n')
+                spl_file.write(f'Date: {yaml_contents.get("date", "")}\n')
+                spl_file.write(f'Level: {yaml_contents.get("level", "")}\n')
 
                 # Handle multi-line descriptions
                 description = yaml_contents.get("description", "")
                 if description:
                     desc_lines = description.split('\n')
-                    spl_file.write(f'# Description: {desc_lines[0]}\n')
+                    spl_file.write(f'Description: {desc_lines[0]}\n')
                     for line in desc_lines[1:]:
                         if line.strip():
                             spl_file.write(f'# {line}\n')
 
-                spl_file.write(f'# MITRE Tactic: {TACTIC_FOLDER}\n')
-                spl_file.write(f'# Tags: {", ".join(tags) if tags else ""}\n')
-                spl_file.write(f'# Reference: {github_reference}\n')
+                spl_file.write(f'MITRE Tactic: {TACTIC_FOLDER}\n')
+                spl_file.write(f'Tags: {", ".join(tags) if tags else ""}\n')
+                spl_file.write(f'Reference: {github_reference}\n')
 
                 false_positives = yaml_contents.get("falsepositives", [])
                 if false_positives:
@@ -193,7 +194,7 @@ for rule_folder in RULE_FOLDERS:
                         for fp_str in valid_fps:
                             spl_file.write(f'#   - {fp_str}\n')
 
-                spl_file.write('\n')
+                spl_file.write('```\n')
                 # Write the actual Splunk query
                 spl_file.write(splunk_query)
 
