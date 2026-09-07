@@ -179,7 +179,7 @@ for rule_folder in RULE_FOLDERS:
                     spl_file.write(f'Description: {desc_lines[0]}\n')
                     for line in desc_lines[1:]:
                         if line.strip():
-                            spl_file.write(f'# {line}\n')
+                            spl_file.write(f' {line}\n')
 
                 spl_file.write(f'MITRE Tactic: {TACTIC_FOLDER}\n')
                 spl_file.write(f'Tags: {", ".join(tags) if tags else ""}\n')
@@ -190,9 +190,9 @@ for rule_folder in RULE_FOLDERS:
                     valid_fps = [str(fp).strip() for fp in false_positives 
                                 if fp and str(fp).strip() and str(fp).strip().lower() != 'unknown']
                     if valid_fps:
-                        spl_file.write('# False Positives:\n')
+                        spl_file.write(' False Positives:\n')
                         for fp_str in valid_fps:
-                            spl_file.write(f'#   - {fp_str}\n')
+                            spl_file.write(f'   - {fp_str}\n')
 
                 spl_file.write('```\n')
                 # Write the actual Splunk query
