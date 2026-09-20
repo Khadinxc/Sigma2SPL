@@ -8,4 +8,4 @@ MITRE Tactic: Privilege Escalation
 Tags: attack.privilege-escalation, attack.execution, attack.t1059, detection.threat-hunting
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-threat-hunting/windows/process_creation/proc_creation_win_susp_elevated_system_shell.yml
 ```
-Image IN ("*\\powershell.exe", "*\\powershell_ise.exe", "*\\pwsh.exe", "*\\cmd.exe") OR OriginalFileName IN ("PowerShell.EXE", "powershell_ise.EXE", "pwsh.dll", "Cmd.Exe") LogonId="0x3e7" User IN ("*AUTHORI*", "*AUTORI*")
+Image IN ("*\\powershell.exe", "*\\powershell_ise.exe", "*\\pwsh.exe", "*\\cmd.exe") OR OriginalFileName IN ("PowerShell.EXE", "powershell_ise.EXE", "pwsh.dll", "Cmd.Exe") LogonId="0x3e7" User IN ("*AUTHORI*", "*AUTORI*") NOT ((ParentCommandLine="C:\\Windows\\system32\\cmd.exe /d /c C:\\Windows\\system32\\silcollector.cmd configure" ParentImage="*\\cmd.exe") OR ParentImage="*\\svchost.exe")
