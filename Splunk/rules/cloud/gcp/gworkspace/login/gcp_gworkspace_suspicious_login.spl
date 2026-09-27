@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/gcp/gworkspa
  False Positives:
    - Legitimate logins
 ```
-protoPayload.Servicename="login.googleapis.com" protoPayload.metadata.event.eventName IN ("suspicious_login_less_secure_app", "suspicious_login", "suspicious_programmatic_login")
+protoPayload.metadata.event.eventName IN ("suspicious_login_less_secure_app", "suspicious_login", "suspicious_programmatic_login") protoPayload.serviceName="login.googleapis.com"

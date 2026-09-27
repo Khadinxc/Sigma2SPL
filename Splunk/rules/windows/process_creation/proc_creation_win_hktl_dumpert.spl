@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_cr
  False Positives:
    - Very unlikely
 ```
-Hashes="*MD5=09D278F9DE118EF09163C6140255C690*" OR CommandLine="*Dumpert.dll*"
+Hashes="*IMPHASH=09D278F9DE118EF09163C6140255C690*" OR CommandLine IN ("*Dumpert.dll*", "*Dumpert.exe*")
