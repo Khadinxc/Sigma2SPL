@@ -1,7 +1,7 @@
 ```
 Title: Credential Dumping Attempt Via WerFault
 Author: Florian Roth (Nextron Systems)
-Date: 2012-06-27
+Date: 2022-06-27
 Level: high
 Description: Detects process LSASS memory dump using Mimikatz, NanoDump, Invoke-Mimikatz, Procdump or Taskmgr based on the CallTrace pointing to ntdll.dll, dbghelp.dll or dbgcore.dll for win10, server2016 and up.
 MITRE Tactic: Credential Access
