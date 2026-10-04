@@ -12,4 +12,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/audit_
  False Positives:
    - If this was approved by System Administrator.
 ```
-Category="Administrative" OperationName="Assigns the caller to user access admin"
+ActivityDisplayName="User has elevated their access to User Access Administrator for their Azure Resources" Category="AzureRBACRoleManagementElevateAccess"

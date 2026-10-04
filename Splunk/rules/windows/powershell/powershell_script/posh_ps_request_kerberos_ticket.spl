@@ -4,9 +4,13 @@ Author: frack113
 Date: 2021-12-28
 Level: high
 Description: Detects PowerShell scripts that utilize native PowerShell Identity modules to request Kerberos tickets.
- This behavior is typically seen during a Kerberos or silver ticket attack. A successful execution will output the SPNs for the endpoint in question.
+ This behavior is typically seen during a Kerberoasting or silver ticket attack. A TGS request is issued by
+ the KerberosRequestorSecurityToken constructor, resulting tickets are cached in LSA and become
+ extractable by other tools later on.
 MITRE Tactic: Credential Access
 Tags: attack.credential-access, attack.t1558.003
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_request_kerberos_ticket.yml
+ False Positives:
+   - Legitimate Kerberos authentication development and troubleshooting scripts
 ```
-ScriptBlockText="*System.IdentityModel.Tokens.KerberosRequestorSecurityToken*" ScriptBlockText="*.GetRequest()*"
+ScriptBlockText="*System.IdentityModel.Tokens.KerberosRequestorSecurityToken*"

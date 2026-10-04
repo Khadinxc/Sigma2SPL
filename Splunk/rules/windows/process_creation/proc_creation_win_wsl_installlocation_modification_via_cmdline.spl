@@ -1,0 +1,15 @@
+```
+Title: Suspicious WSL InstallLocation Registry Key Modification Via CommandLine
+Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+Date: 2026-05-05
+Level: high
+Description: Detects the use of reg.exe or PowerShell to modify the WSL InstallLocation registry key via command-line arguments.
+ Legitimate modifications to this key are performed exclusively by the Windows Installer (msiexec.exe) during WSL package installation or update.
+ Manual use of reg.exe or PowerShell to set this value strongly indicates an attempt to redirect WSL execution to a malicious binary.
+MITRE Tactic: Persistence
+Tags: attack.stealth, attack.defense-impairment, attack.persistence, attack.t1112, attack.t1218
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wsl_installlocation_modification_via_cmdline.yml
+ False Positives:
+   - Unlikely
+```
+CommandLine IN ("* add *", "*New-ItemProperty*", "*Set-ItemProperty*", "*sp *") CommandLine IN ("*\\Lxss\\MSI*", "*/Lxss/MSI*") CommandLine="*InstallLocation*" Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\reg.exe") OR OriginalFileName IN ("powershell.exe", "pwsh.dll", "reg.exe")
