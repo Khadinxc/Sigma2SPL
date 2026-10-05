@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/
  False Positives:
    - Rare programs that use Bitsadmin and update from regional TLDs e.g. .uk or .ca
 ```
-"c-useragent"="Microsoft BITS/*" NOT ("cs-host" IN ("*.com", "*.net", "*.org", "*.scdn.co", "*.sfx.ms"))
+"c-useragent"="Microsoft BITS/*" NOT ("cs-host" IN ("*.com", "*.microsoft", "*.net", "*.org", "*.scdn.co", "*.sfx.ms"))
