@@ -10,4 +10,7 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_
  False Positives:
    - Unlikely
 ```
-TargetFilename IN ("*.rar.exe", "*.zip.exe") OR (TargetFilename IN ("*.doc.*", "*.docx.*", "*.gif.*", "*.jpeg.*", "*.jpg.*", "*.mp3.*", "*.mp4.*", "*.pdf.*", "*.png.*", "*.ppt.*", "*.pptx.*", "*.rtf.*", "*.svg.*", "*.txt.*", "*.xls.*", "*.xlsx.*") TargetFilename IN ("*.exe", "*.iso", "*.rar", "*.svg", "*.zip")) NOT TargetFilename="/usr/share/icons/*"
+
+| rex field=TargetFilename "(?<TargetFilenameMatch>(?i)\\.(docx?|gif|jpe?g|mp3|mp4|pdf|png|pptx?|rtf|svg|txt|xlsx?)\\.(bat|exe|iso|rar|svg|vbe|vbs|zip)$)"
+| eval TargetFilenameCondition=if(isnotnull(TargetFilenameMatch), "true", "false")
+| search TargetFilename IN ("*.rar.exe", "*.zip.exe") OR TargetFilenameCondition="true" NOT (TargetFilename IN ("*.svg.svg", "*.png.svg", "*.jpg.svg", "*.jpeg.svg")) NOT TargetFilename="/usr/share/icons/*"

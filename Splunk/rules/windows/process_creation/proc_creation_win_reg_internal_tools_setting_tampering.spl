@@ -1,0 +1,13 @@
+```
+Title: Registry Tampering Of Internal Tools Settings
+Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+Date: 2026-10-18
+Level: medium
+Description: Detects registry modifications that tamper with internal Windows tools settings, commonly used by malware to disable security features or system tools
+MITRE Tactic: Persistence
+Tags: attack.persistence, attack.defense-impairment, attack.t1112
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_internal_tools_setting_tampering.yml
+ False Positives:
+   - Legitimate use of reg.exe to change system settings
+```
+CommandLine IN ("*ConsentPromptBehaviorAdmin*", "*DisableChangePassword*", "*DisableCMD*", "*DisableLockWorkstation*", "*DisableNotificationCenter*", "*DisableRegistryTools*", "*DisableTaskmgr*", "*HideSCAHealth*", "*HideSCANetwork*", "*HideSCAVolume*", "*InactivityTimeoutSecs*", "*NoClose*", "*NoControlPanel*", "*NoDesktop*", "*NoDispBackgroundPage*", "*NoDispCPL*", "*NoDrives*", "*NoFileMenu*", "*NoFind*", "*NoLogOff*", "*NoPropertiesMyDocuments*", "*NoRun*", "*NoSetTaskbar*", "*NoTrayContextMenu*", "*StartMenuLogOff*", "*shutdownwithoutlogon*") CommandLine IN ("*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer*", "*SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System*", "*SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer*", "*SOFTWARE\\Policies\\Microsoft\\Windows\\System*") CommandLine="* add *" Image="*\\reg.exe" OR OriginalFileName="reg.exe"
