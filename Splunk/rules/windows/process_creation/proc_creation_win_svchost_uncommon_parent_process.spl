@@ -8,4 +8,4 @@ MITRE Tactic: Uncategorized
 Tags: attack.stealth, attack.t1036.005
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_svchost_uncommon_parent_process.yml
 ```
-Image="*\\svchost.exe" NOT (ParentImage IN ("*\\Mrt.exe", "*\\MsMpEng.exe", "*\\ngen.exe", "*\\rpcnet.exe", "*\\services.exe", "*\\TiWorker.exe") OR ParentImage IN ("-", "") OR NOT ParentImage=*)
+Image="*\\svchost.exe" NOT (ParentImage IN ("*\\Mrt.exe", "*\\MsMpEng.exe", "*\\ngen.exe", "*\\rpcnet.exe", "*\\services.exe", "*\\TiWorker.exe") OR ParentImage IN ("-", "") OR NOT ParentImage=* OR (CommandLine IN ("*svchost.exe\"", "*svchost.exe", "*-k TSLicensing") ParentImage="*\\svchost.exe"))

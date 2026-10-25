@@ -1,0 +1,13 @@
+```
+Title: Allow Exceptions in Microsoft Defender Firewall via Registry
+Author: frack113
+Date: 2026-10-13
+Level: medium
+Description: Detects the degradation of the system firewall security by the DoNotAllowExceptions policy value being
+ set to 0 (DWORD 0x00000000), which re-enables application and port exceptions in the Microsoft
+ Defender Firewall and can restore network paths that a hardened profile would block.
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1686.003
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_allow_defender_firewall_exceptions.yml
+```
+Details="DWORD (0x00000000)" TargetObject="*\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\*" TargetObject="*\\DoNotAllowExceptions" NOT (Image IN ("C:\\Windows\\System32\\svchost.exe", "C:\\Windows\\SysWOW64\\svchost.exe"))

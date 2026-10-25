@@ -12,4 +12,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activi
  False Positives:
    - Legitimate AAD Health AD FS service instances being deleted in a tenant
 ```
-CategoryValue="Administrative" OperationNameValue="Microsoft.ADHybridHealthService/services/delete" ResourceId="*AdFederationService*" ResourceProviderValue="Microsoft.ADHybridHealthService"
+category="Administrative" operationName="MICROSOFT.ADHYBRIDHEALTHSERVICE/SERVICES/DELETE" resourceId="*AdFederationService*"

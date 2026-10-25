@@ -12,4 +12,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/signin
    - Misconfigured Systems
    - Vulnerability Scanners
 ```
-ResultType=53003 Resultdescription="Blocked by Conditional Access"
+ResultDescription="Blocked by Conditional Access" ResultType=53003

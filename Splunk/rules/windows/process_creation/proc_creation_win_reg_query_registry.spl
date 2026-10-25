@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_cr
  False Positives:
    - Discord
 ```
-CommandLine="*query*" Image="*\\reg.exe" OR OriginalFileName="reg.exe" CommandLine IN ("*currentVersion\\windows*", "*winlogon\\*", "*currentVersion\\shellServiceObjectDelayLoad*", "*currentVersion\\run*", "*currentVersion\\policies\\explorer\\run*", "*currentcontrolset\\services*")
+CommandLine="* query *" Image="*\\reg.exe" OR OriginalFileName="reg.exe" CommandLine IN ("*currentVersion\\windows*", "*winlogon\\*", "*currentVersion\\shellServiceObjectDelayLoad*", "*currentVersion\\run*", "*currentVersion\\policies\\explorer\\run*", "*currentcontrolset\\services*") NOT (CommandLine="C:\\Windows\\system32\\reg.exe QUERY HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v Yammer" ParentImage="*\\Yammer.exe")

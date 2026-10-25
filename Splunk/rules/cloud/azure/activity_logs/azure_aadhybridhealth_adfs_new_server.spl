@@ -12,4 +12,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/azure/activi
  False Positives:
    - Legitimate AD FS servers added to an AAD Health AD FS service instance
 ```
-CategoryValue="Administrative" OperationNameValue="Microsoft.ADHybridHealthService/services/servicemembers/action" ResourceId="*AdFederationService*" ResourceProviderValue="Microsoft.ADHybridHealthService"
+category="Administrative" operationName="MICROSOFT.ADHYBRIDHEALTHSERVICE/SERVICES/SERVICEMEMBERS/ACTION" resourceId="*AdFederationService*"
