@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_
  False Positives:
    - Possible FP during log rotation
 ```
-TargetFilename="*_Cmdlet_*" TargetFilename="\\Logging\\CmdletInfra\\LocalPowerShell\\Cmdlet\\*"
+TargetFilename="*\\Logging\\CmdletInfra\\LocalPowerShell\\Cmdlet\\*" TargetFilename="*_Cmdlet_*"

@@ -8,4 +8,4 @@ MITRE Tactic: Uncategorized
 Tags: attack.stealth, attack.t1218.007
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml
 ```
-CommandLine="*.dll*" CommandLine="* -z *" OR CommandLine="* /z *" OR CommandLine="* –z *" OR CommandLine="* —z *" OR CommandLine="* ―z *" Image="*\\msiexec.exe" OR OriginalFileName="\\msiexec.exe"
+CommandLine="*.dll*" CommandLine="* -z *" OR CommandLine="* /z *" OR CommandLine="* –z *" OR CommandLine="* —z *" OR CommandLine="* ―z *" Image="*\\msiexec.exe" OR OriginalFileName="\\msiexec.exe" NOT CommandLine="*\\MsiExec.exe\" /Z \"C:\\Windows\\CCM\\MsiHandler.dll\""

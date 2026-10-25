@@ -8,4 +8,5 @@ MITRE Tactic: Discovery
 Tags: attack.discovery, attack.t1083
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/powershell/powershell_script/posh_ps_sensitive_file_discovery.yml
 ```
-ScriptBlockText IN ("*ls*", "*get-childitem*", "*gci*") ScriptBlockText IN ("*.pass*", "*.kdbx*", "*.kdb*") ScriptBlockText="*-recurse*"
+ScriptBlockText IN ("*.pass*", "*.kdbx*", "*.kdb*") ScriptBlockText="*-recurse*"
+| regex ScriptBlockText="(?i)\\b(?:get-childitem|gci|ls|dir)\\b"

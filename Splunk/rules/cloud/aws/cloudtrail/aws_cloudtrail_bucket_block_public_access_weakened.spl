@@ -1,0 +1,14 @@
+```
+Title: AWS Bucket Block Public Access Weakened
+Author: Shoban Chiddarth
+Date: 2026-10-21
+Level: medium
+Description: Detects the weakening of "Block Public Access" setting of S3 buckets in CloudTrail logs.
+ Monitoring changes to Block Public Access settings is critical, as attackers may disable these safeguards before exposing a bucket through a public ACL or bucket policy.
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1686.001
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/aws/cloudtrail/aws_cloudtrail_bucket_block_public_access_weakened.yml
+ False Positives:
+   - Administrators intentionally modifying Block Public Access settings to support a legitimate application or public bucket configuration.
+```
+eventName="PutBucketPublicAccessBlock" eventSource="s3.amazonaws.com" requestParameters.PublicAccessBlockConfiguration.BlockPublicAcls="false" OR requestParameters.PublicAccessBlockConfiguration.BlockPublicPolicy="false" OR requestParameters.PublicAccessBlockConfiguration.IgnorePublicAcls="false" OR requestParameters.PublicAccessBlockConfiguration.RestrictPublicBuckets="false" NOT errorCode=* OR errorCode="Success"

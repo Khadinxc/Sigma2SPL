@@ -1,0 +1,15 @@
+```
+Title: Potential HackTool - Defendnot Security Center AV Registry Modification
+Author: Swachchhanda Shrawan Poudel (Nextron Systems)
+Date: 2026-10-18
+Level: medium
+Description: Detects modification of the Microsoft Security Center AV registry keys, particularly those related with DisplayName, ProductEXE, or ReportingExe.
+ These keys typically store information about antivirus products installed on the system, which is Windows Defender or third-party antivirus software.
+ But, if these keys holds unexpected values or are modified in a suspicious manner, it could indicate an attempt to tamper with the security settings of the system.
+MITRE Tactic: Uncategorized
+Tags: attack.defense-impairment, attack.t1685
+Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_security_center_av_registry_modification.yml
+ False Positives:
+   - Legitimate changes by antivirus software missing in the filter list
+```
+TargetObject="*\\Software\\Microsoft\\Security Center\\Provider\\Av\\*" TargetObject IN ("*\\ProductEXE", "*\\DisplayName", "*\\ReportingExe") NOT (Details IN ("*Avira*", "*Windows Defender*", "*Microsoft Defender*", "*Sophos*", "*Kaspersky*", "*ESET*", "*Bitdefender*", "*Trend Micro*", "*McAfee*", "*Symantec*", "*CrowdStrike*", "*SentinelOne*", "*Carbon Black*", "*Elastic*", "*Cortex*", "*AVG*", "*Avast*", "*Malwarebytes*") Image="C:\\Windows\\System32\\svchost.exe")

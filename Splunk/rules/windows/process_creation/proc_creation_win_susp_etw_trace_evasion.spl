@@ -3,9 +3,13 @@ Title: ETW Trace Evasion Activity
 Author: @neu5ron, Florian Roth (Nextron Systems), Jonhnathan Ribeiro, oscd.community
 Date: 2019-03-22
 Level: high
-Description: Detects command line activity that tries to clear or disable any ETW trace log which could be a sign of logging evasion.
+Description: Detects command line activity that attempts to tamper with Event Tracing for Windows (ETW) by clearing or disabling
+ trace logs or providers. Adversaries may target ETW to blind security tooling and evade detection by removing
+ visibility into process activity, network connections, and other telemetry sources.
+ Techniques include clearing logs via wevtutil, disabling trace sessions via logman, and removing or modifying
+ ETW providers using PowerShell cmdlets such as Remove-EtwTraceProvider and Set-EtwTraceProvider.
 MITRE Tactic: Uncategorized
 Tags: attack.stealth, attack.defense-impairment, attack.t1070, attack.t1685, car.2016-04-002
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_etw_trace_evasion.yml
 ```
-(CommandLine="*cl*" CommandLine="*/Trace*") OR (CommandLine="*clear-log*" CommandLine="*/Trace*") OR (CommandLine="*sl*" CommandLine="*/e:false*") OR (CommandLine="*set-log*" CommandLine="*/e:false*") OR (CommandLine="*logman*" CommandLine="*update*" CommandLine="*trace*" CommandLine="*--p*" CommandLine="*-ets*") OR CommandLine="*Remove-EtwTraceProvider*" OR (CommandLine="*Set-EtwTraceProvider*" CommandLine="*0x11*")
+(Image="*\\wevtutil.exe" OR OriginalFileName="wevtutil.exe" (CommandLine IN ("* cl *", "*clear-log*") CommandLine="*-Trace*" OR CommandLine="*/Trace*" OR CommandLine="*–Trace*" OR CommandLine="*—Trace*" OR CommandLine="*―Trace*") OR (CommandLine IN ("* sl *", "*set-log*") CommandLine="*-e:false*" OR CommandLine="*/e:false*" OR CommandLine="*–e:false*" OR CommandLine="*—e:false*" OR CommandLine="*―e:false*")) OR (Image="*\\logman.exe" OR OriginalFileName="Logman.exe" CommandLine="*update*" CommandLine="*trace*" CommandLine="*--p*" CommandLine="*-ets*") OR (CommandLine="*Remove-EtwTraceProvider*" OR (CommandLine="*Set-EtwTraceProvider*" CommandLine="*0x11*") OR (CommandLine="*Set-EtwTraceProvider*" CommandLine="* 17*") OR (CommandLine="*Set-EtwTraceProvider*" CommandLine="*'17'*") OR (CommandLine="*Set-EtwTraceProvider*" CommandLine="*\"17\"*") Image IN ("*\\powershell.exe", "*\\pwsh.exe") OR OriginalFileName IN ("powershell.exe", "pwsh.dll"))

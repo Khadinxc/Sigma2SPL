@@ -13,4 +13,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_
    - Administrator or backup activity
    - An unknown bug seems to trigger the Windows "svchost" process to drop EVTX files in the "C:\Windows\Temp" directory in the form "<log_name">_<uuid>.evtx". See https://superuser.com/questions/1371229/low-disk-space-after-filling-up-c-windows-temp-with-evtx-and-txt-files
 ```
-TargetFilename="*.evtx" NOT ((TargetFilename="*\\Windows\\System32\\winevt\\Logs\\" TargetFilename="C:\\ProgramData\\Microsoft\\Windows\\Containers\\BaseImages\\*") OR TargetFilename="C:\\Windows\\System32\\winevt\\Logs\\*")
+TargetFilename="*.evtx" NOT ((TargetFilename="*\\Windows\\System32\\winevt\\Logs\\*" TargetFilename="C:\\ProgramData\\Microsoft\\Windows\\Containers\\BaseImages\\*") OR TargetFilename="C:\\Windows\\System32\\winevt\\Logs\\*")
