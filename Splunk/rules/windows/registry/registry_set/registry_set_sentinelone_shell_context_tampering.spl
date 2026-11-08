@@ -8,4 +8,4 @@ MITRE Tactic: Persistence
 Tags: attack.persistence
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_sentinelone_shell_context_tampering.yml
 ```
-TargetObject="*\\shell\\SentinelOneScan\\command\\*" NOT (Image IN ("*C:\\Program Files\\SentinelOne\\", "*C:\\Program Files (x86)\\SentinelOne\\") OR (Details="*\\SentinelScanFromContextMenu.exe*" Details IN ("C:\\Program Files\\SentinelOne\\Sentinel Agent*", "C:\\Program Files (x86)\\SentinelOne\\Sentinel Agent*")))
+TargetObject="*\\shell\\SentinelOneScan\\command\\*" NOT (Image IN ("C:\\Program Files\\SentinelOne\\*", "C:\\Program Files (x86)\\SentinelOne\\*") OR (Details="*\\SentinelScanFromContextMenu.exe*" Details IN ("C:\\Program Files\\SentinelOne\\Sentinel Agent*", "C:\\Program Files (x86)\\SentinelOne\\Sentinel Agent*")))

@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_cr
  False Positives:
    - Legitimate use via Intune management. You exclude script paths and names to reduce FP rate
 ```
-CommandLine IN ("* -powershell*", "* -remediationScript*") Image="\\AgentExecutor.exe" OR OriginalFileName="AgentExecutor.exe" NOT ParentImage="*\\Microsoft.Management.Services.IntuneWindowsAgent.exe"
+CommandLine IN ("* -powershell*", "* -remediationScript*") Image="*\\AgentExecutor.exe" OR OriginalFileName="AgentExecutor.exe" NOT ParentImage="*\\Microsoft.Management.Services.IntuneWindowsAgent.exe"

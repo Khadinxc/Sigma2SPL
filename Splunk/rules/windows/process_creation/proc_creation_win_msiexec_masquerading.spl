@@ -8,4 +8,4 @@ MITRE Tactic: Uncategorized
 Tags: attack.stealth, attack.t1036.005
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_msiexec_masquerading.yml
 ```
-Image="*\\msiexec.exe" OR OriginalFileName="\\msiexec.exe" NOT (Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*"))
+Image="*\\msiexec.exe" OR OriginalFileName="msiexec.exe" NOT (Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*"))

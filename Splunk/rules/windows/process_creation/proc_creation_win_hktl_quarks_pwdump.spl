@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_cr
  False Positives:
    - Unlikely
 ```
-CommandLine IN (" -dhl", " --dump-hash-local", " -dhdc", " --dump-hash-domain-cached", " --dump-bitlocker", " -dhd ", " --dump-hash-domain ", "--ntds-file") OR Image="*\\QuarksPwDump.exe"
+CommandLine IN ("* -dhl*", "* --dump-hash-local*", "* -dhdc*", "* --dump-hash-domain-cached*", "* --dump-bitlocker*", "* -dhd *", "* --dump-hash-domain *", "*--ntds-file*") OR Image="*\\QuarksPwDump.exe"

@@ -1,13 +1,15 @@
 ```
-Title: Local System Accounts Discovery - Linux
+Title: Local System Accounts Discovery Attempt - Linux
 Author: Alejandro Ortuno, oscd.community, CheraghiMilad
 Date: 2020-10-08
 Level: low
-Description: Detects enumeration of local system accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior.
+Description: Detects attempts to enumerate local user accounts via common Linux utilities and sensitive file access.
+ Adversaries may read files such as /etc/passwd, /etc/shadow, and /etc/sudoers, or use tools like getent,
+ id, who, and finger to identify accounts and privilege levels on a compromised system.
 MITRE Tactic: Discovery
 Tags: attack.discovery, attack.t1087.001
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_local_account.yml
  False Positives:
    - Legitimate administration activities
 ```
-Image="*/lastlog" OR CommandLine="*'x:0:'*" OR (CommandLine IN ("*/etc/passwd*", "*/etc/shadow*", "*/etc/sudoers*", "*/etc/spwd.db*", "*/etc/pwd.db*", "*/etc/master.passwd*") Image IN ("*/cat", "*/ed", "*/head", "*/more", "*/nano", "*/tail", "*/vi", "*/vim", "*/less", "*/emacs", "*/sqlite3", "*/makemap")) OR Image="*/id" OR (CommandLine="*-u*" Image="*/lsof")
+(CommandLine IN ("* passwd*", "* shadow*") Image="*/getent") OR Image="*/id" OR Image IN ("*/lastlog", "*/last", "*/lastb") OR (CommandLine="*-u*" Image="*/lsof") OR (CommandLine IN ("*/etc/passwd*", "*/etc/shadow*", "*/etc/sudoers*", "*master.passwd*", "*pwd.db*") Image IN ("*/cat", "*/ed", "*/emacs", "*/head", "*/less", "*/makemap", "*/more", "*/nano", "*/sqlite3", "*/tail", "*/vi", "*/vim")) OR CommandLine="*x:0:*" OR Image IN ("*/finger", "*/users", "*/w", "*/who") OR (CommandLine="*passwd*" Image="*/ypcat") NOT (Image="*/who" ParentCommandLine="*/usr/bin/landscape-sysinfo*")

@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load
  False Positives:
    - Unlikely
 ```
-Image="\\SystemResetPlatform.exe" ImageLoaded="*\\RjvPlatform.dll" NOT Image="C:\\Windows\\System32\\SystemResetPlatform\\*"
+ImageLoaded="*\\RjvPlatform.dll" Image="*\\SystemResetPlatform.exe" NOT Image="C:\\Windows\\System32\\SystemResetPlatform\\*"

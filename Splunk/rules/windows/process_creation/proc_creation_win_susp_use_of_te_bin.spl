@@ -11,4 +11,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_cr
  False Positives:
    - It's not an uncommon to use te.exe directly to execute legal TAEF tests
 ```
-Image="*\\te.exe" OR ParentImage="*\\te.exe" OR OriginalFileName="\\te.exe"
+Image="*\\te.exe" OR ParentImage="*\\te.exe" OR OriginalFileName="te.exe"

@@ -8,4 +8,4 @@ MITRE Tactic: Execution
 Tags: attack.execution, attack.g0046, detection.emerging-threats
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2023/TA/FIN7/file_event_win_apt_fin7_powershell_scripts_naming_convention.yml
 ```
-TargetFilename IN ("*_64refl.ps1", "host_ip.ps1")
+TargetFilename IN ("*_64refl.ps1", "*\\host_ip.ps1")
