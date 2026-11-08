@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_cr
  False Positives:
    - Very unlikely
 ```
-Image="*\\Inveigh.exe" OR OriginalFileName IN ("\\Inveigh.exe", "\\Inveigh.dll") OR Description="Inveigh" OR CommandLine IN ("* -SpooferIP*", "* -ReplyToIPs *", "* -ReplyToDomains *", "* -ReplyToMACs *", "* -SnifferIP*")
+Image="*\\Inveigh.exe" OR OriginalFileName IN ("Inveigh.exe", "Inveigh.dll") OR Description="Inveigh" OR CommandLine IN ("* -SpooferIP*", "* -ReplyToIPs *", "* -ReplyToDomains *", "* -ReplyToMACs *", "* -SnifferIP*")

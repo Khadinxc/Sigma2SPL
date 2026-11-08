@@ -11,4 +11,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_cr
  False Positives:
    - Direct PS command execution through SQLToolsPS.exe is uncommon, childprocess sqltoolsps.exe spawned by smss.exe is a legitimate action.
 ```
-Image="*\\sqltoolsps.exe" OR ParentImage="*\\sqltoolsps.exe" OR OriginalFileName="\\sqltoolsps.exe" NOT ParentImage="*\\smss.exe"
+Image="*\\sqltoolsps.exe" OR ParentImage="*\\sqltoolsps.exe" OR OriginalFileName="sqltoolsps.exe" NOT ParentImage="*\\smss.exe"

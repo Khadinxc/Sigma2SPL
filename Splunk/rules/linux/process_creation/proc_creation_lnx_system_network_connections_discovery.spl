@@ -3,11 +3,13 @@ Title: System Network Connections Discovery - Linux
 Author: Daniil Yugoslavskiy, oscd.community
 Date: 2020-10-19
 Level: low
-Description: Detects usage of system utilities to discover system network connections
+Description: Detects attempts to discover system network connections via common Linux utilities.
+ Adversaries may use tools such as netstat, ss, or lsof to enumerate active connections,
+ open ports, and listening services on a compromised system.
 MITRE Tactic: Discovery
 Tags: attack.discovery, attack.t1049
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_system_network_connections_discovery.yml
  False Positives:
-   - Legitimate activities
+   - Legitimate administration activities
 ```
-Image IN ("*/who", "*/w", "*/last", "*/lsof", "*/netstat") NOT (Image="*/who" ParentCommandLine="*/usr/bin/landscape-sysinfo*")
+Image IN ("*/lsof", "*/netstat", "*/sockstat", "*/ss")

@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load
  False Positives:
    - If installed on a per-user level, the path would be located in "AppData\Local". Add additional filters to reflect this mode of installation
 ```
-ImageLoaded IN ("*\\roboform.dll", "*\\roboform-x64.dll") NOT (Image IN ("*\\robotaskbaricon.exe", "*\\robotaskbaricon-x64.exe") Image IN (" C:\\Program Files (x86)\\Siber Systems\\AI RoboForm\\*", " C:\\Program Files\\Siber Systems\\AI RoboForm\\*"))
+ImageLoaded IN ("*\\roboform.dll", "*\\roboform-x64.dll") NOT (Image IN ("*\\robotaskbaricon.exe", "*\\robotaskbaricon-x64.exe") Image IN ("C:\\Program Files (x86)\\Siber Systems\\AI RoboForm\\*", "C:\\Program Files\\Siber Systems\\AI RoboForm\\*"))

@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules-emerging-threats/2
  False Positives:
    - Unlikely
 ```
-(Image="C:\\ProgramData\\Adobe\\colorcpl.exe" ImageLoaded="C:\\ProgramData\\Adobe\\colorui.dll") OR (Image="C:\\ProgramData\\Adobe\\ARM\\tabcal.exe" ImageLoaded="C:\\ProgramData\\Adobe\\ARM\\HID.dll") OR (Image="C:\\ProgramData\\Oracle\\Java\\fixmapi.exe" ImageLoaded="C:\\ProgramData\\Oracle\\Java\\mapistub.dll") OR (Image="C:\\ProgramShared\\PresentationHost.exe" ImageLoaded=":\\ProgramShared\\mscoree.dll")
+(Image="C:\\ProgramData\\Adobe\\colorcpl.exe" ImageLoaded="C:\\ProgramData\\Adobe\\colorui.dll") OR (Image="C:\\ProgramData\\Adobe\\ARM\\tabcal.exe" ImageLoaded="C:\\ProgramData\\Adobe\\ARM\\HID.dll") OR (Image="C:\\ProgramData\\Oracle\\Java\\fixmapi.exe" ImageLoaded="C:\\ProgramData\\Oracle\\Java\\mapistub.dll") OR (Image="C:\\ProgramShared\\PresentationHost.exe" ImageLoaded="*:\\ProgramShared\\mscoree.dll")

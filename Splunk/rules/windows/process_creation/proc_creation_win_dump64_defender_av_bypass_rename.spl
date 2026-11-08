@@ -9,4 +9,4 @@ MITRE Tactic: Credential Access
 Tags: attack.credential-access, attack.t1003.001
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dump64_defender_av_bypass_rename.yml
 ```
-Image="*\\Microsoft Visual Studio\\*" Image="*\\dump64.exe" Image=":\\Program Files*" OriginalFileName="procdump" OR CommandLine IN ("* -ma *", "* -mp *")
+Image="*\\Microsoft Visual Studio\\*" Image="*\\dump64.exe" Image="C:\\Program Files*" OriginalFileName="procdump" OR CommandLine IN ("* -ma *", "* -mp *")
