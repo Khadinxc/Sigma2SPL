@@ -11,4 +11,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/r
 
 | rex field=Details "(?<DetailsMatch>-1[0-9]{3}\\\\Software\\\\Classes\\\\)"
 | eval DetailsCondition=if(isnotnull(DetailsMatch), "true", "false")
-| search TargetObject="*Software\\Classes\\exefile\\shell\\runas\\command\\isolatedCommand" OR (DetailsCondition="true" TargetObject="*Software\\Classes\\Folder\\shell\\open\\command\\SymbolicLinkValue")
+| search TargetObject="*Software\\Classes\\exefile\\shell\\runas\\command\\isolatedCommand" OR (DetailsCondition="true" TargetObject="*Software\\Classes\\Folder\\shell\\open\\command\\SymbolicLinkValue") NOT (Details IN ("\"%%1\" %%\*", "\"%1\" %\*") TargetObject="*SOFTWARE\\Classes\\exefile\\shell\\runas\\command\\IsolatedCommand") NOT (Image="*\\containerworker.exe" Image IN ("C:\\Windows\\System32\\*", "C:\\Windows\\SysWOW64\\*", "C:\\Windows\\WinSxS\\*") TargetObject="*\\Windows\\Containers\\Layers\\*")

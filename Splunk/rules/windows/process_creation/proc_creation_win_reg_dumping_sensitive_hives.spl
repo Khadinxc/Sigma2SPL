@@ -10,4 +10,5 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_cr
  False Positives:
    - Dumping hives for legitimate purpouse i.e. backup or forensic investigation
 ```
-CommandLine IN ("* save *", "* export *", "* ˢave *", "* eˣport *") CommandLine IN ("*\\system*", "*\\sam*", "*\\security*", "*\\ˢystem*", "*\\syˢtem*", "*\\ˢyˢtem*", "*\\ˢam*", "*\\ˢecurity*") CommandLine IN ("*hklm*", "*hk˪m*", "*hkey_local_machine*", "*hkey_˪ocal_machine*", "*hkey_loca˪_machine*", "*hkey_˪oca˪_machine*") Image="*\\reg.exe" OR OriginalFileName="reg.exe"
+CommandLine IN ("* save *", "* export *", "* ˢave *", "* eˣport *") Image="*\\reg.exe" OR OriginalFileName="reg.exe"
+| regex CommandLine="(?i)(hk[l˪]m|hkey_[l˪]oca[l˪]_machine)\"?\\\\[sˢ](y[sˢ]tem|am|ecurity)(\\\\|\"|\\s|$)"
