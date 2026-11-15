@@ -10,4 +10,4 @@ MITRE Tactic: Privilege Escalation
 Tags: attack.privilege-escalation, attack.persistence, attack.t1547.010
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_change_rdp_port.yml
 ```
-TargetObject="*\\Control\\Terminal Server\\WinStations\\RDP-Tcp\\PortNumber" NOT Details="DWORD (0x00000d3d)"
+TargetObject="*\\Control\\Terminal Server\\WinStations\\RDP-Tcp\\PortNumber" NOT (Details IN ("DWORD (0x00000d3d)", 3389))
