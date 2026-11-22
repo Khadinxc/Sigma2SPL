@@ -8,6 +8,6 @@ MITRE Tactic: Discovery
 Tags: attack.discovery, attack.reconnaissance, attack.t1590
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_pua_advanced_ip_scanner_update_check.yml
  False Positives:
-   - Expected if you legitimately use the Advanced IP or Port Scanner utilities in your environement.
+   - Expected if you legitimately use the Advanced IP or Port Scanner utilities in your environment.
 ```
 "c-uri-query"="*lng=*" "c-uri-query"="*ver=*" "c-uri-query"="*beta=*" "c-uri-query"="*type=*" "c-uri-query"="*rmode=*" "c-uri-query"="*product=*" "c-uri"="*/checkupdate.php*"

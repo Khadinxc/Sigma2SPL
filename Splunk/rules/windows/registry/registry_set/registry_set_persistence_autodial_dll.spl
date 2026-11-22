@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/r
  False Positives:
    - Unlikely
 ```
-TargetObject="*\\Services\\WinSock2\\Parameters\\AutodialDLL*"
+TargetObject="*\\Services\\WinSock2\\Parameters\\AutodialDLL*" NOT (Details IN ("%%SystemRoot%%\\System32\\rasadhlp.dll", "%%SystemRoot%%\\SysWOW64\\rasadhlp.dll", "%%windir%%\\System32\\rasadhlp.dll", "%%windir%%\\SysWOW64\\rasadhlp.dll", "%SystemRoot%\\System32\\rasadhlp.dll", "%SystemRoot%\\SysWOW64\\rasadhlp.dll", "%windir%\\System32\\rasadhlp.dll", "%windir%\\SysWOW64\\rasadhlp.dll", "C:\\Windows\\System32\\rasadhlp.dll", "C:\\Windows\\SysWOW64\\rasadhlp.dll"))

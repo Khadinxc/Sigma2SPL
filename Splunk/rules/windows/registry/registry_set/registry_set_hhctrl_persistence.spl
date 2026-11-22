@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/r
  False Positives:
    - Unlikely
 ```
-TargetObject="*\\CLSID\\{52A2AAAE-085D-4187-97EA-8C30DB990436}\\InprocServer32\\(Default)*" NOT Details="C:\\Windows\\System32\\hhctrl.ocx"
+TargetObject="*\\CLSID\\{52A2AAAE-085D-4187-97EA-8C30DB990436}\\InprocServer32\\(Default)*" NOT (Details IN ("%%SystemRoot%%\\System32\\hhctrl.ocx", "%%SystemRoot%%\\SysWOW64\\hhctrl.ocx", "%%windir%%\\System32\\hhctrl.ocx", "%%windir%%\\SysWOW64\\hhctrl.ocx", "%SystemRoot%\\System32\\hhctrl.ocx", "%SystemRoot%\\SysWOW64\\hhctrl.ocx", "%windir%\\System32\\hhctrl.ocx", "%windir%\\SysWOW64\\hhctrl.ocx", "C:\\Windows\\System32\\hhctrl.ocx", "C:\\Windows\\SysWOW64\\hhctrl.ocx"))

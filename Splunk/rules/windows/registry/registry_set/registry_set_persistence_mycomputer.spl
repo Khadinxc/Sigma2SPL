@@ -10,4 +10,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/r
  False Positives:
    - Unlikely but if you experience FPs add specific processes and locations you would like to monitor for
 ```
-TargetObject="*\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer*" TargetObject="*(Default)"
+TargetObject="*\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer*" TargetObject="*path\\(Default)" NOT (Details IN ("%%SystemRoot%%\\*", "%%Windir%%\\*", "%SystemRoot%\\*", "%Windir%\\*", "C:\\Windows\\*") (Details IN ("*\\System32\\sdclt.exe", "*\\SysWOW64\\sdclt.exe") TargetObject="*\\MyComputer\\BackupPath\\(Default)") OR (Details IN ("*\\System32\\cleanmgr.exe /D %c", "*\\SysWOW64\\cleanmgr.exe /D %c", "*\\System32\\cleanmgr.exe /D %%c", "*\\SysWOW64\\cleanmgr.exe /D %%c") TargetObject="*\\MyComputer\\cleanuppath\\(Default)") OR (Details IN ("*\\System32\\dfrgui.exe", "*\\SysWOW64\\dfrgui.exe") TargetObject="*\\MyComputer\\DefragPath\\(Default)"))
