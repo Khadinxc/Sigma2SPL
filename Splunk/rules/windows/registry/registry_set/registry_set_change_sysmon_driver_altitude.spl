@@ -11,4 +11,4 @@ Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/r
  False Positives:
    - Legitimate driver altitude change to hide sysmon
 ```
-TargetObject="*\\Services\\*" TargetObject="*\\Instances\\Sysmon Instance\\Altitude"
+TargetObject="*\\Services\\*" TargetObject="*\\Instances\\Sysmon Instance\\Altitude" NOT Details=385201

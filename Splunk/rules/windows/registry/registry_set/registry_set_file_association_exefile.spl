@@ -8,4 +8,4 @@ MITRE Tactic: Uncategorized
 Tags: attack.stealth
 Reference: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_file_association_exefile.yml
 ```
-Details="exefile" TargetObject="*Classes\\.*"
+Details="exefile" TargetObject="*Classes\\.*" NOT TargetObject="*Classes\\.exe\\(Default)"
